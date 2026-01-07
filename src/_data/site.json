@@ -6,7 +6,9 @@
     {"key": "CULTURAL", "name": "文化"},
     {"key": "EDUCATION", "name": "教育"},
     {"key": "SPORTS", "name": "体育"},
-    {"key": "INTERIOR", "name": "室内"}
+    {"key": "LANDSCAPE", "name": "景观"}
+    {"key": "INTERIOR", "name": "室内"},
+    {"key": "DOCUMENTARY", "name": "施工记录"}
   ],
 
   "homeProjects": [
@@ -35,11 +37,11 @@
 
   "projects": [
     {
-      "title": "SKY_TOWER_A",
+      "title": "Oppo Technology & Research Centre Tower",
       "category": "OFFICE",
-      "architect": "SOM",
+      "architect": "Gianni Botsford Architects",
       "url": "https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=800&auto=format&fit=crop",
-      "year": "2024",
+      "year": "2023",
       "coords": "31.23°N / 121.47°E"
     },
     {
