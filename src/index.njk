@@ -202,19 +202,18 @@
                     <div class="relative w-full bg-geek-dark overflow-hidden border border-white/10 group-hover:border-code-green transition-colors duration-300">
                         <img :src="project.url" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <div class="font-mono text-[10px] flex flex-col gap-1 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
-                        <div class="flex justify-between items-baseline">
-                            <div class="text-white font-bold group-hover:text-code-green transition-colors">
-                                <span x-text="project.title"></span><span class="mx-1">|</span><span x-text="project.architect"></span>
-                            </div>
-                            <div class="text-gray-600 scale-90" x-text="'[ ' + project.year + ' ]'"></div>
-                        </div>
-                        <div class="flex items-center gap-2 mt-1">
-                            <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="project.category"></span>
-                            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
-                            <span class="text-code-green text-[9px]" x-text="project.coords"></span>
-                        </div>
-                    </div>
+                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
+    <div class="flex justify-between items-baseline">
+        <div class="text-white font-bold group-hover:text-code-green transition-colors" x-text="project.title"></div>
+        <div class="text-gray-600 scale-90" x-text="'[ ' + project.year + ' ]'"></div>
+    </div>
+    <div class="text-gray-400" x-text="project.architect"></div>
+    <div class="flex items-center gap-2">
+        <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="project.category"></span>
+        <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
+        <span class="text-code-green text-[9px]" x-text="project.coords"></span>
+    </div>
+</div>
                 </div>
             </template>
         </div>
