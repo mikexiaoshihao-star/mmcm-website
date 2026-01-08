@@ -13,21 +13,70 @@
 
   "homeProjects": [
     {
-      "img": "https://images.unsplash.com/photo-1506968695017-764f86b2f9ca?q=80&w=2070&auto=format&fit=crop",
+      "img": "/images/home/01.jpg",
       "title": "MUSEUM_OF_SILENCE",
       "architect": "MMCM_AI_CORE",
       "address": "1200 THE BUND, SHANGHAI",
       "coords": "31.23°N / 121.47°E"
     },
     {
-      "img": "https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=2070&auto=format&fit=crop",
+      "img": "/images/home/02.jpg",
       "title": "VOID_TERMINAL_01",
       "architect": "NEURAL_NET_V2",
       "address": "SECTOR 7, NEO-TOKYO",
       "coords": "35.65°N / 139.83°E"
     },
     {
-      "img": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=2070&auto=format&fit=crop",
+      "img": "/images/home/03.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/04.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/05.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/06.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/07.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/08.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/09.jpg",
+      "title": "VOID_TERMINAL_01",
+      "architect": "NEURAL_NET_V2",
+      "address": "SECTOR 7, NEO-TOKYO",
+      "coords": "35.65°N / 139.83°E"
+    },
+    {
+      "img": "/images/home/10.jpg",
       "title": "KINETIC_STADIUM",
       "architect": "ALGORITHM_X",
       "address": "OLYMPIC PARK, BEIJING",
