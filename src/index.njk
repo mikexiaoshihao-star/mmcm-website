@@ -236,12 +236,12 @@
             <div class="flex-grow text-center text-[10px] text-gray-400 tracking-widest uppercase pr-10">Project Detail</div>
         </div>
         <div class="relative flex-grow w-full bg-geek-dark overflow-hidden flex items-center justify-center pt-16 lg:pt-0 group">
-            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors bg-black/20 hover:bg-black/50 backdrop-blur-sm rounded-full">〈</button>
+            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〈</button>
             <div class="relative w-full h-full p-4 lg:p-8 flex items-center justify-center">
                 <div x-show="isImageLoading" class="absolute inset-0 flex items-center justify-center bg-black z-20"><span class="text-code-green animate-pulse text-xs">DECODING...</span></div>
                 <img :src="detailImages[currentDetailImageIndex]?.url" class="max-w-full max-h-full object-contain shadow-2xl transition-opacity duration-300" :class="isImageLoading ? 'opacity-0' : 'opacity-100'" alt="Detail View">
             </div>
-            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors bg-black/20 hover:bg-black/50 backdrop-blur-sm rounded-full">〉</button>
+            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〉</button>
         </div>
         <div class="w-full h-auto min-h-[160px] lg:h-48 bg-black border-t border-white/5 flex flex-col lg:flex-row flex-shrink-0 z-50">
             <div class="w-full lg:w-1/4 p-4 lg:p-6 border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col justify-between">
