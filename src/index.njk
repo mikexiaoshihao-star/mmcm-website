@@ -93,16 +93,18 @@
                     setTimeout(() => { this.currentHomeIndex = (this.currentHomeIndex + 1) % this.homeProjects.length; this.homeImgVisible = true; }, 400);
                 },
                 switchView(view) { window.scrollTo({ top: 0, behavior: 'smooth' }); this.currentView = view; },
-                openProject(project) {
-                    this.selectedProject = project;
-                    this.currentDetailImageIndex = 0;
-                    this.detailImages = [
-                        { url: project.url, desc: 'MAIN_VIEW', meta: 'RAW // 24MP' },
-                        { url: project.url, desc: 'DETAIL_01', meta: 'ISO 200 // F8' },
-                        { url: project.url, desc: 'CONTEXT_01', meta: 'ISO 400 // F4' }
-                    ];
-                    this.switchView('project_detail');
-                },
+               openProject(project) {
+    this.selectedProject = project;
+    this.currentDetailImageIndex = 0;
+    // 使用项目的 images 数组，如果没有就用封面图
+    const imgs = project.images || [project.url];
+    this.detailImages = imgs.map((url, i) => ({
+        url: url,
+        desc: i === 0 ? 'MAIN_VIEW' : 'DETAIL_' + String(i).padStart(2, '0'),
+        meta: 'RAW // 24MP'
+    }));
+    this.switchView('project_detail');
+},
                 selectDetailImage(index) {
                     if (this.currentDetailImageIndex === index) return;
                     this.isImageLoading = true;
