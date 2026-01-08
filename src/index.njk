@@ -96,13 +96,23 @@
                openProject(project) {
     this.selectedProject = project;
     this.currentDetailImageIndex = 0;
-    // 使用项目的 images 数组，如果没有就用封面图
     const imgs = project.images || [project.url];
-    this.detailImages = imgs.map((url, i) => ({
-        url: url,
-        desc: i === 0 ? 'MAIN_VIEW' : 'DETAIL_' + String(i).padStart(2, '0'),
-        meta: 'RAW // 24MP'
-    }));
+    // 支持两种格式：字符串数组 或 对象数组
+    this.detailImages = imgs.map((item, i) => {
+        if (typeof item === 'string') {
+            return {
+                url: item,
+                desc: i === 0 ? 'MAIN_VIEW' : 'DETAIL_' + String(i).padStart(2, '0'),
+                meta: 'RAW // 24MP'
+            };
+        } else {
+            return {
+                url: item.url,
+                desc: item.desc || 'DETAIL_' + String(i).padStart(2, '0'),
+                meta: item.meta || 'RAW // 24MP'
+            };
+        }
+    });
     this.switchView('project_detail');
 },
                 selectDetailImage(index) {
