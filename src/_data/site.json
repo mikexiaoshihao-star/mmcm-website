@@ -125,15 +125,15 @@
   },
 
   "contact": {
-    "phone": "+86 139 0000 0000",
-    "email": "hello@mmcm.studio",
-    "website": "www.mmcm.studio",
-    "location": "SHANGHAI / TOKYO",
+    "phone": "+86 189 8077 2131",
+    "email": "hello@mmcmstudio.com",
+    "website": "www.mmcmstudio.com",
+    "location": "CHENGDU / SICHUAN",
     "social": [
-      {"platform": "XIAOHONGSHU", "platformCN": "小红书", "id": "MMCM_Space"},
+      {"platform": "XIAOHONGSHU", "platformCN": "小红书", "id": "MMCM毫厘建筑摄影"},
       {"platform": "INSTAGRAM", "platformCN": "INS", "id": "@mmcm.studio"},
-      {"platform": "WECHAT_OFFICIAL", "platformCN": "公众号", "id": "MMCM建筑摄影"},
-      {"platform": "WEIBO", "platformCN": "微博", "id": "@MMCM_Studio"}
+      {"platform": "WECHAT_OFFICIAL", "platformCN": "公众号", "id": "MMCM毫厘建筑摄影"},
+      {"platform": "WEIBO", "platformCN": "微博", "id": "@毫厘建筑摄影"}
     ]
   }
 }
