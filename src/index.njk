@@ -96,9 +96,11 @@
                openProject(project) {
     this.selectedProject = project;
     this.currentDetailImageIndex = 0;
-    const imgs = project.images || [project.url];
-    // 支持两种格式：字符串数组 或 对象数组
-    this.detailImages = imgs.map((item, i) => {
+    // cover 图作为第一张，然后加上 images 数组里的图
+    const coverImg = project.url;
+    const detailImgs = project.images || [];
+    const allImgs = [coverImg, ...detailImgs];
+    this.detailImages = allImgs.map((item, i) => {
         if (typeof item === 'string') {
             return {
                 url: item,
