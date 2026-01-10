@@ -236,9 +236,8 @@ nextDetailImage() {
         <div class="relative flex-grow w-full bg-geek-dark overflow-hidden flex items-center justify-center pt-16 lg:pt-0 group">
             <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〈</button>
             <div class="relative w-full h-full p-4 lg:p-8 flex items-center justify-center">
-                <div x-show="isImageLoading" class="absolute inset-0 flex items-center justify-center bg-black z-20"><span class="text-code-green animate-pulse text-xs">DECODING...</span></div>
-                <img :src="detailImages[currentDetailImageIndex]?.url" class="max-w-full max-h-full object-contain shadow-2xl transition-opacity duration-300" :class="isImageLoading ? 'opacity-0' : 'opacity-100'" alt="Detail View">
-            </div>
+    <img :src="detailImages[currentDetailImageIndex]?.url" class="max-w-full max-h-full object-contain shadow-2xl transition-all duration-500 ease-in-out" alt="Detail View">
+</div>
             <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〉</button>
         </div>
         <div class="w-full h-auto min-h-[160px] lg:h-48 bg-black border-t border-white/5 flex flex-col lg:flex-row flex-shrink-0 z-50">
