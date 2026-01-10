@@ -88,7 +88,7 @@
     {
       "title": "Oppo_Technology_&_Research_Centre_Tower",
       "category": "OFFICE",
-      "architect": "GIANNI_BOTSFORD_ARCHITECTS",
+      "architect": "Gianni_Botsford_Architects",
       "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
       "year": "2023",
       "coords": "30.514897°N / 104.080646°E",
@@ -119,10 +119,10 @@
     {
       "title": "Chengdu_SKP",
       "category": "COMMERCIAL",
-      "architect": "SYBARITE",
+      "architect": "Sybarite",
       "url": "/images/projects/Chengdu_SKP/cover.webp",
       "year": "2023",
-      "coords": "35.68°N / 139.69°E",
+      "coords": "30.569229°N / 104.069608°E",
        "images": [
         {"url": "/images/projects/Chengdu_SKP/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
         {"url": "/images/projects/Chengdu_SKP/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
@@ -146,12 +146,42 @@
       ]
     },
     {
-      "title": "ZEN_HOUSE",
-      "category": "RESIDENTIAL",
-      "architect": "Tadao Ando",
-      "url": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=800&auto=format&fit=crop",
-      "year": "2024",
-      "coords": "35.01°N / 135.76°E"
+      "title": "Congressional_Central_Office",
+      "category": "INTERIOR",
+      "architect": "Tektonn_Architects",
+      "url": "/images/projects/Congressional_Central_Office/cover.webp",
+      "year": "2025",
+      "coords": "30.587706°N / 103.946475°E"
+       "images": [
+        {"url": "/images/projects/Congressional_Central_Office/01.webp", "desc": "Hall", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/02.webp", "desc": "Hall_Detail", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Congressional_Central_Office/03.webp", "desc": "Hall", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/04.webp", "desc": "Hall_Detail", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/05.webp", "desc": "Hall", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/06.webp", "desc": "Reception", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Congressional_Central_Office/07.webp", "desc": "Detail", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Congressional_Central_Office/08.webp", "desc": "Aisle", "meta": "11:00 // AM"},
+        {"url": "/images/projects/Congressional_Central_Office/09.webp", "desc": "Office", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/10.webp", "desc": "Rest_Area", "meta": "10:50 // AM"},
+        {"url": "/images/projects/Congressional_Central_Office/11.webp", "desc": "Office", "meta": "10:20 // AM"},
+        {"url": "/images/projects/Congressional_Central_Office/12.webp", "desc": "Reading_Area", "meta": "14:20 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/13.webp", "desc": "Office", "meta": "14:00 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/14.webp", "desc": "Office", "meta": "15:10 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/15.webp", "desc": "Detail", "meta": "19:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/16.webp", "desc": "Office", "meta": "19:55 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/17.webp", "desc": "Dining_Room", "meta": "14:40 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/18.webp", "desc": "Office", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/19.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/20.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/21.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/22.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/23.webp", "desc": "Office", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/24.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/25.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/26.webp", "desc": "Canteen", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/27.webp", "desc": "Canteen", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Congressional_Central_Office/28.webp", "desc": "Canteen", "meta": "15:50 // PM"}
+      ]
     },
     {
       "title": "CITY_MUSEUM",
