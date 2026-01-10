@@ -151,7 +151,7 @@
       "architect": "Tektonn_Architects",
       "url": "/images/projects/Congressional_Central_Office/cover.webp",
       "year": "2025",
-      "coords": "30.587706°N / 103.946475°E"
+      "coords": "30.587706°N / 103.946475°E",
        "images": [
         {"url": "/images/projects/Congressional_Central_Office/01.webp", "desc": "Hall", "meta": "18:30 // PM"},
         {"url": "/images/projects/Congressional_Central_Office/02.webp", "desc": "Hall_Detail", "meta": "21:30 // AM"},
