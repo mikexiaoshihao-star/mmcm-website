@@ -117,12 +117,12 @@
       ]
     },
     {
-      "title": "URBAN_HIVE",
+      "title": "Chengdu_SKP",
       "category": "COMMERCIAL",
-      "architect": "Kengo Kuma",
+      "architect": "SYBARITE",
       "url": "/images/projects/Chengdu_SKP/cover.webp",
       "year": "2023",
-      "coords": "35.68°N / 139.69°E"
+      "coords": "35.68°N / 139.69°E",
        "images": [
         {"url": "/images/projects/Chengdu_SKP/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
         {"url": "/images/projects/Chengdu_SKP/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
