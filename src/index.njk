@@ -117,21 +117,17 @@
     });
     this.switchView('project_detail');
 },
-                selectDetailImage(index) {
-                    if (this.currentDetailImageIndex === index) return;
-                    this.isImageLoading = true;
-                    setTimeout(() => { this.currentDetailImageIndex = index; this.isImageLoading = false; }, 200);
-                },
-                prevDetailImage() {
-                    if (this.detailImages.length === 0) return;
-                    this.isImageLoading = true;
-                    setTimeout(() => { this.currentDetailImageIndex = (this.currentDetailImageIndex - 1 + this.detailImages.length) % this.detailImages.length; this.isImageLoading = false; }, 200);
-                },
-                nextDetailImage() {
-                    if (this.detailImages.length === 0) return;
-                    this.isImageLoading = true;
-                    setTimeout(() => { this.currentDetailImageIndex = (this.currentDetailImageIndex + 1) % this.detailImages.length; this.isImageLoading = false; }, 200);
-                },
+               selectDetailImage(index) {
+    this.currentDetailImageIndex = index;
+},
+prevDetailImage() {
+    if (this.detailImages.length === 0) return;
+    this.currentDetailImageIndex = (this.currentDetailImageIndex - 1 + this.detailImages.length) % this.detailImages.length;
+},
+nextDetailImage() {
+    if (this.detailImages.length === 0) return;
+    this.currentDetailImageIndex = (this.currentDetailImageIndex + 1) % this.detailImages.length;
+},
                 get filteredProjects() {
                     if (this.activeFilter === 'ALL') return this.projects;
                     return this.projects.filter(p => p.category === this.activeFilter);
