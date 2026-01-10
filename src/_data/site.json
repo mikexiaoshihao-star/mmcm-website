@@ -14,10 +14,10 @@
   "homeProjects": [
     {
       "img": "/images/home/01.jpg",
-      "title": "MUSEUM_OF_SILENCE",
-      "architect": "MMCM_AI_CORE",
-      "address": "1200 THE BUND, SHANGHAI",
-      "coords": "31.23°N / 121.47°E"
+      "title": "Congressional_Central_Office",
+      "architect": "TEKTONN_ARCHITECTS",
+      "address": "Shuangliu_District, Chengdu",
+      "coords": "30.587706°N / 103.946475°E"
     },
     {
       "img": "/images/home/02.jpg",
@@ -120,9 +120,30 @@
       "title": "URBAN_HIVE",
       "category": "COMMERCIAL",
       "architect": "Kengo Kuma",
-      "url": "https://images.unsplash.com/photo-1485627941502-d2e6429fa8af?q=80&w=800&auto=format&fit=crop",
+      "url": "/images/projects/Chengdu_SKP/cover.webp",
       "year": "2023",
       "coords": "35.68°N / 139.69°E"
+       "images": [
+        {"url": "/images/projects/Chengdu_SKP/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Chengdu_SKP/03.webp", "desc": "Entrance", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/04.webp", "desc": "Urban view", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/05.webp", "desc": "Park view", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/06.webp", "desc": "Urban view_1", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Chengdu_SKP/07.webp", "desc": "Urban view_2", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Chengdu_SKP/08.webp", "desc": "Urban view_3", "meta": "11:00 // AM"},
+        {"url": "/images/projects/Chengdu_SKP/09.webp", "desc": "Park view_1", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/10.webp", "desc": "Tower crown_2", "meta": "10:50 // AM"},
+        {"url": "/images/projects/Chengdu_SKP/11.webp", "desc": "Park view_3", "meta": "10:20 // AM"},
+        {"url": "/images/projects/Chengdu_SKP/12.webp", "desc": "Tower crown_4", "meta": "14:20 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/13.webp", "desc": "Detail", "meta": "14:00 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/14.webp", "desc": "Park view_4", "meta": "15:10 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/15.webp", "desc": "Night view", "meta": "19:50 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/16.webp", "desc": "Night view_1", "meta": "19:55 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/17.webp", "desc": "Interior", "meta": "14:40 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/18.webp", "desc": "Interior_1", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Chengdu_SKP/19.webp", "desc": "Bird's eye view", "meta": "15:50 // PM"}
+      ]
     },
     {
       "title": "ZEN_HOUSE",
