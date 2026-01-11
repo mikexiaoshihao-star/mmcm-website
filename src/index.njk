@@ -89,6 +89,9 @@
                 selectedFilm: null,
                 detailImages: [],
                 currentDetailImageIndex: 0,
+                touchStartX: 0,
+                touchEndX: 0,
+                isDragging: false,
                
                 get currentHomeProject() { return this.homeProjects[this.currentHomeIndex]; },
                 nextHomeProject() {
