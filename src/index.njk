@@ -169,7 +169,8 @@ get filteredFilmProjects() {
         </a>
         <div class="flex gap-6 md:gap-12 font-mono text-[10px] md:text-xs text-gray-400">
             <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
-            <a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
+<a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('FILM')" @mouseenter="animate('FILM')" x-text="displayText">FILM</a>
+<a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
             <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('CONTACT')" @mouseenter="animate('CONTACT')" x-text="displayText">CONTACT</a>
         </div>
     </nav>
