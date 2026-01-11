@@ -137,26 +137,30 @@ nextDetailImage() {
     this.currentDetailImageIndex = (this.currentDetailImageIndex + 1) % this.detailImages.length;
 },
 handleSwipeStart(e) {
+    if (this.isAnimating) return;
     this.isDragging = true;
     this.touchStartX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    this.offsetX = 0;
 },
 handleSwipeMove(e) {
     if (!this.isDragging) return;
-    this.touchEndX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    this.offsetX = currentX - this.touchStartX;
 },
 handleSwipeEnd() {
     if (!this.isDragging) return;
     this.isDragging = false;
-    const diff = this.touchStartX - this.touchEndX;
-    if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-            this.nextDetailImage();
-        } else {
-            this.prevDetailImage();
-        }
+    this.isAnimating = true;
+    
+    const threshold = 80;
+    if (this.offsetX < -threshold && this.currentDetailImageIndex < this.detailImages.length - 1) {
+        this.currentDetailImageIndex++;
+    } else if (this.offsetX > threshold && this.currentDetailImageIndex > 0) {
+        this.currentDetailImageIndex--;
     }
-    this.touchStartX = 0;
-    this.touchEndX = 0;
+    
+    this.offsetX = 0;
+    setTimeout(() => { this.isAnimating = false; }, 300);
 },
                 get filteredProjects() {
     if (this.activeFilter === 'ALL') return this.projects;
