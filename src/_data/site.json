@@ -225,12 +225,38 @@
       ]
     },
     {
-      "title": "CAMPUS_X",
+      "title": "Yangtze_River_Ecological_Cadre_Academy",
       "category": "EDUCATION",
-      "architect": "Bjarke Ingels",
-      "url": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-      "year": "2025",
-      "coords": "42.36°N / 71.05°W"
+      "architect": "Tanghua_Architects_&_Associates",
+      "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
+      "year": "2023",
+      "coords": "29.561844°N / 106.718551°W",
+      "images": [
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/08.webp", "desc": "08", "meta": "11:00 // AM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/09.webp", "desc": "09", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/10.webp", "desc": "10", "meta": "10:50 // AM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/11.webp", "desc": "11", "meta": "10:20 // AM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/12.webp", "desc": "12", "meta": "14:20 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/13.webp", "desc": "13", "meta": "14:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/14.webp", "desc": "14", "meta": "15:10 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/15.webp", "desc": "15", "meta": "19:50 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/16.webp", "desc": "16", "meta": "19:55 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/17.webp", "desc": "17", "meta": "14:40 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/18.webp", "desc": "18", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/19.webp", "desc": "19", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/20.webp", "desc": "20", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/21.webp", "desc": "21", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/22.webp", "desc": "22", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/23.webp", "desc": "23", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/24.webp", "desc": "24", "meta": "15:00 // PM"}
+      ]
     },
     {
       "title": "ARENA_01",
