@@ -155,6 +155,36 @@ handleSwipeEnd() {
     if (!this.isDragging) return;
     this.isDragging = false;
     this.isAnimating = true;
+    const threshold = 80;
+    if (this.offsetX < -threshold && this.currentDetailImageIndex < this.detailImages.length - 1) {
+        this.currentDetailImageIndex++;
+    } else if (this.offsetX > threshold && this.currentDetailImageIndex > 0) {
+        this.currentDetailImageIndex--;
+    }
+    this.offsetX = 0;
+    setTimeout(() => { this.isAnimating = false; }, 300);
+},
+getPrevIndex() {
+    return this.currentDetailImageIndex > 0 ? this.currentDetailImageIndex - 1 : null;
+},
+getNextIndex() {
+    return this.currentDetailImageIndex < this.detailImages.length - 1 ? this.currentDetailImageIndex + 1 : null;
+},
+handleSwipeStart(e) {
+    if (this.isAnimating) return;
+    this.isDragging = true;
+    this.touchStartX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    this.offsetX = 0;
+},
+handleSwipeMove(e) {
+    if (!this.isDragging) return;
+    const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    this.offsetX = currentX - this.touchStartX;
+},
+handleSwipeEnd() {
+    if (!this.isDragging) return;
+    this.isDragging = false;
+    this.isAnimating = true;
     
     const threshold = 80;
     if (this.offsetX < -threshold && this.currentDetailImageIndex < this.detailImages.length - 1) {
