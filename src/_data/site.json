@@ -23,34 +23,20 @@
   "homeProjects": [
     {
       "img": "/images/home/01.webp",
-      "title": "Oppo_Technology_&_Research_Centre_Tower",
-      "architect": "Gianni_Botsford_Architects",
-      "address": "Xinchuan, Chengdu",
+      "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
+      "architect": "Tanghua_Architects_&_Associates",
+      "address": "Xichang, Sichuan",
       "coords": "30.514°N / 104.080°E"
     },
     {
       "img": "/images/home/02.webp",
-      "title": "Chengdu_SKP",
-      "architect": "Sybarite",
-      "address": "High_Tech_Zone,Chengdu",
-      "coords": "30.569°N / 104.069°E"
-    },
-    {
-      "img": "/images/home/03.webp",
-      "title": "Congressional_Central_Office",
-      "architect": "Tektonn_Architects",
-      "address": "Shuangliu,Chengdu",
-      "coords": "30.587°N / 103.946°E"
-    },
-    {
-      "img": "/images/home/04.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects&Associates",
       "address": "Guangyang_Island,Chongqin",
       "coords": "29.561°N / 106.718°E"
     },
     {
-      "img": "/images/home/05.webp",
+      "img": "/images/home/03.webp",
       "title": "Xi_An_Puyi",
       "architect": "gad",
       "address": "Xi'an,Shanxi",
