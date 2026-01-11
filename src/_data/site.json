@@ -26,7 +26,7 @@
       "title": "Chengdu_SKP",
       "architect": "Sybarite",
       "address": "Hi_Tech_Zone, Chengdu",
-      "coords": "30.569229°N / 104.069608°E"
+      "coords": "30.56°N / 104.06°E"
     },
     {
       "img": "/images/home/02.jpg",
@@ -100,7 +100,7 @@
       "architect": "Gianni_Botsford_Architects",
       "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
       "year": "2023",
-      "coords": "30.514897°N / 104.080646°E",
+      "coords": "30.514°N / 104.080°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
@@ -132,7 +132,7 @@
       "architect": "Sybarite",
       "url": "/images/projects/Chengdu_SKP/cover.webp",
       "year": "2023",
-      "coords": "30.569229°N / 104.069608°E",
+      "coords": "30.569°N / 104.069°E",
       "location": "Chengdu_Sichuan",
        "images": [
         {"url": "/images/projects/Chengdu_SKP/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
@@ -162,7 +162,7 @@
       "architect": "Tektonn_Architects",
       "url": "/images/projects/Congressional_Central_Office/cover.webp",
       "year": "2025",
-      "coords": "30.587706°N / 103.946475°E",
+      "coords": "30.587°N / 103.946°E",
       "location": "Chengdu_Sichuan",
        "images": [
         {"url": "/images/projects/Congressional_Central_Office/01.webp", "desc": "Hall", "meta": "18:30 // PM"},
@@ -201,7 +201,7 @@
       "architect": "Tektonn_Architects",
       "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/cover.webp",
       "year": "2024",
-      "coords": "30.463458°N / 104.055418°E",
+      "coords": "30.463°N / 104.055°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -243,7 +243,7 @@
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
-      "coords": "29.561844°N / 106.718551°W",
+      "coords": "29.561°N / 106.718°W",
       "location": "Chongqin",
       "images": [
         {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -278,7 +278,7 @@
       "architect": "gad",
       "url": "/images/projects/Xi_An_Puyi/cover.webp",
       "year": "2025",
-      "coords": "34.212973°N / 108.851927°E",
+      "coords": "34.212°N / 108.851°E",
       "location": "Xi'an_Shanxi",
        "images": [
         {"url": "/images/projects/Xi_An_Puyi/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -311,7 +311,7 @@
       "architect": "SADI",
       "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
       "year": "2025",
-      "coords": "30.657372°N / 104.065901°E",
+      "coords": "30.657°N / 104.065°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -343,34 +343,63 @@
       ]
     },
     {
-      "title": "NEO_OFFICE",
-      "category": "OFFICE",
-      "architect": "Foster + Partners",
+      "title": "Shenzhen_CRland_Runxi",
+      "category": "RESIDENTIAL",
+      "architect": "SCDA",
       "url": "https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=800&auto=format&fit=crop",
       "year": "2023",
-      "coords": "22.31°N / 114.16°E"
+      "coords": "22.546°N / 113.958°E",
+      "location": "Shenzhen_Guangdong",
+      "images": [
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/08.webp", "desc": "08", "meta": "11:00 // AM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/09.webp", "desc": "09", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/10.webp", "desc": "10", "meta": "10:50 // AM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/11.webp", "desc": "11", "meta": "10:20 // AM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/12.webp", "desc": "12", "meta": "14:20 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/13.webp", "desc": "13", "meta": "14:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/14.webp", "desc": "14", "meta": "15:10 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/15.webp", "desc": "15", "meta": "19:50 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/16.webp", "desc": "16", "meta": "19:55 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/17.webp", "desc": "17", "meta": "14:40 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/18.webp", "desc": "18", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/19.webp", "desc": "19", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/20.webp", "desc": "20", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/21.webp", "desc": "21", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/22.webp", "desc": "22", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/23.webp", "desc": "23", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/24.webp", "desc": "24", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/25.webp", "desc": "25", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Shenzhen_CRland_Runxi/26.webp", "desc": "26", "meta": "15:00 // PM"}
+      ]
     }
   ],
 
   "studio": {
     "photo": "/images/photographer.webp",
-    "name": "Xiao Shihao",
+    "name": "Xiao_Shihao",
     "title": "LEAD PHOTOGRAPHER",
     "intro1": "我们拒绝将建筑摄影视为简单的记录。在 MMCM，摄影是一次解剖手术——我们将物理空间还原为最原始的几何算法。",
     "intro2": "光线不是目的，而是手段。我们利用阴影切割实体，利用过曝消除杂质，旨在揭示隐藏在混凝土与钢筋之下的数学之美与沉默张力。",
     "about1": "MMCM STUDIO 成立于数字与实体的交界处。我们是一个由建筑师、程序员和视觉艺术家组成的跨学科团队。",
     "about2": "我们的工作流融合了传统的大画幅摄影纪律与现代的计算生成逻辑。我们不服务于平庸的视觉快消品，只为那些敢于挑战结构极限的建筑作品提供视觉档案。",
     "clients": [
-      {"name": "SOM", "loc": "US/CN"},
-      {"name": "FOSTER + PARTNERS", "loc": "UK"},
-      {"name": "ZAHA HADID ARCHITECTS", "loc": "UK"},
-      {"name": "MAD ARCHITECTS", "loc": "CN"},
-      {"name": "KENGO KUMA", "loc": "JP"},
-      {"name": "GENSLER", "loc": "US"},
-      {"name": "TADAO ANDO", "loc": "JP"},
-      {"name": "OPEN ARCHITECTURE", "loc": "CN"},
-      {"name": "SNØHETTA", "loc": "NO"},
-      {"name": "HEATHERWICK STUDIO", "loc": "UK"}
+      {"name": "Aecom", "loc": "US/CN"},
+      {"name": "SCDA", "loc": "SG"},
+      {"name": "gad", "loc": "CN"},
+      {"name": "Gianni_Botsford_Architects", "loc": "UK"},
+      {"name": "Sybarite", "loc": "UK"},
+      {"name": "Tektonn_Architects", "loc": "CN"},
+      {"name": "Tanghua_Architects_&_Associates", "loc": "CN"},
+      {"name": "SADI", "loc": "CN"},
+      {"name": "J&A", "loc": "CN"},
+      {"name": "Luxelakes", "loc": "CN"}
     ]
   },
 
@@ -404,7 +433,7 @@
       "architect": "Gianni_Botsford_Architects",
       "cover": "/images/films/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
       "year": "2023",
-      "coords": "30.514897°N / 104.080646°E",
+      "coords": "30.514°N / 104.080°E",
       "location": "Chengdu_Sichuan",
       "videoUrl": "https://videos.mmcm-studio.com/Oppo_Technology_%26_Research_Centre_Tower.mp4"
     },
@@ -414,7 +443,7 @@
       "architect": "Tanghua_Architects_&_Associates",
       "cover": "/images/films/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
-      "coords": "29.561844°N / 106.718551°E",
+      "coords": "29.561°N / 106.718°E",
       "location": "Chongqin",
       "videoUrl": "https://videos.mmcm-studio.com/Yangtze_River_Ecological_Cadre_Academy.mp4"
     },
@@ -424,7 +453,7 @@
       "architect": "SADI",
       "cover": "/images/films/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
       "year": "2025",
-      "coords": "30.657372°N / 104.065901°E",
+      "coords": "30.657°N / 104.065°E",
       "location": "Chengdu_Sichuan",
       "videoUrl": "https://videos.mmcm-studio.com/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch.mp4"
     }
