@@ -334,17 +334,31 @@ get filteredFilmProjects() {
                         <img :src="project.url" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
+    <div class="text-white font-bold group-hover:text-code-green transition-colors leading-tight" x-text="project.title"></div>
     <div class="flex justify-between items-baseline">
-        <div class="text-white font-bold group-hover:text-code-green transition-colors" x-text="project.title"></div>
-        <div class="text-gray-600 scale-90" x-text="'[ ' + project.year + ' ]'"></div>
+        <div class="text-gray-400" x-text="project.architect"></div>
+        <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + project.year + ' ]'"></div>
     </div>
-    <div class="text-gray-400" x-text="project.architect"></div>
-    <div class="flex items-center gap-2">
-        <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="project.category"></span>
-        <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
-        <span class="text-code-green text-[9px]" x-text="project.coords"></span>
+    <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="project.category"></span>
+            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
+            <span class="text-code-green text-[9px]" x-text="project.coords"></span>
+        </div>
+        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="project.location"></div>
     </div>
 </div>
+```
+
+---
+
+## 新布局效果
+```
+┌─────────────────────────────────────┐
+│ 项目名称（可换行显示完整）            │
+│ 建筑师名称              [ 2024 ]     │
+│ [分类] ● 经纬度              成都    │
+└─────────────────────────────────────┘
                 </div>
             </template>
         </div>
