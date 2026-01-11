@@ -334,7 +334,7 @@ get filteredFilmProjects() {
                         <img :src="project.url" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
-    <div class="text-white font-bold group-hover:text-code-green transition-colors leading-tight" x-text="project.title"></div>
+    <div class="text-white font-bold group-hover:text-code-green transition-colors leading-tight break-words" x-text="project.title"></div>
     <div class="flex justify-between items-baseline">
         <div class="text-gray-400" x-text="project.architect"></div>
         <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + project.year + ' ]'"></div>
