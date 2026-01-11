@@ -388,7 +388,7 @@ get filteredFilmProjects() {
                     <div class="flex justify-between text-[10px] text-gray-500 mt-2"><span x-text="selectedProject?.architect"></span><span x-text="selectedProject?.year"></span></div>
                 </div>
             </div>
-            <div class="flex-grow p-4 overflow-x-auto no-scrollbar flex items-center gap-4">
+            <div class="flex-grow p-4 overflow-x-auto no-scrollbar flex items-center gap-4" @wheel.prevent="handleThumbnailWheel($event)">
                 <template x-for="(img, index) in detailImages" :key="index">
                     <div @click="selectDetailImage(index)" class="flex-shrink-0 w-24 md:w-32 flex flex-col cursor-pointer transition-all group/thumb" :class="currentDetailImageIndex === index ? 'opacity-100' : 'opacity-50 hover:opacity-80'">
                         <div class="w-full aspect-video bg-gray-800 border overflow-hidden relative mb-2" :class="currentDetailImageIndex === index ? 'border-code-green' : 'border-white/10'">
