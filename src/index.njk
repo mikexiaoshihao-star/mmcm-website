@@ -310,7 +310,7 @@ get filteredFilmProjects() {
                     <span x-text="displayText"></span>
                 </span>
             </button>
-            <template x-for="cat in categories" :key="cat.key">
+            <template x-for="cat in filmCategories" :key="cat.key">
                 <button @click="activeFilter = cat.key" 
                         class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
                         :class="activeFilter === cat.key ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
