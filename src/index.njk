@@ -282,7 +282,92 @@ get filteredFilmProjects() {
     </section>
 
     <!-- VIEW 3: STUDIO（从配置读取）-->
-    <section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-geek-black">
+    <!-- VIEW 3: FILM -->
+    <section x-show="currentView === 'film'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
+        <div class="mb-10 flex flex-wrap gap-3 font-mono text-xs z-20 relative">
+            <button @click="activeFilmFilter = 'ALL'" 
+                    class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
+                    :class="activeFilmFilter === 'ALL' ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
+                    x-data="scrambleText('ALL_FILMS')" @mouseenter="animate('ALL_FILMS')">
+                <span class="relative z-10 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === 'ALL' ? 'bg-black' : 'bg-gray-600 group-hover:bg-code-green'"></span>
+                    <span x-text="displayText"></span>
+                </span>
+            </button>
+            <template x-for="cat in categories" :key="cat.key">
+                <button @click="activeFilmFilter = cat.key" 
+                        class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
+                        :class="activeFilmFilter === cat.key ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
+                        x-data="categoryBtn(cat.key, cat.name)" @mouseenter="animate(key)">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === key ? 'bg-black' : 'bg-gray-600 group-hover:bg-code-green'"></span>
+                        <span x-text="displayText"></span>
+                        <span class="opacity-50 text-[10px] scale-90" x-text="'// ' + name"></span>
+                    </span>
+                </button>
+            </template>
+        </div>
+        <div class="columns-1 md:columns-3 gap-8">
+            <template x-for="(film, index) in filteredFilmProjects" :key="index">
+                <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openFilm(film)">
+                    <div class="relative w-full bg-geek-dark overflow-hidden border border-white/10 group-hover:border-code-green transition-colors duration-300">
+                        <img :src="film.cover" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/50 flex items-center justify-center group-hover:bg-code-green/80 transition-all duration-300">
+                                <svg class="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
+                        <div class="flex justify-between items-baseline">
+                            <div class="text-white font-bold group-hover:text-code-green transition-colors" x-text="film.title"></div>
+                            <div class="text-gray-600 scale-90" x-text="'[ ' + film.year + ' ]'"></div>
+                        </div>
+                        <div class="text-gray-400" x-text="film.architect"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="film.category"></span>
+                            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
+                            <span class="text-code-green text-[9px]" x-text="film.coords"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- VIEW 3.5: FILM DETAIL (Video Player) -->
+    <section x-show="currentView === 'film_detail'" x-cloak class="fixed inset-0 z-[60] bg-geek-black flex flex-col font-mono">
+        <div class="fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-geek-black/90 backdrop-blur-md border-b border-white/10 z-[70]">
+            <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-code-green text-xl font-light hover:text-white transition-colors">《</button>
+            <div class="flex-grow text-center text-[10px] text-gray-400 tracking-widest uppercase pr-10">Film Player</div>
+        </div>
+        <div class="flex-grow w-full pt-16 pb-4 px-4 flex flex-col">
+            <div class="flex-grow w-full max-w-6xl mx-auto bg-geek-dark border border-white/10 overflow-hidden flex items-center justify-center">
+                <video 
+                    x-show="selectedFilm"
+                    :src="selectedFilm?.videoUrl"
+                    :poster="selectedFilm?.cover"
+                    class="w-full h-full object-contain"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    controlslist="nodownload">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+            <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-white/10">
+                <h2 class="text-lg md:text-2xl text-white font-bold" x-text="selectedFilm?.title"></h2>
+                <div class="flex flex-wrap gap-4 mt-2 text-[10px] text-gray-500">
+                    <span x-text="selectedFilm?.architect"></span>
+                    <span x-text="selectedFilm?.year"></span>
+                    <span class="text-code-green" x-text="selectedFilm?.coords"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+<section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-geek-black">
         <div class="w-full flex flex-col md:flex-row pt-20">
             <div class="w-full md:w-[30%] md:h-[calc(100vh-5rem)] md:sticky md:top-20 flex flex-col items-center justify-start border-r border-white/5 bg-geek-black z-20 pt-12 md:pt-16 pb-12">
                 <div class="w-[200px] lg:w-[240px] aspect-[3/4] mb-6 overflow-hidden shadow-2xl">
