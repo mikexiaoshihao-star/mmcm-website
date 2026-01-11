@@ -111,9 +111,9 @@
         {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/16.webp", "desc": "Night view_1", "meta": "19:55 // PM"},
         {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/17.webp", "desc": "Interior", "meta": "14:40 // PM"},
         {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/18.webp", "desc": "Interior_1", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/19.webp", "desc": "Bird's eye view", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/20.webp", "desc": "Bird's eye view_1", "meta": "21:06 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/21.webp", "desc": "Bird's eye view_2", "meta": "21:35 // AM"}
+        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/19.webp", "desc": "Bird‘s_eye_view", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/20.webp", "desc": "Bird‘s_eye_view_1", "meta": "21:06 // AM"},
+        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/21.webp", "desc": "Bird’s_eye_view_2", "meta": "21:35 // AM"}
       ]
     },
     {
@@ -142,7 +142,7 @@
         {"url": "/images/projects/Chengdu_SKP/16.webp", "desc": "Night view_1", "meta": "19:55 // PM"},
         {"url": "/images/projects/Chengdu_SKP/17.webp", "desc": "Interior", "meta": "14:40 // PM"},
         {"url": "/images/projects/Chengdu_SKP/18.webp", "desc": "Interior_1", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/19.webp", "desc": "Bird's eye view", "meta": "15:50 // PM"}
+        {"url": "/images/projects/Chengdu_SKP/19.webp", "desc": "Bird‘s_eye_view", "meta": "15:50 // PM"}
       ]
     },
     {
@@ -279,4 +279,5 @@
       "coords": "30.514897°N / 104.080646°E",
       "videoUrl": "https://videos.mmcm-studio.com/Oppo_Technology_&_Research_Centre_Tower.mp4"
     }
+  ]
 }
