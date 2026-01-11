@@ -258,5 +258,25 @@
       {"platform": "WECHAT_OFFICIAL", "platformCN": "公众号", "id": "MMCM毫厘建筑摄影"},
       {"platform": "WEIBO", "platformCN": "微博", "id": "@毫厘建筑摄影"}
     ]
-  }
+  },
+  
+  "filmProjects": [
+    {
+      "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
+      "category": "CULTURE",
+      "architect": "Tanghua_Architects_&_Associates",
+      "cover": "/images/films/Xichang_Jianchuan_Museum_Documentary_Hall/cover.webp",
+      "year": "2025",
+      "coords": "30.51°N / 104.08°E",
+      "videoUrl": "https://videos.mmcm-studio.com/Xichang_Jianchuan_Museum_Documentary_Hall.mp4"
+    },
+    {
+      "title": "Oppo_Technology_&_Research_Centre_Tower",
+      "category": "OFFICE",
+      "architect": "Gianni_Botsford_Architects",
+      "cover": "/images/films/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
+      "year": "2023",
+      "coords": "30.514897°N / 104.080646°E",
+      "videoUrl": "https://videos.mmcm-studio.com/Oppo_Technology_&_Research_Centre_Tower.mp4"
+    }
 }
