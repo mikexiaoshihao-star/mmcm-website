@@ -494,13 +494,14 @@ get filteredFilmProjects() {
                 </video>
             </div>
             <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-white/10">
-                <h2 class="text-lg md:text-2xl text-white font-bold" x-text="selectedFilm?.title"></h2>
-                <div class="flex flex-wrap gap-4 mt-2 text-[10px] text-gray-500">
-                    <span x-text="selectedFilm?.architect"></span>
-                    <span x-text="selectedFilm?.year"></span>
-                    <span class="text-code-green" x-text="selectedFilm?.coords"></span>
-                </div>
-            </div>
+    <h2 class="text-lg md:text-2xl text-white font-bold" x-text="selectedFilm?.title"></h2>
+    <div class="flex flex-wrap gap-4 mt-2 text-[10px] text-gray-500">
+        <span x-text="selectedFilm?.architect"></span>
+        <span x-text="selectedFilm?.year"></span>
+        <span class="text-code-green" x-text="selectedFilm?.location"></span>
+        <span class="text-code-green" x-text="selectedFilm?.coords"></span>
+    </div>
+</div>
         </div>
     </section>
 <section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-geek-black">
