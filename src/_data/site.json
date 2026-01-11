@@ -101,6 +101,7 @@
       "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
       "year": "2023",
       "coords": "30.514897°N / 104.080646°E",
+      "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
         {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
@@ -132,6 +133,7 @@
       "url": "/images/projects/Chengdu_SKP/cover.webp",
       "year": "2023",
       "coords": "30.569229°N / 104.069608°E",
+      "location": "Chengdu_Sichuan",
        "images": [
         {"url": "/images/projects/Chengdu_SKP/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
         {"url": "/images/projects/Chengdu_SKP/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
@@ -161,6 +163,7 @@
       "url": "/images/projects/Congressional_Central_Office/cover.webp",
       "year": "2025",
       "coords": "30.587706°N / 103.946475°E",
+      "location": "Chengdu_Sichuan",
        "images": [
         {"url": "/images/projects/Congressional_Central_Office/01.webp", "desc": "Hall", "meta": "18:30 // PM"},
         {"url": "/images/projects/Congressional_Central_Office/02.webp", "desc": "Hall_Detail", "meta": "21:30 // AM"},
@@ -199,6 +202,7 @@
       "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/cover.webp",
       "year": "2024",
       "coords": "30.463458°N / 104.055418°E",
+      "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -240,6 +244,7 @@
       "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
       "coords": "29.561844°N / 106.718551°W",
+      "location": "Chongqin",
       "images": [
         {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -274,6 +279,7 @@
       "url": "/images/projects/Xi_An_Puyi/cover.webp",
       "year": "2025",
       "coords": "34.212973°N / 108.851927°E",
+      "location": "Xi'an_Shanxi",
        "images": [
         {"url": "/images/projects/Xi_An_Puyi/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Xi_An_Puyi/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -306,6 +312,7 @@
       "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
       "year": "2025",
       "coords": "30.657372°N / 104.065901°E",
+      "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/02.webp", "desc": "02", "meta": "21:30 // AM"},
