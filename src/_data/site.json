@@ -10,6 +10,13 @@
     {"key": "INTERIOR", "name": "室内"},
     {"key": "DOCUMENTARY", "name": "施工记录"}
   ],
+  
+"filmCategories": [
+    {"key": "OFFICE", "name": "办公"},
+    {"key": "CULTURAL", "name": "文化"},
+    {"key": "EDUCATION", "name": "教育"}
+],
+
 
   "homeProjects": [
     {
