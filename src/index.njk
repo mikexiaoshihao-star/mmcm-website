@@ -196,6 +196,12 @@ handleSwipeEnd() {
     this.offsetX = 0;
     setTimeout(() => { this.isAnimating = false; }, 300);
 },
+getPrevIndex() {
+    return this.currentDetailImageIndex > 0 ? this.currentDetailImageIndex - 1 : null;
+},
+getNextIndex() {
+    return this.currentDetailImageIndex < this.detailImages.length - 1 ? this.currentDetailImageIndex + 1 : null;
+},
                 get filteredProjects() {
     if (this.activeFilter === 'ALL') return this.projects;
     return this.projects.filter(p => p.category === this.activeFilter);
