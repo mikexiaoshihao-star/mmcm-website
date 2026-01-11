@@ -282,15 +282,20 @@ get filteredFilmProjects() {
         </div>
         <div class="relative flex-grow w-full bg-geek-dark overflow-hidden flex items-center justify-center pt-16 lg:pt-0 group">
             <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〈</button>
-           <div class="relative w-full h-full p-4 lg:p-8 flex items-center justify-center select-none"
+          <div class="relative w-full h-full p-4 lg:p-8 flex items-center justify-center select-none overflow-hidden"
      @touchstart="handleSwipeStart($event)"
-     @touchmove="handleSwipeMove($event)"
+     @touchmove.prevent="handleSwipeMove($event)"
      @touchend="handleSwipeEnd()"
      @mousedown="handleSwipeStart($event)"
      @mousemove="handleSwipeMove($event)"
      @mouseup="handleSwipeEnd()"
      @mouseleave="handleSwipeEnd()">
-    <img :src="detailImages[currentDetailImageIndex]?.url" class="max-w-full max-h-full object-contain shadow-2xl transition-all duration-300 ease-in-out pointer-events-none" alt="Detail View" draggable="false">
+    <img :src="detailImages[currentDetailImageIndex]?.url" 
+         class="max-w-full max-h-full object-contain shadow-2xl pointer-events-none"
+         :class="isDragging ? '' : 'transition-transform duration-300 ease-out'"
+         :style="'transform: translateX(' + offsetX + 'px)'"
+         alt="Detail View" 
+         draggable="false">
 </div>
             <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〉</button>
         </div>
