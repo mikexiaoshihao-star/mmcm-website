@@ -24,12 +24,13 @@
 
     <script>
         const siteData = {
-            categories: {{ site.categories | dump | safe }},
-            homeProjects: {{ site.homeProjects | dump | safe }},
-            projects: {{ site.projects | dump | safe }},
-            studio: {{ site.studio | dump | safe }},
-            contact: {{ site.contact | dump | safe }}
-        };
+    categories: {{ site.categories | dump | safe }},
+    homeProjects: {{ site.homeProjects | dump | safe }},
+    projects: {{ site.projects | dump | safe }},
+    filmProjects: {{ site.filmProjects | dump | safe }},
+    studio: {{ site.studio | dump | safe }},
+    contact: {{ site.contact | dump | safe }}
+};
 
         document.addEventListener('alpine:init', () => {
             Alpine.data('scrambleText', (initialText = '') => ({
