@@ -132,9 +132,21 @@ nextDetailImage() {
     this.currentDetailImageIndex = (this.currentDetailImageIndex + 1) % this.detailImages.length;
 },
                 get filteredProjects() {
-                    if (this.activeFilter === 'ALL') return this.projects;
-                    return this.projects.filter(p => p.category === this.activeFilter);
-                }
+    if (this.activeFilter === 'ALL') return this.projects;
+    return this.projects.filter(p => p.category === this.activeFilter);
+},
+openFilm(film) {
+    this.selectedFilm = film;
+    this.switchView('film_detail');
+},
+closeFilm() {
+    this.selectedFilm = null;
+    this.switchView('film');
+},
+get filteredFilmProjects() {
+    if (this.activeFilmFilter === 'ALL') return this.filmProjects;
+    return this.filmProjects.filter(p => p.category === this.activeFilmFilter);
+}
             }));
         });
     </script>
