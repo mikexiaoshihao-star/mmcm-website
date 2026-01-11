@@ -90,14 +90,9 @@
                 detailImages: [],
                 currentDetailImageIndex: 0,
                 touchStartX: 0,
-                offsetX: 0,
+                touchCurrentX: 0,
                 isDragging: false,
-                isAnimating: false,
-                touchStartX: 0,
-                touchEndX: 0,
-                isDragging: false,
-                offsetX: 0,
-                isAnimating: false,
+                containerWidth: 0,
                
                 get currentHomeProject() { return this.homeProjects[this.currentHomeIndex]; },
                 nextHomeProject() {
