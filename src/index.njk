@@ -172,6 +172,10 @@ getSliderOffset() {
     }
     return baseOffset;
 },
+handleThumbnailWheel(e) {
+    e.preventDefault();
+    e.currentTarget.scrollLeft += e.deltaY;
+},
 handleSwipeStart(e) {
     if (this.isAnimating) return;
     this.isDragging = true;
