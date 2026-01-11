@@ -23,73 +23,38 @@
   "homeProjects": [
     {
       "img": "/images/home/01.webp",
-      "title": "Chengdu_SKP",
-      "architect": "Sybarite",
-      "address": "Hi_Tech_Zone, Chengdu",
-      "coords": "30.56°N / 104.06°E"
+      "title": "Oppo_Technology_&_Research_Centre_Tower",
+      "architect": "Gianni_Botsford_Architects",
+      "address": "Xinchuan, Chengdu",
+      "coords": "30.514°N / 104.080°E"
     },
     {
-      "img": "/images/home/02.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
+      "img": "/images/home/02.webp",
+      "title": "Chengdu_SKP",
+      "architect": "Sybarite",
+      "address": "High_Tech_Zone,Chengdu",
+      "coords": "30.569°N / 104.069°E"
     },
     {
       "img": "/images/home/03.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
+      "title": "Congressional_Central_Office",
+      "architect": "Tektonn_Architects",
+      "address": "Shuangliu,Chengdu",
+      "coords": "30.587°N / 103.946°E"
     },
     {
       "img": "/images/home/04.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
+      "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "architect": "Tanghua_Architects&Associates",
+      "address": "Guangyang_Island,Chongqin",
+      "coords": "29.561°N / 106.718°E"
     },
     {
       "img": "/images/home/05.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
-    },
-    {
-      "img": "/images/home/06.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
-    },
-    {
-      "img": "/images/home/07.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
-    },
-    {
-      "img": "/images/home/08.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
-    },
-    {
-      "img": "/images/home/09.jpg",
-      "title": "VOID_TERMINAL_01",
-      "architect": "NEURAL_NET_V2",
-      "address": "SECTOR 7, NEO-TOKYO",
-      "coords": "35.65°N / 139.83°E"
-    },
-    {
-      "img": "/images/home/10.jpg",
-      "title": "KINETIC_STADIUM",
-      "architect": "ALGORITHM_X",
-      "address": "OLYMPIC PARK, BEIJING",
-      "coords": "39.99°N / 116.39°E"
+      "title": "Xi_An_Puyi",
+      "architect": "gad",
+      "address": "Xi'an,Shanxi",
+      "coords": "34.212°N / 108.851°E"
     }
   ],
 
@@ -243,7 +208,7 @@
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
-      "coords": "29.561°N / 106.718°W",
+      "coords": "29.561°N / 106.718°E",
       "location": "Chongqin",
       "images": [
         {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp", "desc": "01", "meta": "18:30 // PM"},
