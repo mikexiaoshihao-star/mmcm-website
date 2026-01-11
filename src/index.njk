@@ -129,11 +129,46 @@
 },
 prevDetailImage() {
     if (this.detailImages.length === 0) return;
-    this.currentDetailImageIndex = (this.currentDetailImageIndex - 1 + this.detailImages.length) % this.detailImages.length;
+    if (this.currentDetailImageIndex > 0) {
+        this.currentDetailImageIndex--;
+    }
 },
 nextDetailImage() {
     if (this.detailImages.length === 0) return;
-    this.currentDetailImageIndex = (this.currentDetailImageIndex + 1) % this.detailImages.length;
+    if (this.currentDetailImageIndex < this.detailImages.length - 1) {
+        this.currentDetailImageIndex++;
+    }
+},
+handleSwipeStart(e) {
+    this.isDragging = true;
+    this.touchStartX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    this.touchCurrentX = this.touchStartX;
+    this.containerWidth = e.currentTarget.offsetWidth;
+},
+handleSwipeMove(e) {
+    if (!this.isDragging) return;
+    this.touchCurrentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+},
+handleSwipeEnd() {
+    if (!this.isDragging) return;
+    this.isDragging = false;
+    const diff = this.touchStartX - this.touchCurrentX;
+    const threshold = this.containerWidth * 0.2;
+    if (diff > threshold && this.currentDetailImageIndex < this.detailImages.length - 1) {
+        this.currentDetailImageIndex++;
+    } else if (diff < -threshold && this.currentDetailImageIndex > 0) {
+        this.currentDetailImageIndex--;
+    }
+    this.touchStartX = 0;
+    this.touchCurrentX = 0;
+},
+getSliderOffset() {
+    const baseOffset = -this.currentDetailImageIndex * 100;
+    if (this.isDragging && this.containerWidth > 0) {
+        const dragOffset = ((this.touchCurrentX - this.touchStartX) / this.containerWidth) * 100;
+        return baseOffset + dragOffset;
+    }
+    return baseOffset;
 },
 handleSwipeStart(e) {
     if (this.isAnimating) return;
