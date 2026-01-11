@@ -395,6 +395,7 @@
       "cover": "/images/films/Xichang_Jianchuan_Museum_Documentary_Hall/cover.webp",
       "year": "2025",
       "coords": "30.51°N / 104.08°E",
+      "location": "Xichang_Sichuan",
       "videoUrl": "https://videos.mmcm-studio.com/Xichang_Jianchuan_Museum_Documentary_Hall.mp4"
     },
     {
@@ -404,6 +405,7 @@
       "cover": "/images/films/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
       "year": "2023",
       "coords": "30.514897°N / 104.080646°E",
+      "location": "Chengdu_Sichuan",
       "videoUrl": "https://videos.mmcm-studio.com/Oppo_Technology_%26_Research_Centre_Tower.mp4"
     },
     {
@@ -413,6 +415,7 @@
       "cover": "/images/films/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
       "coords": "29.561844°N / 106.718551°E",
+      "location": "Chongqin",
       "videoUrl": "https://videos.mmcm-studio.com/Yangtze_River_Ecological_Cadre_Academy.mp4"
     },
     {
@@ -422,6 +425,7 @@
       "cover": "/images/films/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
       "year": "2025",
       "coords": "30.657372°N / 104.065901°E",
+      "location": "Chengdu_Sichuan",
       "videoUrl": "https://videos.mmcm-studio.com/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch.mp4"
     }
   ]
