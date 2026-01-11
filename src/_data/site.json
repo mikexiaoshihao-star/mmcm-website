@@ -6,6 +6,7 @@
     {"key": "CULTURAL", "name": "文化"},
     {"key": "EDUCATION", "name": "教育"},
     {"key": "SPORTS", "name": "体育"},
+    {"key": "URBAN_RENEWAL", "name": "城市更新"},
     {"key": "LANDSCAPE", "name": "景观"},
     {"key": "INTERIOR", "name": "室内"},
     {"key": "DOCUMENTARY", "name": "施工记录"}
@@ -14,7 +15,8 @@
 "filmCategories": [
     {"key": "OFFICE", "name": "办公"},
     {"key": "CULTURAL", "name": "文化"},
-    {"key": "EDUCATION", "name": "教育"}
+    {"key": "EDUCATION", "name": "教育"},
+    {"key": "URBAN_RENEWAL", "name": "城市更新"}
 ],
 
 
@@ -299,7 +301,7 @@
     },
     {
       "title": "Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch",
-      "category": "OFFICE",
+      "category": "URBAN_RENEWAL",
       "architect": "SADI",
       "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
       "year": "2025",
