@@ -259,12 +259,36 @@
       ]
     },
     {
-      "title": "ARENA_01",
-      "category": "SPORTS",
-      "architect": "Herzog & de Meuron",
-      "url": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=800&auto=format&fit=crop",
-      "year": "2022",
-      "coords": "39.90°N / 116.40°E"
+      "title": "Xi_An_Puyi",
+      "category": "RESIDENTIAL",
+      "architect": "gad",
+      "url": "/images/projects/Xi_An_Puyi/cover.webp",
+      "year": "2025",
+      "coords": "34.212973°N / 108.851927°E",
+       "images": [
+        {"url": "/images/projects/Xi_An_Puyi/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Xi_An_Puyi/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Xi_An_Puyi/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Xi_An_Puyi/08.webp", "desc": "08", "meta": "11:00 // AM"},
+        {"url": "/images/projects/Xi_An_Puyi/09.webp", "desc": "09", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/10.webp", "desc": "10", "meta": "10:50 // AM"},
+        {"url": "/images/projects/Xi_An_Puyi/11.webp", "desc": "11", "meta": "10:20 // AM"},
+        {"url": "/images/projects/Xi_An_Puyi/12.webp", "desc": "12", "meta": "14:20 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/13.webp", "desc": "13", "meta": "14:00 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/14.webp", "desc": "14", "meta": "15:10 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/15.webp", "desc": "15", "meta": "19:50 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/16.webp", "desc": "16", "meta": "19:55 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/17.webp", "desc": "17", "meta": "14:40 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/18.webp", "desc": "18", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/19.webp", "desc": "19", "meta": "15:50 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/20.webp", "desc": "20", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/21.webp", "desc": "21", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Xi_An_Puyi/22.webp", "desc": "22", "meta": "15:00 // PM"}
+      ]
     },
     {
       "title": "VOID_SPACE",
