@@ -494,15 +494,20 @@ get filteredFilmProjects() {
                 </video>
             </div>
             <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-white/10">
-    <h2 class="text-lg md:text-2xl text-white font-bold" x-text="selectedFilm?.title"></h2>
-    <div class="flex flex-wrap gap-4 mt-2 text-[10px] text-gray-500">
-        <span x-text="selectedFilm?.architect"></span>
-        <span x-text="selectedFilm?.year"></span>
-        <span class="text-code-green" x-text="selectedFilm?.location"></span>
-        <span class="text-code-green" x-text="selectedFilm?.coords"></span>
+    <h2 class="text-sm md:text-base text-white font-bold leading-tight break-words" x-text="selectedFilm?.title"></h2>
+    <div class="text-[10px] text-code-green mt-2" x-text="selectedFilm?.architect"></div>
+    <div class="flex justify-between items-center text-[10px] mt-2">
+        <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
+            <span class="text-code-green" x-text="selectedFilm?.coords"></span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-500">
+            <span x-text="selectedFilm?.location"></span>
+            <span x-text="'[ ' + selectedFilm?.year + ' ]'"></span>
+        </div>
     </div>
 </div>
-        </div>
+     </div>
     </section>
 <section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-geek-black">
         <div class="w-full flex flex-col md:flex-row pt-20">
