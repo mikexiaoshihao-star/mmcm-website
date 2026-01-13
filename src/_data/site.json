@@ -437,6 +437,16 @@
       "coords": "30.657°N / 104.065°E",
       "location": "Chengdu_Sichuan",
       "videoUrl": "https://videos.mmcm-studio.com/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch.mp4"
+    },
+    {
+      "title": "Yunyang_Sports_Park",
+      "category": "SPORTS",
+      "architect": "Tanghua_Architects_&_Associates",
+      "cover": "/images/films/Yunyang_Sports_Park/cover.webp",
+      "year": "2023",
+      "coords": "30.950°N / 108.710°E",
+      "location": "Yunyang_Chengdu",
+      "videoUrl": "https://videos.mmcm-studio.com/Yunyang_Sports_Park.mp4"
     }
   ]
 }
