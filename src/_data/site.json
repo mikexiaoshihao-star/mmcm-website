@@ -359,6 +359,33 @@
         {"url": "/images/projects/Yunyang_Sports_Park/18.webp", "desc": "18", "meta": "15:00 // PM"},
         {"url": "/images/projects/Yunyang_Sports_Park/19.webp", "desc": "19", "meta": "15:50 // PM"}
       ]
+    },
+     {
+      "title": "Yibin_Yiyun_Digital_Art_Center",
+      "category": "CULTURAL",
+      "architect": "SADI",
+      "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center.webp",
+      "year": "2025",
+      "coords": "28.730°N / 104.626°E",
+      "location": "Yibing_Sichuan",
+      "images": [
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/08.webp", "desc": "08", "meta": "11:00 // AM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/09.webp", "desc": "09", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/10.webp", "desc": "10", "meta": "10:50 // AM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/11.webp", "desc": "11", "meta": "10:20 // AM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/12.webp", "desc": "12", "meta": "14:20 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/13.webp", "desc": "13", "meta": "14:00 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/14.webp", "desc": "14", "meta": "15:10 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/15.webp", "desc": "15", "meta": "19:50 // PM"},
+        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/16.webp", "desc": "16", "meta": "19:55 // PM"}
+      ]
     }
   ],
 
