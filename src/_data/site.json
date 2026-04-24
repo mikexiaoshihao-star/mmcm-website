@@ -26,21 +26,24 @@
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Xichang, Sichuan",
-      "coords": "30.514°N / 104.080°E"
+      "coords": "30.514°N / 104.080°E",
+      "imgMobile": "/images/home/01-mobile.webp"
     },
     {
       "img": "/images/home/02.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Guangyang_Island,Chongqin",
-      "coords": "29.561°N / 106.718°E"
+      "coords": "29.561°N / 106.718°E",
+      "imgMobile": "/images/home/02-mobile.webp"
     },
     {
       "img": "/images/home/03.webp",
       "title": "Xi_An_Puyi",
       "architect": "gad",
       "address": "Xi'an,Shanxi",
-      "coords": "34.212°N / 108.851°E"
+      "coords": "34.212°N / 108.851°E",
+      "imgMobile": "/images/home/03-mobile.webp"
     }
   ],
 
