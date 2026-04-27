@@ -561,17 +561,29 @@ get filteredFilmProjects() {
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
                 <div>
                     <div class="text-code-green font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-code-green"></span>01 // PHOTOGRAPHER</div>
-                    <div class="font-mono text-sm text-gray-400 leading-loose max-w-xl space-y-6 border-l border-white/10 pl-6">
-                        <p x-text="studio.intro1"></p>
-                        <p x-text="studio.intro2"></p>
-                    </div>
+                   <div class="font-mono text-sm text-gray-400 leading-loose max-w-xl space-y-6 border-l border-white/10 pl-6">
+    <div>
+        <p x-text="studio.intro1"></p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.intro1zh"></p>
+    </div>
+    <div>
+        <p x-text="studio.intro2"></p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.intro2zh"></p>
+    </div>
+</div>
                 </div>
                 <div>
                     <div class="text-code-green font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-code-green"></span>02 // THE STUDIO</div>
                     <div class="font-mono text-sm text-gray-300 leading-relaxed max-w-xl">
-                        <p class="mb-4"><strong class="text-white bg-white/10 px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
-                        <p x-text="studio.about2"></p>
-                    </div>
+    <div class="mb-4">
+        <p><strong class="text-white bg-white/10 px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.about1zh"></p>
+    </div>
+    <div>
+        <p x-text="studio.about2"></p>
+        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.about2zh"></p>
+    </div>
+</div>
                 </div>
                 <div>
                     <div class="text-code-green font-mono text-xs mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-code-green"></span>03 // CLIENT</div>
