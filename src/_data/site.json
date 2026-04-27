@@ -26,50 +26,102 @@
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Xichang, Sichuan",
-      "coords": "30.514°N / 104.080°E",
-      "imgMobile": "/images/home/01-mobile.webp"
+      "coords": "30.514°N / 104.080°E"
     },
     {
       "img": "/images/home/02.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Guangyang_Island,Chongqin",
-      "coords": "29.561°N / 106.718°E",
-      "imgMobile": "/images/home/02-mobile.webp"
+      "coords": "29.561°N / 106.718°E"
     },
     {
       "img": "/images/home/03.webp",
       "title": "Xi_An_Puyi",
       "architect": "gad",
       "address": "Xi'an,Shanxi",
-      "coords": "34.212°N / 108.851°E",
-      "imgMobile": "/images/home/03-mobile.webp"
+      "coords": "34.212°N / 108.851°E"
     },
     {
       "img": "/images/home/04.webp",
       "title": "Xinglong_Lake_Roadshow_Center",
       "architect": "Tektonn_Architects",
       "address": "Chengdu,Sichuan",
-      "coords": "34.212°N / 108.851°E",
-      "imgMobile": "/images/home/04-mobile.webp"
+      "coords": "34.212°N / 108.851°E"
     },
     {
       "img": "/images/home/05.webp",
       "title": "Lake_City",
       "architect": "SCDA",
       "address": "Chengdu,Sichuan",
-      "coords": "34.212°N / 108.851°E",
-      "imgMobile": "/images/home/05-mobile.webp"
+      "coords": "34.212°N / 108.851°E"
     },
     {
       "img": "/images/home/06.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Chongqin",
-      "coords": "34.212°N / 108.851°E",
-      "imgMobile": "/images/home/06-mobile.webp"
+      "coords": "34.212°N / 108.851°E"
+    },
+    {
+      "img": "/images/home/07.webp",
+      "title": "Poly_Expo",
+      "architect": "SCDA",
+      "address": "Shanghai",
+      "coords": "34.212°N / 108.851°E"
     }
   ],
+  "homeProjectsMobile": [
+    {
+        "title": "Huarun_Runxi",
+        "architect": "SCDA",
+        "address": "Shenzhen,Guangdong",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-01.webp"
+    },
+    {
+        "title": "Xinglong_Lake_Roadshow_Center",
+        "architect": "Tektonn_Architects",
+        "address": "Chengdu,Sichuan",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-02.webp"
+    },
+     {
+        "title": "Poly_Expo",
+        "architect": "SCDA",
+        "address": "Shanghai",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-03.webp"
+    },
+     {
+        "title": "Congressional_Central_Office",
+        "architect": "Tektonn_Architects",
+        "address": "Chengdu,Sichuan",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-04.webp"
+    },
+     {
+        "title": "157_Tower",
+        "architect": "SADI",
+        "address": "Chengdu,Sichuan",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-05.webp"
+    },
+     {
+        "title": "Lake_City",
+        "architect": "SCDA",
+        "address": "Chengdu,Sichuan",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-06.webp"
+    },
+    {
+        "title": "Xi‘An_Puyi",
+        "architect": "gad",
+        "address": "Xi‘An,Shanxi",
+        "coords": "30.51°N / 104.08°E",
+        "img": "/images/home/mobile-07.webp"
+    }
+],
 
   "projects": [
     {
