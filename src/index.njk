@@ -82,7 +82,9 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 currentHomeIndex: 0,
                 homeImgVisible: true,
                 categories: siteData.categories,
-                homeProjects: siteData.homeProjects,
+               homeProjects: siteData.homeProjects,
+homeProjectsMobile: siteData.homeProjectsMobile || siteData.homeProjects,
+currentHomeMobileIndex: 0,
                 projects: siteData.projects,
                 filmProjects: siteData.filmProjects || [],
                 filmCategories: siteData.filmCategories || [],
@@ -99,9 +101,14 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                
                 get currentHomeProject() { return this.homeProjects[this.currentHomeIndex]; },
                 nextHomeProject() {
-                    this.homeImgVisible = false;
-                    setTimeout(() => { this.currentHomeIndex = (this.currentHomeIndex + 1) % this.homeProjects.length; this.homeImgVisible = true; }, 400);
-                },
+    this.homeImgVisible = false;
+    setTimeout(() => {
+        this.currentHomeIndex = (this.currentHomeIndex + 1) % this.homeProjects.length;
+        this.currentHomeMobileIndex = (this.currentHomeMobileIndex + 1) % this.homeProjectsMobile.length;
+        this.homeImgVisible = true;
+    }, 400);
+},
+get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHomeMobileIndex]; },
                 switchView(view) { window.scrollTo({ top: 0, behavior: 'smooth' }); this.currentView = view; },
                openProject(project) {
     this.selectedProject = project;
