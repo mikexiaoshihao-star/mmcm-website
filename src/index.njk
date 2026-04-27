@@ -293,13 +293,7 @@ get filteredFilmProjects() {
     <!-- VIEW 1: HOME -->
     <section x-show="currentView === 'home'" class="h-svh w-full flex flex-col pt-16 md:pt-20 pb-8 px-4 md:px-12 relative z-10">
         <div class="flex-grow w-full relative overflow-hidden bg-geek-dark border border-white/10 group cursor-pointer" @click="nextHomeProject()">
-            <img x-show="homeImgVisible" :src="currentHomeProject.img" class="w-full h-full object-cover opacity-80<img x-show="homeImgVisible" 
-     :src="currentHomeProject.imgMobile || currentHomeProject.img" 
-     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 absolute inset-0 block md:hidden"
-     x-transition:enter="transition ease-out duration-500"
-     x-transition:enter-start="opacity-0"
-     x-transition:enter-end="opacity-80"
-     draggable="false">
+            <!-- 电脑端图片 -->
 <img x-show="homeImgVisible" 
      :src="currentHomeProject.img" 
      class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 absolute inset-0 hidden md:block"
@@ -307,20 +301,43 @@ get filteredFilmProjects() {
      x-transition:enter-start="opacity-0"
      x-transition:enter-end="opacity-80"
      draggable="false">
+<!-- 手机端图片 -->
+<img x-show="homeImgVisible" 
+     :src="currentHomeMobileProject.img" 
+     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 absolute inset-0 block md:hidden"
+     x-transition:enter="transition ease-out duration-500"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-80"
+     draggable="false">
         </div>
         <div class="mt-6 flex flex-col md:flex-row justify-between items-start font-mono text-[10px] md:text-xs">
-            <div class="flex flex-col gap-1 items-start mb-4 md:mb-0">
-                <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.architect)" x-text="displayText"></div>
-                <div class="text-white font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate(currentHomeProject.title)" x-text="displayText"></div>
-            </div>
-            <div class="flex flex-col gap-1 items-start md:items-end mt-0">
-                <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.address)" x-text="displayText"></div>
-                <div class="flex items-center text-code-green font-bold h-5 overflow-visible whitespace-nowrap">
-                    <span class="w-1.5 h-1.5 rounded-full bg-code-green animate-pulse shadow-[0_0_8px_#00ff41] mr-2"></span>
-                    <span x-data="scrambleText()" x-effect="animate(currentHomeProject.coords)" x-text="displayText"></span>
-                </div>
-            </div>
+    <!-- 电脑端信息 -->
+    <div class="hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.architect)" x-text="displayText"></div>
+        <div class="text-white font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate(currentHomeProject.title)" x-text="displayText"></div>
+    </div>
+    <!-- 手机端信息 -->
+    <div class="flex md:hidden flex-col gap-1 items-start mb-4">
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="currentHomeMobileProject.architect"></div>
+        <div class="text-white font-bold text-sm" x-text="currentHomeMobileProject.title"></div>
+    </div>
+    <!-- 电脑端右侧信息 -->
+    <div class="hidden md:flex flex-col gap-1 items-start md:items-end mt-0">
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.address)" x-text="displayText"></div>
+        <div class="flex items-center text-code-green font-bold h-5 overflow-visible whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-code-green animate-pulse shadow-[0_0_8px_#00ff41] mr-2"></span>
+            <span x-data="scrambleText()" x-effect="animate(currentHomeProject.coords)" x-text="displayText"></span>
         </div>
+    </div>
+    <!-- 手机端右侧信息 -->
+    <div class="flex md:hidden flex-col gap-1 items-start mt-0">
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="currentHomeMobileProject.address"></div>
+        <div class="flex items-center text-code-green font-bold h-5 overflow-visible whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-code-green animate-pulse shadow-[0_0_8px_#00ff41] mr-2"></span>
+            <span x-text="currentHomeMobileProject.coords"></span>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- VIEW 2: WORKS -->
