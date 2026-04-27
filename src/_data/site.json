@@ -44,6 +44,30 @@
       "address": "Xi'an,Shanxi",
       "coords": "34.212°N / 108.851°E",
       "imgMobile": "/images/home/03-mobile.webp"
+    },
+    {
+      "img": "/images/home/04.webp",
+      "title": "Xinglong_Lake_Roadshow_Center",
+      "architect": "Tektonn_Architects",
+      "address": "Chengdu,Sichuan",
+      "coords": "34.212°N / 108.851°E",
+      "imgMobile": "/images/home/04-mobile.webp"
+    },
+    {
+      "img": "/images/home/05.webp",
+      "title": "Lake_City",
+      "architect": "SCDA",
+      "address": "Chengdu,Sichuan",
+      "coords": "34.212°N / 108.851°E",
+      "imgMobile": "/images/home/05-mobile.webp"
+    },
+    {
+      "img": "/images/home/06.webp",
+      "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "architect": "Tanghua_Architects_&_Associates",
+      "address": "Chongqin",
+      "coords": "34.212°N / 108.851°E",
+      "imgMobile": "/images/home/06-mobile.webp"
     }
   ],
 
