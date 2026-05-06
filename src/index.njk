@@ -551,7 +551,7 @@ get filteredFilmProjects() {
         <div class="w-full flex flex-col md:flex-row pt-20">
             <div class="w-full md:w-[30%] md:h-[calc(100vh-5rem)] md:sticky md:top-20 flex flex-col items-center justify-start border-r border-white/5 bg-geek-black z-20 pt-12 md:pt-16 pb-12">
                 <div class="w-[200px] lg:w-[240px] aspect-[3/4] mb-6 overflow-hidden shadow-2xl">
-                    <img :src="studio.photo" class="w-full h-full object-cover filter grayscale contrast-110" alt="Photographer">
+                    <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover filter grayscale contrast-110" alt="Photographer">
                 </div>
                 <div class="text-center font-mono">
                     <h2 class="text-xl font-bold text-white tracking-widest" x-text="studio.name"></h2>
