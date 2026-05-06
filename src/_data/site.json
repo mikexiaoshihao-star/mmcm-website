@@ -629,6 +629,31 @@
          {"url": "/images/projects/Shanghai_Poly_Opus_One/13.webp", "desc": "13", "meta": "10:30 // AM"},
          {"url": "/images/projects/Shanghai_Poly_Opus_One/14.webp", "desc": "14", "meta": "10:30 // AM"}
    ]
+  },
+    {
+      "title": "TAHITI",
+      "category": "RESIDENTIAL",
+      "architect": "gad",
+      "url": "/images/projects/TAHITI/cover.webp",
+      "year": "2023",
+      "coords": "23.334°N / 104.145°E",
+      "location": "Chengdu_Sichuan",
+      "images": [
+        {"url": "/images/projects/TAHITI/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/TAHITI/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/TAHITI/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/TAHITI/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/TAHITI/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/TAHITI/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/TAHITI/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/TAHITI/08.webp", "desc": "08", "meta": "10:30 // AM"},
+        {"url": "/images/projects/TAHITI/09.webp", "desc": "09", "meta": "10:30 // AM"},
+        {"url": "/images/projects/TAHITI/10.webp", "desc": "10", "meta": "10:30 // AM"},
+         {"url": "/images/projects/TAHITI/11.webp", "desc": "11", "meta": "10:30 // AM"},
+         {"url": "/images/projects/TAHITI/12.webp", "desc": "12", "meta": "10:30 // AM"},
+         {"url": "/images/projects/TAHITI/13.webp", "desc": "13", "meta": "10:30 // AM"},
+         {"url": "/images/projects/TAHITI/14.webp", "desc": "14", "meta": "10:30 // AM"}
+   ]
   }
   ],
 
