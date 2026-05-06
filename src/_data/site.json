@@ -9,7 +9,8 @@
     {"key": "URBAN_RENEWAL", "name": "城市更新"},
     {"key": "LANDSCAPE", "name": "景观"},
     {"key": "INTERIOR", "name": "室内"},
-    {"key": "DOCUMENTARY", "name": "施工记录"}
+    {"key": "DOCUMENTARY", "name": "施工记录"},
+    {"key": "EXHIBITION", "name": "展览"}
   ],
   
 "filmCategories": [
