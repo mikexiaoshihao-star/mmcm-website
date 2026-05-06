@@ -482,7 +482,7 @@ get filteredFilmProjects() {
             <template x-for="(film, index) in filteredFilmProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openFilm(film)">
                     <div class="relative w-full bg-geek-dark overflow-hidden border border-white/10 group-hover:border-code-green transition-colors duration-300">
-                        <img :src="film.cover" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img :src="film.cover" loading="lazy" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/50 flex items-center justify-center group-hover:bg-code-green/80 transition-all duration-300">
                                 <svg class="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
