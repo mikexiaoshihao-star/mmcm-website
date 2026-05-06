@@ -496,6 +496,24 @@
         {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/18.webp", "desc": "18", "meta": "19:55 // PM"},
         {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/19.webp", "desc": "19", "meta": "19:55 // PM"}
       ]
+    },
+       {
+      "title": "SCDA_30_Chengdu_Exhibition",
+      "category": "EXHIBITION",
+      "architect": "SCDA",
+      "url": "/images/projects/SCDA_30_Chengdu_Exhibition/cover.webp",
+      "year": "2026",
+      "coords": "23.830°N / 103.137°E",
+      "location": "Chengdu_Sichuan",
+      "images": [
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/07.webp", "desc": "07", "meta": "10:30 // AM"}
+      ]
     }
   ],
 
