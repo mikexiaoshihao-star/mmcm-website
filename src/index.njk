@@ -369,7 +369,7 @@ get filteredFilmProjects() {
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
                     <div class="relative w-full bg-geek-dark overflow-hidden border border-white/10 group-hover:border-code-green transition-colors duration-300">
-                        <img :src="project.url" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img :src="project.url" loading="lazy" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
     <div class="text-white font-bold group-hover:text-code-green transition-colors leading-tight break-words" x-text="project.title"></div>
