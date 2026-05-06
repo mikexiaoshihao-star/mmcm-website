@@ -604,6 +604,31 @@
          {"url": "/images/projects/Ningbo_International_Conference_Center/17.webp", "desc": "17", "meta": "10:30 // AM"},
          {"url": "/images/projects/Ningbo_International_Conference_Center/18.webp", "desc": "18", "meta": "10:30 // AM"}
    ]
+  },
+    {
+      "title": "Shanghai_Poly_Opus_One",
+      "category": "RESIDENTIAL",
+      "architect": "SCDA",
+      "url": "/images/projects/Shanghai_Poly_Opus_One/cover.webp",
+      "year": "2023",
+      "coords": "23.335°N / 104.155°E",
+      "location": "Shanghai",
+      "images": [
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/08.webp", "desc": "08", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/09.webp", "desc": "09", "meta": "10:30 // AM"},
+        {"url": "/images/projects/Shanghai_Poly_Opus_One/10.webp", "desc": "10", "meta": "10:30 // AM"},
+         {"url": "/images/projects/Shanghai_Poly_Opus_One/11.webp", "desc": "11", "meta": "10:30 // AM"},
+         {"url": "/images/projects/Shanghai_Poly_Opus_One/12.webp", "desc": "12", "meta": "10:30 // AM"},
+         {"url": "/images/projects/Shanghai_Poly_Opus_One/13.webp", "desc": "13", "meta": "10:30 // AM"},
+         {"url": "/images/projects/Shanghai_Poly_Opus_One/14.webp", "desc": "14", "meta": "10:30 // AM"}
+   ]
   }
   ],
 
