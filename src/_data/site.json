@@ -515,6 +515,25 @@
         {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/06.webp", "desc": "06", "meta": "10:00 // AM"},
         {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/07.webp", "desc": "07", "meta": "10:30 // AM"}
       ]
+    },
+    {
+      "title": "General_Aviation_Headquarters_Base",
+      "category": "OFFICE",
+      "architect": "SADI",
+      "url": "/images/projects/General_Aviation_Headquarters_Base/cover.webp",
+      "year": "2024",
+      "coords": "23.840°N / 104.134°E",
+      "location": "Chengdu_Sichuan",
+      "images": [
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/01.webp", "desc": "01", "meta": "18:30 // PM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/02.webp", "desc": "02", "meta": "21:30 // AM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/03.webp", "desc": "03", "meta": "19:30 // PM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/04.webp", "desc": "04", "meta": "15:30 // PM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/05.webp", "desc": "05", "meta": "16:00 // PM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/06.webp", "desc": "06", "meta": "10:00 // AM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/07.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/General_Aviation_Headquarters_Base/08.webp", "desc": "08", "meta": "10:30 // AM"}
+      ]
     }
   ],
 
