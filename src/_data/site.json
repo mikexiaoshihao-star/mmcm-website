@@ -595,8 +595,29 @@
       "cover": "/images/films/Wuhan_SKP_Polar_Bear_JinFX/cover.webp",
       "year": "2024",
       "coords": "30.950°N / 108.710°E",
-      "location": "Chengdu",
+      "location": "Wuhan,Hubei",
       "videoUrl": "https://videos.mmcm-studio.com/Wuhan_SKP_Polar_Bear_JinFX.mp4"
+    },
+    {
+      "title": "Wuhan_SKP_Wolf",
+      "category": "INSTALLATION",
+      "architect": "Jin_FX",
+      "cover": "/images/films/Wuhan_SKP_Wolf/cover.webp",
+      "year": "2024",
+      "coords": "30.950°N / 108.710°E",
+      "location": "Wuhan,Hubei",
+      "videoUrl": "https://videos.mmcm-studio.com/Wuhan_SKP_Wolf.mp4"
+    },
+    {
+      "title": "Wuhan_SKP_Penguin",
+      "category": "INSTALLATION",
+      "architect": "Jin_FX",
+      "cover": "/images/films/Wuhan_SKP_Penguin/cover.webp",
+      "year": "2024",
+      "coords": "30.950°N / 108.710°E",
+      "location": "Wuhan,Hubei",
+      "videoUrl": "https://videos.mmcm-studio.com/Wuhan_SKP_Penguin.mp4"
     }
+    
   ]
 }
