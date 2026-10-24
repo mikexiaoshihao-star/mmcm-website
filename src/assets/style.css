@@ -58,8 +58,8 @@ html.route-project [data-view="home"] {
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    gap: 3px;
-    width: 132px;
+    gap: calc(3px * 108 / 132);
+    width: 108px;
     max-width: 100%;
     min-width: 0;
     line-height: 1;
@@ -73,7 +73,7 @@ html.route-project [data-view="home"] {
     max-width: 100%;
 }
 
-/* Desktop is ~61% of the previous 490px cap. Mobile is ~65% of the old fitted width. */
+/* Wordmark box: 108px on small screens, 230px from 768px up. */
 .site-logo svg {
     display: block;
     width: 100%;
@@ -97,7 +97,7 @@ html.route-project [data-view="home"] {
     padding: 0;
     font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
     font-weight: 300;
-    font-size: 9px;
+    font-size: calc(9px * 108 / 132);
     letter-spacing: 0;
     line-height: 1;
     color: #111111;
@@ -111,11 +111,11 @@ html.route-project [data-view="home"] {
 
 @media (min-width: 768px) {
     .site-logo {
-        gap: 4px;
-        width: 300px;
+        gap: calc(4px * 230 / 300);
+        width: 230px;
     }
 
     .site-logo-zh {
-        font-size: 13px;
+        font-size: calc(13px * 230 / 300);
     }
 }
