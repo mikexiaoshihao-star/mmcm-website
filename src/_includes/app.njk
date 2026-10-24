@@ -394,8 +394,8 @@ get filteredFilmProjects() {
         <div class="flex gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
             <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
 <a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('FILM')" @mouseenter="animate('FILM')" x-text="displayText">FILM</a>
+<a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('MEDIA')" @mouseenter="animate('MEDIA')" x-text="displayText">MEDIA</a>
 <a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
-            <a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('MEDIA')" @mouseenter="animate('MEDIA')" x-text="displayText">MEDIA</a>
             <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('CONTACT')" @mouseenter="animate('CONTACT')" x-text="displayText">CONTACT</a>
         </div>
     </nav>
