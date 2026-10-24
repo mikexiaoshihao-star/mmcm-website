@@ -325,9 +325,9 @@ get filteredFilmProjects() {
 
     <!-- 顶部导航栏 -->
     <nav class="fixed top-0 w-full z-40 h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white/90 border-b border-black/10 backdrop-blur-md">
-        <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO" class="site-logo shrink min-w-0">
-            <span class="sr-only">MMCM STUDIO</span>
-            <span aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
+        <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo justify-self-start min-w-0 max-w-full">
+            <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
+            <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true">毫厘建筑摄影</span>
         </a>
         <div class="flex gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
             <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>

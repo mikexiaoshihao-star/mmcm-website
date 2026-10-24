@@ -1,5 +1,15 @@
 /* MMCM Studio — light theme */
 
+/* Light cut of the six lockup characters. System CJK faces in the stack win when present. */
+@font-face {
+    font-family: "Noto Sans SC";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("/assets/fonts/noto-sans-sc-300-subset.woff2") format("woff2");
+    unicode-range: U+5398, U+5EFA, U+5F71, U+6444, U+6BEB, U+7B51;
+}
+
 html {
     color-scheme: light;
     background: #fff;
@@ -49,26 +59,61 @@ html.route-project [data-view="home"] {
     display: none !important;
 }
 
-/* Horizontal MMCM wordmark. currentColor follows the header (black on white). */
+/* Stacked lockup: wordmark over 「毫厘建筑摄影」, one link. currentColor stays black on the white bar. */
 .site-logo {
     color: #111111;
-    line-height: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: max-content;
+    max-width: 100%;
     min-width: 0;
+    line-height: 1;
+    text-decoration: none;
+    font-synthesis: none;
 }
 
-.site-logo > span[aria-hidden="true"] {
+.site-logo-mark {
     display: block;
-    width: 100%;
-    min-width: 0;
+    line-height: 0;
+    max-width: 100%;
 }
 
-/* Wide wordmark (~13.6:1). Caps at 490px wide and shrinks to the space left of the nav. */
+/* Desktop is ~61% of the previous 490px cap. Mobile is ~65% of the old fitted width. */
 .site-logo svg {
     display: block;
-    width: 490px;
+    width: 132px;
     max-width: 100%;
     height: auto;
     aspect-ratio: 2830 / 208;
+}
+
+.site-logo-zh {
+    font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0.55em;
+    line-height: 1;
+    color: #111111;
+    white-space: nowrap;
+    /* Drop the trailing tracking gap so the line centers under the wordmark. */
+    margin-right: -0.55em;
+}
+
+@media (min-width: 768px) {
+    .site-logo {
+        gap: 4px;
+    }
+
+    .site-logo svg {
+        width: 300px;
+    }
+
+    .site-logo-zh {
+        font-size: 13px;
+        letter-spacing: 0.72em;
+        margin-right: -0.72em;
+    }
 }
