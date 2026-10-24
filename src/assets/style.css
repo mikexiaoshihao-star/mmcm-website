@@ -1,11 +1,26 @@
-/* MMCM Studio - Custom Styles */
+/* MMCM Studio — light theme */
+
+/* Light cut of the six lockup characters. System CJK faces in the stack win when present. */
+@font-face {
+    font-family: "Noto Sans SC";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("/assets/fonts/noto-sans-sc-300-subset.woff2") format("woff2");
+    unicode-range: U+5398, U+5EFA, U+5F71, U+6444, U+6BEB, U+7B51;
+}
+
+html {
+    color-scheme: light;
+    background: #fff;
+}
 
 .scanlines {
-    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px);
+    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.035), rgba(0, 0, 0, 0.035) 1px, transparent 1px, transparent 3px);
 }
 
 .vignette {
-    background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0,0,0,0.4) 100%);
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 72%, rgba(0, 0, 0, 0.045) 100%);
 }
 
 .no-scrollbar {
@@ -23,16 +38,16 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #ccc;
     border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #00ff41;
+    background: #111;
 }
 
 [x-cloak] {
@@ -42,4 +57,73 @@
 /* Deep-linked project pages hide the home hero until Alpine routes. */
 html.route-project [data-view="home"] {
     display: none !important;
+}
+
+/* Stacked lockup: wordmark over 「毫厘建筑摄影」, one link. currentColor stays black on the white bar. */
+.site-logo {
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 3px;
+    width: 132px;
+    max-width: 100%;
+    min-width: 0;
+    line-height: 1;
+    text-decoration: none;
+    font-synthesis: none;
+}
+
+.site-logo-mark {
+    display: block;
+    line-height: 0;
+    max-width: 100%;
+}
+
+/* Desktop is ~61% of the previous 490px cap. Mobile is ~65% of the old fitted width. */
+.site-logo svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2830 / 208;
+}
+
+/*
+ * The path’s ink is x=17..2814 inside viewBox width 2830. The line matches that
+ * span, then each character is its own flex item so the first and last sit on
+ * those edges with no trailing letter-spacing.
+ */
+.site-logo-zh {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    box-sizing: border-box;
+    width: calc(100% * 2797 / 2830);
+    margin-left: calc(100% * 17 / 2830);
+    margin-right: 0;
+    padding: 0;
+    font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0;
+    line-height: 1;
+    color: #111111;
+    white-space: nowrap;
+}
+
+.site-logo-zh > span {
+    flex: 0 0 auto;
+    letter-spacing: 0;
+}
+
+@media (min-width: 768px) {
+    .site-logo {
+        gap: 4px;
+        width: 300px;
+    }
+
+    .site-logo-zh {
+        font-size: 13px;
+    }
 }

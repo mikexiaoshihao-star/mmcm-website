@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
     {%- set ogTitle = pageTitle or "MMCM STUDIO 毫厘建筑摄影" -%}
     {%- set ogDesc = pageDesc or "MMCM STUDIO 毫厘建筑摄影 · Chengdu" -%}
     {%- set ogImage = ogImagePath or "/images/home/01.webp" %}
@@ -34,8 +35,8 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    colors: { 'geek-black': '#050505', 'geek-dark': '#0a0a0a', 'geek-white': '#e5e5e5', 'geek-gray': '#666666', 'code-green': '#00ff41' },
-                    backgroundImage: { 'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)" },
+                    colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' },
+                    backgroundImage: { 'grid-pattern': "linear-gradient(to right, #e6e6e6 1px, transparent 1px), linear-gradient(to bottom, #e6e6e6 1px, transparent 1px)" },
                     animation: { 'grid-flow': 'gridMove 60s linear infinite' },
                     keyframes: { gridMove: { '0%': { backgroundPosition: '0 0' }, '100%': { backgroundPosition: '4rem 4rem' } } }
                 }
@@ -315,32 +316,30 @@ get filteredFilmProjects() {
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-geek-black text-geek-white font-sans antialiased selection:bg-geek-white selection:text-geek-black relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp">
+<body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp">
 
     <!-- 背景特效 -->
-    <div class="fixed inset-0 z-0 pointer-events-none bg-[size:4rem_4rem] bg-grid-pattern opacity-[0.2] animate-grid-flow"></div>
-    <div class="fixed inset-0 z-0 pointer-events-none scanlines z-[1] opacity-30"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none bg-[size:4rem_4rem] bg-grid-pattern opacity-100 animate-grid-flow"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none scanlines z-[1] opacity-100"></div>
     <div class="fixed inset-0 z-0 pointer-events-none vignette z-[2]"></div>
 
     <!-- 顶部导航栏 -->
-    <nav class="fixed top-0 w-full z-40 h-16 md:h-20 flex items-center justify-between px-4 md:px-12 bg-geek-black/80 border-b border-white/10 backdrop-blur-md">
-        <a href="#" @click.prevent="switchView('home')" class="flex flex-col items-start group">
-            <span class="font-mono font-bold tracking-tighter leading-none text-lg md:text-2xl text-white" x-data="scrambleText('MMCM STUDIO')" @mouseenter="animate('MMCM STUDIO')" x-text="displayText"></span>
-            <div class="w-full flex justify-between font-sans text-[8px] md:text-xs text-geek-gray tracking-widest uppercase">
-                <span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span>
-            </div>
+    <nav class="fixed top-0 w-full z-40 h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white/90 border-b border-black/10 backdrop-blur-md">
+        <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo justify-self-start min-w-0 max-w-full">
+            <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
+            <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
-        <div class="flex gap-6 md:gap-12 font-mono text-[10px] md:text-xs text-gray-400">
-            <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
-<a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('FILM')" @mouseenter="animate('FILM')" x-text="displayText">FILM</a>
-<a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
-            <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-white' : ''" class="transition-colors" x-data="scrambleText('CONTACT')" @mouseenter="animate('CONTACT')" x-text="displayText">CONTACT</a>
+        <div class="flex gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
+            <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
+<a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('FILM')" @mouseenter="animate('FILM')" x-text="displayText">FILM</a>
+<a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
+            <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('CONTACT')" @mouseenter="animate('CONTACT')" x-text="displayText">CONTACT</a>
         </div>
     </nav>
 
     <!-- VIEW 1: HOME -->
     <section data-view="home" x-show="currentView === 'home'" class="h-svh w-full flex flex-col pt-16 md:pt-20 pb-8 px-4 md:px-12 relative z-10">
-        <div class="flex-grow w-full relative overflow-hidden bg-geek-dark border border-white/10 group cursor-pointer" @click="nextHomeProject()">
+        <div class="flex-grow w-full relative overflow-hidden bg-[#f4f4f4] border border-black/10 group cursor-pointer" @click="nextHomeProject()">
             <!-- 电脑端图片 -->
 <img x-show="homeImgVisible" 
      :src="currentHomeProject.img" 
@@ -362,26 +361,26 @@ get filteredFilmProjects() {
     <!-- 电脑端信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
         <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.architect)" x-text="displayText"></div>
-        <div class="text-white font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate(currentHomeProject.title)" x-text="displayText"></div>
+        <div class="text-[#111111] font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate(currentHomeProject.title)" x-text="displayText"></div>
     </div>
     <!-- 手机端信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mb-4">
         <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="currentHomeMobileProject.architect"></div>
-        <div class="text-white font-bold text-sm" x-text="currentHomeMobileProject.title"></div>
+        <div class="text-[#111111] font-bold text-sm" x-text="currentHomeMobileProject.title"></div>
     </div>
     <!-- 电脑端右侧信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start md:items-end mt-0">
         <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.address)" x-text="displayText"></div>
-        <div class="flex items-center text-code-green font-bold h-5 overflow-visible whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-code-green animate-pulse shadow-[0_0_8px_#00ff41] mr-2"></span>
+        <div class="flex items-center text-[#111111] font-bold h-5 overflow-visible whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
             <span x-data="scrambleText()" x-effect="animate(currentHomeProject.coords)" x-text="displayText"></span>
         </div>
     </div>
     <!-- 手机端右侧信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mt-0">
         <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="currentHomeMobileProject.address"></div>
-        <div class="flex items-center text-code-green font-bold h-5 overflow-visible whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-code-green animate-pulse shadow-[0_0_8px_#00ff41] mr-2"></span>
+        <div class="flex items-center text-[#111111] font-bold h-5 overflow-visible whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
             <span x-text="currentHomeMobileProject.coords"></span>
         </div>
     </div>
@@ -393,20 +392,20 @@ get filteredFilmProjects() {
         <div class="mb-10 flex flex-wrap gap-3 font-mono text-xs z-20 relative">
             <button @click="activeFilter = 'ALL'" 
                     class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                    :class="activeFilter === 'ALL' ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
+                    :class="activeFilter === 'ALL' ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
                     x-data="scrambleText('ALL_PROJECTS')" @mouseenter="animate('ALL_PROJECTS')">
                 <span class="relative z-10 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilter === 'ALL' ? 'bg-black' : 'bg-gray-600 group-hover:bg-code-green'"></span>
+                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilter === 'ALL' ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
                     <span x-text="displayText"></span>
                 </span>
             </button>
            <template x-for="cat in categories" :key="cat.key">
                 <button @click="activeFilter = cat.key" 
                         class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                        :class="activeFilter === cat.key ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
+                        :class="activeFilter === cat.key ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
                         x-data="categoryBtn(cat.key, cat.name)" @mouseenter="animate(key)">
                     <span class="relative z-10 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilter === key ? 'bg-black' : 'bg-gray-600 group-hover:bg-code-green'"></span>
+                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilter === key ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
                         <span x-text="displayText"></span>
                         <span class="opacity-50 text-[10px] scale-90" x-text="'// ' + name"></span>
                     </span>
@@ -416,20 +415,20 @@ get filteredFilmProjects() {
         <div class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
-                    <div class="relative w-full bg-geek-dark overflow-hidden border border-white/10 group-hover:border-code-green transition-colors duration-300">
+                    <div class="relative w-full bg-[#f4f4f4] overflow-hidden border border-black/10 group-hover:border-[#111111] transition-colors duration-300">
                         <img :src="project.url" loading="lazy" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
-    <div class="text-white font-bold group-hover:text-code-green transition-colors leading-tight break-words" x-text="project.title"></div>
+                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
+    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-words" x-text="project.title"></div>
     <div class="flex justify-between items-baseline">
-        <div class="text-gray-400" x-text="project.architect"></div>
+        <div class="text-[#666666]" x-text="project.architect"></div>
         <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + project.year + ' ]'"></div>
     </div>
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="project.category"></span>
-            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
-            <span class="text-code-green text-[9px]" x-text="project.coords"></span>
+            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="project.category"></span>
+            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
+            <span class="text-[#111111] text-[9px]" x-text="project.coords"></span>
         </div>
         <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="project.location"></div>
     </div>
@@ -440,14 +439,14 @@ get filteredFilmProjects() {
     </section>
 
     <!-- VIEW 2.5: PROJECT DETAIL -->
-    <section x-show="currentView === 'project_detail'" x-cloak class="fixed inset-0 z-[60] bg-geek-black flex flex-col font-mono">
-        <div class="lg:hidden fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-geek-black/90 backdrop-blur-md border-b border-white/10 z-[70]">
-            <button type="button" @click="switchView('works')" class="w-10 h-10 flex items-center justify-start text-code-green text-xl font-light hover:text-white transition-colors">《</button>
-            <div class="flex-grow text-center text-[10px] text-gray-400 tracking-widest uppercase">Project Detail</div>
-            <button type="button" @click="copyProjectLink()" class="h-10 min-w-10 flex items-center justify-end text-[9px] tracking-widest text-code-green hover:text-white transition-colors" x-text="linkCopied ? 'COPIED' : 'LINK'"></button>
+    <section x-show="currentView === 'project_detail'" x-cloak class="fixed inset-0 z-[60] bg-white flex flex-col font-mono">
+        <div class="lg:hidden fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white/90 backdrop-blur-md border-b border-black/10 z-[70]">
+            <button type="button" @click="switchView('works')" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
+            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase">Project Detail</div>
+            <button type="button" @click="copyProjectLink()" class="h-10 min-w-10 flex items-center justify-end text-[9px] tracking-widest text-[#111111] hover:text-[#111111] transition-colors" x-text="linkCopied ? 'COPIED' : 'LINK'"></button>
         </div>
-        <div class="relative flex-grow w-full bg-geek-dark overflow-hidden flex items-center justify-center pt-16 lg:pt-0 group">
-            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〈</button>
+        <div class="relative flex-grow w-full bg-[#f4f4f4] overflow-hidden flex items-center justify-center pt-16 lg:pt-0 group">
+            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〈</button>
          <div class="relative w-full h-full overflow-hidden select-none"
      @touchstart="handleSwipeStart($event)"
      @touchmove.prevent="handleSwipeMove($event)"
@@ -462,22 +461,22 @@ get filteredFilmProjects() {
         <template x-for="(img, index) in detailImages" :key="index">
             <div class="flex-shrink-0 w-full h-full flex items-center justify-center p-4 lg:p-8">
                 <img :src="img.url" 
-                     class="max-w-full max-h-full object-contain shadow-2xl pointer-events-none" 
+                     class="max-w-full max-h-full object-contain border border-black/10 pointer-events-none" 
                      draggable="false">
             </div>
         </template>
     </div>
 </div>
-            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-12 h-12 flex items-center justify-center text-code-green hover:text-white text-3xl font-light focus:outline-none transition-colors">〉</button>
-            <button type="button" @click.stop="copyProjectLink()" class="hidden lg:flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-code-green hover:text-white border border-white/15 hover:border-code-green bg-black/70 px-3 py-2 transition-colors" x-text="linkCopied ? 'COPIED' : 'COPY LINK'"></button>
+            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〉</button>
+            <button type="button" @click.stop="copyProjectLink()" class="hidden lg:flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-[#111111] border border-black/10 hover:border-[#111111] bg-white/90 hover:bg-white px-3 py-2 transition-colors" x-text="linkCopied ? 'COPIED' : 'COPY LINK'"></button>
         </div>
-        <div class="w-full h-auto min-h-[160px] lg:h-48 bg-black border-t border-white/5 flex flex-col lg:flex-row flex-shrink-0 z-50">
-            <div class="w-full lg:w-1/4 p-4 lg:p-6 border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col justify-between">
-                <div class="hidden lg:block"><button @click="switchView('works')" class="text-xs text-code-green hover:text-white flex items-center gap-2 mb-4 transition-colors"><span>《</span> <span>RETURN TO GRID</span></button></div>
+        <div class="w-full h-auto min-h-[160px] lg:h-48 bg-white border-t border-black/5 flex flex-col lg:flex-row flex-shrink-0 z-50">
+            <div class="w-full lg:w-1/4 p-4 lg:p-6 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-between">
+                <div class="hidden lg:block"><button @click="switchView('works')" class="text-xs text-[#111111] hover:text-[#111111] flex items-center gap-2 mb-4 transition-colors"><span>《</span> <span>RETURN TO GRID</span></button></div>
                 <div>
-                <h2 class="text-sm lg:text-base text-white font-bold leading-tight break-words" x-text="selectedProject?.title"></h2>
+                <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="selectedProject?.title"></h2>
 <div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
-    <span class="text-code-green" x-text="selectedProject?.architect"></span>
+    <span class="text-[#111111]" x-text="selectedProject?.architect"></span>
     <div class="flex items-center gap-3 text-gray-500">
         <span x-text="selectedProject?.location"></span>
         <span x-text="'[ ' + selectedProject?.year + ' ]'"></span>
@@ -488,12 +487,12 @@ get filteredFilmProjects() {
             <div class="flex-grow p-4 overflow-x-auto no-scrollbar flex items-center gap-4" @wheel.prevent="handleThumbnailWheel($event)">
                 <template x-for="(img, index) in detailImages" :key="index">
                     <div @click="selectDetailImage(index)" class="flex-shrink-0 w-24 md:w-32 flex flex-col cursor-pointer transition-all group/thumb" :class="currentDetailImageIndex === index ? 'opacity-100' : 'opacity-50 hover:opacity-80'">
-                        <div class="w-full aspect-video bg-gray-800 border overflow-hidden relative mb-2" :class="currentDetailImageIndex === index ? 'border-code-green' : 'border-white/10'">
+                        <div class="w-full aspect-video bg-[#ececec] border overflow-hidden relative mb-2" :class="currentDetailImageIndex === index ? 'border-[#111111]' : 'border-black/10'">
                             <img :src="img.url" loading="lazy" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-code-green/20" x-show="currentDetailImageIndex === index"></div>
+                            <div class="absolute inset-0 bg-transparent" x-show="currentDetailImageIndex === index"></div>
                         </div>
                         <div class="flex flex-col">
-                            <div class="text-[9px] font-bold text-gray-300 group-hover/thumb:text-code-green transition-colors truncate" x-text="img.desc"></div>
+                            <div class="text-[9px] font-bold text-[#444444] group-hover/thumb:text-[#111111] transition-colors truncate" x-text="img.desc"></div>
                             <div class="text-[8px] text-gray-600 font-mono mt-0.5 tracking-tighter" x-text="img.meta"></div>
                         </div>
                     </div>
@@ -508,20 +507,20 @@ get filteredFilmProjects() {
         <div class="mb-10 flex flex-wrap gap-3 font-mono text-xs z-20 relative">
             <button @click="activeFilmFilter = 'ALL'" 
                     class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                    :class="activeFilmFilter === 'ALL' ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
+                    :class="activeFilmFilter === 'ALL' ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
                     x-data="scrambleText('ALL_FILMS')" @mouseenter="animate('ALL_FILMS')">
                 <span class="relative z-10 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === 'ALL' ? 'bg-black' : 'bg-gray-600 group-hover:bg-code-green'"></span>
+                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === 'ALL' ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
                     <span x-text="displayText"></span>
                 </span>
             </button>
            <template x-for="cat in filmCategories" :key="cat.key">
                 <button @click="activeFilmFilter = cat.key" 
                         class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                        :class="activeFilmFilter === cat.key ? 'bg-code-green border-code-green text-black font-bold' : 'bg-transparent border-white/20 text-gray-500 hover:border-white hover:text-white'"
+                        :class="activeFilmFilter === cat.key ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
                         x-data="categoryBtn(cat.key, cat.name)" @mouseenter="animate(key)">
                     <span class="relative z-10 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === key ? 'bg-black' : 'bg-gray-600 group-hover:bg-code-green'"></span>
+                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === key ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
                         <span x-text="displayText"></span>
                         <span class="opacity-50 text-[10px] scale-90" x-text="'// ' + name"></span>
                     </span>
@@ -531,27 +530,27 @@ get filteredFilmProjects() {
         <div class="columns-1 md:columns-3 gap-8">
             <template x-for="(film, index) in filteredFilmProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openFilm(film)">
-                    <div class="relative w-full bg-geek-dark overflow-hidden border border-white/10 group-hover:border-code-green transition-colors duration-300">
+                    <div class="relative w-full bg-[#f4f4f4] overflow-hidden border border-black/10 group-hover:border-[#111111] transition-colors duration-300">
                         <img :src="film.cover" loading="lazy" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/50 flex items-center justify-center group-hover:bg-code-green/80 transition-all duration-300">
+                            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/55 flex items-center justify-center group-hover:bg-black/75 transition-all duration-300">
                                 <svg class="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
                                 </svg>
                             </div>
                         </div>
                     </div>
-                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-white/10 pl-3 transition-colors duration-300 group-hover:border-code-green/50">
-    <div class="text-white font-bold group-hover:text-code-green transition-colors leading-tight" x-text="film.title"></div>
+                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
+    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-all" x-text="film.title"></div>
     <div class="flex justify-between items-baseline">
-        <div class="text-gray-400" x-text="film.architect"></div>
+        <div class="text-[#666666]" x-text="film.architect"></div>
         <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + film.year + ' ]'"></div>
     </div>
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <span class="bg-white/10 px-1.5 py-0.5 rounded text-[9px] text-gray-300" x-text="film.category"></span>
-            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
-            <span class="text-code-green text-[9px]" x-text="film.coords"></span>
+            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="film.category"></span>
+            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
+            <span class="text-[#111111] text-[9px]" x-text="film.coords"></span>
         </div>
         <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="film.location"></div>
     </div>
@@ -562,13 +561,13 @@ get filteredFilmProjects() {
     </section>
 
     <!-- VIEW 3.5: FILM DETAIL (Video Player) -->
-    <section x-show="currentView === 'film_detail'" x-cloak class="fixed inset-0 z-[60] bg-geek-black flex flex-col font-mono">
-        <div class="fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-geek-black/90 backdrop-blur-md border-b border-white/10 z-[70]">
-            <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-code-green text-xl font-light hover:text-white transition-colors">《</button>
-            <div class="flex-grow text-center text-[10px] text-gray-400 tracking-widest uppercase pr-10">Film Player</div>
+    <section x-show="currentView === 'film_detail'" x-cloak class="fixed inset-0 z-[60] bg-white flex flex-col font-mono">
+        <div class="fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white/90 backdrop-blur-md border-b border-black/10 z-[70]">
+            <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
+            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase pr-10">Film Player</div>
         </div>
         <div class="flex-grow w-full pt-16 pb-4 px-4 flex flex-col">
-            <div class="flex-grow w-full max-w-6xl mx-auto bg-geek-dark border border-white/10 overflow-hidden flex items-center justify-center">
+            <div class="flex-grow w-full max-w-6xl mx-auto bg-[#f4f4f4] border border-black/10 overflow-hidden flex items-center justify-center">
                 <video 
                     x-show="selectedFilm"
                     :src="selectedFilm?.videoUrl"
@@ -581,13 +580,13 @@ get filteredFilmProjects() {
                     您的浏览器不支持视频播放
                 </video>
             </div>
-            <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-white/10">
-    <h2 class="text-sm md:text-base text-white font-bold leading-tight break-words" x-text="selectedFilm?.title"></h2>
+            <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-black/10">
+    <h2 class="text-sm md:text-base text-[#111111] font-bold leading-tight break-all" x-text="selectedFilm?.title"></h2>
     <div class="text-[10px] text-gray-500 mt-2" x-text="selectedFilm?.architect"></div>
     <div class="flex justify-between items-center text-[10px] mt-2">
         <div class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 bg-code-green rounded-full animate-pulse"></span>
-            <span class="text-code-green" x-text="selectedFilm?.coords"></span>
+            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
+            <span class="text-[#111111]" x-text="selectedFilm?.coords"></span>
         </div>
         <div class="flex items-center gap-3 text-gray-500">
             <span x-text="selectedFilm?.location"></span>
@@ -597,21 +596,21 @@ get filteredFilmProjects() {
 </div>
      </div>
     </section>
-<section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-geek-black">
+<section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-white">
         <div class="w-full flex flex-col md:flex-row pt-20">
-            <div class="w-full md:w-[30%] md:h-[calc(100vh-5rem)] md:sticky md:top-20 flex flex-col items-center justify-start border-r border-white/5 bg-geek-black z-20 pt-12 md:pt-16 pb-12">
-                <div class="w-[200px] lg:w-[240px] aspect-[3/4] mb-6 overflow-hidden shadow-2xl">
+            <div class="w-full md:w-[30%] md:h-[calc(100vh-5rem)] md:sticky md:top-20 flex flex-col items-center justify-start border-r border-black/5 bg-white z-20 pt-12 md:pt-16 pb-12">
+                <div class="w-[200px] lg:w-[240px] aspect-[3/4] mb-6 overflow-hidden border border-black/10">
                     <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover filter grayscale contrast-110" alt="Photographer">
                 </div>
                 <div class="text-center font-mono">
-                    <h2 class="text-xl font-bold text-white tracking-widest" x-text="studio.name"></h2>
+                    <h2 class="text-xl font-bold text-[#111111] tracking-widest" x-text="studio.name"></h2>
                     <div class="text-[10px] text-gray-500 mt-2 tracking-widest" x-text="studio.title"></div>
                 </div>
             </div>
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
                 <div>
-                    <div class="text-code-green font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-code-green"></span>01 // PHOTOGRAPHER</div>
-                   <div class="font-mono text-sm text-gray-400 leading-loose max-w-xl space-y-6 border-l border-white/10 pl-6">
+                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span>01 // PHOTOGRAPHER</div>
+                   <div class="font-mono text-sm text-[#666666] leading-loose max-w-xl space-y-6 border-l border-black/10 pl-6">
     <div>
         <p x-text="studio.intro1"></p>
         <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.intro1zh"></p>
@@ -619,20 +618,20 @@ get filteredFilmProjects() {
     <div>
       <p>
     <span x-text="studio.intro2.split('He is the')[0]"></span>
-    <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-code-green hover:underline underline-offset-2">He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.</a>
+    <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.</a>
 </p>
         <p class="text-gray-600 text-xs mt-2 leading-relaxed">
     <span x-text="studio.intro2zh.split('他是')[0]"></span>
-    <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-code-green hover:underline underline-offset-2">他是有方「中国建筑摄影师系列」第59位受访者。</a>
+    <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">他是有方「中国建筑摄影师系列」第59位受访者。</a>
 </p>
     </div>
 </div>
                 </div>
                 <div>
-                    <div class="text-code-green font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-code-green"></span>02 // THE STUDIO</div>
-                    <div class="font-mono text-sm text-gray-300 leading-relaxed max-w-xl">
+                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span>02 // THE STUDIO</div>
+                    <div class="font-mono text-sm text-[#444444] leading-relaxed max-w-xl">
     <div class="mb-4">
-        <p><strong class="text-white bg-white/10 px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
+        <p><strong class="text-[#111111] bg-black/[0.06] px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
         <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.about1zh"></p>
     </div>
     <div>
@@ -642,16 +641,16 @@ get filteredFilmProjects() {
 </div>
                 </div>
                 <div>
-                    <div class="text-code-green font-mono text-xs mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-code-green"></span>03 // CLIENT</div>
-                    <div class="font-mono text-sm w-full border-t border-white/10">
+                    <div class="text-[#111111] font-mono text-xs mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span>03 // CLIENT</div>
+                    <div class="font-mono text-sm w-full border-t border-black/10">
                         <template x-for="(client, index) in studio.clients">
-                            <div class="group flex justify-between items-center py-3 border-b border-white/10 hover:bg-white/5 transition-colors cursor-crosshair px-2">
-                                <div class="flex items-center gap-4"><span class="text-gray-700 text-xs" x-text="String(index + 1).padStart(2, '0')"></span><span class="text-gray-400 group-hover:text-white group-hover:translate-x-2 transition-all duration-300 font-bold" x-text="client.name"></span></div>
-                                <div class="flex items-center gap-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300"><span class="text-[10px] text-gray-500 group-hover:text-code-green" x-text="client.loc"></span><span class="text-code-green text-xs opacity-0 group-hover:opacity-100 transition-opacity">>></span></div>
+                            <div class="group flex justify-between items-center py-3 border-b border-black/10 hover:bg-black/[0.04] transition-colors cursor-crosshair px-2">
+                                <div class="flex items-center gap-4"><span class="text-gray-700 text-xs" x-text="String(index + 1).padStart(2, '0')"></span><span class="text-[#666666] group-hover:text-[#111111] group-hover:translate-x-2 transition-all duration-300 font-bold" x-text="client.name"></span></div>
+                                <div class="flex items-center gap-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300"><span class="text-[10px] text-gray-500 group-hover:text-[#111111]" x-text="client.loc"></span><span class="text-[#111111] text-xs opacity-0 group-hover:opacity-100 transition-opacity">>></span></div>
                             </div>
                         </template>
                     </div>
-                    <div class="mt-8 text-[10px] text-gray-600 font-mono flex justify-end items-center gap-2"><span class="w-2 h-2 bg-gray-800 rounded-full"></span>DATABASE_LAST_UPDATED: 2026.01.07</div>
+                    <div class="mt-8 text-[10px] text-gray-600 font-mono flex justify-end items-center gap-2"><span class="w-2 h-2 bg-[#111111] rounded-full"></span>DATABASE_LAST_UPDATED: 2026.01.07</div>
                 </div>
             </div>
         </div>
@@ -660,41 +659,73 @@ get filteredFilmProjects() {
     <!-- VIEW 4: CONTACT（从配置读取）-->
     <section x-show="currentView === 'contact'" x-cloak class="min-h-screen pt-24 md:pt-40 px-6 md:px-12 z-10 flex justify-center">
         <div class="w-full max-w-4xl">
-            <div class="mb-12 font-mono text-[10px] text-code-green flex items-center gap-2"><span class="w-1.5 h-1.5 bg-code-green animate-pulse"></span> SIGNAL_STABLE</div>
+            <div class="mb-12 font-mono text-[10px] text-[#111111] flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#111111] animate-pulse"></span> SIGNAL_STABLE</div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-8">
                     <div>
                         <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest">Mobile / Wechat <span class="opacity-50 ml-1">// 手机/微信</span></div>
-                        <div class="text-xl md:text-3xl text-white font-mono" x-text="contact.phone"></div>
+                        <div class="text-xl md:text-3xl text-[#111111] font-mono" x-text="contact.phone"></div>
                     </div>
                     <div>
                         <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest">Email Address <span class="opacity-50 ml-1">// 电子邮箱</span></div>
-                        <a :href="'mailto:' + contact.email" class="text-xl md:text-3xl text-white font-mono hover:text-code-green transition-colors" x-text="contact.email"></a>
+                        <a :href="'mailto:' + contact.email" class="text-xl md:text-3xl text-[#111111] font-mono hover:text-[#111111] transition-colors" x-text="contact.email"></a>
                     </div>
                     <div>
                         <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest">Official Site <span class="opacity-50 ml-1">// 官方网站</span></div>
-                        <a href="#" class="text-xl md:text-3xl text-white font-mono hover:underline decoration-code-green underline-offset-4 transition-all" x-text="contact.website"></a>
+                        <a href="#" class="text-xl md:text-3xl text-[#111111] font-mono hover:underline decoration-[#111111] underline-offset-4 transition-all" x-text="contact.website"></a>
                     </div>
                 </div>
                 <div class="space-y-4">
-                    <div class="text-xs text-gray-500 font-mono border-b border-white/10 pb-2 mb-4">02 // SOCIAL_MATRIX</div>
+                    <div class="text-xs text-gray-500 font-mono border-b border-black/10 pb-2 mb-4">02 // SOCIAL_MATRIX</div>
                     <template x-for="social in contact.social">
-                        <div class="flex justify-between items-center py-4 border-b border-white/5 group">
+                        <div class="flex justify-between items-center py-4 border-b border-black/5 group">
                             <div class="font-mono">
-                                <div class="text-[9px] text-gray-500 uppercase mb-1 group-hover:text-white transition-colors"><span x-text="social.platform"></span><span class="opacity-50 ml-1" x-text="'// ' + social.platformCN"></span></div>
-                                <div class="text-xs text-white" x-text="social.id"></div>
+                                <div class="text-[9px] text-gray-500 uppercase mb-1 group-hover:text-[#111111] transition-colors"><span x-text="social.platform"></span><span class="opacity-50 ml-1" x-text="'// ' + social.platformCN"></span></div>
+                                <div class="text-xs text-[#111111]" x-text="social.id"></div>
                             </div>
-                            <span class="text-[9px] text-code-green opacity-0 group-hover:opacity-100 transition-opacity">>> LINK</span>
+                            <span class="text-[9px] text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity">>> LINK</span>
                         </div>
                     </template>
                 </div>
             </div>
-            <div class="mt-16 pt-6 border-t border-white/5 flex justify-between items-center text-[9px] text-gray-600 font-mono">
+            <div class="mt-16 pt-6 border-t border-black/5 flex justify-between items-center text-[9px] text-gray-600 font-mono">
                 <div x-text="'LOCATION_DATA: ' + contact.location"></div>
-                <div class="flex items-center gap-2"><span>ENCRYPTED_CONNECTION</span><div class="w-1 h-1 bg-code-green rounded-full"></div></div>
+                <div class="flex items-center gap-2"><span>ENCRYPTED_CONNECTION</span><div class="w-1 h-1 bg-[#111111] rounded-full"></div></div>
             </div>
         </div>
     </section>
 
+    <script>
+        /* Pin the visible edges of 毫 and 影 to the wordmark. Side bearings differ by face, so measure the face that actually loaded. */
+        (function () {
+            var line = document.querySelector('.site-logo-zh');
+            if (!line) return;
+            var first = line.firstElementChild;
+            var last = line.lastElementChild;
+            function bearing(ch) {
+                var cs = getComputedStyle(line);
+                var size = 200;
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                if (!ctx || !ctx.measureText) return null;
+                ctx.font = cs.fontWeight + ' ' + size + 'px ' + cs.fontFamily;
+                var metrics = ctx.measureText(ch);
+                if (metrics.actualBoundingBoxLeft == null || metrics.actualBoundingBoxRight == null) return null;
+                return {
+                    left: -metrics.actualBoundingBoxLeft / size,
+                    right: (metrics.width - metrics.actualBoundingBoxRight) / size
+                };
+            }
+            function align() {
+                var start = bearing(first.textContent);
+                var end = bearing(last.textContent);
+                if (!start || !end) return;
+                first.style.marginLeft = (-start.left) + 'em';
+                last.style.marginRight = (-end.right) + 'em';
+            }
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(align);
+            else align();
+        })();
+    </script>
 </body>
 </html>
