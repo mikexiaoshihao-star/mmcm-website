@@ -34,14 +34,14 @@
       "img": "/images/home/02.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects_&_Associates",
-      "address": "Guangyang_Island,Chongqin",
+      "address": "Guangyang_Island,Chongqing",
       "coords": "29.561°N / 106.718°E"
     },
     {
       "img": "/images/home/03.webp",
       "title": "Xi_An_Puyi",
       "architect": "gad",
-      "address": "Xi'an,Shanxi",
+      "address": "Xi'an,Shaanxi",
       "coords": "34.212°N / 108.851°E"
     },
     {
@@ -62,7 +62,7 @@
       "img": "/images/home/06.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects_&_Associates",
-      "address": "Chongqin",
+      "address": "Chongqing",
       "coords": "34.212°N / 108.851°E"
     },
     {
@@ -119,7 +119,7 @@
     {
         "title": "Xi‘An_Puyi",
         "architect": "gad",
-        "address": "Xi‘An,Shanxi",
+        "address": "Xi‘An,Shaanxi",
         "coords": "30.51°N / 104.08°E",
         "img": "/images/home/mobile-07.webp"
     }
@@ -128,6 +128,7 @@
   "projects": [
     {
       "title": "Oppo_Technology_&_Research_Centre_Tower",
+      "slug": "oppo-technology-and-research-centre-tower",
       "category": "OFFICE",
       "architect": "Gianni_Botsford_Architects",
       "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
@@ -160,6 +161,7 @@
     },
     {
       "title": "Chengdu_SKP",
+      "slug": "chengdu-skp",
       "category": "COMMERCIAL",
       "architect": "Sybarite",
       "url": "/images/projects/Chengdu_SKP/cover.webp",
@@ -190,6 +192,7 @@
     },
     {
       "title": "Congressional_Central_Office",
+      "slug": "congressional-central-office",
       "category": "INTERIOR",
       "architect": "Tektonn_Architects",
       "url": "/images/projects/Congressional_Central_Office/cover.webp",
@@ -229,6 +232,7 @@
     },
     {
       "title": "LuxeLakes_Kindergarten_(North_Campus)",
+      "slug": "luxelakes-kindergarten-north-campus",
       "category": "INTERIOR",
       "architect": "Tektonn_Architects",
       "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/cover.webp",
@@ -271,12 +275,13 @@
     },
     {
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "slug": "yangtze-river-ecological-cadre-academy",
       "category": "EDUCATION",
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
       "coords": "29.561°N / 106.718°E",
-      "location": "Chongqin",
+      "location": "Chongqing",
       "images": [
         {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -306,12 +311,13 @@
     },
     {
       "title": "Xi_An_Puyi",
+      "slug": "xi-an-puyi",
       "category": "RESIDENTIAL",
       "architect": "gad",
       "url": "/images/projects/Xi_An_Puyi/cover.webp",
       "year": "2025",
       "coords": "34.212°N / 108.851°E",
-      "location": "Xi'an_Shanxi",
+      "location": "Xi'an_Shaanxi",
        "images": [
         {"url": "/images/projects/Xi_An_Puyi/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Xi_An_Puyi/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -339,6 +345,7 @@
     },
     {
       "title": "Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "slug": "renovation-of-business-premises-of-agricultural-bank-of-china-chengdu-branch",
       "category": "URBAN_RENEWAL",
       "architect": "SADI",
       "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
@@ -376,6 +383,7 @@
     },
     {
       "title": "Shenzhen_CRland_Runxi",
+      "slug": "shenzhen-crland-runxi",
       "category": "RESIDENTIAL",
       "architect": "SCDA",
       "url": "/images/projects/Shenzhen_CRland_Runxi/cover.webp",
@@ -413,12 +421,13 @@
     },
     {
       "title": "Yunyang_Sports_Park",
+      "slug": "yunyang-sports-park",
       "category": "SPORTS",
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/Yunyang_Sports_Park/cover.webp",
       "year": "2023",
       "coords": "30.950°N / 108.710°E",
-      "location": "Yunyang_Chongqin",
+      "location": "Yunyang_Chongqing",
       "images": [
         {"url": "/images/projects/Yunyang_Sports_Park/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Yunyang_Sports_Park/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -443,12 +452,13 @@
     },
      {
       "title": "Yibin_Yiyun_Digital_Art_Center",
+      "slug": "yibin-yiyun-digital-art-center",
       "category": "CULTURAL",
       "architect": "SADI",
       "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/cover.webp",
       "year": "2025",
       "coords": "28.730°N / 104.626°E",
-      "location": "Yibing_Sichuan",
+      "location": "Yibin_Sichuan",
       "images": [
         {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -470,6 +480,7 @@
     },
     {
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
+      "slug": "xichang-jianchuan-museum-documentary-hall",
       "category": "CULTURAL",
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/cover.webp",
@@ -500,6 +511,7 @@
     },
        {
       "title": "SCDA_30_Chengdu_Exhibition",
+      "slug": "scda-30-chengdu-exhibition",
       "category": "EXHIBITION",
       "architect": "SCDA",
       "url": "/images/projects/SCDA_30_Chengdu_Exhibition/cover.webp",
@@ -518,6 +530,7 @@
     },
     {
       "title": "General_Aviation_Headquarters_Base",
+      "slug": "general-aviation-headquarters-base",
       "category": "OFFICE",
       "architect": "SADI",
       "url": "/images/projects/General_Aviation_Headquarters_Base/cover.webp",
@@ -537,6 +550,7 @@
     },
     {
       "title": "Luxe_Lake_Cloud_Kindergarten",
+      "slug": "luxe-lake-cloud-kindergarten",
       "category": "INTERIOR",
       "architect": "Tektonn_Architects",
       "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/cover.webp",
@@ -578,11 +592,12 @@
     },
     {
       "title": "Ningbo_International_Conference_Center",
-      "category": "EDUCATION",
-      "architect": "Tanghua_Architects_&_Associates",
+      "slug": "ningbo-international-conference-center",
+      "category": "CULTURAL",
+      "architect": "Tanghua_Architects_&_Associates / BIAD",
       "url": "/images/projects/Ningbo_International_Conference_Center/cover.webp",
       "year": "2023",
-      "coords": "23.735°N / 104.154°E",
+      "coords": "29.764°N / 121.634°E",
       "location": "Ningbo_Zhejiang",
       "images": [
         {"url": "/images/projects/Ningbo_International_Conference_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -607,6 +622,7 @@
   },
     {
       "title": "Shanghai_Poly_Opus_One",
+      "slug": "shanghai-poly-opus-one",
       "category": "RESIDENTIAL",
       "architect": "SCDA",
       "url": "/images/projects/Shanghai_Poly_Opus_One/cover.webp",
@@ -632,6 +648,7 @@
   },
     {
       "title": "TAHITI",
+      "slug": "tahiti",
       "category": "RESIDENTIAL",
       "architect": "gad",
       "url": "/images/projects/TAHITI/cover.webp",
@@ -657,6 +674,7 @@
   },
     {
       "title": "Wuliangye_New_Economy_Group_Center",
+      "slug": "wuliangye-new-economy-group-center",
       "category": "OFFICE",
       "architect": "SADI",
       "url": "/images/projects/Wuliangye_New_Economy_Group_Center/cover.webp",
@@ -683,6 +701,7 @@
   },
     {
       "title": "Yibin_MixC",
+      "slug": "yibin-mixc",
       "category": "COMMERCIAL",
       "architect": "J&A",
       "url": "/images/projects/Yibin_MixC/cover.webp",
@@ -708,12 +727,13 @@
   },
      {
       "title": "The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone",
+      "slug": "the-planning-exhibition-center-of-liangjiang-collaborative-innovation-zone",
       "category": "CULTURAL",
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/cover.webp",
       "year": "2022",
       "coords": "23.352°N / 103.326°E",
-      "location": "Chongqin",
+      "location": "Chongqing",
       "images": [
         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/01.webp", "desc": "01", "meta": "18:30 // PM"},
         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/02.webp", "desc": "02", "meta": "21:30 // AM"},
@@ -736,6 +756,7 @@
   },
     {
       "title": "Xinglong_Lake_Roadshow_Center",
+      "slug": "xinglong-lake-roadshow-center",
       "category": "CULTURAL",
       "architect": "Tektonn_Architects",
       "url": "/images/projects/Xinglong_Lake_Roadshow_Center/cover.webp",
@@ -756,6 +777,7 @@
   },
     {
       "title": "Yeting",
+      "slug": "yeting",
       "category": "RESIDENTIAL",
       "architect": "SewDesign",
       "url": "/images/projects/Yeting/cover.webp",
@@ -862,7 +884,7 @@
       "cover": "/images/films/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
       "year": "2023",
       "coords": "29.561°N / 106.718°E",
-      "location": "Chongqin",
+      "location": "Chongqing",
       "videoUrl": "https://videos.mmcm-studio.com/Yangtze_River_Ecological_Cadre_Academy.mp4"
     },
     {

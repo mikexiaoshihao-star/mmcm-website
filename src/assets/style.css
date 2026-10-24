@@ -38,3 +38,8 @@
 [x-cloak] {
     display: none !important;
 }
+
+/* Deep-linked project pages hide the home hero until Alpine routes. */
+html.route-project [data-view="home"] {
+    display: none !important;
+}
