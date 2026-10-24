@@ -58,7 +58,7 @@ html.route-project [data-view="home"] {
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    gap: calc(3px * 108 / 132);
+    gap: calc(6px * 108 / 132);
     width: 108px;
     max-width: 100%;
     min-width: 0;
@@ -111,7 +111,7 @@ html.route-project [data-view="home"] {
 
 @media (min-width: 768px) {
     .site-logo {
-        gap: calc(4px * 230 / 300);
+        gap: calc(8px * 230 / 300);
         width: 230px;
     }
 
