@@ -35,10 +35,7 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' },
-                    backgroundImage: { 'grid-pattern': "linear-gradient(to right, #e6e6e6 1px, transparent 1px), linear-gradient(to bottom, #e6e6e6 1px, transparent 1px)" },
-                    animation: { 'grid-flow': 'gridMove 60s linear infinite' },
-                    keyframes: { gridMove: { '0%': { backgroundPosition: '0 0' }, '100%': { backgroundPosition: '4rem 4rem' } } }
+                    colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
         }
@@ -318,13 +315,8 @@ get filteredFilmProjects() {
 </head>
 <body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp">
 
-    <!-- 背景特效 -->
-    <div class="fixed inset-0 z-0 pointer-events-none bg-[size:4rem_4rem] bg-grid-pattern opacity-100 animate-grid-flow"></div>
-    <div class="fixed inset-0 z-0 pointer-events-none scanlines z-[1] opacity-100"></div>
-    <div class="fixed inset-0 z-0 pointer-events-none vignette z-[2]"></div>
-
     <!-- 顶部导航栏 -->
-    <nav class="fixed top-0 w-full z-40 h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white/90 border-b border-black/10 backdrop-blur-md">
+    <nav class="fixed top-0 w-full z-40 h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white border-b border-black/10">
         <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo justify-self-start min-w-0 max-w-full">
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
@@ -440,7 +432,7 @@ get filteredFilmProjects() {
 
     <!-- VIEW 2.5: PROJECT DETAIL -->
     <section x-show="currentView === 'project_detail'" x-cloak class="fixed inset-0 z-[60] bg-white flex flex-col font-mono">
-        <div class="lg:hidden fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white/90 backdrop-blur-md border-b border-black/10 z-[70]">
+        <div class="lg:hidden fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white border-b border-black/10 z-[70]">
             <button type="button" @click="switchView('works')" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
             <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase">Project Detail</div>
             <button type="button" @click="copyProjectLink()" class="h-10 min-w-10 flex items-center justify-end text-[9px] tracking-widest text-[#111111] hover:text-[#111111] transition-colors" x-text="linkCopied ? 'COPIED' : 'LINK'"></button>
@@ -562,7 +554,7 @@ get filteredFilmProjects() {
 
     <!-- VIEW 3.5: FILM DETAIL (Video Player) -->
     <section x-show="currentView === 'film_detail'" x-cloak class="fixed inset-0 z-[60] bg-white flex flex-col font-mono">
-        <div class="fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white/90 backdrop-blur-md border-b border-black/10 z-[70]">
+        <div class="fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white border-b border-black/10 z-[70]">
             <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
             <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase pr-10">Film Player</div>
         </div>
