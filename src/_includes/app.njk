@@ -35,10 +35,7 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' },
-                    backgroundImage: { 'grid-pattern': "linear-gradient(to right, #e6e6e6 1px, transparent 1px), linear-gradient(to bottom, #e6e6e6 1px, transparent 1px)" },
-                    animation: { 'grid-flow': 'gridMove 60s linear infinite' },
-                    keyframes: { gridMove: { '0%': { backgroundPosition: '0 0' }, '100%': { backgroundPosition: '4rem 4rem' } } }
+                    colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
         }
@@ -319,7 +316,6 @@ get filteredFilmProjects() {
 <body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp">
 
     <!-- 背景特效 -->
-    <div class="fixed inset-0 z-0 pointer-events-none bg-[size:4rem_4rem] bg-grid-pattern opacity-100 animate-grid-flow"></div>
     <div class="fixed inset-0 z-0 pointer-events-none scanlines z-[1] opacity-100"></div>
     <div class="fixed inset-0 z-0 pointer-events-none vignette z-[2]"></div>
 
