@@ -327,7 +327,7 @@ get filteredFilmProjects() {
     <nav class="fixed top-0 w-full z-40 h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white/90 border-b border-black/10 backdrop-blur-md">
         <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo justify-self-start min-w-0 max-w-full">
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
-            <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true">毫厘建筑摄影</span>
+            <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
         <div class="flex gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
             <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
@@ -695,5 +695,37 @@ get filteredFilmProjects() {
         </div>
     </section>
 
+    <script>
+        /* Pin the visible edges of 毫 and 影 to the wordmark. Side bearings differ by face, so measure the face that actually loaded. */
+        (function () {
+            var line = document.querySelector('.site-logo-zh');
+            if (!line) return;
+            var first = line.firstElementChild;
+            var last = line.lastElementChild;
+            function bearing(ch) {
+                var cs = getComputedStyle(line);
+                var size = 200;
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                if (!ctx || !ctx.measureText) return null;
+                ctx.font = cs.fontWeight + ' ' + size + 'px ' + cs.fontFamily;
+                var metrics = ctx.measureText(ch);
+                if (metrics.actualBoundingBoxLeft == null || metrics.actualBoundingBoxRight == null) return null;
+                return {
+                    left: -metrics.actualBoundingBoxLeft / size,
+                    right: (metrics.width - metrics.actualBoundingBoxRight) / size
+                };
+            }
+            function align() {
+                var start = bearing(first.textContent);
+                var end = bearing(last.textContent);
+                if (!start || !end) return;
+                first.style.marginLeft = (-start.left) + 'em';
+                last.style.marginRight = (-end.right) + 'em';
+            }
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(align);
+            else align();
+        })();
+    </script>
 </body>
 </html>
