@@ -220,10 +220,14 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     return '/images/media/' + file;
                 },
                 mediaTypeLabel(type) {
-                    if (type === 'website') return 'WEBSITE';
-                    if (type === 'magazine') return 'MAGAZINE';
-                    if (type === '公众号') return '公众号';
-                    return String(type || '');
+                    const raw = String(type || '').trim();
+                    const value = raw.toLowerCase();
+                    if (raw.includes('公众号')) return '公众号';
+                    if (value === 'magazine' || raw.includes('杂志')) return 'MAGAZINE';
+                    if (value.includes('firm') || raw.includes('设计公司')) return 'FIRM';
+                    if (value.includes('award') || raw.includes('奖项')) return 'AWARD';
+                    if (value === 'website' || value === 'media' || raw.includes('网站')) return 'WEBSITE';
+                    return raw;
                 },
                 mediaSortKey(item) {
                     if (item && item.date) return String(item.date);
