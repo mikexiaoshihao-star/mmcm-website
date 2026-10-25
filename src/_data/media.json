@@ -952,6 +952,23 @@
     "cover": "covers/tektonn-cloudkindergarten.webp"
   },
   {
+    "slug": "scda-poly-shanghai",
+    "project_cn": "上海保利·天汇（Poly Shanghai）",
+    "project_en": "Shanghai_Poly_Opus_One",
+    "outlet": "SCDA Architects 官网",
+    "type": "设计公司官网 / Firm website",
+    "year": 2023,
+    "date": "",
+    "url": "https://www.scdaarchitects.com/projects/poly-shanghai",
+    "title": "Poly Shanghai | SCDA",
+    "credit": "页面无摄影署名字段（SCDA官网所有项目均无摄影师栏）；Mike 已确认页面所用7张图片为其拍摄",
+    "verified": true,
+    "note": "year=竣工年份（completion 2023）。SCDA官网项目信息栏写 Year 2018（设计/启动年份）。图片：PolyShanghai-Banner 及 -1…-6，均为毫厘建筑摄影作品（作者确认）。",
+    "cover_path": "covers/scda-poly-shanghai.webp",
+    "cover_url": "https://cdn.prod.website-files.com/6673177964ace8474c0abbbe/671bb541d9ccd6fd6b5990e1_PolyShanghai-Banner.webp",
+    "cover": "covers/scda-poly-shanghai.webp"
+  },
+  {
     "slug": "gooood-roadshow",
     "project_cn": "兴隆湖天府路演艺术中心",
     "project_en": "Roadshow Art Center of Tianfu (Xinglong Lake Roadshow Center)",
