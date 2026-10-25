@@ -225,26 +225,73 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     if (type === '公众号') return '公众号';
                     return String(type || '');
                 },
+                mediaSortKey(item) {
+                    if (item && item.date) return String(item.date);
+                    if (item && item.year) return String(item.year).padStart(4, '0') + '-00-00';
+                    return '';
+                },
+                mediaCleanLabel(text) {
+                    return String(text || '')
+                        .replace(/（[^）]*不在site\.json[^）]*）/g, '')
+                        .replace(/\([^)]*不在site\.json[^)]*\)/g, '')
+                        .replace(/\([^)]*个人摄影[^)]*\)/g, '')
+                        .trim();
+                },
+                mediaGroupKey(item) {
+                    const byTitle = {
+                        'Oppo_Technology_&_Research_Centre_Tower': 'OPPO科技研究中心大厦',
+                        'Chengdu_SKP': '成都SKP',
+                        'LuxeLakes_Kindergarten_(North_Campus)': '四川天府新区麓湖幼儿园（北区）',
+                        'Xichang_Jianchuan_Museum_Documentary_Hall': '西昌建川电影博物馆聚落·纪录片陈列馆',
+                        'Luxe_Lake_Cloud_Kindergarten': '麓湖云朵幼儿园',
+                        'Ningbo_International_Conference_Center': '宁波国际会议中心',
+                        'Xinglong_Lake_Roadshow_Center': '兴隆湖天府路演艺术中心',
+                        'Yibin_MixC': '宜宾万象汇',
+                        'Shanghai_Poly_Opus_One': '上海保利·天汇（Poly Shanghai）'
+                    };
+                    if (byTitle[item.project_en]) return byTitle[item.project_en];
+                    return this.mediaCleanLabel(item.project_cn) || item.project_cn;
+                },
+                mediaDisplayEn(en) {
+                    const cleaned = this.mediaCleanLabel(en);
+                    if (!cleaned) return '';
+                    if (cleaned.indexOf('_') !== -1) return cleaned.replace(/_/g, ' ');
+                    return cleaned;
+                },
                 get mediaFeatured() {
                     return this.mediaItems.find((item) => item.slug === 'archiposition-interview') || null;
                 },
                 get mediaGroups() {
                     const groups = new Map();
-                    this.mediaItems.forEach((item) => {
+                    const items = this.mediaItems.slice().sort((a, b) => this.mediaSortKey(b).localeCompare(this.mediaSortKey(a)));
+                    items.forEach((item) => {
                         if (item.slug === 'archiposition-interview') return;
-                        const key = item.project_cn;
+                        const key = this.mediaGroupKey(item);
                         if (!groups.has(key)) {
                             groups.set(key, {
-                                project_cn: item.project_cn,
-                                project_en: item.project_en,
-                                cover: item.cover || null,
-                                latest: item.date || '',
+                                project_cn: key,
+                                project_en: '',
+                                cover: null,
+                                latest: '',
                                 items: []
                             });
                         }
                         const group = groups.get(key);
                         group.items.push(item);
+                        const sortKey = this.mediaSortKey(item);
+                        if (sortKey > group.latest) group.latest = sortKey;
                         if (!group.cover && item.cover) group.cover = item.cover;
+                    });
+                    groups.forEach((group) => {
+                        const prose = group.items.find((item) => item.project_en && item.project_en.indexOf('_') === -1 && !/不在site\.json|个人摄影/.test(item.project_en));
+                        if (prose) {
+                            group.project_cn = prose.project_cn;
+                            group.project_en = prose.project_en;
+                        } else {
+                            const item = group.items[0];
+                            group.project_cn = this.mediaCleanLabel(item.project_cn) || group.project_cn;
+                            group.project_en = this.mediaDisplayEn(item.project_en);
+                        }
                     });
                     return Array.from(groups.values()).sort((a, b) => String(b.latest).localeCompare(String(a.latest)));
                 },
