@@ -34,7 +34,7 @@
       "img": "/images/home/02.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "architect": "Tanghua_Architects_&_Associates",
-      "address": "Guangyang_Island,Chongqing",
+      "address": "Guangyang_Bay,Chongqing",
       "coords": "29.585°N / 106.740°E"
     },
     {
@@ -56,7 +56,7 @@
       "title": "Lake_City",
       "architect": "SCDA",
       "address": "Chengdu,Sichuan",
-      "coords": "34.212°N / 108.851°E"
+      "coords": "30.478°N / 104.024°E"
     },
     {
       "img": "/images/home/06.webp",
@@ -70,7 +70,7 @@
       "title": "Poly_Expo",
       "architect": "SCDA",
       "address": "Shanghai",
-      "coords": "34.212°N / 108.851°E"
+      "coords": "31.199°N / 121.500°E"
     }
   ],
   "homeProjectsMobile": [
@@ -92,7 +92,7 @@
         "title": "Poly_Expo",
         "architect": "SCDA",
         "address": "Shanghai",
-        "coords": "30.51°N / 104.08°E",
+        "coords": "31.199°N / 121.500°E",
         "img": "/images/home/mobile-03.webp"
     },
      {
@@ -106,14 +106,14 @@
         "title": "157_Tower",
         "architect": "SADI",
         "address": "Chengdu,Sichuan",
-        "coords": "30.51°N / 104.08°E",
+        "coords": "30.664°N / 104.083°E",
         "img": "/images/home/mobile-05.webp"
     },
      {
         "title": "Lake_City",
         "architect": "SCDA",
         "address": "Chengdu,Sichuan",
-        "coords": "30.51°N / 104.08°E",
+        "coords": "30.478°N / 104.024°E",
         "img": "/images/home/mobile-06.webp"
     },
     {
@@ -516,7 +516,7 @@
       "architect": "SCDA",
       "url": "/images/projects/SCDA_30_Chengdu_Exhibition/cover.webp",
       "year": "2026",
-      "coords": "23.830°N / 103.137°E",
+      "coords": "30.478°N / 104.024°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -627,7 +627,7 @@
       "architect": "SCDA",
       "url": "/images/projects/Shanghai_Poly_Opus_One/cover.webp",
       "year": "2023",
-      "coords": "23.335°N / 104.155°E",
+      "coords": "31.199°N / 121.500°E",
       "location": "Shanghai",
       "images": [
         {"url": "/images/projects/Shanghai_Poly_Opus_One/01.webp", "desc": "01", "meta": "18:30 // PM"},
