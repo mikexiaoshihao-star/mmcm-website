@@ -108,7 +108,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
 
             Alpine.data('mainApp', () => ({
                 currentView: (/^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash) || (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname))) ? 'project_detail' : ((/^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash) || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname))) ? 'media' : 'home'),
-                activeFilter: 'ALL',
+                worksEntry: 'architecture',
                 activeFilmFilter: 'ALL',
                 currentHomeIndex: 0,
                 homeImgVisible: true,
@@ -248,11 +248,11 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 mediaGroupKey(item) {
                     const byTitle = {
-                        'Oppo_Technology_&_Research_Centre_Tower': 'OPPO科技研究中心大厦',
+                        'OPPO_Technology_&_Research_Center_Tower': 'OPPO科技研究中心大厦',
                         'Chengdu_SKP': '成都SKP',
                         'LuxeLakes_Kindergarten_(North_Campus)': '四川天府新区麓湖幼儿园（北区）',
                         'Xichang_Jianchuan_Museum_Documentary_Hall': '西昌建川电影博物馆聚落·纪录片陈列馆',
-                        'Luxe_Lake_Cloud_Kindergarten': '麓湖云朵幼儿园',
+                        'LuxeLakes_Cloud_Kindergarten': '麓湖云朵幼儿园',
                         'Ningbo_International_Conference_Center': '宁波国际会议中心',
                         'Xinglong_Lake_Roadshow_Center': '兴隆湖天府路演艺术中心',
                         'Yibin_MixC': '宜宾万象汇',
@@ -304,7 +304,12 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     });
                     return Array.from(groups.values()).sort((a, b) => String(b.latest).localeCompare(String(a.latest)));
                 },
+                openWorks() {
+                    this.worksEntry = 'architecture';
+                    this.switchView('works');
+                },
                 openProject(project, opts = {}) {
+    if (project && project.discipline) this.worksEntry = project.discipline;
     this.selectedProject = project;
     this.linkCopied = false;
     this.currentDetailImageIndex = 0;
@@ -419,8 +424,7 @@ getNextIndex() {
     return this.currentDetailImageIndex < this.detailImages.length - 1 ? this.currentDetailImageIndex + 1 : null;
 },
                 get filteredProjects() {
-    if (this.activeFilter === 'ALL') return this.projects;
-    return this.projects.filter(p => p.category === this.activeFilter);
+    return this.projects.filter((project) => project.discipline === this.worksEntry);
 },
 openFilm(film) {
     this.selectedFilm = film;
@@ -448,7 +452,7 @@ get filteredFilmProjects() {
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
         <div class="flex gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
-            <a href="#" @click.prevent="switchView('works')" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
+            <a href="#" @click.prevent="openWorks()" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
 <a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('FILM')" @mouseenter="animate('FILM')" x-text="displayText">FILM</a>
 <a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('MEDIA')" @mouseenter="animate('MEDIA')" x-text="displayText">MEDIA</a>
 <a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
@@ -508,30 +512,25 @@ get filteredFilmProjects() {
 
     <!-- VIEW 2: WORKS -->
     <section x-show="currentView === 'works'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
-        <div class="mb-10 flex flex-wrap gap-3 font-mono text-xs z-20 relative">
-            <button @click="activeFilter = 'ALL'" 
-                    class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                    :class="activeFilter === 'ALL' ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
-                    x-data="scrambleText('ALL_PROJECTS')" @mouseenter="animate('ALL_PROJECTS')">
-                <span class="relative z-10 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilter === 'ALL' ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
-                    <span x-text="displayText"></span>
-                </span>
+        <div class="mb-10 flex flex-wrap items-baseline gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] uppercase z-20 relative">
+            <button type="button" data-works-entry="architecture" @click="worksEntry = 'architecture'"
+                    class="pb-1 border-b transition-colors"
+                    :class="worksEntry === 'architecture' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'">
+                ARCHITECTURE <span class="tracking-normal">建筑</span>
             </button>
-           <template x-for="cat in categories" :key="cat.key">
-                <button @click="activeFilter = cat.key" 
-                        class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                        :class="activeFilter === cat.key ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
-                        x-data="categoryBtn(cat.key, cat.name)" @mouseenter="animate(key)">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilter === key ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
-                        <span x-text="displayText"></span>
-                        <span class="opacity-50 text-[10px] scale-90" x-text="'// ' + name"></span>
-                    </span>
-                </button>
-            </template>
+            <button type="button" data-works-entry="interior" @click="worksEntry = 'interior'"
+                    class="pb-1 border-b transition-colors"
+                    :class="worksEntry === 'interior' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'">
+                INTERIOR <span class="tracking-normal">室内</span>
+            </button>
+            <button type="button" data-works-entry="landscape" @click="worksEntry = 'landscape'"
+                    class="pb-1 border-b transition-colors"
+                    :class="worksEntry === 'landscape' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'">
+                LANDSCAPE <span class="tracking-normal">景观</span>
+            </button>
         </div>
-        <div class="columns-1 md:columns-3 gap-8">
+        <p x-show="filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16">即将上线 / Coming soon</p>
+        <div x-show="filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
                     <div class="relative w-full bg-[#f4f4f4] overflow-hidden border border-black/10 group-hover:border-[#111111] transition-colors duration-300">
