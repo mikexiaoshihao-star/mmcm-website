@@ -78,6 +78,11 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     navWorks: 'WORKS', navFilm: 'FILM', navMedia: 'MEDIA', navStudio: 'STUDIO', navContact: 'CONTACT',
                     architecture: 'Architecture', interior: 'Interior', landscape: 'Landscape',
                     comingSoon: 'Coming soon', allFilms: 'ALL_FILMS',
+                    filterAll: 'All',
+                    type_office: 'Office', type_commercial: 'Commercial', type_residential: 'Residential',
+                    type_cultural: 'Cultural', type_education: 'Education', type_sports: 'Sports',
+                    type_exhibition: 'Exhibition', type_public: 'Public', type_hospitality: 'Hospitality',
+                    type_mixed_use: 'Mixed-use',
                     projectDetail: 'Project Detail', link: 'LINK', copied: 'COPIED', copyLink: 'COPY LINK',
                     returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
                     videoUnsupported: 'Your browser does not support video playback.',
@@ -91,6 +96,11 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     navWorks: '作品', navFilm: '影像', navMedia: '媒体', navStudio: '工作室', navContact: '联系',
                     architecture: '建筑', interior: '室内', landscape: '景观',
                     comingSoon: '即将上线', allFilms: '全部影像',
+                    filterAll: '全部',
+                    type_office: '办公', type_commercial: '商业', type_residential: '住宅',
+                    type_cultural: '文化', type_education: '教育', type_sports: '体育',
+                    type_exhibition: '展览', type_public: '公共', type_hospitality: '酒店',
+                    type_mixed_use: '综合体',
                     projectDetail: '项目', link: '链接', copied: '已复制', copyLink: '复制链接',
                     returnGrid: '返回列表', filmPlayer: '影像',
                     videoUnsupported: '您的浏览器不支持视频播放',
@@ -171,6 +181,8 @@ filmCategories: {{ site.filmCategories | dump | safe }},
             Alpine.data('mainApp', () => ({
                 currentView: (/^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash) || (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname))) ? 'project_detail' : ((/^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash) || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname))) ? 'media' : 'home'),
                 worksEntry: 'architecture',
+                worksType: 'all',
+                worksFilterOpen: false,
                 activeFilmFilter: 'ALL',
                 currentHomeIndex: 0,
                 homeImgVisible: true,
@@ -385,10 +397,23 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 openWorks() {
                     this.worksEntry = 'architecture';
+                    this.worksType = 'all';
+                    this.worksFilterOpen = false;
                     this.switchView('works');
                 },
+                setWorksEntry(key) {
+                    if (this.worksEntry !== key) {
+                        this.worksEntry = key;
+                        this.worksType = 'all';
+                    }
+                    this.worksFilterOpen = false;
+                },
                 openProject(project, opts = {}) {
-    if (project && project.discipline) this.worksEntry = project.discipline;
+    if (project && project.discipline && project.discipline !== this.worksEntry) {
+        this.worksEntry = project.discipline;
+        this.worksType = 'all';
+    }
+    this.worksFilterOpen = false;
     this.selectedProject = project;
     this.linkCopied = false;
     this.currentDetailImageIndex = 0;
@@ -503,8 +528,28 @@ getNextIndex() {
     return this.currentDetailImageIndex < this.detailImages.length - 1 ? this.currentDetailImageIndex + 1 : null;
 },
                 get filteredProjects() {
-    return this.projects.filter((project) => project.discipline === this.worksEntry);
+    return this.projects.filter((project) => {
+        if (project.discipline !== this.worksEntry) return false;
+        if (!this.worksType || this.worksType === 'all') return true;
+        return project.type === this.worksType;
+    });
 },
+                get worksTypeOptions() {
+                    const order = ['office', 'commercial', 'residential', 'cultural', 'education', 'sports', 'exhibition', 'public', 'hospitality', 'mixed_use'];
+                    const inEntry = this.projects.filter((project) => project.discipline === this.worksEntry);
+                    if (!inEntry.length) return [];
+                    const counts = {};
+                    inEntry.forEach((project) => {
+                        if (!project.type) return;
+                        counts[project.type] = (counts[project.type] || 0) + 1;
+                    });
+                    const keys = Object.keys(counts).sort((a, b) => {
+                        const ia = order.indexOf(a);
+                        const ib = order.indexOf(b);
+                        return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+                    });
+                    return [{ key: 'all', count: inEntry.length }].concat(keys.map((key) => ({ key, count: counts[key] })));
+                },
 openFilm(film) {
     this.selectedFilm = film;
     this.switchView('film_detail');
@@ -596,19 +641,39 @@ get filteredFilmProjects() {
 
     <!-- VIEW 2: WORKS -->
     <section x-show="currentView === 'works'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
-        <div class="mb-10 flex flex-wrap items-baseline gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] uppercase z-20 relative">
-            <button type="button" data-works-entry="architecture" @click="worksEntry = 'architecture'"
+        <div class="mb-10 flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] z-20 relative">
+            <div class="flex flex-wrap items-baseline gap-x-5 gap-y-3 md:gap-x-10 uppercase">
+            <button type="button" data-works-entry="architecture" @click="setWorksEntry('architecture')"
                     class="pb-1 border-b transition-colors"
                     :class="worksEntry === 'architecture' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
                     x-text="$store.lang.t('architecture')"></button>
-            <button type="button" data-works-entry="interior" @click="worksEntry = 'interior'"
+            <button type="button" data-works-entry="interior" @click="setWorksEntry('interior')"
                     class="pb-1 border-b transition-colors"
                     :class="worksEntry === 'interior' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
                     x-text="$store.lang.t('interior')"></button>
-            <button type="button" data-works-entry="landscape" @click="worksEntry = 'landscape'"
+            <button type="button" data-works-entry="landscape" @click="setWorksEntry('landscape')"
                     class="pb-1 border-b transition-colors"
                     :class="worksEntry === 'landscape' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
                     x-text="$store.lang.t('landscape')"></button>
+            </div>
+            <div class="relative ml-auto normal-case" x-show="worksTypeOptions.length" x-cloak @click.outside="worksFilterOpen = false">
+                <button type="button" data-works-filter
+                        class="flex items-center gap-2 border border-[#E5E5E5] bg-white text-[#111111] px-3 py-1.5"
+                        @click="worksFilterOpen = !worksFilterOpen"
+                        :aria-expanded="worksFilterOpen">
+                    <span x-text="$store.lang.t(worksType === 'all' ? 'filterAll' : ('type_' + worksType)) + ' ' + ((worksTypeOptions.find((opt) => opt.key === worksType) || {}).count || '')"></span>
+                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-[#111111] rotate-45 -translate-y-px" aria-hidden="true"></span>
+                </button>
+                <div x-show="worksFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
+                    <template x-for="opt in worksTypeOptions" :key="opt.key">
+                        <button type="button"
+                                class="block w-full text-left px-3 py-1.5 whitespace-nowrap bg-white"
+                                :class="worksType === opt.key ? 'text-[#111111]' : 'text-[#666666]'"
+                                @click="worksType = opt.key; worksFilterOpen = false"
+                                x-text="$store.lang.t(opt.key === 'all' ? 'filterAll' : ('type_' + opt.key)) + ' ' + opt.count"></button>
+                    </template>
+                </div>
+            </div>
         </div>
         <p x-show="filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
         <div x-show="filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
