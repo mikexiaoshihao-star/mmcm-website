@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -34,16 +34,25 @@
                 || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname));
             if (onProject || onMedia) document.documentElement.classList.add('route-project');
         })();
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('mmcm-lang'); } catch (e) {}
+            var lang = (stored === 'zh' || stored === 'en')
+                ? stored
+                : ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+            window.__MMCM_LANG = lang;
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        })();
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['Inter', 'Noto Sans SC', 'sans-serif'], mono: ['JetBrains Mono', 'Noto Sans SC', 'monospace'] },
                     colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
@@ -64,6 +73,59 @@ filmCategories: {{ site.filmCategories | dump | safe }},
 };
 
         document.addEventListener('alpine:init', () => {
+            const UI = {
+                en: {
+                    navWorks: 'WORKS', navFilm: 'FILM', navMedia: 'MEDIA', navStudio: 'STUDIO', navContact: 'CONTACT',
+                    architecture: 'Architecture', interior: 'Interior', landscape: 'Landscape',
+                    comingSoon: 'Coming soon', allFilms: 'ALL_FILMS',
+                    projectDetail: 'Project Detail', link: 'LINK', copied: 'COPIED', copyLink: 'COPY LINK',
+                    returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
+                    videoUnsupported: 'Your browser does not support video playback.',
+                    interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
+                    dbUpdated: 'DATABASE_LAST_UPDATED: 2026.01.07', signal: 'SIGNAL_STABLE',
+                    mobile: 'Mobile / Wechat', email: 'Email Address', site: 'Official Site', social: '02 // SOCIAL_MATRIX',
+                    location: 'LOCATION_DATA', encrypted: 'ENCRYPTED_CONNECTION', linkArrow: '>> LINK',
+                    mediaPage: 'Media', typeWechat: 'WECHAT', typeMagazine: 'MAGAZINE', typeFirm: 'FIRM', typeAward: 'AWARD', typeWebsite: 'WEBSITE'
+                },
+                zh: {
+                    navWorks: '作品', navFilm: '影像', navMedia: '媒体', navStudio: '工作室', navContact: '联系',
+                    architecture: '建筑', interior: '室内', landscape: '景观',
+                    comingSoon: '即将上线', allFilms: '全部影像',
+                    projectDetail: '项目', link: '链接', copied: '已复制', copyLink: '复制链接',
+                    returnGrid: '返回列表', filmPlayer: '影像',
+                    videoUnsupported: '您的浏览器不支持视频播放',
+                    interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
+                    dbUpdated: '数据更新：2026.01.07', signal: '信号稳定',
+                    mobile: '手机 / 微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
+                    location: '所在地', encrypted: '加密连接', linkArrow: '>> 链接',
+                    mediaPage: '媒体', typeWechat: '公众号', typeMagazine: '杂志', typeFirm: '设计公司', typeAward: '奖项', typeWebsite: '网站'
+                }
+            };
+            Alpine.store('lang', {
+                code: window.__MMCM_LANG === 'zh' ? 'zh' : 'en',
+                t(key) { return (UI[this.code] && UI[this.code][key]) || UI.en[key] || key; },
+                name(item) {
+                    if (!item) return '';
+                    if (this.code === 'zh' && item.title_zh) return item.title_zh;
+                    return item.title_en || item.title || '';
+                },
+                personName(studio) {
+                    if (!studio) return '';
+                    if (this.code === 'zh' && studio.name_zh) return studio.name_zh;
+                    return studio.name || '';
+                },
+                personTitle(studio) {
+                    if (!studio) return '';
+                    if (this.code === 'zh' && studio.title_zh) return studio.title_zh;
+                    return studio.title || '';
+                },
+                set(code) {
+                    if (code !== 'zh' && code !== 'en') return;
+                    this.code = code;
+                    try { localStorage.setItem('mmcm-lang', code); } catch (e) {}
+                    document.documentElement.lang = code === 'zh' ? 'zh-CN' : 'en';
+                }
+            });
             Alpine.data('scrambleText', (initialText = '') => ({
                 displayText: initialText, 
                 chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ/<>[]#1234567890_@$%',
@@ -168,7 +230,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     }
                     if (this.onMediaUrl()) {
                         this.currentView = 'media';
-                        document.title = 'Media | ' + HOME_TITLE;
+                        document.title = Alpine.store('lang').t('mediaPage') + ' | ' + HOME_TITLE;
                         return;
                     }
                     if (this.currentView === 'project_detail') {
@@ -216,7 +278,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.currentDetailImageIndex = 0;
                         this.linkCopied = false;
                     }
-                    document.title = 'Media | ' + HOME_TITLE;
+                    document.title = Alpine.store('lang').t('mediaPage') + ' | ' + HOME_TITLE;
                     if (!/^\/media\/?$/.test(location.pathname)) history.pushState({ view: 'media' }, '', '/media/');
                 },
                 mediaCover(cover) {
@@ -227,12 +289,29 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 mediaTypeLabel(type) {
                     const raw = String(type || '').trim();
                     const value = raw.toLowerCase();
-                    if (raw.includes('公众号')) return '公众号';
-                    if (value === 'magazine' || raw.includes('杂志')) return 'MAGAZINE';
-                    if (value.includes('firm') || raw.includes('设计公司')) return 'FIRM';
-                    if (value.includes('award') || raw.includes('奖项')) return 'AWARD';
-                    if (value === 'website' || value === 'media' || raw.includes('网站')) return 'WEBSITE';
+                    const t = Alpine.store('lang').t.bind(Alpine.store('lang'));
+                    if (raw.includes('公众号')) return t('typeWechat');
+                    if (value === 'magazine' || raw.includes('杂志')) return t('typeMagazine');
+                    if (value.includes('firm') || raw.includes('设计公司')) return t('typeFirm');
+                    if (value.includes('award') || raw.includes('奖项')) return t('typeAward');
+                    if (value === 'website' || value === 'media' || raw.includes('网站')) return t('typeWebsite');
                     return raw;
+                },
+                categoryLabel(key) {
+                    const zh = Alpine.store('lang').code === 'zh';
+                    const cat = (this.categories || []).concat(this.filmCategories || []).find((item) => item.key === key);
+                    if (!cat) return key || '';
+                    return zh ? cat.name : cat.key;
+                },
+                applyDocumentTitle() {
+                    const lang = Alpine.store('lang');
+                    if (this.currentView === 'project_detail' && this.selectedProject) {
+                        document.title = String(lang.name(this.selectedProject) || '').replace(/_/g, ' ') + ' | ' + HOME_TITLE;
+                    } else if (this.currentView === 'media') {
+                        document.title = lang.t('mediaPage') + ' | ' + HOME_TITLE;
+                    } else {
+                        document.title = HOME_TITLE;
+                    }
                 },
                 mediaSortKey(item) {
                     if (item && item.date) return String(item.date);
@@ -336,7 +415,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     const slug = this.slugOf(project);
     const url = '/projects/' + slug + '/';
     if (opts.push !== false && location.pathname !== url) history.pushState({ project: slug }, '', url);
-    document.title = String(project.title || '').replace(/_/g, ' ') + ' | ' + HOME_TITLE;
+    document.title = String(Alpine.store('lang').name(project) || '').replace(/_/g, ' ') + ' | ' + HOME_TITLE;
 },
                 copyProjectLink() {
                     const project = this.selectedProject;
@@ -443,7 +522,7 @@ get filteredFilmProjects() {
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp">
+<body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp" x-effect="applyDocumentTitle()">
 
     <!-- 顶部导航栏 -->
     <nav class="fixed top-0 w-full z-40 h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white border-b border-black/10">
@@ -451,12 +530,17 @@ get filteredFilmProjects() {
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
-        <div class="flex gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
-            <a href="#" @click.prevent="openWorks()" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('WORKS')" @mouseenter="animate('WORKS')" x-text="displayText">WORKS</a>
-<a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('FILM')" @mouseenter="animate('FILM')" x-text="displayText">FILM</a>
-<a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('MEDIA')" @mouseenter="animate('MEDIA')" x-text="displayText">MEDIA</a>
-<a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('STUDIO')" @mouseenter="animate('STUDIO')" x-text="displayText">STUDIO</a>
-            <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText('CONTACT')" @mouseenter="animate('CONTACT')" x-text="displayText">CONTACT</a>
+        <div class="flex items-center gap-1.5 md:gap-10 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
+            <a href="#" @click.prevent="openWorks()" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navWorks'))" @mouseenter="animate($store.lang.t('navWorks'))" x-text="displayText">WORKS</a>
+            <a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navFilm'))" @mouseenter="animate($store.lang.t('navFilm'))" x-text="displayText">FILM</a>
+            <a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navMedia'))" @mouseenter="animate($store.lang.t('navMedia'))" x-text="displayText">MEDIA</a>
+            <a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navStudio'))" @mouseenter="animate($store.lang.t('navStudio'))" x-text="displayText">STUDIO</a>
+            <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navContact'))" @mouseenter="animate($store.lang.t('navContact'))" x-text="displayText">CONTACT</a>
+            <div class="flex items-center ml-1 md:ml-2" role="group" aria-label="Language">
+                <button type="button" @click="$store.lang.set('zh')" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center" :class="$store.lang.code === 'zh' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'zh'">中</button>
+                <span class="text-[#666666] leading-none" aria-hidden="true">/</span>
+                <button type="button" @click="$store.lang.set('en')" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center" :class="$store.lang.code === 'en' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'en'">EN</button>
+            </div>
         </div>
     </nav>
 
@@ -484,12 +568,12 @@ get filteredFilmProjects() {
     <!-- 电脑端信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
         <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.architect)" x-text="displayText"></div>
-        <div class="text-[#111111] font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate(currentHomeProject.title)" x-text="displayText"></div>
+        <div class="text-[#111111] font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate($store.lang.name(currentHomeProject))" x-text="displayText"></div>
     </div>
     <!-- 手机端信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mb-4">
         <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="currentHomeMobileProject.architect"></div>
-        <div class="text-[#111111] font-bold text-sm" x-text="currentHomeMobileProject.title"></div>
+        <div class="text-[#111111] font-bold text-sm" x-text="$store.lang.name(currentHomeMobileProject)"></div>
     </div>
     <!-- 电脑端右侧信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start md:items-end mt-0">
@@ -515,21 +599,18 @@ get filteredFilmProjects() {
         <div class="mb-10 flex flex-wrap items-baseline gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] uppercase z-20 relative">
             <button type="button" data-works-entry="architecture" @click="worksEntry = 'architecture'"
                     class="pb-1 border-b transition-colors"
-                    :class="worksEntry === 'architecture' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'">
-                ARCHITECTURE <span class="tracking-normal">建筑</span>
-            </button>
+                    :class="worksEntry === 'architecture' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
+                    x-text="$store.lang.t('architecture')"></button>
             <button type="button" data-works-entry="interior" @click="worksEntry = 'interior'"
                     class="pb-1 border-b transition-colors"
-                    :class="worksEntry === 'interior' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'">
-                INTERIOR <span class="tracking-normal">室内</span>
-            </button>
+                    :class="worksEntry === 'interior' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
+                    x-text="$store.lang.t('interior')"></button>
             <button type="button" data-works-entry="landscape" @click="worksEntry = 'landscape'"
                     class="pb-1 border-b transition-colors"
-                    :class="worksEntry === 'landscape' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'">
-                LANDSCAPE <span class="tracking-normal">景观</span>
-            </button>
+                    :class="worksEntry === 'landscape' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
+                    x-text="$store.lang.t('landscape')"></button>
         </div>
-        <p x-show="filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16">即将上线 / Coming soon</p>
+        <p x-show="filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
         <div x-show="filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
@@ -537,14 +618,14 @@ get filteredFilmProjects() {
                         <img :src="project.url" loading="lazy" class="w-full h-auto block filter grayscale group-hover:grayscale-0 transition-all duration-500">
                     </div>
                     <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
-    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-words" x-text="project.title"></div>
+    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-words" x-text="$store.lang.name(project)"></div>
     <div class="flex justify-between items-baseline">
         <div class="text-[#666666]" x-text="project.architect"></div>
         <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + project.year + ' ]'"></div>
     </div>
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="project.category"></span>
+            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="categoryLabel(project.category)"></span>
             <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
             <span class="text-[#111111] text-[9px]" x-text="project.coords"></span>
         </div>
@@ -558,16 +639,15 @@ get filteredFilmProjects() {
 
     <!-- VIEW: MEDIA -->
     <section x-show="currentView === 'media'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen bg-white">
-        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-[0.22em] text-[#111111]">MEDIA <span class="text-[#666666]">// 媒体</span></div>
+        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-[0.22em] text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
 
         <a x-show="mediaFeatured"
            :href="mediaFeatured ? mediaFeatured.url : '#'"
            target="_blank"
            rel="noopener noreferrer"
            class="block border border-black/10 hover:border-[#111111] p-6 md:p-10 mb-14 md:mb-20 transition-colors">
-            <div class="font-mono text-[10px] tracking-[0.22em] text-[#666666]">INTERVIEW</div>
-            <h2 class="font-mono text-base md:text-2xl text-[#111111] font-medium leading-snug mt-4 max-w-3xl" x-text="mediaFeatured ? mediaFeatured.project_cn : ''"></h2>
-            <p class="font-mono text-[11px] md:text-xs text-[#666666] mt-3 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.project_en : ''"></p>
+            <div class="font-mono text-[10px] tracking-[0.22em] text-[#666666]" x-text="$store.lang.t('interview')"></div>
+            <h2 class="font-mono text-base md:text-2xl text-[#111111] font-medium leading-snug mt-4 max-w-3xl" x-text="mediaFeatured ? ($store.lang.code === 'zh' ? mediaFeatured.project_cn : (mediaFeatured.project_en || mediaFeatured.project_cn)) : ''"></h2>
             <p class="font-mono text-[11px] md:text-xs text-[#111111] mt-4 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
             <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] text-[#666666]">
                 <span class="text-[#111111]" x-text="mediaFeatured ? mediaFeatured.outlet : ''"></span>
@@ -585,8 +665,7 @@ get filteredFilmProjects() {
                                 <img :src="mediaCover(group.cover)" :alt="group.project_cn" loading="lazy" width="1200" class="w-full h-auto block grayscale hover:grayscale-0 transition-all duration-500">
                             </div>
                         </template>
-                        <h2 class="font-mono text-xs md:text-sm font-bold text-[#111111] leading-snug" x-text="group.project_cn"></h2>
-                        <p class="font-mono text-[10px] md:text-[11px] text-[#666666] mt-2 leading-relaxed" x-text="group.project_en"></p>
+                        <h2 class="font-mono text-xs md:text-sm font-bold text-[#111111] leading-snug" x-text="$store.lang.code === 'zh' ? group.project_cn : (group.project_en || group.project_cn)"></h2>
                     </div>
                     <ul class="md:col-span-7">
                         <template x-for="item in group.items" :key="item.slug">
@@ -610,8 +689,8 @@ get filteredFilmProjects() {
     <section x-show="currentView === 'project_detail'" x-cloak class="fixed inset-0 z-[60] bg-white flex flex-col font-mono">
         <div class="lg:hidden fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white border-b border-black/10 z-[70]">
             <button type="button" @click="switchView('works')" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
-            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase">Project Detail</div>
-            <button type="button" @click="copyProjectLink()" class="h-10 min-w-10 flex items-center justify-end text-[9px] tracking-widest text-[#111111] hover:text-[#111111] transition-colors" x-text="linkCopied ? 'COPIED' : 'LINK'"></button>
+            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase" x-text="$store.lang.t('projectDetail')"></div>
+            <button type="button" @click="copyProjectLink()" class="h-10 min-w-10 flex items-center justify-end text-[9px] tracking-widest text-[#111111] hover:text-[#111111] transition-colors" x-text="linkCopied ? $store.lang.t('copied') : $store.lang.t('link')"></button>
         </div>
         <div class="relative flex-grow w-full bg-[#f4f4f4] overflow-hidden flex items-center justify-center pt-16 lg:pt-0 group">
             <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〈</button>
@@ -636,13 +715,13 @@ get filteredFilmProjects() {
     </div>
 </div>
             <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〉</button>
-            <button type="button" @click.stop="copyProjectLink()" class="hidden lg:flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-[#111111] border border-black/10 hover:border-[#111111] bg-white/90 hover:bg-white px-3 py-2 transition-colors" x-text="linkCopied ? 'COPIED' : 'COPY LINK'"></button>
+            <button type="button" @click.stop="copyProjectLink()" class="hidden lg:flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-[#111111] border border-black/10 hover:border-[#111111] bg-white/90 hover:bg-white px-3 py-2 transition-colors" x-text="linkCopied ? $store.lang.t('copied') : $store.lang.t('copyLink')"></button>
         </div>
         <div class="w-full h-auto min-h-[160px] lg:h-48 bg-white border-t border-black/5 flex flex-col lg:flex-row flex-shrink-0 z-50">
             <div class="w-full lg:w-1/4 p-4 lg:p-6 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-between">
-                <div class="hidden lg:block"><button @click="switchView('works')" class="text-xs text-[#111111] hover:text-[#111111] flex items-center gap-2 mb-4 transition-colors"><span>《</span> <span>RETURN TO GRID</span></button></div>
+                <div class="hidden lg:block"><button @click="switchView('works')" class="text-xs text-[#111111] hover:text-[#111111] flex items-center gap-2 mb-4 transition-colors"><span>《</span> <span x-text="$store.lang.t('returnGrid')"></span></button></div>
                 <div>
-                <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="selectedProject?.title"></h2>
+                <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="$store.lang.name(selectedProject)"></h2>
 <div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
     <span class="text-[#111111]" x-text="selectedProject?.architect"></span>
     <div class="flex items-center gap-3 text-gray-500">
@@ -676,7 +755,7 @@ get filteredFilmProjects() {
             <button @click="activeFilmFilter = 'ALL'" 
                     class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
                     :class="activeFilmFilter === 'ALL' ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
-                    x-data="scrambleText('ALL_FILMS')" @mouseenter="animate('ALL_FILMS')">
+                    x-data="scrambleText()" x-effect="animate($store.lang.t('allFilms'))" @mouseenter="animate($store.lang.t('allFilms'))">
                 <span class="relative z-10 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === 'ALL' ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
                     <span x-text="displayText"></span>
@@ -686,11 +765,10 @@ get filteredFilmProjects() {
                 <button @click="activeFilmFilter = cat.key" 
                         class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
                         :class="activeFilmFilter === cat.key ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
-                        x-data="categoryBtn(cat.key, cat.name)" @mouseenter="animate(key)">
+                        x-data="scrambleText()" x-effect="animate($store.lang.code === 'zh' ? cat.name : cat.key)" @mouseenter="animate($store.lang.code === 'zh' ? cat.name : cat.key)">
                     <span class="relative z-10 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === key ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
+                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === cat.key ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
                         <span x-text="displayText"></span>
-                        <span class="opacity-50 text-[10px] scale-90" x-text="'// ' + name"></span>
                     </span>
                 </button>
             </template>
@@ -709,14 +787,14 @@ get filteredFilmProjects() {
                         </div>
                     </div>
                     <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
-    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-all" x-text="film.title"></div>
+    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-all" x-text="$store.lang.name(film)"></div>
     <div class="flex justify-between items-baseline">
         <div class="text-[#666666]" x-text="film.architect"></div>
         <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + film.year + ' ]'"></div>
     </div>
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="film.category"></span>
+            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="categoryLabel(film.category)"></span>
             <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
             <span class="text-[#111111] text-[9px]" x-text="film.coords"></span>
         </div>
@@ -732,7 +810,7 @@ get filteredFilmProjects() {
     <section x-show="currentView === 'film_detail'" x-cloak class="fixed inset-0 z-[60] bg-white flex flex-col font-mono">
         <div class="fixed top-0 left-0 w-full h-16 flex items-center px-4 bg-white border-b border-black/10 z-[70]">
             <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
-            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase pr-10">Film Player</div>
+            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase pr-10" x-text="$store.lang.t('filmPlayer')"></div>
         </div>
         <div class="flex-grow w-full pt-16 pb-4 px-4 flex flex-col">
             <div class="flex-grow w-full max-w-6xl mx-auto bg-[#f4f4f4] border border-black/10 overflow-hidden flex items-center justify-center">
@@ -745,11 +823,11 @@ get filteredFilmProjects() {
                     playsinline
                     preload="metadata"
                     controlslist="nodownload">
-                    您的浏览器不支持视频播放
+                    <span x-text="$store.lang.t('videoUnsupported')"></span>
                 </video>
             </div>
             <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-black/10">
-    <h2 class="text-sm md:text-base text-[#111111] font-bold leading-tight break-all" x-text="selectedFilm?.title"></h2>
+    <h2 class="text-sm md:text-base text-[#111111] font-bold leading-tight break-all" x-text="$store.lang.name(selectedFilm)"></h2>
     <div class="text-[10px] text-gray-500 mt-2" x-text="selectedFilm?.architect"></div>
     <div class="flex justify-between items-center text-[10px] mt-2">
         <div class="flex items-center gap-2">
@@ -771,24 +849,24 @@ get filteredFilmProjects() {
                     <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover filter grayscale contrast-110" alt="Photographer">
                 </div>
                 <div class="text-center font-mono">
-                    <h2 class="text-xl font-bold text-[#111111] tracking-widest" x-text="studio.name"></h2>
-                    <div class="text-[10px] text-gray-500 mt-2 tracking-widest" x-text="studio.title"></div>
+                    <h2 class="text-xl font-bold text-[#111111] tracking-widest" x-text="$store.lang.personName(studio)"></h2>
+                    <div class="text-[10px] text-gray-500 mt-2 tracking-widest" x-text="$store.lang.personTitle(studio)"></div>
                 </div>
             </div>
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
                 <div>
-                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span>01 // PHOTOGRAPHER</div>
+                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('photographer')"></span></div>
                    <div class="font-mono text-sm text-[#666666] leading-loose max-w-xl space-y-6 border-l border-black/10 pl-6">
     <div>
-        <p x-text="studio.intro1"></p>
-        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.intro1zh"></p>
+        <p x-show="$store.lang.code === 'en'" x-text="studio.intro1"></p>
+        <p x-show="$store.lang.code === 'zh'" x-text="studio.intro1zh"></p>
     </div>
     <div>
-      <p>
+      <p x-show="$store.lang.code === 'en'">
     <span x-text="studio.intro2.split('He is the')[0]"></span>
     <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.</a>
 </p>
-        <p class="text-gray-600 text-xs mt-2 leading-relaxed">
+        <p x-show="$store.lang.code === 'zh'">
     <span x-text="studio.intro2zh.split('他是')[0]"></span>
     <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">他是有方「中国建筑摄影师系列」第59位受访者。</a>
 </p>
@@ -796,20 +874,19 @@ get filteredFilmProjects() {
 </div>
                 </div>
                 <div>
-                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span>02 // THE STUDIO</div>
+                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('theStudio')"></span></div>
                     <div class="font-mono text-sm text-[#444444] leading-relaxed max-w-xl">
-    <div class="mb-4">
+    <div class="mb-4" x-show="$store.lang.code === 'en'">
         <p><strong class="text-[#111111] bg-black/[0.06] px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
-        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.about1zh"></p>
     </div>
-    <div>
-        <p x-text="studio.about2"></p>
-        <p class="text-gray-600 text-xs mt-2 leading-relaxed" x-text="studio.about2zh"></p>
+    <div x-show="$store.lang.code === 'zh'" class="space-y-4">
+        <p x-text="studio.about1zh"></p>
+        <p x-text="studio.about2zh"></p>
     </div>
 </div>
                 </div>
                 <div>
-                    <div class="text-[#111111] font-mono text-xs mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span>03 // CLIENT</div>
+                    <div class="text-[#111111] font-mono text-xs mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('client')"></span></div>
                     <div class="font-mono text-sm w-full border-t border-black/10">
                         <template x-for="(client, index) in studio.clients">
                             <div class="group flex justify-between items-center py-3 border-b border-black/10 hover:bg-black/[0.04] transition-colors cursor-crosshair px-2">
@@ -818,7 +895,7 @@ get filteredFilmProjects() {
                             </div>
                         </template>
                     </div>
-                    <div class="mt-8 text-[10px] text-gray-600 font-mono flex justify-end items-center gap-2"><span class="w-2 h-2 bg-[#111111] rounded-full"></span>DATABASE_LAST_UPDATED: 2026.01.07</div>
+                    <div class="mt-8 text-[10px] text-gray-600 font-mono flex justify-end items-center gap-2"><span class="w-2 h-2 bg-[#111111] rounded-full"></span><span x-text="$store.lang.t('dbUpdated')"></span></div>
                 </div>
             </div>
         </div>
@@ -827,38 +904,38 @@ get filteredFilmProjects() {
     <!-- VIEW 4: CONTACT（从配置读取）-->
     <section x-show="currentView === 'contact'" x-cloak class="min-h-screen pt-24 md:pt-40 px-6 md:px-12 z-10 flex justify-center">
         <div class="w-full max-w-4xl">
-            <div class="mb-12 font-mono text-[10px] text-[#111111] flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#111111] animate-pulse"></span> SIGNAL_STABLE</div>
+            <div class="mb-12 font-mono text-[10px] text-[#111111] flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#111111] animate-pulse"></span><span x-text="$store.lang.t('signal')"></span></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-8">
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest">Mobile / Wechat <span class="opacity-50 ml-1">// 手机/微信</span></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('mobile')"></div>
                         <div class="text-xl md:text-3xl text-[#111111] font-mono" x-text="contact.phone"></div>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest">Email Address <span class="opacity-50 ml-1">// 电子邮箱</span></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('email')"></div>
                         <a :href="'mailto:' + contact.email" class="text-xl md:text-3xl text-[#111111] font-mono hover:text-[#111111] transition-colors" x-text="contact.email"></a>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest">Official Site <span class="opacity-50 ml-1">// 官方网站</span></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('site')"></div>
                         <a href="#" class="text-xl md:text-3xl text-[#111111] font-mono hover:underline decoration-[#111111] underline-offset-4 transition-all" x-text="contact.website"></a>
                     </div>
                 </div>
                 <div class="space-y-4">
-                    <div class="text-xs text-gray-500 font-mono border-b border-black/10 pb-2 mb-4">02 // SOCIAL_MATRIX</div>
+                    <div class="text-xs text-gray-500 font-mono border-b border-black/10 pb-2 mb-4" x-text="$store.lang.t('social')"></div>
                     <template x-for="social in contact.social">
                         <div class="flex justify-between items-center py-4 border-b border-black/5 group">
                             <div class="font-mono">
-                                <div class="text-[9px] text-gray-500 uppercase mb-1 group-hover:text-[#111111] transition-colors"><span x-text="social.platform"></span><span class="opacity-50 ml-1" x-text="'// ' + social.platformCN"></span></div>
+                                <div class="text-[9px] text-gray-500 uppercase mb-1 group-hover:text-[#111111] transition-colors" x-text="$store.lang.code === 'zh' ? social.platformCN : social.platform"></div>
                                 <div class="text-xs text-[#111111]" x-text="social.id"></div>
                             </div>
-                            <span class="text-[9px] text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity">>> LINK</span>
+                            <span class="text-[9px] text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity" x-text="$store.lang.t('linkArrow')"></span>
                         </div>
                     </template>
                 </div>
             </div>
             <div class="mt-16 pt-6 border-t border-black/5 flex justify-between items-center text-[9px] text-gray-600 font-mono">
-                <div x-text="'LOCATION_DATA: ' + contact.location"></div>
-                <div class="flex items-center gap-2"><span>ENCRYPTED_CONNECTION</span><div class="w-1 h-1 bg-[#111111] rounded-full"></div></div>
+                <div x-text="$store.lang.t('location') + ': ' + contact.location"></div>
+                <div class="flex items-center gap-2"><span x-text="$store.lang.t('encrypted')"></span><div class="w-1 h-1 bg-[#111111] rounded-full"></div></div>
             </div>
         </div>
     </section>

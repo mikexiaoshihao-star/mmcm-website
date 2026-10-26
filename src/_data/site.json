@@ -26,6 +26,7 @@
     {
       "img": "/images/home/01.webp",
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
+      "title_zh": "西昌建川电影博物馆聚落·纪录片陈列馆",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Xichang, Sichuan",
       "coords": "27.882°N / 102.173°E"
@@ -47,6 +48,7 @@
     {
       "img": "/images/home/04.webp",
       "title": "Xinglong_Lake_Roadshow_Center",
+      "title_zh": "兴隆湖天府路演艺术中心",
       "architect": "Tektonn_Architects",
       "address": "Chengdu,Sichuan",
       "coords": "30.402°N / 104.102°E"
@@ -83,6 +85,7 @@
     },
     {
         "title": "Xinglong_Lake_Roadshow_Center",
+        "title_zh": "兴隆湖天府路演艺术中心",
         "architect": "Tektonn_Architects",
         "address": "Chengdu,Sichuan",
         "coords": "30.402°N / 104.102°E",
@@ -128,6 +131,7 @@
   "projects": [
     {
       "title": "OPPO_Technology_&_Research_Center_Tower",
+      "title_zh": "OPPO科技研究中心大厦",
       "slug": "oppo-technology-and-research-centre-tower",
       "category": "OFFICE",
       "discipline": "architecture",
@@ -162,6 +166,7 @@
     },
     {
       "title": "Chengdu_SKP",
+      "title_zh": "成都SKP",
       "slug": "chengdu-skp",
       "category": "COMMERCIAL",
       "discipline": "architecture",
@@ -235,6 +240,7 @@
     },
     {
       "title": "LuxeLakes_Kindergarten_(North_Campus)",
+      "title_zh": "四川天府新区麓湖幼儿园（北区）",
       "slug": "luxelakes-kindergarten-north-campus",
       "category": "INTERIOR",
       "discipline": "interior",
@@ -490,6 +496,7 @@
     },
     {
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
+      "title_zh": "西昌建川电影博物馆聚落·纪录片陈列馆",
       "slug": "xichang-jianchuan-museum-documentary-hall",
       "category": "CULTURAL",
       "discipline": "architecture",
@@ -563,6 +570,7 @@
     },
     {
       "title": "LuxeLakes_Cloud_Kindergarten",
+      "title_zh": "麓湖云朵幼儿园",
       "slug": "luxe-lake-cloud-kindergarten",
       "category": "INTERIOR",
       "discipline": "interior",
@@ -606,6 +614,7 @@
     },
     {
       "title": "Ningbo_International_Conference_Center",
+      "title_zh": "宁波国际会议中心",
       "slug": "ningbo-international-conference-center",
       "category": "CULTURAL",
       "discipline": "architecture",
@@ -637,6 +646,7 @@
   },
     {
       "title": "Shanghai_Poly_Opus_One",
+      "title_zh": "上海保利·天汇（Poly Shanghai）",
       "slug": "shanghai-poly-opus-one",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -719,6 +729,7 @@
   },
     {
       "title": "Yibin_MixC",
+      "title_zh": "宜宾万象汇",
       "slug": "yibin-mixc",
       "category": "COMMERCIAL",
       "discipline": "architecture",
@@ -746,6 +757,7 @@
   },
      {
       "title": "The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone",
+      "title_zh": "重庆两江协同创新区规划展示中心",
       "slug": "the-planning-exhibition-center-of-liangjiang-collaborative-innovation-zone",
       "category": "CULTURAL",
       "discipline": "architecture",
@@ -776,6 +788,7 @@
   },
     {
       "title": "Xinglong_Lake_Roadshow_Center",
+      "title_zh": "兴隆湖天府路演艺术中心",
       "slug": "xinglong-lake-roadshow-center",
       "category": "CULTURAL",
       "discipline": "architecture",
@@ -843,7 +856,9 @@
   "studio": {
     "photo": "/images/photographer.webp",
     "name": "Xiao_Shihao",
+    "name_zh": "肖世豪",
     "title": "LEAD PHOTOGRAPHER",
+    "title_zh": "首席摄影师",
     "intro1": "With a 5-year undergraduate degree in architecture and 5 years of experience in architectural design, Xiao_Shihao became an architectural photographer in 2022. ",
     "intro2": "His work focuses on capturing the essence of architecture and space while striving for a subtle artistic balance through the arrangement of light, composition, subject poses, spatial depth, and color.He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.",
    "about1": "based in Chengdu, Sichuan Province.We have maintained long-term and close collaborations with numerous renowned Architects since establishment in 2022.We believe that architects and photographers grow together through mutual partnership. In an era where architectural photography is becoming increasingly homogenized and driven by short-term, fast-paced demands, we aim to focus our energy on building long-term collaborations with clients, we delve deeply into documenting the evolution of each building and space—from conceptual design to completion,and even its post-occupancy state.",
@@ -881,6 +896,7 @@
   "filmProjects": [
     {
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
+      "title_zh": "西昌建川电影博物馆聚落·纪录片陈列馆",
       "category": "CULTURAL",
       "architect": "Tanghua_Architects_&_Associates",
       "cover": "/images/films/Xichang_Jianchuan_Museum_Documentary_Hall/cover.webp",
@@ -891,6 +907,7 @@
     },
     {
       "title": "OPPO_Technology_&_Research_Center_Tower",
+      "title_zh": "OPPO科技研究中心大厦",
       "category": "OFFICE",
       "architect": "Gianni_Botsford_Architects",
       "cover": "/images/films/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
