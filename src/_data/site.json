@@ -39,7 +39,7 @@
     },
     {
       "img": "/images/home/03.webp",
-      "title": "Xi_An_Puyi",
+      "title": "Xi'an_Puyi",
       "architect": "gad",
       "address": "Xi'an,Shaanxi",
       "coords": "34.212°N / 108.851°E"
@@ -117,9 +117,9 @@
         "img": "/images/home/mobile-06.webp"
     },
     {
-        "title": "Xi‘An_Puyi",
+        "title": "Xi'an_Puyi",
         "architect": "gad",
-        "address": "Xi‘An,Shaanxi",
+        "address": "Xi'an,Shaanxi",
         "coords": "30.51°N / 104.08°E",
         "img": "/images/home/mobile-07.webp"
     }
@@ -127,7 +127,7 @@
 
   "projects": [
     {
-      "title": "Oppo_Technology_&_Research_Centre_Tower",
+      "title": "OPPO_Technology_&_Research_Center_Tower",
       "slug": "oppo-technology-and-research-centre-tower",
       "category": "OFFICE",
       "discipline": "architecture",
@@ -315,7 +315,7 @@
       ]
     },
     {
-      "title": "Xi_An_Puyi",
+      "title": "Xi'an_Puyi",
       "slug": "xi-an-puyi",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -350,7 +350,7 @@
       ]
     },
     {
-      "title": "Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "title": "Renovation_of_Business_Premises_of_Agricultural_Bank_of_China_Chengdu_Branch",
       "slug": "renovation-of-business-premises-of-agricultural-bank-of-china-chengdu-branch",
       "category": "URBAN_RENEWAL",
       "discipline": "architecture",
@@ -562,7 +562,7 @@
       ]
     },
     {
-      "title": "Luxe_Lake_Cloud_Kindergarten",
+      "title": "LuxeLakes_Cloud_Kindergarten",
       "slug": "luxe-lake-cloud-kindergarten",
       "category": "INTERIOR",
       "discipline": "interior",
@@ -890,7 +890,7 @@
       "videoUrl": "https://videos.mmcm-studio.com/Xichang_Jianchuan_Museum_Documentary_Hall.mp4"
     },
     {
-      "title": "Oppo_Technology_&_Research_Centre_Tower",
+      "title": "OPPO_Technology_&_Research_Center_Tower",
       "category": "OFFICE",
       "architect": "Gianni_Botsford_Architects",
       "cover": "/images/films/Oppo_Technology_&_Research_Centre_Tower/cover.webp",
@@ -910,7 +910,7 @@
       "videoUrl": "https://videos.mmcm-studio.com/Yangtze_River_Ecological_Cadre_Academy.mp4"
     },
     {
-      "title": "Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "title": "Renovation_of_Business_Premises_of_Agricultural_Bank_of_China_Chengdu_Branch",
       "category": "URBAN_RENEWAL",
       "architect": "SADI",
       "cover": "/images/films/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
