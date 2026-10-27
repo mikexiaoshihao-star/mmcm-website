@@ -99,7 +99,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
                     dbUpdated: 'DATABASE_LAST_UPDATED: 2026.01.07', signal: 'SIGNAL_STABLE',
                     mobile: 'Mobile / Wechat', email: 'Email Address', site: 'Official Site', social: '02 // SOCIAL_MATRIX',
-                    location: 'LOCATION_DATA', encrypted: 'ENCRYPTED_CONNECTION', linkArrow: '>> LINK',
+                    location: 'LOCATION_DATA', linkArrow: '>> LINK',
                     mediaPage: 'Media', typeWechat: 'WECHAT', typeMagazine: 'MAGAZINE', typeFirm: 'FIRM', typeAward: 'AWARD', typeWebsite: 'WEBSITE'
                 },
                 zh: {
@@ -117,7 +117,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
                     dbUpdated: '数据更新：2026.01.07', signal: '信号稳定',
                     mobile: '手机/微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
-                    location: '所在地', encrypted: '加密连接', linkArrow: '>> 链接',
+                    location: '所在地', linkArrow: '>> 链接',
                     mediaPage: '媒体', typeWechat: '公众号', typeMagazine: '杂志', typeFirm: '设计公司', typeAward: '奖项', typeWebsite: '网站'
                 }
             };
@@ -1040,9 +1040,8 @@ get filteredFilmProjects() {
                     </template>
                 </div>
             </div>
-            <div class="mt-16 pt-6 border-t border-black/5 flex justify-between items-center text-[9px] text-gray-600 font-mono">
+            <div class="mt-16 pt-6 border-t border-black/5 text-[9px] text-gray-600 font-mono">
                 <div x-text="$store.lang.t('location') + ': ' + contact.location"></div>
-                <div class="flex items-center gap-2"><span x-text="$store.lang.t('encrypted')"></span><div class="w-1 h-1 bg-[#111111] rounded-full"></div></div>
             </div>
         </div>
     </section>
