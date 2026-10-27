@@ -42,17 +42,27 @@
                 : ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
             window.__MMCM_LANG = lang;
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            window.__MMCM_LOAD_ZH_FONT = function () {
+                if (document.getElementById('misans-css')) return;
+                var link = document.createElement('link');
+                link.id = 'misans-css';
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400:Chinese_Simplify,Latin&display=swap';
+                document.head.appendChild(link);
+            };
+            if (lang === 'zh') window.__MMCM_LOAD_ZH_FONT();
         })();
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'Noto Sans SC', 'sans-serif'], mono: ['JetBrains Mono', 'Noto Sans SC', 'monospace'] },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
@@ -77,7 +87,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 en: {
                     navWorks: 'WORKS', navFilm: 'FILM', navMedia: 'MEDIA', navStudio: 'STUDIO', navContact: 'CONTACT',
                     architecture: 'Architecture', interior: 'Interior', landscape: 'Landscape',
-                    comingSoon: 'Coming soon', allFilms: 'ALL_FILMS',
+                    comingSoon: 'Projects coming soon.', allFilms: 'ALL_FILMS',
                     filterAll: 'All',
                     type_office: 'Office', type_commercial: 'Commercial', type_residential: 'Residential',
                     type_cultural: 'Cultural', type_education: 'Education', type_sports: 'Sports',
@@ -85,7 +95,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     type_mixed_use: 'Mixed-use',
                     projectDetail: 'Project Detail', link: 'LINK', copied: 'COPIED', copyLink: 'COPY LINK',
                     returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
-                    videoUnsupported: 'Your browser does not support video playback.',
+                    videoUnsupported: '您的浏览器不支持视频播放',
                     interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
                     dbUpdated: 'DATABASE_LAST_UPDATED: 2026.01.07', signal: 'SIGNAL_STABLE',
                     mobile: 'Mobile / Wechat', email: 'Email Address', site: 'Official Site', social: '02 // SOCIAL_MATRIX',
@@ -93,20 +103,20 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     mediaPage: 'Media', typeWechat: 'WECHAT', typeMagazine: 'MAGAZINE', typeFirm: 'FIRM', typeAward: 'AWARD', typeWebsite: 'WEBSITE'
                 },
                 zh: {
-                    navWorks: '作品', navFilm: '影像', navMedia: '媒体', navStudio: '工作室', navContact: '联系',
+                    navWorks: '作品', navFilm: '影片', navMedia: '媒体', navStudio: '工作室', navContact: '联系',
                     architecture: '建筑', interior: '室内', landscape: '景观',
-                    comingSoon: '即将上线', allFilms: '全部影像',
+                    comingSoon: '作品上传中', allFilms: '全部影片',
                     filterAll: '全部',
                     type_office: '办公', type_commercial: '商业', type_residential: '住宅',
                     type_cultural: '文化', type_education: '教育', type_sports: '体育',
                     type_exhibition: '展览', type_public: '公共', type_hospitality: '酒店',
                     type_mixed_use: '综合体',
                     projectDetail: '项目', link: '链接', copied: '已复制', copyLink: '复制链接',
-                    returnGrid: '返回列表', filmPlayer: '影像',
+                    returnGrid: '返回列表', filmPlayer: '影片',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
                     dbUpdated: '数据更新：2026.01.07', signal: '信号稳定',
-                    mobile: '手机 / 微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
+                    mobile: '手机/微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
                     location: '所在地', encrypted: '加密连接', linkArrow: '>> 链接',
                     mediaPage: '媒体', typeWechat: '公众号', typeMagazine: '杂志', typeFirm: '设计公司', typeAward: '奖项', typeWebsite: '网站'
                 }
@@ -134,6 +144,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     this.code = code;
                     try { localStorage.setItem('mmcm-lang', code); } catch (e) {}
                     document.documentElement.lang = code === 'zh' ? 'zh-CN' : 'en';
+                    if (code === 'zh' && window.__MMCM_LOAD_ZH_FONT) window.__MMCM_LOAD_ZH_FONT();
                 }
             });
             Alpine.data('scrambleText', (initialText = '') => ({
@@ -238,11 +249,13 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     const project = slug ? this.findBySlug(slug) : null;
                     if (project) {
                         this.openProject(project, { push: false });
+                        this.applyTypeFromUrl();
                         return;
                     }
                     if (this.onMediaUrl()) {
                         this.currentView = 'media';
                         document.title = Alpine.store('lang').t('mediaPage') + ' | ' + HOME_TITLE;
+                        this.applyTypeFromUrl();
                         return;
                     }
                     if (this.currentView === 'project_detail') {
@@ -253,13 +266,12 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.currentView = 'works';
                         document.title = HOME_TITLE;
                         window.scrollTo({ top: 0, behavior: 'smooth' });
-                        return;
-                    }
-                    if (this.currentView === 'media') {
+                    } else if (this.currentView === 'media') {
                         this.currentView = 'home';
                         document.title = HOME_TITLE;
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
+                    if (this.applyTypeFromUrl()) document.title = HOME_TITLE;
                 },
                 init() {
                     this.routeFromUrl();
@@ -274,7 +286,9 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     this.currentView = view;
                     const onProjectUrl = /^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash);
                     if ((leavingProject && onProjectUrl) || (leavingMedia && this.onMediaUrl())) {
-                        history.pushState({ view: view }, '', '/');
+                        const next = new URL('/', location.origin);
+                        if (view === 'works' && this.worksType && this.worksType !== 'all') next.searchParams.set('type', this.worksType);
+                        history.pushState({ view: view }, '', next.pathname + next.search);
                     }
                     if (!leavingProject && !leavingMedia) return;
                     document.title = HOME_TITLE;
@@ -347,7 +361,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         'Ningbo_International_Conference_Center': '宁波国际会议中心',
                         'Xinglong_Lake_Roadshow_Center': '兴隆湖天府路演艺术中心',
                         'Yibin_MixC': '宜宾万象汇',
-                        'Shanghai_Poly_Opus_One': '上海保利·天汇（Poly Shanghai）'
+                        'Shanghai_Poly_Opus_One': '保利世博天悦'
                     };
                     if (byTitle[item.project_en]) return byTitle[item.project_en];
                     return this.mediaCleanLabel(item.project_cn) || item.project_cn;
@@ -395,16 +409,48 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     });
                     return Array.from(groups.values()).sort((a, b) => String(b.latest).localeCompare(String(a.latest)));
                 },
+                syncTypeParam() {
+                    const url = new URL(location.href);
+                    if (!this.worksType || this.worksType === 'all') url.searchParams.delete('type');
+                    else url.searchParams.set('type', this.worksType);
+                    const next = url.pathname + url.search + url.hash;
+                    const cur = location.pathname + location.search + location.hash;
+                    if (next !== cur) history.replaceState(history.state, '', next);
+                },
+                applyTypeFromUrl() {
+                    const raw = new URLSearchParams(location.search).get('type');
+                    if (!raw) return false;
+                    const key = String(raw).trim().toLowerCase();
+                    if (!key || key === 'all') return false;
+                    const matches = this.projects.filter((p) => p.type === key);
+                    if (!matches.length) return false;
+                    const discipline = ['architecture', 'interior', 'landscape'].find((d) => matches.some((p) => p.discipline === d));
+                    if (!discipline) return false;
+                    this.worksEntry = discipline;
+                    this.worksType = key;
+                    this.worksFilterOpen = false;
+                    const onProject = this.currentView === 'project_detail';
+                    const onMedia = this.currentView === 'media' || this.onMediaUrl();
+                    if (!onProject && !onMedia) this.currentView = 'works';
+                    return true;
+                },
+                setWorksType(key) {
+                    this.worksType = key;
+                    this.worksFilterOpen = false;
+                    this.syncTypeParam();
+                },
                 openWorks() {
                     this.worksEntry = 'architecture';
                     this.worksType = 'all';
                     this.worksFilterOpen = false;
                     this.switchView('works');
+                    this.syncTypeParam();
                 },
                 setWorksEntry(key) {
                     if (this.worksEntry !== key) {
                         this.worksEntry = key;
                         this.worksType = 'all';
+                        this.syncTypeParam();
                     }
                     this.worksFilterOpen = false;
                 },
@@ -575,16 +621,16 @@ get filteredFilmProjects() {
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
-        <div class="flex items-center gap-1.5 md:gap-10 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
+        <div class="flex items-center gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
             <a href="#" @click.prevent="openWorks()" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navWorks'))" @mouseenter="animate($store.lang.t('navWorks'))" x-text="displayText">WORKS</a>
             <a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navFilm'))" @mouseenter="animate($store.lang.t('navFilm'))" x-text="displayText">FILM</a>
             <a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navMedia'))" @mouseenter="animate($store.lang.t('navMedia'))" x-text="displayText">MEDIA</a>
             <a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navStudio'))" @mouseenter="animate($store.lang.t('navStudio'))" x-text="displayText">STUDIO</a>
             <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navContact'))" @mouseenter="animate($store.lang.t('navContact'))" x-text="displayText">CONTACT</a>
-            <div class="flex items-center ml-1 md:ml-2" role="group" aria-label="Language">
-                <button type="button" @click="$store.lang.set('zh')" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center" :class="$store.lang.code === 'zh' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'zh'">中</button>
+            <div class="flex items-center gap-[6px] ml-2 md:ml-4" role="group" aria-label="Language">
+                <button type="button" class="bg-transparent border-0 p-0 leading-none" style="font-family: var(--font-zh)" @click="$store.lang.set('zh')" :class="$store.lang.code === 'zh' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'zh'">中</button>
                 <span class="text-[#666666] leading-none" aria-hidden="true">/</span>
-                <button type="button" @click="$store.lang.set('en')" class="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center" :class="$store.lang.code === 'en' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'en'">EN</button>
+                <button type="button" class="bg-transparent border-0 p-0 leading-none" @click="$store.lang.set('en')" :class="$store.lang.code === 'en' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'en'">EN</button>
             </div>
         </div>
     </nav>
@@ -669,7 +715,7 @@ get filteredFilmProjects() {
                         <button type="button"
                                 class="block w-full text-left px-3 py-1.5 whitespace-nowrap bg-white"
                                 :class="worksType === opt.key ? 'text-[#111111]' : 'text-[#666666]'"
-                                @click="worksType = opt.key; worksFilterOpen = false"
+                                @click="setWorksType(opt.key)"
                                 x-text="$store.lang.t(opt.key === 'all' ? 'filterAll' : ('type_' + opt.key)) + ' ' + opt.count"></button>
                     </template>
                 </div>
@@ -713,7 +759,7 @@ get filteredFilmProjects() {
            class="block border border-black/10 hover:border-[#111111] p-6 md:p-10 mb-14 md:mb-20 transition-colors">
             <div class="font-mono text-[10px] tracking-[0.22em] text-[#666666]" x-text="$store.lang.t('interview')"></div>
             <h2 class="font-mono text-base md:text-2xl text-[#111111] font-medium leading-snug mt-4 max-w-3xl" x-text="mediaFeatured ? ($store.lang.code === 'zh' ? mediaFeatured.project_cn : (mediaFeatured.project_en || mediaFeatured.project_cn)) : ''"></h2>
-            <p class="font-mono text-[11px] md:text-xs text-[#111111] mt-4 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
+            <p class="font-mono text-[11px] md:text-xs zh-copy text-[#111111] mt-4 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
             <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] text-[#666666]">
                 <span class="text-[#111111]" x-text="mediaFeatured ? mediaFeatured.outlet : ''"></span>
                 <span x-text="mediaFeatured ? mediaFeatured.year : ''"></span>
@@ -736,7 +782,7 @@ get filteredFilmProjects() {
                         <template x-for="item in group.items" :key="item.slug">
                             <li>
                                 <a :href="item.url" target="_blank" rel="noopener noreferrer" :title="item.title" class="flex items-baseline justify-between gap-4 py-3 border-b border-black/10 hover:border-[#111111] transition-colors">
-                                    <span class="font-mono text-[11px] md:text-xs text-[#111111] min-w-0 leading-snug" x-text="item.outlet"></span>
+                                    <span class="font-mono text-[11px] md:text-xs zh-copy text-[#111111] min-w-0 leading-snug" x-text="item.outlet"></span>
                                     <span class="flex items-center gap-3 shrink-0 font-mono text-[10px] text-[#666666]">
                                         <span x-text="item.year"></span>
                                         <span class="bg-black/[0.06] px-1.5 py-0.5 text-[9px] text-[#444444]" x-text="mediaTypeLabel(item.type)"></span>
@@ -917,7 +963,7 @@ get filteredFilmProjects() {
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
                 <div>
                     <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('photographer')"></span></div>
-                   <div class="font-mono text-sm text-[#666666] leading-loose max-w-xl space-y-6 border-l border-black/10 pl-6">
+                   <div class="font-mono text-sm zh-copy text-[#666666] leading-loose max-w-xl space-y-6 border-l border-black/10 pl-6">
     <div>
         <p x-show="$store.lang.code === 'en'" x-text="studio.intro1"></p>
         <p x-show="$store.lang.code === 'zh'" x-text="studio.intro1zh"></p>
@@ -936,7 +982,7 @@ get filteredFilmProjects() {
                 </div>
                 <div>
                     <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('theStudio')"></span></div>
-                    <div class="font-mono text-sm text-[#444444] leading-relaxed max-w-xl">
+                    <div class="font-mono text-sm zh-copy text-[#444444] leading-relaxed max-w-xl">
     <div class="mb-4" x-show="$store.lang.code === 'en'">
         <p><strong class="text-[#111111] bg-black/[0.06] px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
     </div>

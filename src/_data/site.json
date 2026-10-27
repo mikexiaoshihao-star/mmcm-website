@@ -443,6 +443,7 @@
     },
     {
       "title": "Yunyang_Sports_Park",
+      "title_zh": "云阳体育公园",
       "slug": "yunyang-sports-park",
       "category": "SPORTS",
       "discipline": "architecture",
@@ -476,6 +477,7 @@
     },
      {
       "title": "Yibin_Yiyun_Digital_Art_Center",
+      "title_zh": "宜宾艺云数字艺术中心",
       "slug": "yibin-yiyun-digital-art-center",
       "category": "CULTURAL",
       "discipline": "architecture",
@@ -661,7 +663,7 @@
   },
     {
       "title": "Shanghai_Poly_Opus_One",
-      "title_zh": "上海保利·天汇（Poly Shanghai）",
+      "title_zh": "保利世博天悦",
       "slug": "shanghai-poly-opus-one",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -690,6 +692,7 @@
   },
     {
       "title": "TAHITI",
+      "title_zh": "黄龙溪谷塔希提",
       "slug": "tahiti",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -718,6 +721,7 @@
   },
     {
       "title": "Wuliangye_New_Economy_Group_Center",
+      "title_zh": "五粮液集团新经济中心",
       "slug": "wuliangye-new-economy-group-center",
       "category": "OFFICE",
       "discipline": "architecture",
@@ -960,6 +964,7 @@
     },
     {
       "title": "Yunyang_Sports_Park",
+      "title_zh": "云阳体育公园",
       "category": "SPORTS",
       "architect": "Tanghua_Architects_&_Associates",
       "cover": "/images/films/Yunyang_Sports_Park/cover.webp",
