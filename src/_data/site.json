@@ -413,6 +413,7 @@
     },
     {
       "title": "Renovation_of_Business_Premises_of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "title_zh": "农行成都分行营业用房改造",
       "slug": "renovation-of-business-premises-of-agricultural-bank-of-china-chengdu-branch",
       "category": "URBAN_RENEWAL",
       "discipline": "architecture",
@@ -593,6 +594,7 @@
     },
        {
       "title": "SCDA_30_Chengdu_Exhibition",
+      "title_zh": "SCDA成都三十周年展",
       "slug": "scda-30-chengdu-exhibition",
       "category": "EXHIBITION",
       "discipline": "interior",
@@ -614,6 +616,7 @@
     },
     {
       "title": "General_Aviation_Headquarters_Base",
+      "title_zh": "通用航空总部基地",
       "slug": "general-aviation-headquarters-base",
       "category": "OFFICE",
       "discipline": "architecture",
@@ -887,6 +890,7 @@
   },
     {
       "title": "Yeting",
+      "title_zh": "野亭",
       "slug": "yeting",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -1006,6 +1010,7 @@
     },
     {
       "title": "Renovation_of_Business_Premises_of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "title_zh": "农行成都分行营业用房改造",
       "category": "URBAN_RENEWAL",
       "architect": "SADI",
       "cover": "/images/films/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
