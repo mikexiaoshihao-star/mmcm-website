@@ -119,3 +119,27 @@ html.route-project [data-view="home"] {
         font-size: calc(13px * 230 / 300);
     }
 }
+
+/* Chinese UI only. English mode keeps the Tailwind Inter / JetBrains stacks. */
+:root {
+    --font-zh: "JetBrains Mono", "MiSans", "Noto Sans SC", sans-serif;
+}
+
+html[lang="zh-CN"] body,
+html[lang="zh-CN"] .font-sans,
+html[lang="zh-CN"] .font-mono {
+    font-family: var(--font-zh);
+    font-weight: 300;
+    font-synthesis: none;
+}
+
+html[lang="zh-CN"] .font-bold,
+html[lang="zh-CN"] .font-semibold,
+html[lang="zh-CN"] .font-medium,
+html[lang="zh-CN"] strong {
+    font-weight: 400;
+}
+
+html[lang="zh-CN"] .zh-copy {
+    font-size: 14px;
+}
