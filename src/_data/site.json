@@ -34,6 +34,7 @@
     {
       "img": "/images/home/02.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Guangyang_Bay,Chongqing",
       "coords": "29.585°N / 106.740°E"
@@ -41,6 +42,7 @@
     {
       "img": "/images/home/03.webp",
       "title": "Xi'an_Puyi",
+      "title_zh": "西安璞逸",
       "architect": "gad",
       "address": "Xi'an,Shaanxi",
       "coords": "34.212°N / 108.851°E"
@@ -63,6 +65,7 @@
     {
       "img": "/images/home/06.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Chongqing",
       "coords": "29.585°N / 106.740°E"
@@ -78,6 +81,7 @@
   "homeProjectsMobile": [
     {
         "title": "Huarun_Runxi",
+        "title_zh": "华润润玺（一期/二期）",
         "architect": "SCDA",
         "address": "Shenzhen,Guangdong",
         "coords": "22.548°N / 113.954°E",
@@ -100,6 +104,7 @@
     },
      {
         "title": "Congressional_Central_Office",
+        "title_zh": "国会办公室",
         "architect": "Tektonn_Architects",
         "address": "Chengdu,Sichuan",
         "coords": "30.51°N / 104.08°E",
@@ -121,6 +126,7 @@
     },
     {
         "title": "Xi'an_Puyi",
+        "title_zh": "西安璞逸",
         "architect": "gad",
         "address": "Xi'an,Shaanxi",
         "coords": "30.51°N / 104.08°E",
@@ -129,6 +135,47 @@
 ],
 
   "projects": [
+    {
+      "title": "Renovation_of_Langjiu_Longma_Winery_Office_Building_102",
+      "title_zh": "郎酒龙马酒庄102办公楼改造",
+      "slug": "renovation-of-langjiu-longma-winery-office-building-102",
+      "category": "OFFICE",
+      "discipline": "architecture",
+      "type": "office",
+      "architect": "Tektonn_Architects",
+      "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/cover.webp",
+      "year": "2025",
+      "coords": "28.989°N / 105.467°E",
+      "location": "Luzhou_Sichuan",
+      "images": [
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/01.webp", "desc": "01", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/02.webp", "desc": "02", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/03.webp", "desc": "03", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/04.webp", "desc": "04", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/05.webp", "desc": "05", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/06.webp", "desc": "06", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/07.webp", "desc": "07", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/08.webp", "desc": "08", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/09.webp", "desc": "09", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/10.webp", "desc": "10", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/11.webp", "desc": "11", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/12.webp", "desc": "12", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/13.webp", "desc": "13", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/14.webp", "desc": "14", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/15.webp", "desc": "15", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/16.webp", "desc": "16", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/17.webp", "desc": "17", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/18.webp", "desc": "18", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/19.webp", "desc": "19", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/20.webp", "desc": "20", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/21.webp", "desc": "21", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/22.webp", "desc": "22", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/23.webp", "desc": "23", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/24.webp", "desc": "24", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/25.webp", "desc": "25", "meta": "15:00 // PM"},
+        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/26.webp", "desc": "26", "meta": "15:00 // PM"}
+      ]
+    },
     {
       "title": "OPPO_Technology_&_Research_Center_Tower",
       "title_zh": "OPPO科技研究中心大厦",
@@ -201,6 +248,7 @@
     },
     {
       "title": "Congressional_Central_Office",
+      "title_zh": "国会办公室",
       "slug": "congressional-central-office",
       "category": "INTERIOR",
       "discipline": "interior",
@@ -289,6 +337,7 @@
     },
     {
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "slug": "yangtze-river-ecological-cadre-academy",
       "category": "EDUCATION",
       "discipline": "architecture",
@@ -327,6 +376,7 @@
     },
     {
       "title": "Xi'an_Puyi",
+      "title_zh": "西安璞逸",
       "slug": "xi-an-puyi",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -363,6 +413,7 @@
     },
     {
       "title": "Renovation_of_Business_Premises_of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "title_zh": "农行成都分行营业用房改造",
       "slug": "renovation-of-business-premises-of-agricultural-bank-of-china-chengdu-branch",
       "category": "URBAN_RENEWAL",
       "discipline": "architecture",
@@ -403,6 +454,7 @@
     },
     {
       "title": "Shenzhen_CRland_Runxi",
+      "title_zh": "华润润玺（一期/二期）",
       "slug": "shenzhen-crland-runxi",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -542,6 +594,7 @@
     },
        {
       "title": "SCDA_30_Chengdu_Exhibition",
+      "title_zh": "SCDA成都三十周年展",
       "slug": "scda-30-chengdu-exhibition",
       "category": "EXHIBITION",
       "discipline": "interior",
@@ -563,6 +616,7 @@
     },
     {
       "title": "General_Aviation_Headquarters_Base",
+      "title_zh": "通用航空总部基地",
       "slug": "general-aviation-headquarters-base",
       "category": "OFFICE",
       "discipline": "architecture",
@@ -836,6 +890,7 @@
   },
     {
       "title": "Yeting",
+      "title_zh": "野亭",
       "slug": "yeting",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -944,6 +999,7 @@
     },
     {
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "category": "EDUCATION",
       "architect": "Tanghua_Architects_&_Associates",
       "cover": "/images/films/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
@@ -954,6 +1010,7 @@
     },
     {
       "title": "Renovation_of_Business_Premises_of_Agricultural_Bank_of_China_Chengdu_Branch",
+      "title_zh": "农行成都分行营业用房改造",
       "category": "URBAN_RENEWAL",
       "architect": "SADI",
       "cover": "/images/films/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/cover.webp",
