@@ -143,3 +143,33 @@ html[lang="zh-CN"] strong {
 html[lang="zh-CN"] .zh-copy {
     font-size: 14px;
 }
+
+.nav-tag {
+    display: inline-block;
+    padding: 2px 4px;
+    line-height: 1.2;
+    color: #666666;
+    background: transparent;
+    text-decoration: none;
+    border: 0;
+    border-bottom: 0;
+}
+
+.nav-tag:hover {
+    color: #111111;
+    text-decoration: none;
+}
+
+.nav-tag.is-on,
+.nav-tag.is-on:hover {
+    background: #111111;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+button.nav-tag {
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+}

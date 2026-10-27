@@ -84,7 +84,43 @@ filmCategories: {{ site.filmCategories | dump | safe }},
 
         document.addEventListener('alpine:init', () => {
             const ARCHITECT_ZH = {
-                SADI: '四川省建筑设计研究院'
+                'Tektonn_Architects': '天仝建筑',
+                'Tanghua_Architects_&_Associates': '汤桦建筑',
+                'Tanghua_Architects&Associates': '汤桦建筑',
+                'Tanghua_Architects_&_Associates / BIAD': '汤桦建筑 / 北京建筑设计研究院',
+                'SADI': '四川省建筑设计研究院',
+                'Luxelakes': '麓湖',
+                'Gianni_Botsford_Architects': 'Gianni Botsford Architects',
+                'Sybarite': 'Sybarite',
+                'SCDA': 'SCDA',
+                'Aecom': 'AECOM',
+                'J&A': 'J&A',
+                'gad': 'gad',
+                'SewDesign': '纫合设计',
+                'Jin_FX': 'Jin FX'
+            };
+            const LOCATION_ZH = {
+                'Luzhou_Sichuan': '四川泸州',
+                'Chengdu_Sichuan': '四川成都',
+                'Chengdu,Sichuan': '四川成都',
+                'Zigong_Sichuan': '四川自贡',
+                'Yibin_Sichuan': '四川宜宾',
+                "Xi'an_Shaanxi": '陕西西安',
+                "Xi'an,Shaanxi": '陕西西安',
+                'Shenzhen_Guangdong': '广东深圳',
+                'Shenzhen,Guangdong': '广东深圳',
+                'Ningbo_Zhejiang': '浙江宁波',
+                'Xichang_Sichuan': '四川西昌',
+                'Xichang, Sichuan': '四川西昌',
+                'Yunyang_Chongqing': '重庆云阳',
+                'Yunyang': '重庆云阳',
+                'Guangyang_Bay,Chongqing': '重庆广阳湾',
+                'Chongqing': '重庆',
+                'Shanghai': '上海',
+                'Beijing': '北京',
+                'Wuhan': '湖北武汉',
+                'Wuhan,Hubei': '湖北武汉',
+                'CHENGDU / SICHUAN': '四川成都'
             };
             const UI = {
                 en: {
@@ -127,10 +163,14 @@ filmCategories: {{ site.filmCategories | dump | safe }},
             Alpine.store('lang', {
                 code: window.__MMCM_LANG === 'zh' ? 'zh' : 'en',
                 t(key) { return (UI[this.code] && UI[this.code][key]) || UI.en[key] || key; },
+                plain(text) {
+                    return String(text == null ? '' : text).replace(/_/g, ' ');
+                },
                 name(item) {
                     if (!item) return '';
                     if (this.code === 'zh' && item.title_zh) return item.title_zh;
-                    return item.title_en || item.title || '';
+                    const en = item.title_en || item.title || '';
+                    return this.code === 'zh' ? this.plain(en) : en;
                 },
                 personName(studio) {
                     if (!studio) return '';
@@ -147,7 +187,12 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     const en = item.architect || item.name || '';
                     if (this.code !== 'zh') return en;
                     if (item.architect_zh) return item.architect_zh;
-                    return ARCHITECT_ZH[en] || en;
+                    return ARCHITECT_ZH[en] || this.plain(en);
+                },
+                place(value) {
+                    const en = value == null ? '' : String(value);
+                    if (this.code !== 'zh') return en;
+                    return LOCATION_ZH[en] || this.plain(en);
                 },
                 set(code) {
                     if (code !== 'zh' && code !== 'en') return;
@@ -157,54 +202,22 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     if (code === 'zh' && window.__MMCM_LOAD_ZH_FONT) window.__MMCM_LOAD_ZH_FONT();
                 }
             });
-            Alpine.data('scrambleText', (initialText = '') => ({
-                displayText: initialText, 
-                chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ/<>[]#1234567890_@$%',
-                interval: null,
-                init() { if (initialText) this.animate(initialText); },
-                animate(newText) {
-                    const target = newText || '';
-                    let iteration = 0;
-                    clearInterval(this.interval);
-                    this.interval = setInterval(() => {
-                        this.displayText = target.split('').map((letter, index) => {
-                            if(index < iteration) return target[index];
-                            return this.chars[Math.floor(Math.random() * this.chars.length)];
-                        }).join('');
-                        if(iteration >= target.length){ clearInterval(this.interval); this.displayText = target; }
-                        iteration += 1/3; 
-                    }, 20); 
-                }
-            }));
-
-            Alpine.data('categoryBtn', (key, name) => ({
-                key: key, name: name, displayText: key,
-                chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ/<>[]#1234567890_@$%',
-                interval: null,
-                init() { this.animate(this.key); },
-                animate(newText) {
-                    const target = newText || '';
-                    let iteration = 0;
-                    clearInterval(this.interval);
-                    this.interval = setInterval(() => {
-                        this.displayText = target.split('').map((letter, index) => {
-                            if(index < iteration) return target[index];
-                            return this.chars[Math.floor(Math.random() * this.chars.length)];
-                        }).join('');
-                        if(iteration >= target.length){ clearInterval(this.interval); this.displayText = target; }
-                        iteration += 1/3; 
-                    }, 20); 
-                }
-            }));
-
             const HOME_TITLE = 'MMCM STUDIO 毫厘建筑摄影';
 
             Alpine.data('mainApp', () => ({
-                currentView: (/^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash) || (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname))) ? 'project_detail' : ((/^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash) || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname))) ? 'media' : 'home'),
+                currentView: (/^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash) || (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname))) ? 'project_detail' : ((/^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash) || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname))) ? 'media' : (/^#\/film\/?$/.test(location.hash) ? 'film' : 'home')),
                 worksEntry: 'architecture',
                 worksType: 'all',
                 worksFilterOpen: false,
-                activeFilmFilter: 'ALL',
+                filmFilterOpen: false,
+                activeFilmFilter: (function () {
+                    if (!/^#\/film\/?$/.test(location.hash)) return 'ALL';
+                    const raw = new URLSearchParams(location.search).get('type');
+                    const key = String(raw || '').trim().toLowerCase();
+                    if (!key || key === 'all') return 'ALL';
+                    const cat = (siteData.filmCategories || []).find((item) => String(item.key).toLowerCase() === key);
+                    return cat ? cat.key : 'ALL';
+                })(),
                 currentHomeIndex: 0,
                 homeImgVisible: true,
                 categories: siteData.categories,
@@ -249,6 +262,9 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 onMediaUrl() {
                     return /^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash);
                 },
+                onFilmUrl() {
+                    return /^#\/film\/?$/.test(location.hash);
+                },
                 routeFromUrl() {
                     const pathMatch = location.pathname.match(/^\/projects\/([^/]+)\/?$/);
                     const hashMatch = location.hash.match(/^#\/project\/([^/?]+)/);
@@ -267,6 +283,24 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         document.title = Alpine.store('lang').t('mediaPage') + ' | ' + HOME_TITLE;
                         this.applyTypeFromUrl();
                         return;
+                    }
+                    if (this.onFilmUrl()) {
+                        if (this.currentView === 'project_detail') {
+                            this.selectedProject = null;
+                            this.detailImages = [];
+                            this.currentDetailImageIndex = 0;
+                            this.linkCopied = false;
+                        }
+                        this.selectedFilm = null;
+                        this.applyFilmFromUrl();
+                        return;
+                    }
+                    if (this.currentView === 'film' || this.currentView === 'film_detail') {
+                        this.selectedFilm = null;
+                        this.filmFilterOpen = false;
+                        this.activeFilmFilter = 'ALL';
+                        this.currentView = 'home';
+                        document.title = HOME_TITLE;
                     }
                     if (this.currentView === 'project_detail') {
                         this.selectedProject = null;
@@ -293,12 +327,20 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     const leavingProject = this.currentView === 'project_detail' && view !== 'project_detail';
                     const leavingMedia = this.currentView === 'media' && view !== 'media';
+                    const leavingFilm = (this.currentView === 'film' || this.currentView === 'film_detail') && view !== 'film' && view !== 'film_detail';
+                    const enteringFilm = (view === 'film' || view === 'film_detail') && !this.onFilmUrl();
                     this.currentView = view;
                     const onProjectUrl = /^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash);
-                    if ((leavingProject && onProjectUrl) || (leavingMedia && this.onMediaUrl())) {
+                    if ((leavingProject && onProjectUrl) || (leavingMedia && this.onMediaUrl()) || (leavingFilm && this.onFilmUrl()) || enteringFilm) {
                         const next = new URL('/', location.origin);
                         if (view === 'works' && this.worksType && this.worksType !== 'all') next.searchParams.set('type', this.worksType);
-                        history.pushState({ view: view }, '', next.pathname + next.search);
+                        if (view === 'film' || view === 'film_detail') {
+                            next.hash = '/film';
+                            if (this.activeFilmFilter && this.activeFilmFilter !== 'ALL') next.searchParams.set('type', this.filmSlug(this.activeFilmFilter));
+                        }
+                        const dest = next.pathname + next.search + next.hash;
+                        const cur = location.pathname + location.search + location.hash;
+                        if (dest !== cur) history.pushState({ view: view }, '', dest);
                     }
                     if (!leavingProject && !leavingMedia) return;
                     document.title = HOME_TITLE;
@@ -420,6 +462,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     return Array.from(groups.values()).sort((a, b) => String(b.latest).localeCompare(String(a.latest)));
                 },
                 syncTypeParam() {
+                    if (this.onFilmUrl() || this.currentView === 'film' || this.currentView === 'film_detail') return;
                     const url = new URL(location.href);
                     if (!this.worksType || this.worksType === 'all') url.searchParams.delete('type');
                     else url.searchParams.set('type', this.worksType);
@@ -428,6 +471,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     if (next !== cur) history.replaceState(history.state, '', next);
                 },
                 applyTypeFromUrl() {
+                    if (this.onFilmUrl()) return false;
                     const raw = new URLSearchParams(location.search).get('type');
                     if (!raw) return false;
                     const key = String(raw).trim().toLowerCase();
@@ -463,6 +507,54 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.syncTypeParam();
                     }
                     this.worksFilterOpen = false;
+                },
+                filmSlug(key) {
+                    return String(key || '').trim().toLowerCase();
+                },
+                filmKeyFromSlug(slug) {
+                    const key = this.filmSlug(slug);
+                    if (!key || key === 'all') return 'ALL';
+                    const cat = (this.filmCategories || []).find((item) => this.filmSlug(item.key) === key);
+                    return cat ? cat.key : null;
+                },
+                applyFilmFromUrl() {
+                    const raw = new URLSearchParams(location.search).get('type');
+                    const key = this.filmKeyFromSlug(raw);
+                    this.activeFilmFilter = key || 'ALL';
+                    this.filmFilterOpen = false;
+                    this.currentView = 'film';
+                    document.title = HOME_TITLE;
+                    return true;
+                },
+                setFilmType(key) {
+                    this.activeFilmFilter = key || 'ALL';
+                    this.filmFilterOpen = false;
+                    const url = new URL('/', location.origin);
+                    url.hash = '/film';
+                    if (this.activeFilmFilter !== 'ALL') url.searchParams.set('type', this.filmSlug(this.activeFilmFilter));
+                    const next = url.pathname + url.search + url.hash;
+                    const cur = location.pathname + location.search + location.hash;
+                    if (next !== cur) history.replaceState({ view: 'film' }, '', next);
+                },
+                openFilmIndex() {
+                    this.activeFilmFilter = 'ALL';
+                    this.filmFilterOpen = false;
+                    this.selectedFilm = null;
+                    const keep = this.onFilmUrl() && location.pathname === '/';
+                    this.switchView('film');
+                    if (keep) {
+                        const next = '/#/film';
+                        const cur = location.pathname + location.search + location.hash;
+                        if (cur !== next) history.replaceState({ view: 'film' }, '', next);
+                    }
+                },
+                filmButtonLabel(code) {
+                    const films = this.filmProjects || [];
+                    if (this.activeFilmFilter === 'ALL') return Alpine.store('lang').t('allFilms') + ' ' + films.length;
+                    const cat = (this.filmCategories || []).find((item) => item.key === this.activeFilmFilter);
+                    const label = cat ? (code === 'zh' ? cat.name : cat.key) : this.activeFilmFilter;
+                    const count = films.filter((item) => item.category === this.activeFilmFilter).length;
+                    return label + ' ' + count;
                 },
                 openProject(project, opts = {}) {
     if (project && project.discipline && project.discipline !== this.worksEntry) {
@@ -631,16 +723,16 @@ get filteredFilmProjects() {
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
-        <div class="flex items-center gap-2 md:gap-12 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
-            <a href="#" @click.prevent="openWorks()" :class="currentView === 'works' || currentView === 'project_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navWorks'))" @mouseenter="animate($store.lang.t('navWorks'))" x-text="displayText">WORKS</a>
-            <a href="#" @click.prevent="switchView('film')" :class="currentView === 'film' || currentView === 'film_detail' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navFilm'))" @mouseenter="animate($store.lang.t('navFilm'))" x-text="displayText">FILM</a>
-            <a href="#" @click.prevent="openMedia()" :class="currentView === 'media' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navMedia'))" @mouseenter="animate($store.lang.t('navMedia'))" x-text="displayText">MEDIA</a>
-            <a href="#" @click.prevent="switchView('studio')" :class="currentView === 'studio' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navStudio'))" @mouseenter="animate($store.lang.t('navStudio'))" x-text="displayText">STUDIO</a>
-            <a href="#" @click.prevent="switchView('contact')" :class="currentView === 'contact' ? 'text-[#111111]' : ''" class="transition-colors" x-data="scrambleText()" x-effect="animate($store.lang.t('navContact'))" @mouseenter="animate($store.lang.t('navContact'))" x-text="displayText">CONTACT</a>
-            <div class="flex items-center gap-[6px] ml-2 md:ml-4" role="group" aria-label="Language">
-                <button type="button" class="bg-transparent border-0 p-0 leading-none" style="font-family: var(--font-zh)" @click="$store.lang.set('zh')" :class="$store.lang.code === 'zh' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'zh'">中</button>
+        <div class="flex items-center gap-1 md:gap-10 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
+            <a href="#" @click.prevent="openWorks()" class="nav-tag" :class="currentView === 'works' || currentView === 'project_detail' ? 'is-on' : ''" x-text="$store.lang.t('navWorks')">WORKS</a>
+            <a href="#" @click.prevent="openFilmIndex()" class="nav-tag" :class="currentView === 'film' || currentView === 'film_detail' ? 'is-on' : ''" x-text="$store.lang.t('navFilm')">FILM</a>
+            <a href="#" @click.prevent="openMedia()" class="nav-tag" :class="currentView === 'media' ? 'is-on' : ''" x-text="$store.lang.t('navMedia')">MEDIA</a>
+            <a href="#" @click.prevent="switchView('studio')" class="nav-tag" :class="currentView === 'studio' ? 'is-on' : ''" x-text="$store.lang.t('navStudio')">STUDIO</a>
+            <a href="#" @click.prevent="switchView('contact')" class="nav-tag" :class="currentView === 'contact' ? 'is-on' : ''" x-text="$store.lang.t('navContact')">CONTACT</a>
+            <div class="flex items-center gap-1 ml-1 md:ml-2" role="group" aria-label="Language">
+                <button type="button" class="nav-tag border-0" style="font-family: var(--font-zh)" @click="$store.lang.set('zh')" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
                 <span class="text-[#666666] leading-none" aria-hidden="true">/</span>
-                <button type="button" class="bg-transparent border-0 p-0 leading-none" @click="$store.lang.set('en')" :class="$store.lang.code === 'en' ? 'text-[#111111]' : 'text-[#666666]'" :aria-pressed="$store.lang.code === 'en'">EN</button>
+                <button type="button" class="nav-tag border-0" @click="$store.lang.set('en')" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
             </div>
         </div>
     </nav>
@@ -668,8 +760,8 @@ get filteredFilmProjects() {
         <div class="mt-6 flex flex-col md:flex-row justify-between items-start font-mono text-[10px] md:text-xs">
     <!-- 电脑端信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate($store.lang.architect(currentHomeProject))" x-text="displayText"></div>
-        <div class="text-[#111111] font-bold text-sm md:text-xl" x-data="scrambleText()" x-effect="animate($store.lang.name(currentHomeProject))" x-text="displayText"></div>
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeProject)"></div>
+        <div class="text-[#111111] font-bold text-sm md:text-xl" x-text="$store.lang.name(currentHomeProject)"></div>
     </div>
     <!-- 手机端信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mb-4">
@@ -678,15 +770,15 @@ get filteredFilmProjects() {
     </div>
     <!-- 电脑端右侧信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start md:items-end mt-0">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-data="scrambleText()" x-effect="animate(currentHomeProject.address)" x-text="displayText"></div>
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeProject.address)"></div>
         <div class="flex items-center text-[#111111] font-bold h-5 overflow-visible whitespace-nowrap">
             <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
-            <span x-data="scrambleText()" x-effect="animate(currentHomeProject.coords)" x-text="displayText"></span>
+            <span x-text="currentHomeProject.coords"></span>
         </div>
     </div>
     <!-- 手机端右侧信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mt-0">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="currentHomeMobileProject.address"></div>
+        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeMobileProject.address)"></div>
         <div class="flex items-center text-[#111111] font-bold h-5 overflow-visible whitespace-nowrap">
             <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
             <span x-text="currentHomeMobileProject.coords"></span>
@@ -698,18 +790,18 @@ get filteredFilmProjects() {
     <!-- VIEW 2: WORKS -->
     <section x-show="currentView === 'works'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
         <div class="mb-10 flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] z-20 relative">
-            <div class="flex flex-wrap items-baseline gap-x-5 gap-y-3 md:gap-x-10 uppercase">
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 uppercase">
             <button type="button" data-works-entry="architecture" @click="setWorksEntry('architecture')"
-                    class="pb-1 border-b transition-colors"
-                    :class="worksEntry === 'architecture' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
+                    class="nav-tag"
+                    :class="worksEntry === 'architecture' ? 'is-on' : ''"
                     x-text="$store.lang.t('architecture')"></button>
             <button type="button" data-works-entry="interior" @click="setWorksEntry('interior')"
-                    class="pb-1 border-b transition-colors"
-                    :class="worksEntry === 'interior' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
+                    class="nav-tag"
+                    :class="worksEntry === 'interior' ? 'is-on' : ''"
                     x-text="$store.lang.t('interior')"></button>
             <button type="button" data-works-entry="landscape" @click="setWorksEntry('landscape')"
-                    class="pb-1 border-b transition-colors"
-                    :class="worksEntry === 'landscape' ? 'text-[#111111] border-[#111111]' : 'text-[#666666] border-transparent hover:text-[#111111]'"
+                    class="nav-tag"
+                    :class="worksEntry === 'landscape' ? 'is-on' : ''"
                     x-text="$store.lang.t('landscape')"></button>
             </div>
             <div class="relative ml-auto normal-case" x-show="worksTypeOptions.length" x-cloak @click.outside="worksFilterOpen = false">
@@ -723,8 +815,8 @@ get filteredFilmProjects() {
                 <div x-show="worksFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
                     <template x-for="opt in worksTypeOptions" :key="opt.key">
                         <button type="button"
-                                class="block w-full text-left px-3 py-1.5 whitespace-nowrap bg-white"
-                                :class="worksType === opt.key ? 'text-[#111111]' : 'text-[#666666]'"
+                                class="block w-full text-left px-3 py-1.5 whitespace-nowrap"
+                                :class="worksType === opt.key ? 'bg-[#111111] text-white' : 'bg-white text-[#666666] hover:text-[#111111]'"
                                 @click="setWorksType(opt.key)"
                                 x-text="$store.lang.t(opt.key === 'all' ? 'filterAll' : ('type_' + opt.key)) + ' ' + opt.count"></button>
                     </template>
@@ -750,7 +842,7 @@ get filteredFilmProjects() {
             <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
             <span class="text-[#111111] text-[9px]" x-text="project.coords"></span>
         </div>
-        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="project.location"></div>
+        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="$store.lang.place(project.location)"></div>
     </div>
 </div>
                 </div>
@@ -846,7 +938,7 @@ get filteredFilmProjects() {
 <div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
     <span class="text-[#111111]" x-text="$store.lang.architect(selectedProject)"></span>
     <div class="flex items-center gap-3 text-gray-500">
-        <span x-text="selectedProject?.location"></span>
+        <span x-text="$store.lang.place(selectedProject?.location)"></span>
         <span x-text="'[ ' + selectedProject?.year + ' ]'"></span>
     </div>
 </div>
@@ -868,27 +960,30 @@ get filteredFilmProjects() {
     <!-- VIEW 3: STUDIO（从配置读取）-->
     <!-- VIEW 3: FILM -->
     <section x-show="currentView === 'film'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
-        <div class="mb-10 flex flex-wrap gap-3 font-mono text-xs z-20 relative">
-            <button @click="activeFilmFilter = 'ALL'" 
-                    class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                    :class="activeFilmFilter === 'ALL' ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
-                    x-data="scrambleText()" x-effect="animate($store.lang.t('allFilms'))" @mouseenter="animate($store.lang.t('allFilms'))">
-                <span class="relative z-10 flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === 'ALL' ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
-                    <span x-text="displayText"></span>
-                </span>
-            </button>
-           <template x-for="cat in filmCategories" :key="cat.key">
-                <button @click="activeFilmFilter = cat.key" 
-                        class="relative px-3 py-2 border transition-all duration-300 group overflow-hidden"
-                        :class="activeFilmFilter === cat.key ? 'bg-[#111111] text-white border-[#111111] font-bold' : 'bg-transparent border-black/20 text-gray-500 hover:border-black hover:text-[#111111]'"
-                        x-data="scrambleText()" x-effect="animate($store.lang.code === 'zh' ? cat.name : cat.key)" @mouseenter="animate($store.lang.code === 'zh' ? cat.name : cat.key)">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-sm transition-colors duration-300" :class="activeFilmFilter === cat.key ? 'bg-white' : 'bg-gray-600 group-hover:bg-[#111111]'"></span>
-                        <span x-text="displayText"></span>
-                    </span>
+        <div class="mb-10 flex items-center font-mono text-[9px] md:text-xs z-20 relative">
+            <div class="relative ml-auto" @click.outside="filmFilterOpen = false">
+                <button type="button" data-film-filter
+                        class="flex items-center gap-2 border border-[#E5E5E5] bg-white text-[#111111] px-3 py-1.5"
+                        @click="filmFilterOpen = !filmFilterOpen"
+                        :aria-expanded="filmFilterOpen">
+                    <span x-text="filmButtonLabel($store.lang.code)"></span>
+                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-[#111111] rotate-45 -translate-y-px" aria-hidden="true"></span>
                 </button>
-            </template>
+                <div x-show="filmFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
+                    <button type="button"
+                            class="block w-full text-left px-3 py-1.5 whitespace-nowrap"
+                            :class="activeFilmFilter === 'ALL' ? 'bg-[#111111] text-white' : 'bg-white text-[#666666] hover:text-[#111111]'"
+                            @click="setFilmType('ALL')"
+                            x-text="$store.lang.t('allFilms') + ' ' + filmProjects.length"></button>
+                    <template x-for="cat in filmCategories" :key="cat.key">
+                        <button type="button"
+                                class="block w-full text-left px-3 py-1.5 whitespace-nowrap"
+                                :class="activeFilmFilter === cat.key ? 'bg-[#111111] text-white' : 'bg-white text-[#666666] hover:text-[#111111]'"
+                                @click="setFilmType(cat.key)"
+                                x-text="($store.lang.code === 'zh' ? cat.name : cat.key) + ' ' + filmProjects.filter((item) => item.category === cat.key).length"></button>
+                    </template>
+                </div>
+            </div>
         </div>
         <div class="columns-1 md:columns-3 gap-8">
             <template x-for="(film, index) in filteredFilmProjects" :key="index">
@@ -915,7 +1010,7 @@ get filteredFilmProjects() {
             <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
             <span class="text-[#111111] text-[9px]" x-text="film.coords"></span>
         </div>
-        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="film.location"></div>
+        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="$store.lang.place(film.location)"></div>
     </div>
 </div>
                 </div>
@@ -952,7 +1047,7 @@ get filteredFilmProjects() {
             <span class="text-[#111111]" x-text="selectedFilm?.coords"></span>
         </div>
         <div class="flex items-center gap-3 text-gray-500">
-            <span x-text="selectedFilm?.location"></span>
+            <span x-text="$store.lang.place(selectedFilm?.location)"></span>
             <span x-text="'[ ' + selectedFilm?.year + ' ]'"></span>
         </div>
     </div>
@@ -1051,7 +1146,7 @@ get filteredFilmProjects() {
                 </div>
             </div>
             <div class="mt-16 pt-6 border-t border-black/5 text-[9px] text-gray-600 font-mono">
-                <div x-text="$store.lang.t('location') + ': ' + contact.location"></div>
+                <div x-text="$store.lang.t('location') + ': ' + $store.lang.place(contact.location)"></div>
             </div>
         </div>
     </section>
