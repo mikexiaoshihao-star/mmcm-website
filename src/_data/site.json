@@ -34,6 +34,7 @@
     {
       "img": "/images/home/02.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Guangyang_Bay,Chongqing",
       "coords": "29.585°N / 106.740°E"
@@ -41,6 +42,7 @@
     {
       "img": "/images/home/03.webp",
       "title": "Xi'an_Puyi",
+      "title_zh": "西安璞逸",
       "architect": "gad",
       "address": "Xi'an,Shaanxi",
       "coords": "34.212°N / 108.851°E"
@@ -63,6 +65,7 @@
     {
       "img": "/images/home/06.webp",
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "architect": "Tanghua_Architects_&_Associates",
       "address": "Chongqing",
       "coords": "29.585°N / 106.740°E"
@@ -101,6 +104,7 @@
     },
      {
         "title": "Congressional_Central_Office",
+        "title_zh": "国会办公室",
         "architect": "Tektonn_Architects",
         "address": "Chengdu,Sichuan",
         "coords": "30.51°N / 104.08°E",
@@ -122,6 +126,7 @@
     },
     {
         "title": "Xi'an_Puyi",
+        "title_zh": "西安璞逸",
         "architect": "gad",
         "address": "Xi'an,Shaanxi",
         "coords": "30.51°N / 104.08°E",
@@ -243,6 +248,7 @@
     },
     {
       "title": "Congressional_Central_Office",
+      "title_zh": "国会办公室",
       "slug": "congressional-central-office",
       "category": "INTERIOR",
       "discipline": "interior",
@@ -331,6 +337,7 @@
     },
     {
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "slug": "yangtze-river-ecological-cadre-academy",
       "category": "EDUCATION",
       "discipline": "architecture",
@@ -369,6 +376,7 @@
     },
     {
       "title": "Xi'an_Puyi",
+      "title_zh": "西安璞逸",
       "slug": "xi-an-puyi",
       "category": "RESIDENTIAL",
       "discipline": "architecture",
@@ -987,6 +995,7 @@
     },
     {
       "title": "Yangtze_River_Ecological_Cadre_Academy",
+      "title_zh": "长江生态干部学院",
       "category": "EDUCATION",
       "architect": "Tanghua_Architects_&_Associates",
       "cover": "/images/films/Yangtze_River_Ecological_Cadre_Academy/cover.webp",
