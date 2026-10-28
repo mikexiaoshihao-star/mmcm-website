@@ -10,14 +10,33 @@ module.exports = function(eleventyConfig) {
     .slice(0, 10);
   eleventyConfig.addGlobalData("assetVersion", assetVersion);
 
+  let mapAssetVersion = "";
+  function hashMapAssets() {
+    const hash = crypto.createHash("sha256");
+    for (const file of [
+      "src/map/generated/atlas.js",
+      "src/map/generated/data/projects.js",
+      "src/map/generated/data/places.js",
+      "src/map/generated/data/globe.js",
+      "src/map/atlas.css",
+    ]) {
+      hash.update(fs.readFileSync(file));
+    }
+    return hash.digest("hex").slice(0, 10);
+  }
+
   eleventyConfig.on("eleventy.before", () => new Promise((resolve, reject) => {
     execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.error(stderr);
       if (err) reject(err);
-      else resolve();
+      else {
+        mapAssetVersion = hashMapAssets();
+        resolve();
+      }
     });
   }));
+  eleventyConfig.addGlobalData("mapAssetVersion", () => mapAssetVersion);
 
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy({ "src/map/generated/img": "map/img" });

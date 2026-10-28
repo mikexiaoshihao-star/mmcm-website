@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400,600:Chinese_Simplify,Latin&display=swap">
     <script>
         (function () {
-            var files = ['/map/data/projects.js', '/map/data/globe.js', '/map/data/places.js', '/map/atlas.js'];
+            var mapV = "{{ mapAssetVersion }}";
+            var files = ['/map/data/projects.js', '/map/data/globe.js', '/map/data/places.js', '/map/atlas.js'].map(function (href) {
+                return href + '?v=' + mapV;
+            });
             var run = function () {
                 files.forEach(function (href) {
                     if (document.querySelector('link[data-atlas-prefetch="' + href + '"]')) return;
@@ -754,7 +757,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         const link = document.createElement('link');
                         link.id = 'atlas-css';
                         link.rel = 'stylesheet';
-                        link.href = '/map/atlas.css';
+                        link.href = '/map/atlas.css?v={{ mapAssetVersion }}';
                         document.head.appendChild(link);
                     }
                     const load = (src) => new Promise((resolve, reject) => {
@@ -789,11 +792,12 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                             this.showAtlasStatus('error');
                         }
                     };
+                    const mapV = "{{ mapAssetVersion }}";
                     Promise.all([
-                        load('/map/data/projects.js'),
-                        load('/map/data/places.js'),
-                        load('/map/data/globe.js')
-                    ]).then(() => load('/map/atlas.js'))
+                        load('/map/data/projects.js?v=' + mapV),
+                        load('/map/data/places.js?v=' + mapV),
+                        load('/map/data/globe.js?v=' + mapV)
+                    ]).then(() => load('/map/atlas.js?v=' + mapV))
                         .then(() => finish(true))
                         .catch((err) => { console.error(err); finish(false); });
                 },
