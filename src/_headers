@@ -1,0 +1,20 @@
+# Unversioned map and site scripts/styles. Revalidate every time so a month-long
+# browser cache cannot keep an old list after a deploy.
+/map/data/*
+  Cache-Control: no-cache
+
+/map/atlas.js
+  Cache-Control: no-cache
+
+/map/atlas.css
+  Cache-Control: no-cache
+
+/assets/*
+  Cache-Control: no-cache
+
+# Same files with the content hash in the path. Safe to keep.
+/map/v/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/v/*
+  Cache-Control: public, max-age=31536000, immutable

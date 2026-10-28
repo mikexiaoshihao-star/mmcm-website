@@ -11,18 +11,26 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData("assetVersion", assetVersion);
 
   let mapAssetVersion = "";
+  const mapSources = [
+    ["src/map/generated/atlas.js", "atlas.js"],
+    ["src/map/atlas.css", "atlas.css"],
+    ["src/map/generated/data/projects.js", "data/projects.js"],
+    ["src/map/generated/data/places.js", "data/places.js"],
+    ["src/map/generated/data/globe.js", "data/globe.js"],
+  ];
   function hashMapAssets() {
     const hash = crypto.createHash("sha256");
-    for (const file of [
-      "src/map/generated/atlas.js",
-      "src/map/generated/data/projects.js",
-      "src/map/generated/data/places.js",
-      "src/map/generated/data/globe.js",
-      "src/map/atlas.css",
-    ]) {
-      hash.update(fs.readFileSync(file));
-    }
+    for (const [file] of mapSources) hash.update(fs.readFileSync(file));
     return hash.digest("hex").slice(0, 10);
+  }
+  function publishVersionedMap(version) {
+    const root = "src/map/generated/v";
+    fs.rmSync(root, { recursive: true, force: true });
+    for (const [file, rel] of mapSources) {
+      const dest = `${root}/${version}/${rel}`;
+      fs.mkdirSync(dest.slice(0, dest.lastIndexOf("/")), { recursive: true });
+      fs.copyFileSync(file, dest);
+    }
   }
 
   eleventyConfig.on("eleventy.before", () => new Promise((resolve, reject) => {
@@ -32,6 +40,7 @@ module.exports = function(eleventyConfig) {
       if (err) reject(err);
       else {
         mapAssetVersion = hashMapAssets();
+        publishVersionedMap(mapAssetVersion);
         resolve();
       }
     });
@@ -42,7 +51,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/map/generated/img": "map/img" });
   eleventyConfig.addPassthroughCopy({ "src/map/generated/data": "map/data" });
   eleventyConfig.addPassthroughCopy({ "src/map/generated/atlas.js": "map/atlas.js" });
+  eleventyConfig.addPassthroughCopy({ "src/map/generated/v": "map/v" });
   eleventyConfig.addPassthroughCopy("src/map/atlas.css");
+  eleventyConfig.addPassthroughCopy({ "src/assets/style.css": `assets/v/${assetVersion}/style.css` });
+  eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
