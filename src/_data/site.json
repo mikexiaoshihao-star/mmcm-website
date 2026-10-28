@@ -138,6 +138,131 @@
 
   "projects": [
     {
+      "title": "Chongqing_Urban_Construction_Archives",
+      "title_zh": "重庆市城市建设档案馆",
+      "slug": "chongqing-urban-construction-archives",
+      "category": "CULTURAL",
+      "discipline": "architecture",
+      "type": "cultural",
+      "architect": "Tanghua_Architects_&_Associates",
+      "url": "/images/projects/Chongqing_Urban_Construction_Archives/cover.webp",
+      "year": "2025",
+      "coords": "29.725°N / 106.592°E",
+      "location": "Chongqing",
+      "images": [
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/01.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/02.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/03.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/04.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/05.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/06.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/18.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/19.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/20.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/21.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/22.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
+    {
       "title": "Renovation_of_Langjiu_Longma_Winery_Office_Building_102",
       "title_zh": "郎酒龙马酒庄102办公楼改造",
       "slug": "renovation-of-langjiu-longma-winery-office-building-102",
