@@ -5,7 +5,6 @@ import { state, $, $$, h, t, pname, catName, architectName, locName, discName, f
 
 const EASE = 'cubic-bezier(.76,0,.18,1)';
 const altName = (p) => (state.lang === 'zh' ? (p.zh ? p.title : '') : p.zh || '');
-const projectURL = (slug) => location.origin + '/projects/' + slug + '/';
 let openEl = null;
 export const pageOpen = () => !!openEl;
 
@@ -14,13 +13,13 @@ export function openPage(p, from, { getReturn, onClosed, index = '', instant = f
   const imgs = p.imgs && p.imgs.length ? p.imgs : [{ v: p.cover, t: p.thumbs[0], d: 'MAIN_VIEW', m: 'RAW // 24MP' }];
   const N = imgs.length;
   const el = h(`<div class="cp" role="dialog" aria-modal="true" aria-label="${pname(p)}">
-    <div class="cp-bar"><button class="cp-x" aria-label="${t('Return to map', '返回地图')}">《</button><span>${t('PROJECT DETAIL', '项目详情')}</span><button class="cp-link">${t('LINK', '链接')}</button></div>
+    <div class="cp-bar"><button class="cp-x" aria-label="${t('Return to map', '返回地图')}">←</button><span>${t('PROJECT DETAIL', '项目详情')}</span></div>
     <div class="cp-stage"><div class="cp-track">${imgs.map((m, i) => `<div class="cp-slide"><img ${i ? 'data-src' : 'src'}="${thumb(m.v)}" alt="${pname(p)}" draggable="false"></div>`).join('')}</div>
-      <button class="cp-nav prev" aria-label="previous">〈</button><button class="cp-nav next" aria-label="next">〉</button>
-      <button class="cp-copy">COPY LINK</button><span class="cp-cnt"></span></div>
+      <button class="cp-nav prev" aria-label="previous">‹</button><button class="cp-nav next" aria-label="next">›</button>
+      <span class="cp-cnt"></span></div>
     <div class="cp-thumbs">${imgs.map((m, i) => `<button class="cp-th" data-i="${i}"><span class="im"><img src="${thumb(m.t)}" alt="" loading="lazy"></span></button>`).join('')}</div>
     <aside class="cp-info">
-      <button class="cp-ret"><span>《</span> ${t('RETURN TO MAP', '返回地图')}</button>
+      <button class="cp-ret"><span>←</span> ${t('RETURN TO MAP', '返回地图')}</button>
       <div class="cp-idx">${index}</div>
       <h2 class="cp-title"></h2>${altName(p) ? `<p class="cp-alt">${altName(p)}</p>` : ''}
       <div class="cp-meta"><span class="cp-arch">${architectName(p)}</span><span class="cp-ly"><span>${locName(p)}</span><span>[ ${p.year} ]</span></span></div>
@@ -56,10 +55,7 @@ export function openPage(p, from, { getReturn, onClosed, index = '', instant = f
   stage.addEventListener('pointermove', (e) => { if (x0 == null) return; dx = e.clientX - x0; track.style.transform = `translateX(calc(${-i * 100}% + ${dx}px))`; });
   const end = () => { if (x0 == null) return; x0 = null; const th = stage.clientWidth * 0.15; go(dx < -th ? i + 1 : dx > th ? i - 1 : i); };
   stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
-  const copy = (b) => { const done = state.lang === 'zh' ? '已复制' : 'COPIED'; navigator.clipboard?.writeText(projectURL(p.slug)).catch(() => {}); const o = b.textContent; b.textContent = done; setTimeout(() => (b.textContent = o), 1600); };
-  $('.cp-copy', el).onclick = (e) => copy(e.currentTarget); $('.cp-link', el).onclick = (e) => copy(e.currentTarget);
-
-  const parts = [$('.cp-bar', el), $('.cp-thumbs', el), $('.cp-info', el), ...$$('.cp-nav,.cp-copy,.cp-cnt', el)];
+  const parts = [$('.cp-bar', el), $('.cp-thumbs', el), $('.cp-info', el), ...$$('.cp-nav,.cp-cnt', el)];
   const hero = $('img', slides[0]);
   const land = () => { title.textContent = ''; scramble(title, pname(p)); scramble(co, fmtCoord(p.lat, p.lon)); };
   (async () => {
@@ -92,7 +88,7 @@ export function openPage(p, from, { getReturn, onClosed, index = '', instant = f
     el.remove(); document.body.classList.remove('cp-open'); onClosed && onClosed();
   };
   el._close = (quiet) => { if (quiet) { closed = true; openEl = null; removeEventListener('keydown', key); removeEventListener('popstate', pop); el.remove(); document.body.classList.remove('cp-open'); onClosed && onClosed(); } else close(); };
-  // Esc / RETURN / 《 go back through history so the browser Back button and the UI stay in sync
+  // Esc / RETURN / ← go back through history so the browser Back button and the UI stay in sync
   const back = () => (history.state && history.state.atlasProject === p.slug ? history.back() : close());
   const key = (e) => { if (e.key === 'Escape') back(); if (e.key === 'ArrowRight') go(i + 1); if (e.key === 'ArrowLeft') go(i - 1); };
   const pop = () => close(true);

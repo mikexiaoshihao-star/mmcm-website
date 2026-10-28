@@ -9,6 +9,9 @@
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://cdn-font.hyperos.mi.com">
+    <link rel="preconnect" href="https://cdn-file.hyperos.mi.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400,600:Chinese_Simplify,Latin&display=swap">
     {%- set ogTitle = pageTitle or "MMCM STUDIO 毫厘建筑摄影" -%}
     {%- set ogDesc = pageDesc or "MMCM STUDIO 毫厘建筑摄影 · Chengdu" -%}
     {%- set ogImage = ogImagePath or "/images/home/01.webp" %}
@@ -42,32 +45,20 @@
                 : ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
             window.__MMCM_LANG = lang;
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-            window.__MMCM_LOAD_ZH_FONT = function () {
-                if (document.getElementById('misans-css')) return;
-                var link = document.createElement('link');
-                link.id = 'misans-css';
-                link.rel = 'stylesheet';
-                link.href = 'https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400:Chinese_Simplify,Latin&display=swap';
-                document.head.appendChild(link);
-            };
-            if (lang === 'zh') window.__MMCM_LOAD_ZH_FONT();
         })();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['MiSans', 'PingFang SC', 'system-ui', '-apple-system', 'Helvetica Neue', 'Arial', 'sans-serif'], mono: ['MiSans', 'PingFang SC', 'system-ui', '-apple-system', 'Helvetica Neue', 'Arial', 'sans-serif'], serif: ['MiSans', 'PingFang SC', 'system-ui', '-apple-system', 'Helvetica Neue', 'Arial', 'sans-serif'] },
                     colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
         }
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
 
     <script>
         const siteData = {
@@ -125,14 +116,15 @@ filmCategories: {{ site.filmCategories | dump | safe }},
             const UI = {
                 en: {
                     navWorks: 'WORKS', navFilm: 'FILM', navMedia: 'MEDIA', navStudio: 'STUDIO', navContact: 'CONTACT',
+                    navMenu: 'MENU', navClose: 'CLOSE',
                     architecture: 'Architecture', interior: 'Interior', landscape: 'Landscape',
                     comingSoon: 'Projects coming soon.', allFilms: 'ALL_FILMS',
-                    filterAll: 'All',
+                    filterAll: 'All', filterBy: 'Filter by type',
                     type_office: 'Office', type_commercial: 'Commercial', type_residential: 'Residential',
                     type_cultural: 'Cultural', type_education: 'Education', type_sports: 'Sports',
                     type_exhibition: 'Exhibition', type_public: 'Public', type_hospitality: 'Hospitality',
                     type_mixed_use: 'Mixed-use',
-                    projectDetail: 'Project Detail', link: 'LINK', copied: 'COPIED', copyLink: 'COPY LINK',
+                    projectDetail: 'Project Detail',
                     returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
@@ -145,14 +137,15 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 },
                 zh: {
                     navWorks: '作品', navFilm: '影片', navMedia: '媒体', navStudio: '工作室', navContact: '联系',
+                    navMenu: '菜单', navClose: '关闭',
                     architecture: '建筑', interior: '室内', landscape: '景观',
                     comingSoon: '作品上传中', allFilms: '全部影片',
-                    filterAll: '全部',
+                    filterAll: '全部', filterBy: '按类型筛选',
                     type_office: '办公', type_commercial: '商业', type_residential: '住宅',
                     type_cultural: '文化', type_education: '教育', type_sports: '体育',
                     type_exhibition: '展览', type_public: '公共', type_hospitality: '酒店',
                     type_mixed_use: '综合体',
-                    projectDetail: '项目', link: '链接', copied: '已复制', copyLink: '复制链接',
+                    projectDetail: '项目',
                     returnGrid: '返回列表', filmPlayer: '影片',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
@@ -174,7 +167,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     if (!item) return '';
                     if (this.code === 'zh' && item.title_zh) return item.title_zh;
                     const en = item.title_en || item.title || '';
-                    return this.code === 'zh' ? this.plain(en) : en;
+                    return this.plain(en);
                 },
                 personName(studio) {
                     if (!studio) return '';
@@ -189,14 +182,16 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 architect(item) {
                     if (!item) return '';
                     const en = item.architect || item.name || '';
-                    if (this.code !== 'zh') return en;
+                    if (this.code !== 'zh') return this.plain(en);
                     if (item.architect_zh) return item.architect_zh;
                     return ARCHITECT_ZH[en] || this.plain(en);
                 },
                 place(value) {
                     const en = value == null ? '' : String(value);
-                    if (this.code !== 'zh') return en;
-                    return LOCATION_ZH[en] || this.plain(en);
+                    if (this.code === 'zh') return LOCATION_ZH[en] || this.plain(en);
+                    const parts = en.split('_').filter(Boolean);
+                    if (parts.length >= 2) return parts[0] + ', ' + parts.slice(1).join(' ');
+                    return en;
                 },
                 set(code) {
                     if (code !== 'zh' && code !== 'en') return;
@@ -218,6 +213,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 worksType: 'all',
                 worksFilterOpen: false,
                 filmFilterOpen: false,
+                menuOpen: false,
                 activeFilmFilter: (function () {
                     if (!/^#\/film\/?$/.test(location.hash)) return 'ALL';
                     const raw = new URLSearchParams(location.search).get('type');
@@ -239,7 +235,6 @@ currentHomeMobileIndex: 0,
                 contact: siteData.contact,
                 mediaItems: siteData.media || [],
                 selectedProject: null,
-                linkCopied: false,
                 selectedFilm: null,
                 detailImages: [],
                 currentDetailImageIndex: 0,
@@ -297,7 +292,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                             this.selectedProject = null;
                             this.detailImages = [];
                             this.currentDetailImageIndex = 0;
-                            this.linkCopied = false;
                         }
                         this.selectedFilm = null;
                         this.applyFilmFromUrl();
@@ -314,7 +308,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.selectedProject = null;
                         this.detailImages = [];
                         this.currentDetailImageIndex = 0;
-                        this.linkCopied = false;
                         this.openedFromMap = false;
                         this.currentView = 'works';
                         document.title = HOME_TITLE;
@@ -331,6 +324,20 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     this.routeFromUrl();
                     window.addEventListener('popstate', () => this.routeFromUrl());
                     window.addEventListener('hashchange', () => this.routeFromUrl());
+                    window.addEventListener('resize', () => { this.closeWorksFilter(false); this.closeFilmFilter(false); });
+                    window.addEventListener('keydown', (e) => {
+                        this.onWorksFilterKey(e);
+                        this.onFilmFilterKey(e);
+                        if (e.key === 'Escape' && this.menuOpen) {
+                            this.menuOpen = false;
+                            const btn = this.$root.querySelector('.menu-btn');
+                            if (btn) btn.focus();
+                        }
+                    });
+                    const menuMq = window.matchMedia('(min-width: 832px)');
+                    const closeMenuIfWide = () => { if (menuMq.matches) this.menuOpen = false; };
+                    if (menuMq.addEventListener) menuMq.addEventListener('change', closeMenuIfWide);
+                    else menuMq.addListener(closeMenuIfWide);
                     this.$nextTick(() => document.documentElement.classList.remove('route-project'));
                 },
                 switchView(view) {
@@ -357,7 +364,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     }
                     if (!leavingProject && !leavingMedia) return;
                     document.title = HOME_TITLE;
-                    this.linkCopied = false;
                 },
                 openMedia() {
                     const leavingProject = this.currentView === 'project_detail';
@@ -367,7 +373,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.selectedProject = null;
                         this.detailImages = [];
                         this.currentDetailImageIndex = 0;
-                        this.linkCopied = false;
                     }
                     document.title = Alpine.store('lang').t('mediaPage') + ' | ' + HOME_TITLE;
                     if (!/^\/media\/?$/.test(location.pathname)) history.pushState({ view: 'media' }, '', '/media/');
@@ -506,9 +511,67 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 setWorksType(key) {
                     this.worksType = key;
-                    this.worksFilterOpen = false;
+                    this.closeWorksFilter(true);
                     this.syncTypeParam();
                     this.syncAtlas();
+                },
+                worksFilterLabel() {
+                    const opt = (this.worksTypeOptions || []).find((item) => item.key === this.worksType) || { key: 'all', count: 0 };
+                    const name = Alpine.store('lang').t(opt.key === 'all' ? 'filterAll' : ('type_' + opt.key));
+                    return { name, count: opt.count || 0 };
+                },
+                worksFilterAria() {
+                    const cur = this.worksFilterLabel();
+                    return Alpine.store('lang').t('filterBy') + ': ' + cur.name + ' ' + cur.count;
+                },
+                positionFilter(refName, openName) {
+                    const root = this.$refs[refName];
+                    const btn = root && root.querySelector('.flt-btn');
+                    if (!root || !btn || !this[openName]) return;
+                    const r = btn.getBoundingClientRect();
+                    const nav = window.innerWidth < 768 ? 64 : 80;
+                    const below = window.innerHeight - r.bottom - 4 - 16;
+                    const above = r.top - nav - 4 - 16;
+                    const up = below < 176 && above > below;
+                    root.classList.toggle('up', up);
+                    const space = Math.min(440, Math.max(132, up ? above : below));
+                    root.style.setProperty('--flt-max-h', space + 'px');
+                },
+                openWorksFilter() {
+                    this.filmFilterOpen = false;
+                    this.worksFilterOpen = true;
+                    this.$nextTick(() => {
+                        this.positionFilter('flt', 'worksFilterOpen');
+                        const list = this.$refs.fltList;
+                        const cur = list && (list.querySelector('[aria-selected="true"]') || list.querySelector('.flt-opt'));
+                        if (cur) { cur.classList.add('kb'); cur.focus({ preventScroll: true }); }
+                    });
+                },
+                closeWorksFilter(refocus) {
+                    if (!this.worksFilterOpen) return;
+                    this.worksFilterOpen = false;
+                    const root = this.$refs.flt;
+                    if (root) root.classList.remove('up');
+                    if (refocus && this.$refs.fltBtn) this.$refs.fltBtn.focus({ preventScroll: true });
+                },
+                toggleWorksFilter() {
+                    if (this.worksFilterOpen) this.closeWorksFilter(true);
+                    else this.openWorksFilter();
+                },
+                onWorksFilterKey(e) {
+                    if (!this.worksFilterOpen) return;
+                    const list = this.$refs.fltList;
+                    if (!list) return;
+                    const items = [...list.querySelectorAll('.flt-opt')];
+                    if (!items.length) return;
+                    const i = items.indexOf(document.activeElement);
+                    const focusAt = (n) => { if (!n) return; items.forEach((el) => el.classList.toggle('kb', el === n)); n.focus({ preventScroll: true }); };
+                    if (e.key === 'Escape') { e.preventDefault(); this.closeWorksFilter(true); }
+                    else if (e.key === 'ArrowDown') { e.preventDefault(); focusAt(items[Math.min(items.length - 1, (i < 0 ? -1 : i) + 1)]); }
+                    else if (e.key === 'ArrowUp') { e.preventDefault(); focusAt(items[Math.max(0, (i < 0 ? 1 : i) - 1)]); }
+                    else if (e.key === 'Home') { e.preventDefault(); focusAt(items[0]); }
+                    else if (e.key === 'End') { e.preventDefault(); focusAt(items[items.length - 1]); }
+                    else if (e.key === 'Tab') this.closeWorksFilter(false);
                 },
                 openWorks() {
                     if (window.MMCM_ATLAS && window.MMCM_ATLAS.pageOpen && window.MMCM_ATLAS.pageOpen()) window.MMCM_ATLAS.closePage();
@@ -624,6 +687,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     requestAnimationFrame(() => go(0));
                 },
                 setWorksView(view) {
+                    this.closeWorksFilter(false);
                     this.currentView = 'works';
                     this.worksView = view === 'map' ? 'map' : 'grid';
                     this.syncTypeParam();
@@ -701,13 +765,52 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 setFilmType(key) {
                     this.activeFilmFilter = key || 'ALL';
-                    this.filmFilterOpen = false;
+                    this.closeFilmFilter(true);
                     const url = new URL('/', location.origin);
                     url.hash = '/film';
                     if (this.activeFilmFilter !== 'ALL') url.searchParams.set('type', this.filmSlug(this.activeFilmFilter));
                     const next = url.pathname + url.search + url.hash;
                     const cur = location.pathname + location.search + location.hash;
                     if (next !== cur) history.replaceState({ view: 'film' }, '', next);
+                },
+                filmFilterAria() {
+                    return Alpine.store('lang').t('filterBy') + ': ' + this.filmButtonLabel(Alpine.store('lang').code);
+                },
+                openFilmFilter() {
+                    this.worksFilterOpen = false;
+                    this.filmFilterOpen = true;
+                    this.$nextTick(() => {
+                        this.positionFilter('filmFlt', 'filmFilterOpen');
+                        const list = this.$refs.filmList;
+                        const cur = list && (list.querySelector('[aria-selected="true"]') || list.querySelector('.flt-opt'));
+                        if (cur) { cur.classList.add('kb'); cur.focus({ preventScroll: true }); }
+                    });
+                },
+                closeFilmFilter(refocus) {
+                    if (!this.filmFilterOpen) return;
+                    this.filmFilterOpen = false;
+                    const root = this.$refs.filmFlt;
+                    if (root) root.classList.remove('up');
+                    if (refocus && this.$refs.filmBtn) this.$refs.filmBtn.focus({ preventScroll: true });
+                },
+                toggleFilmFilter() {
+                    if (this.filmFilterOpen) this.closeFilmFilter(true);
+                    else this.openFilmFilter();
+                },
+                onFilmFilterKey(e) {
+                    if (!this.filmFilterOpen) return;
+                    const list = this.$refs.filmList;
+                    if (!list) return;
+                    const items = [...list.querySelectorAll('.flt-opt')];
+                    if (!items.length) return;
+                    const i = items.indexOf(document.activeElement);
+                    const focusAt = (n) => { if (!n) return; items.forEach((el) => el.classList.toggle('kb', el === n)); n.focus({ preventScroll: true }); };
+                    if (e.key === 'Escape') { e.preventDefault(); this.closeFilmFilter(true); }
+                    else if (e.key === 'ArrowDown') { e.preventDefault(); focusAt(items[Math.min(items.length - 1, (i < 0 ? -1 : i) + 1)]); }
+                    else if (e.key === 'ArrowUp') { e.preventDefault(); focusAt(items[Math.max(0, (i < 0 ? 1 : i) - 1)]); }
+                    else if (e.key === 'Home') { e.preventDefault(); focusAt(items[0]); }
+                    else if (e.key === 'End') { e.preventDefault(); focusAt(items[items.length - 1]); }
+                    else if (e.key === 'Tab') this.closeFilmFilter(false);
                 },
                 openFilmIndex() {
                     this.activeFilmFilter = 'ALL';
@@ -740,7 +843,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     }
     this.worksFilterOpen = false;
     this.selectedProject = project;
-    this.linkCopied = false;
     this.currentDetailImageIndex = 0;
     // cover 图作为第一张，然后加上 images 数组里的图
     const coverImg = project.url;
@@ -770,32 +872,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     if (opts.flight) this.$nextTick(() => this.playAtlasFlightIn());
     document.title = String(Alpine.store('lang').name(project) || '').replace(/_/g, ' ') + ' | ' + HOME_TITLE;
 },
-                copyProjectLink() {
-                    const project = this.selectedProject;
-                    if (!project) return;
-                    const url = location.origin + '/projects/' + this.slugOf(project) + '/';
-                    const mark = () => {
-                        this.linkCopied = true;
-                        clearTimeout(this._copyTimer);
-                        this._copyTimer = setTimeout(() => { this.linkCopied = false; }, 1600);
-                    };
-                    const fallback = () => {
-                        const field = document.createElement('textarea');
-                        field.value = url;
-                        field.setAttribute('readonly', '');
-                        field.style.position = 'fixed';
-                        field.style.left = '-9999px';
-                        document.body.appendChild(field);
-                        field.select();
-                        try { document.execCommand('copy'); mark(); } catch (err) {}
-                        document.body.removeChild(field);
-                    };
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(url).then(mark).catch(fallback);
-                    } else {
-                        fallback();
-                    }
-                },
               selectDetailImage(index) {
     this.currentDetailImageIndex = index;
 },
@@ -898,23 +974,37 @@ get filteredFilmProjects() {
 <body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp" x-effect="applyDocumentTitle()">
 
     <!-- 顶部导航栏 -->
-    <nav class="fixed top-0 w-full z-[80] h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white border-b border-black/10">
-        <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo justify-self-start min-w-0 max-w-full">
+    <header class="site-header">
+        <a href="#" @click.prevent="switchView('home'); menuOpen = false" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo">
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
-        <div class="flex items-center gap-1 md:gap-10 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
+        <nav class="site-nav" aria-label="Primary">
             <a href="#" @click.prevent="openWorks()" class="nav-tag" :class="currentView === 'works' || currentView === 'project_detail' ? 'is-on' : ''" x-text="$store.lang.t('navWorks')">WORKS</a>
             <a href="#" @click.prevent="openFilmIndex()" class="nav-tag" :class="currentView === 'film' || currentView === 'film_detail' ? 'is-on' : ''" x-text="$store.lang.t('navFilm')">FILM</a>
             <a href="#" @click.prevent="openMedia()" class="nav-tag" :class="currentView === 'media' ? 'is-on' : ''" x-text="$store.lang.t('navMedia')">MEDIA</a>
             <a href="#" @click.prevent="switchView('studio')" class="nav-tag" :class="currentView === 'studio' ? 'is-on' : ''" x-text="$store.lang.t('navStudio')">STUDIO</a>
             <a href="#" @click.prevent="switchView('contact')" class="nav-tag" :class="currentView === 'contact' ? 'is-on' : ''" x-text="$store.lang.t('navContact')">CONTACT</a>
-            <div class="flex items-center gap-1 ml-1 md:ml-2" role="group" aria-label="Language">
-                <button type="button" class="nav-tag border-0" style="font-family: var(--font-zh)" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
-                <span class="text-[#666666] leading-none" aria-hidden="true">/</span>
-                <button type="button" class="nav-tag border-0" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
+            <div class="lang-group" role="group" aria-label="Language">
+                <button type="button" class="nav-tag" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
+                <button type="button" class="nav-tag" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
             </div>
+        </nav>
+        <div class="site-compact">
+            <div class="lang-group" role="group" aria-label="Language">
+                <button type="button" class="nav-tag" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
+                <button type="button" class="nav-tag" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
+            </div>
+            <button type="button" class="menu-btn" :aria-expanded="menuOpen ? 'true' : 'false'" aria-controls="menu-panel" @click="menuOpen = !menuOpen" x-text="menuOpen ? $store.lang.t('navClose') : $store.lang.t('navMenu')">MENU</button>
         </div>
+    </header>
+    <button type="button" class="menu-scrim" :class="menuOpen ? 'is-open' : ''" @click="menuOpen = false" tabindex="-1" aria-hidden="true"></button>
+    <nav id="menu-panel" class="menu-panel" :class="menuOpen ? 'is-open' : ''" aria-label="Primary">
+        <a href="#" @click.prevent="openWorks(); menuOpen = false" :class="currentView === 'works' || currentView === 'project_detail' ? 'is-on' : ''" x-text="$store.lang.t('navWorks')">WORKS</a>
+        <a href="#" @click.prevent="openFilmIndex(); menuOpen = false" :class="currentView === 'film' || currentView === 'film_detail' ? 'is-on' : ''" x-text="$store.lang.t('navFilm')">FILM</a>
+        <a href="#" @click.prevent="openMedia(); menuOpen = false" :class="currentView === 'media' ? 'is-on' : ''" x-text="$store.lang.t('navMedia')">MEDIA</a>
+        <a href="#" @click.prevent="switchView('studio'); menuOpen = false" :class="currentView === 'studio' ? 'is-on' : ''" x-text="$store.lang.t('navStudio')">STUDIO</a>
+        <a href="#" @click.prevent="switchView('contact'); menuOpen = false" :class="currentView === 'contact' ? 'is-on' : ''" x-text="$store.lang.t('navContact')">CONTACT</a>
     </nav>
 
     <!-- VIEW 1: HOME -->
@@ -969,8 +1059,8 @@ get filteredFilmProjects() {
 
     <!-- VIEW 2: WORKS -->
     <section x-show="currentView === 'works'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
-        <div class="mb-10 flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] z-20 relative">
-            <div class="flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 uppercase">
+        <div class="works-bar">
+            <div class="works-bar-tabs">
             <button type="button" data-works-entry="architecture" @click="setWorksEntry('architecture')"
                     class="nav-tag"
                     :class="worksEntry === 'architecture' ? 'is-on' : ''"
@@ -984,32 +1074,45 @@ get filteredFilmProjects() {
                     :class="worksEntry === 'landscape' ? 'is-on' : ''"
                     x-text="$store.lang.t('landscape')"></button>
             </div>
-            <div class="flex items-center gap-1 normal-case tracking-normal ml-auto">
-                <button type="button" class="nav-tag" :class="worksView === 'grid' ? 'is-on' : ''" @click="setWorksView('grid')" x-text="$store.lang.code === 'zh' ? '网格' : 'GRID'">GRID</button>
-                <span class="text-[#666666]" aria-hidden="true">/</span>
-                <button type="button" class="nav-tag" :class="worksView === 'map' ? 'is-on' : ''" @click="setWorksView('map')" x-text="$store.lang.code === 'zh' ? '地图' : 'ATLAS'">ATLAS</button>
-            </div>
-            <div class="relative normal-case" x-show="worksTypeOptions.length" x-cloak @click.outside="worksFilterOpen = false">
-                <button type="button" data-works-filter
-                        class="nav-tag is-on flex items-center gap-2"
-                        @click="worksFilterOpen = !worksFilterOpen"
-                        :aria-expanded="worksFilterOpen">
-                    <span x-text="$store.lang.t(worksType === 'all' ? 'filterAll' : ('type_' + worksType)) + ' ' + ((worksTypeOptions.find((opt) => opt.key === worksType) || {}).count || '')"></span>
-                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-white rotate-45 -translate-y-px" aria-hidden="true"></span>
-                </button>
-                <div x-show="worksFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
-                    <template x-for="opt in worksTypeOptions" :key="opt.key">
-                        <button type="button"
-                                class="block w-full text-left px-3 py-1.5 whitespace-nowrap bg-white text-[#666666] hover:text-[#111111]"
-                                :class="worksType === opt.key ? 'is-on' : ''"
-                                @click="setWorksType(opt.key)"
-                                x-text="$store.lang.t(opt.key === 'all' ? 'filterAll' : ('type_' + opt.key)) + ' ' + opt.count"></button>
-                    </template>
+            <div class="works-bar-right">
+                <div class="works-views">
+                    <button type="button" class="nav-tag" :class="worksView === 'grid' ? 'is-on' : ''" @click="setWorksView('grid')" x-text="$store.lang.code === 'zh' ? '网格' : 'GRID'">GRID</button>
+                    <span class="text-[#666666]" aria-hidden="true">/</span>
+                    <button type="button" class="nav-tag" :class="worksView === 'map' ? 'is-on' : ''" @click="setWorksView('map')" x-text="$store.lang.code === 'zh' ? '地图' : 'ATLAS'">ATLAS</button>
+                </div>
+                <div class="flt" x-show="worksTypeOptions.length" x-cloak :class="worksFilterOpen ? 'open' : ''" x-ref="flt">
+                    <button type="button" data-works-filter x-ref="fltBtn"
+                            class="flt-btn"
+                            @click="toggleWorksFilter()"
+                            :aria-expanded="worksFilterOpen ? 'true' : 'false'"
+                            aria-haspopup="listbox"
+                            aria-controls="works-filter-list"
+                            :aria-label="worksFilterAria()">
+                        <svg class="flt-ico" viewBox="0 0 12 12" aria-hidden="true"><path d="M0 2.5h12M2 6h8M4 9.5h4" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+                        <span class="lbl" x-text="worksFilterLabel().name"></span>
+                        <span class="n" x-text="worksFilterLabel().count"></span>
+                        <svg class="flt-chev" viewBox="0 0 8 8" aria-hidden="true"><path d="M1 2.75l3 3 3-3" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+                    </button>
+                    <div class="flt-scrim" @pointerdown.prevent.stop="closeWorksFilter(false)"></div>
+                    <div class="flt-panel" id="works-filter-list" role="listbox" x-ref="fltList" :aria-label="$store.lang.t('filterBy')">
+                        <template x-for="(opt, index) in worksTypeOptions" :key="opt.key">
+                            <div class="contents">
+                                <button type="button" class="flt-opt" role="option" tabindex="-1"
+                                        :data-key="opt.key"
+                                        :aria-selected="worksType === opt.key ? 'true' : 'false'"
+                                        @click="setWorksType(opt.key)">
+                                    <span class="lbl" x-text="$store.lang.t(opt.key === 'all' ? 'filterAll' : ('type_' + opt.key))"></span>
+                                    <span class="cnt" x-text="opt.count"></span>
+                                </button>
+                                <div class="flt-rule" role="presentation" x-show="index === 0"></div>
+                            </div>
+                        </template>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="atlas-root" x-show="worksView === 'map'" x-cloak></div>
-        <p x-show="worksView === 'grid' && filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
+        <div id="atlas-root" x-show="worksView === 'map' && filteredProjects.length > 0" x-cloak></div>
+        <p x-show="filteredProjects.length === 0" x-cloak class="works-empty" x-text="$store.lang.t('comingSoon')"></p>
         <div x-show="worksView === 'grid' && filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
@@ -1038,14 +1141,14 @@ get filteredFilmProjects() {
 
     <!-- VIEW: MEDIA -->
     <section x-show="currentView === 'media'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen bg-white">
-        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-[0.22em] text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
+        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-normal text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
 
         <a x-show="mediaFeatured"
            :href="mediaFeatured ? mediaFeatured.url : '#'"
            target="_blank"
            rel="noopener noreferrer"
            class="block border border-black/10 hover:border-[#111111] p-6 md:p-10 mb-14 md:mb-20 transition-colors">
-            <div class="font-mono text-[10px] tracking-[0.22em] text-[#666666]" x-text="$store.lang.t('interview')"></div>
+            <div class="font-mono text-[10px] tracking-normal text-[#666666]" x-text="$store.lang.t('interview')"></div>
             <h2 class="font-mono text-base md:text-2xl text-[#111111] font-medium leading-snug mt-4 max-w-3xl" x-text="mediaFeatured ? ($store.lang.code === 'zh' ? mediaFeatured.project_cn : (mediaFeatured.project_en || mediaFeatured.project_cn)) : ''"></h2>
             <p class="font-mono text-[11px] md:text-xs zh-copy text-[#111111] mt-4 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
             <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] text-[#666666]">
@@ -1087,7 +1190,7 @@ get filteredFilmProjects() {
     <!-- VIEW 2.5: PROJECT DETAIL -->
     <section x-show="currentView === 'project_detail'" x-cloak class="project-sheet fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white font-mono" :class="projectUsesInfoColumn ? 'is-info' : 'is-classic'">
         <div class="project-stage relative w-full bg-[#f4f4f4] overflow-hidden flex items-center justify-center group">
-            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〈</button>
+            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">‹</button>
          <div class="relative w-full h-full overflow-hidden select-none"
      @touchstart="handleSwipeStart($event)"
      @touchmove.prevent="handleSwipeMove($event)"
@@ -1109,11 +1212,10 @@ get filteredFilmProjects() {
         </template>
     </div>
 </div>
-            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〉</button>
-            <button type="button" @click.stop="copyProjectLink()" class="flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-[#111111] border border-black/10 hover:border-[#111111] bg-white/90 hover:bg-white px-3 py-2 transition-colors" x-text="linkCopied ? $store.lang.t('copied') : $store.lang.t('copyLink')"></button>
+            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">›</button>
         </div>
         <aside class="project-info">
-            <button type="button" @click="closeProject()" class="text-xs text-[#111111] flex items-center gap-2 mb-6"><span>《</span> <span x-text="openedFromMap ? $store.lang.t('returnMap') : $store.lang.t('returnGrid')"></span></button>
+            <button type="button" @click="closeProject()" class="text-xs text-[#111111] flex items-center gap-2 mb-6"><span>←</span> <span x-text="openedFromMap ? $store.lang.t('returnMap') : $store.lang.t('returnGrid')"></span></button>
             <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="$store.lang.name(selectedProject)"></h2>
             <div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
                 <span class="text-[#111111]" x-text="$store.lang.architect(selectedProject)"></span>
@@ -1147,27 +1249,37 @@ get filteredFilmProjects() {
     <!-- VIEW 3: STUDIO（从配置读取）-->
     <!-- VIEW 3: FILM -->
     <section x-show="currentView === 'film'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
-        <div class="mb-10 flex items-center font-mono text-[9px] md:text-xs z-20 relative">
-            <div class="relative ml-auto" @click.outside="filmFilterOpen = false">
-                <button type="button" data-film-filter
-                        class="nav-tag is-on flex items-center gap-2"
-                        @click="filmFilterOpen = !filmFilterOpen"
-                        :aria-expanded="filmFilterOpen">
-                    <span x-text="filmButtonLabel($store.lang.code)"></span>
-                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-white rotate-45 -translate-y-px" aria-hidden="true"></span>
+        <div class="works-bar film-bar">
+            <div class="flt" :class="filmFilterOpen ? 'open' : ''" x-ref="filmFlt">
+                <button type="button" data-film-filter x-ref="filmBtn"
+                        class="flt-btn"
+                        @click="toggleFilmFilter()"
+                        :aria-expanded="filmFilterOpen ? 'true' : 'false'"
+                        aria-haspopup="listbox"
+                        aria-controls="film-filter-list"
+                        :aria-label="filmFilterAria()">
+                    <svg class="flt-ico" viewBox="0 0 12 12" aria-hidden="true"><path d="M0 2.5h12M2 6h8M4 9.5h4" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+                    <span class="lbl" x-text="activeFilmFilter === 'ALL' ? $store.lang.t('allFilms') : ($store.lang.code === 'zh' ? ((filmCategories.find((item) => item.key === activeFilmFilter) || {}).name || activeFilmFilter) : activeFilmFilter)"></span>
+                    <span class="n" x-text="activeFilmFilter === 'ALL' ? filmProjects.length : filmProjects.filter((item) => item.category === activeFilmFilter).length"></span>
+                    <svg class="flt-chev" viewBox="0 0 8 8" aria-hidden="true"><path d="M1 2.75l3 3 3-3" stroke="currentColor" stroke-width="1" fill="none"/></svg>
                 </button>
-                <div x-show="filmFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
-                    <button type="button"
-                            class="block w-full text-left px-3 py-1.5 whitespace-nowrap bg-white text-[#666666] hover:text-[#111111]"
-                            :class="activeFilmFilter === 'ALL' ? 'is-on' : ''"
-                            @click="setFilmType('ALL')"
-                            x-text="$store.lang.t('allFilms') + ' ' + filmProjects.length"></button>
+                <div class="flt-scrim" @pointerdown.prevent.stop="closeFilmFilter(false)"></div>
+                <div class="flt-panel" id="film-filter-list" role="listbox" x-ref="filmList" :aria-label="$store.lang.t('filterBy')">
+                    <button type="button" class="flt-opt" role="option" tabindex="-1" data-key="ALL"
+                            :aria-selected="activeFilmFilter === 'ALL' ? 'true' : 'false'"
+                            @click="setFilmType('ALL')">
+                        <span class="lbl" x-text="$store.lang.t('allFilms')"></span>
+                        <span class="cnt" x-text="filmProjects.length"></span>
+                    </button>
+                    <div class="flt-rule" role="presentation"></div>
                     <template x-for="cat in filmCategories" :key="cat.key">
-                        <button type="button"
-                                class="block w-full text-left px-3 py-1.5 whitespace-nowrap bg-white text-[#666666] hover:text-[#111111]"
-                                :class="activeFilmFilter === cat.key ? 'is-on' : ''"
-                                @click="setFilmType(cat.key)"
-                                x-text="($store.lang.code === 'zh' ? cat.name : cat.key) + ' ' + filmProjects.filter((item) => item.category === cat.key).length"></button>
+                        <button type="button" class="flt-opt" role="option" tabindex="-1"
+                                :data-key="cat.key"
+                                :aria-selected="activeFilmFilter === cat.key ? 'true' : 'false'"
+                                @click="setFilmType(cat.key)">
+                            <span class="lbl" x-text="$store.lang.code === 'zh' ? cat.name : cat.key"></span>
+                            <span class="cnt" x-text="filmProjects.filter((item) => item.category === cat.key).length"></span>
+                        </button>
                     </template>
                 </div>
             </div>
@@ -1208,8 +1320,8 @@ get filteredFilmProjects() {
     <!-- VIEW 3.5: FILM DETAIL (Video Player) -->
     <section x-show="currentView === 'film_detail'" x-cloak class="fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white flex flex-col font-mono">
         <div class="shrink-0 h-12 flex items-center px-4 bg-white border-b border-black/10">
-            <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
-            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase pr-10" x-text="$store.lang.t('filmPlayer')"></div>
+            <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">←</button>
+            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-normal uppercase pr-10" x-text="$store.lang.t('filmPlayer')"></div>
         </div>
         <div class="flex-grow w-full min-h-0 pb-4 px-4 flex flex-col">
             <div class="flex-grow w-full max-w-6xl mx-auto bg-[#f4f4f4] border border-black/10 overflow-hidden flex items-center justify-center">
@@ -1248,8 +1360,8 @@ get filteredFilmProjects() {
                     <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover" alt="Photographer">
                 </div>
                 <div class="text-center font-mono">
-                    <h2 class="text-xl font-bold text-[#111111] tracking-widest" x-text="$store.lang.personName(studio)"></h2>
-                    <div class="text-[10px] text-gray-500 mt-2 tracking-widest" x-text="$store.lang.personTitle(studio)"></div>
+                    <h2 class="text-xl font-bold text-[#111111] tracking-normal" x-text="$store.lang.personName(studio)"></h2>
+                    <div class="text-[10px] text-gray-500 mt-2 tracking-normal" x-text="$store.lang.personTitle(studio)"></div>
                 </div>
             </div>
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
@@ -1307,15 +1419,15 @@ get filteredFilmProjects() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-8">
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('mobile')"></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('mobile')"></div>
                         <div class="text-xl md:text-3xl text-[#111111] font-mono" x-text="contact.phone"></div>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('email')"></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('email')"></div>
                         <a :href="'mailto:' + contact.email" class="text-xl md:text-3xl text-[#111111] font-mono hover:text-[#111111] transition-colors" x-text="contact.email"></a>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('site')"></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('site')"></div>
                         <a href="#" class="text-xl md:text-3xl text-[#111111] font-mono hover:underline decoration-[#111111] underline-offset-4 transition-all" x-text="contact.website"></a>
                     </div>
                 </div>

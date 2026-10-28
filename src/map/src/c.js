@@ -16,7 +16,7 @@ const view = h(`<section class="c-view">
   <aside class="a-list c-list"><div class="a-list-h"><span class="a-count"></span><span class="a-hint"></span></div><div class="c-groups"></div></aside>
   <section class="b-stage c-stage L-globe"><canvas class="b-cv"></canvas><svg class="b-lead"><line/></svg>
     <div class="b-hud"><div class="c-crumb"></div><div class="b-read"><span class="b-read-k"></span><span class="b-read-v"></span><span class="b-read-a"></span></div></div>
-    <div class="b-ctl"><button data-z="in" aria-label="zoom in">+</button><button data-z="out" aria-label="zoom out">−</button><button data-z="up" aria-label="up one layer">↑</button><button data-z="home" aria-label="globe">⌂</button></div>
+    <div class="b-ctl"><button data-z="in" aria-label="zoom in">+</button><button data-z="out" aria-label="zoom out">−</button><button data-z="up" aria-label="up one layer">↑</button><button data-z="home" aria-label="globe"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M1.5 6.4 6 2.6l4.5 3.8M3.2 5.8V9.4h5.6V5.8" fill="none" stroke="currentColor" stroke-width="1"/></svg></button></div>
     <div class="c-cts"></div><div class="b-card"></div><div class="b-empty"></div></section></section>`);
 main.append(view);
 const stage = $('.c-stage', view);
@@ -145,10 +145,20 @@ function draw() {
   if (!sel) setRead(null);
   readA.textContent = `${t('ALT', '高度')} ${Math.round(6371 * (Math.min(W, H) * 0.5 / R) * 1.4).toLocaleString('en')} KM`;
 }
+function paintDigits(el, text) {
+  if (!el) return;
+  el.classList.add('t-digits');
+  const frag = document.createDocumentFragment();
+  for (const ch of String(text)) {
+    if (ch >= '0' && ch <= '9') { const i = document.createElement('i'); i.className = 'd'; i.textContent = ch; frag.appendChild(i); }
+    else frag.appendChild(document.createTextNode(ch));
+  }
+  el.replaceChildren(frag);
+}
 function setRead(p, scr) {
   const v = p ? fmtCoord(p.lat, p.lon) : fmtCoord(V.lat, ((V.lon + 540) % 360) - 180);
   const k = p ? pname(p) : layer === 'globe' ? t('VIEW CENTRE', '视图中心') : `${cname(cc)} · ${t('VIEW CENTRE', '视图中心')}`;
-  readK.textContent = k; if (scr) scramble(readV, v); else if (!readV._lock) readV.textContent = v;
+  readK.textContent = k; if (!readV._lock || scr) paintDigits(readV, v);
 }
 
 /* ---------- country markers (globe layer) ---------- */
@@ -276,7 +286,7 @@ function showCard(p) {
   const len = Math.hypot(line.x2.baseVal.value - line.x1.baseVal.value, line.y2.baseVal.value - line.y1.baseVal.value);
   line.style.strokeDasharray = len; line.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: 600, easing: 'ease-out', fill: 'both' });
   const t0 = performance.now(); const fade = (n) => { cross = Math.min(1, (n - t0) / 500); need = true; if (cross < 1) requestAnimationFrame(fade); }; requestAnimationFrame(fade);
-  $('.b-card-img', card).onclick = () => expand(p); $('.b-open', card).onclick = () => expand(p);
+  card.onclick = (e) => { e.preventDefault(); e.stopPropagation(); expand(p); };
 }
 function placeLead() {
   const [dx, dy] = proj(sel.lon, sel.lat); if (!Number.isFinite(dx) || !Number.isFinite(dy)) return; const cr = $('.b-card-img', card)?.getBoundingClientRect(); if (!cr) return; const sr = stage.getBoundingClientRect();
@@ -315,6 +325,7 @@ function setLayerUI() {
 }
 
 /* ---------- list: country → city → project ---------- */
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 function renderList() {
   const byC = new Map(); current.forEach((p) => { if (!byC.has(p._cc)) byC.set(p._cc, new Map()); const m = byC.get(p._cc); const c = cityOf(p); if (!m.has(c)) m.set(c, []); m.get(c).push(p); });
   const cities = [...byC.values()].reduce((s, m) => s + m.size, 0), nC = [...byC.keys()].filter((k) => byC.get(k).size).length;
@@ -324,8 +335,8 @@ function renderList() {
   $('.c-groups', view).innerHTML = [...byC.entries()].map(([code, cm]) => {
     const n = [...cm.values()].reduce((s, a) => s + a.length, 0);
     const gs = [...cm.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
-    return `<div class="c-grp" data-cc="${code}"><button class="c-cty" data-cc="${code}"><span>${cname(code)}</span><span>${pad2(n)}</span></button>` +
-      gs.map(([c, ps]) => `<div class="a-grp"><button class="a-gh" data-c="${c}"><span>${cityName(c)}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => b.year - a.year).map((p) => `<button class="a-row" data-s="${p.slug}"><span class="n">${pad2(++i)}</span><span class="t">${pname(p)}</span><span class="y">${p.year}</span></button>`).join('')}</div>`).join('') + '</div>';
+    return `<div class="c-grp" data-cc="${esc(code)}"><button class="c-cty" data-cc="${esc(code)}"><span>${esc(cname(code))}</span><span>${pad2(n)}</span></button>` +
+      gs.map(([c, ps]) => `<div class="a-grp" data-count="${ps.length}"><button class="a-gh" data-c="${esc(c)}"><span>${esc(cityName(c))}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => b.year - a.year).map((p) => `<button class="a-row" data-s="${esc(p.slug)}"><span class="n">${pad2(++i)}</span><span class="t">${esc(pname(p))}</span><span class="y">${esc(p.year)}</span></button>`).join('')}</div>`).join('') + '</div>';
   }).join('');
   $$('.c-cty', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (cc === b.dataset.cc && layer !== 'globe') return; enterCountry(b.dataset.cc); }; b.onmouseenter = () => groupHL(b.dataset.cc); b.onmouseleave = () => groupHL(null); });
   $$('.a-gh', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); fitCity(b.dataset.c); }; b.onmouseenter = () => mk.setHighlight(current.filter((p) => cityOf(p) === b.dataset.c).map((p) => p.slug)); b.onmouseleave = () => mk.setHighlight([]); });
@@ -352,20 +363,45 @@ function goArch() {
 function step(d) { const o = order(); if (!o.length || layer === 'globe') return; const i = sel ? o.findIndex((p) => p.slug === sel.slug) : -1; select(o[(i + d + o.length) % o.length]); }
 addEventListener('keydown', (e) => { if (pageOpen() || state.view !== 'map') return; if (e.key === 'Escape' || e.key === 'Backspace') { e.preventDefault(); back(); } if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
 const ptrs = new Map(); let pinch0 = null, moved = 0;
-cv.addEventListener('pointerdown', (e) => { cv.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; idle = false; flyTok++; flying = false; });
-cv.addEventListener('pointermove', (e) => {
+const fromCard = (e) => !!(e.target && e.target.closest && e.target.closest('.b-card'));
+const overChrome = (e) => fromCard(e) || (e.target.closest && e.target.closest('.b-ctl, .c-crumb, button, a'));
+card.addEventListener('pointerdown', (e) => e.stopPropagation());
+card.addEventListener('pointerup', (e) => e.stopPropagation());
+stage.addEventListener('pointerdown', (e) => { if (overChrome(e)) return; stage.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; idle = false; flyTok++; flying = false; });
+stage.addEventListener('pointermove', (e) => {
   const sr = stage.getBoundingClientRect();
-  if (!ptrs.size) { if (!sel && !flying) { const ll = invert(e.clientX - sr.x, e.clientY - sr.y); if (ll) { readK.textContent = t('CURSOR', '光标'); readV.textContent = fmtCoord(ll[1], ll[0]); } } return; }
+  if (!ptrs.size) { if (!sel && !flying && !overChrome(e)) { const ll = invert(e.clientX - sr.x, e.clientY - sr.y); if (ll) { readK.textContent = t('CURSOR', '光标'); paintDigits(readV, fmtCoord(ll[1], ll[0])); } } return; }
   const last = ptrs.get(e.pointerId); if (!last) return; ptrs.set(e.pointerId, [e.clientX, e.clientY]);
-  if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]); if (pinch0) zoomBy(d / pinch0); pinch0 = d; return; }
+  if (ptrs.size === 2) {
+    const [a, b] = [...ptrs.values()];
+    const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+    if (pinch0) zoomAt(d / pinch0, (a[0] + b[0]) / 2 - sr.x, (a[1] + b[1]) / 2 - sr.y);
+    pinch0 = d;
+    return;
+  }
   const dx = e.clientX - last[0], dy = e.clientY - last[1]; moved += Math.abs(dx) + Math.abs(dy);
   V.lon -= dx / V.R / D2R / Math.max(0.3, Math.cos(V.lat * D2R) * V.m + (1 - V.m)); V.lat = Math.max(-80, Math.min(80, V.lat + dy / V.R / D2R)); need = true;
 });
-const up = (e) => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; if (!ptrs.size && moved < 4 && e.type === 'pointerup' && layer === 'project') back(); };
-cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
-const minR = () => (layer === 'globe' ? homeR() * 0.7 : countryFit(cc).R * 0.7);
-function zoomBy(f) { V.R = Math.max(minR(), Math.min(180000, V.R * f)); need = true; }
-cv.addEventListener('wheel', (e) => { e.preventDefault(); flyTok++; flying = false; idle = false; zoomBy(Math.exp(-e.deltaY * 0.0016)); }, { passive: false });
+const up = (e) => { if (fromCard(e)) return; ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; if (!ptrs.size && moved < 4 && e.type === 'pointerup' && layer === 'project') back(); };
+stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
+const minR = () => (layer === 'globe' ? homeR() * 0.7 : countryFit(cc || 'CN').R * 0.55);
+const maxR = 180000;
+function zoomAt(f, px, py) {
+  const next = Math.max(minR(), Math.min(maxR, V.R * f));
+  const k = next / Math.max(V.R, 1e-6);
+  if (Number.isFinite(px) && Number.isFinite(py)) { V.cx = V.cx * k + px * (1 - k); V.cy = V.cy * k + py * (1 - k); }
+  V.R = next; need = true;
+}
+stage.addEventListener('wheel', (e) => {
+  if (pageOpen() || fromCard(e) || (e.target.closest && e.target.closest('.b-ctl, .c-crumb'))) return;
+  e.preventDefault();
+  flyTok++; flying = false; idle = false;
+  let dy = e.deltaY;
+  if (e.deltaMode === 1) dy *= 16;
+  else if (e.deltaMode === 2) dy *= stage.clientHeight || 800;
+  const sr = stage.getBoundingClientRect();
+  zoomAt(Math.exp(-dy * (e.ctrlKey ? 0.01 : 0.0016)), e.clientX - sr.left, e.clientY - sr.top);
+}, { passive: false });
 $$('.b-ctl button[data-z]', stage).forEach((b) => b.onclick = () => {
   const z = b.dataset.z;
   if (z === 'home') return layer === 'globe' ? goGlobe() : goGlobe();
