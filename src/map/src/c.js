@@ -377,11 +377,8 @@ function renderList() {
 let fromRow = false;
 function scrollMapFrame() {
   if (!mobile()) return;
-  const header = document.querySelector('.site-header');
-  const headerH = header ? header.getBoundingClientRect().height : 0;
-  const delta = stage.getBoundingClientRect().top - headerH;
-  if (Math.abs(delta) < 1) return;
-  window.scrollBy({ top: delta, behavior: reduceMotion() ? 'auto' : 'smooth' });
+  if (window.scrollY < 1) return;
+  window.scrollTo({ top: 0, behavior: reduceMotion() ? 'auto' : 'smooth' });
 }
 const rowHL = (sl) => $$('.a-row', view).forEach((r) => r.classList.toggle('hl', sl.includes(r.dataset.s)));
 const rowAct = (s) => $$('.a-row', view).forEach((r) => r.classList.toggle('act', r.dataset.s === s));
