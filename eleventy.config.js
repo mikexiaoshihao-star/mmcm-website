@@ -11,7 +11,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addGlobalData("assetVersion", assetVersion);
 
   eleventyConfig.on("eleventy.before", () => new Promise((resolve, reject) => {
-    execFile("bash", ["src/map/build/run.sh"], { cwd: process.cwd() }, (err, stdout, stderr) => {
+    execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.error(stderr);
       if (err) reject(err);

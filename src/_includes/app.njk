@@ -538,11 +538,86 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 closeProject() {
                     const backToMap = this.openedFromMap;
+                    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    const fly = backToMap && this.currentDetailImageIndex === 0 && this.atlasFlight && !reduce;
+                    const hero = document.querySelector('.project-stage .is-first');
+                    const from = hero ? hero.getBoundingClientRect() : null;
+                    let clone = null;
+                    if (fly && from && from.width) {
+                        clone = document.createElement('img');
+                        clone.src = hero.currentSrc || hero.src;
+                        clone.alt = '';
+                        clone.setAttribute('data-atlas-flight', '');
+                        clone.style.cssText = 'position:fixed;z-index:70;pointer-events:none;object-fit:contain;transform-origin:0 0;will-change:transform;left:' + from.x + 'px;top:' + from.y + 'px;width:' + from.width + 'px;height:' + from.height + 'px;';
+                        document.body.appendChild(clone);
+                    } else if (backToMap) {
+                        const sheet = document.querySelector('.project-sheet');
+                        if (sheet) sheet.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduce ? 180 : 320, easing: 'ease-out', fill: 'both' });
+                    }
                     this.openedFromMap = false;
                     if (backToMap) this.worksView = 'map';
                     this.switchView('works');
                     this.syncTypeParam();
+                    const flight = this.atlasFlight;
+                    this.atlasFlight = null;
                     if (backToMap) this.$nextTick(() => this.ensureAtlas());
+                    if (!clone) return;
+                    const land = () => {
+                        const card = document.querySelector('.b-card.on img');
+                        const to = card && card.getBoundingClientRect().width ? card.getBoundingClientRect() : flight;
+                        if (window.MMCM_ATLAS && window.MMCM_ATLAS.showCardImage) window.MMCM_ATLAS.showCardImage();
+                        if (!to || !to.width) { clone.remove(); return; }
+                        const scale = to.width / from.width;
+                        clone.animate([
+                            { transform: 'none' },
+                            { transform: 'translate(' + (to.x - from.x) + 'px,' + (to.y - from.y) + 'px) scale(' + scale + ')' }
+                        ], { duration: 800, delay: 80, easing: 'cubic-bezier(.76,0,.18,1)', fill: 'both' }).finished.then(() => clone.remove());
+                    };
+                    requestAnimationFrame(() => requestAnimationFrame(land));
+                },
+                playAtlasFlightIn() {
+                    const from = this.atlasFlight;
+                    if (!from || !from.w) return;
+                    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    const hero = document.querySelector('.project-stage .is-first');
+                    const chrome = [...document.querySelectorAll('.project-info, .project-thumbs, .project-stage > button')];
+                    if (!hero) return;
+                    if (reduce) {
+                        chrome.forEach((el) => el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, fill: 'both' }));
+                        if (window.MMCM_ATLAS && window.MMCM_ATLAS.showCardImage) window.MMCM_ATLAS.showCardImage();
+                        return;
+                    }
+                    chrome.forEach((el, i) => {
+                        el.animate([
+                            { opacity: 0, transform: 'translateY(6px)' },
+                            { opacity: 1, transform: 'none' }
+                        ], { duration: 420, delay: 720 + i * 40, easing: 'ease-out', fill: 'both' });
+                    });
+                    hero.style.visibility = 'hidden';
+                    const go = (tries) => {
+                        const target = hero.getBoundingClientRect();
+                        if ((!target.width || !target.height) && tries < 8) {
+                            requestAnimationFrame(() => go(tries + 1));
+                            return;
+                        }
+                        const clone = document.createElement('img');
+                        clone.src = from.src || hero.currentSrc || hero.src;
+                        clone.alt = '';
+                        clone.setAttribute('data-atlas-flight', '');
+                        clone.style.cssText = 'position:fixed;z-index:70;pointer-events:none;object-fit:contain;transform-origin:0 0;will-change:transform;left:' + target.x + 'px;top:' + target.y + 'px;width:' + target.width + 'px;height:' + target.height + 'px;';
+                        document.body.appendChild(clone);
+                        const scale = from.w / target.width;
+                        const anim = clone.animate([
+                            { transform: 'translate(' + (from.x - target.x) + 'px,' + (from.y - target.y) + 'px) scale(' + scale + ')' },
+                            { transform: 'none' }
+                        ], { duration: 950, easing: 'cubic-bezier(.76,0,.18,1)', fill: 'both' });
+                        anim.finished.then(() => {
+                            hero.style.visibility = '';
+                            clone.remove();
+                            if (window.MMCM_ATLAS && window.MMCM_ATLAS.showCardImage) window.MMCM_ATLAS.showCardImage();
+                        });
+                    };
+                    requestAnimationFrame(() => go(0));
                 },
                 setWorksView(view) {
                     this.currentView = 'works';
@@ -567,10 +642,10 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     };
                     window.MMCM_HOST = {
                         setDisc: (d) => { this.setWorksEntry(d); },
-                        openFromAtlas: (slug) => {
+                        openFromAtlas: (slug, flight) => {
                             const project = this.projects.find((item) => this.slugOf(item) === slug);
                             if (!project) return;
-                            this.openProject(project, { fromMap: true });
+                            this.openProject(project, { fromMap: true, flight: flight });
                         }
                     };
                     const boot = () => {
@@ -681,10 +756,13 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
             };
         }
     });
+    this.atlasFlight = opts.flight || null;
+    if (opts.flight && opts.flight.src && this.detailImages[0]) this.detailImages[0].url = opts.flight.src;
     this.switchView('project_detail');
     const slug = this.slugOf(project);
     const url = '/projects/' + slug + '/';
-    if (opts.push !== false && location.pathname !== url) history.pushState({ project: slug }, '', url);
+    if (opts.push !== false && location.pathname !== url) history.pushState(opts.fromMap ? { atlasProject: slug, project: slug } : { project: slug }, '', url);
+    if (opts.flight) this.$nextTick(() => this.playAtlasFlightIn());
     document.title = String(Alpine.store('lang').name(project) || '').replace(/_/g, ' ') + ' | ' + HOME_TITLE;
 },
                 copyProjectLink() {
@@ -1019,7 +1097,8 @@ get filteredFilmProjects() {
         <template x-for="(img, index) in detailImages" :key="index">
             <div class="flex-shrink-0 w-full h-full flex items-center justify-center p-4 lg:p-8">
                 <img :src="img.url" 
-                     class="max-w-full max-h-full object-contain border border-black/10 pointer-events-none" 
+                     class="max-w-full max-h-full object-contain border border-black/10 pointer-events-none"
+                     :class="index === 0 ? 'is-first' : ''"
                      draggable="false">
             </div>
         </template>

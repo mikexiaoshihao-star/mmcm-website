@@ -249,7 +249,10 @@ function closeCard() { card.getAnimations().forEach((a) => a.cancel()); card.cla
 const idxOf = (p) => { const o = current.filter((x) => x._cc === p._cc).sort(byYear); return `${pad2(o.indexOf(p) + 1)} / ${pad2(o.length)} · ${cname(p._cc)} · ${cityName(cityOf(p))}`; };
 function expand(p) {
   if (window.MMCM_HOST && window.MMCM_HOST.openFromAtlas) {
-    window.MMCM_HOST.openFromAtlas(p.slug);
+    const im = $('img', card);
+    const r = im ? im.getBoundingClientRect() : null;
+    if (im) im.style.visibility = 'hidden';
+    window.MMCM_HOST.openFromAtlas(p.slug, r && r.width ? { x: r.x, y: r.y, w: r.width, h: r.height, src: im.currentSrc || im.src } : null);
     return;
   }
   const im = $('img', card); if (!im) return; const r = im.getBoundingClientRect(); im.style.visibility = 'hidden';
@@ -383,6 +386,10 @@ function sync(opts) {
 }
 function show() { state.view = 'map'; layout(); renderAll(true, 'view'); need = true; }
 function hide() { state.view = 'grid'; }
+function showCardImage() {
+  const im = $('img', card);
+  if (im) im.style.visibility = '';
+}
 function openSlug(slug) {
   const p = P.find((item) => item.slug === slug);
   if (!p) return;
@@ -390,4 +397,4 @@ function openSlug(slug) {
   show();
   openPage(p, null, { instant: true, push: false, index: idxOf(p), onClosed: () => { need = true; } });
 }
-window.MMCM_ATLAS = { boot, sync, show, hide, closePage, pageOpen, openSlug };
+window.MMCM_ATLAS = { boot, sync, show, hide, closePage, pageOpen, openSlug, showCardImage };
