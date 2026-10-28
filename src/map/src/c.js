@@ -289,6 +289,7 @@ function showCard(p) {
   img.style.width = w + 'px'; img.style.height = ih + 'px';
   $('b', card).textContent = pname(p); $('.co', card).textContent = fmtCoord(p.lat, p.lon);
   card.classList.add('on'); cross = 0;
+  if (fromRow) { fromRow = false; requestAnimationFrame(() => scrollMapFrame()); }
   const [dx, dy] = proj(p.lon, p.lat);
   const cr = card.getBoundingClientRect(), sr = stage.getBoundingClientRect();
   const ox = dx - (cr.x - sr.x), oy = dy - (cr.y - sr.y), far = Math.hypot(Math.max(Math.abs(ox), Math.abs(cr.width - ox)), Math.max(Math.abs(oy), Math.abs(cr.height - oy))) * 1.05;
@@ -369,9 +370,18 @@ function renderList() {
     const p = P.find((x) => x.slug === b.dataset.s);
     b.onmouseenter = () => { mk.setHighlight([p.slug]); const d = mk.getDot(p.slug); if (layer !== 'globe' && !flying && d && !d.outer.classList.contains('hid') && d.outer.style.display !== 'none' && !(sel && sel.slug === p.slug)) { const [x, y] = proj(p.lon, p.lat); tip.show(p, x, y, { w: W, h: H }); } };
     b.onmouseleave = () => { mk.setHighlight([]); tip.hide(); };
-    b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); select(p); };
+    b.onclick = () => { fromRow = true; scrollMapFrame(); select(p); };
   });
   setLayerUI(); if (sel) rowAct(sel.slug);
+}
+let fromRow = false;
+function scrollMapFrame() {
+  if (!mobile()) return;
+  const header = document.querySelector('.site-header');
+  const headerH = header ? header.getBoundingClientRect().height : 0;
+  const delta = stage.getBoundingClientRect().top - headerH;
+  if (Math.abs(delta) < 1) return;
+  window.scrollBy({ top: delta, behavior: reduceMotion() ? 'auto' : 'smooth' });
 }
 const rowHL = (sl) => $$('.a-row', view).forEach((r) => r.classList.toggle('hl', sl.includes(r.dataset.s)));
 const rowAct = (s) => $$('.a-row', view).forEach((r) => r.classList.toggle('act', r.dataset.s === s));
