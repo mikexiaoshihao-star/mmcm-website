@@ -50,23 +50,22 @@
                 link.href = 'https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400:Chinese_Simplify,Latin&display=swap';
                 document.head.appendChild(link);
             };
-            if (lang === 'zh') window.__MMCM_LOAD_ZH_FONT();
+            window.__MMCM_LOAD_ZH_FONT();
         })();
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['JetBrains Mono', 'monospace'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['JetBrains Mono', 'monospace'], mono: ['JetBrains Mono', 'monospace'], serif: ['JetBrains Mono', 'monospace'] },
                     colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
         }
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
 
     <script>
         const siteData = {
@@ -671,7 +670,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     load('/map/data/projects.js')
                         .then(() => load('/map/data/places.js'))
                         .then(() => load('/map/data/globe.js'))
-                        .then(() => load('/map/data/outline.js'))
                         .then(() => load('/map/atlas.js'))
                         .then(() => { this._atlasLoading = false; boot(); })
                         .catch((err) => { this._atlasLoading = false; console.error(err); });

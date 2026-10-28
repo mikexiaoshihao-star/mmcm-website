@@ -15,8 +15,19 @@ html {
     background: #fff;
 }
 
-body {
-    font-family: "JetBrains Mono", monospace;
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html body.font-sans,
+html body .font-sans,
+html body .font-mono,
+html body .font-serif {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
 }
 
 .no-scrollbar {
@@ -99,7 +110,7 @@ html.route-project [data-view="home"] {
     margin-left: calc(100% * 17 / 2830);
     margin-right: 0;
     padding: 0;
-    font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+    font-family: "MiSans", "Noto Sans SC", sans-serif;
     font-weight: 300;
     font-size: calc(9px * 108 / 132);
     letter-spacing: 0;
@@ -126,10 +137,14 @@ html.route-project [data-view="home"] {
 
 /* Latin is JetBrains Mono everywhere. Chinese characters use MiSans Light. */
 :root {
-    --font-zh: "JetBrains Mono", "MiSans", "Noto Sans SC", sans-serif;
+    --font-zh: "JetBrains Mono", "MiSans", sans-serif;
 }
 
 html[lang="zh-CN"] body,
+html[lang="zh-CN"] body.font-sans,
+html[lang="zh-CN"] body .font-sans,
+html[lang="zh-CN"] body .font-mono,
+html[lang="zh-CN"] body .font-serif,
 html[lang="zh-CN"] .font-sans,
 html[lang="zh-CN"] .font-mono {
     font-family: var(--font-zh);

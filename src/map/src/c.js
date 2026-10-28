@@ -5,7 +5,7 @@ import { state, P, $, $$, h, t, pname, catName, architectName, fmtCoord, scrambl
 import { createMarkers } from './markers.js';
 import { openPage, pageOpen, closePage } from './c-page.js';
 
-const PLACES = window.MMCM_PLACES || {}, G = window.MMCM_GLOBE, OUTLINE = window.MMCM_OUTLINE, D2R = Math.PI / 180;
+const PLACES = window.MMCM_PLACES || {}, G = window.MMCM_GLOBE, D2R = Math.PI / 180;
 const mobile = () => innerWidth < 768;
 const cname = (cc) => { const n = (PLACES[cc] && PLACES[cc].name) || [cc, cc]; return t(n[0], n[1]); };
 P.forEach((p) => { p._cc = p.cc || 'CN'; });
@@ -104,28 +104,6 @@ function drawGraticule() {
   ctx.stroke();
   ctx.restore();
 }
-function drawChinaOutline() {
-  if (!OUTLINE || !OUTLINE.rings) return;
-  const onGlobe = layer === 'globe' && V.m < 0.45;
-  ctx.save();
-  ctx.lineJoin = 'round';
-  ctx.lineCap = 'round';
-  ctx.lineWidth = onGlobe ? 0.6 : 0.75;
-  ctx.strokeStyle = onGlobe ? 'rgba(17,17,17,0.45)' : 'rgba(17,17,17,0.5)';
-  ctx.beginPath();
-  for (const ring of OUTLINE.rings) {
-    let on = false;
-    for (let i = 0; i < ring.length; i++) {
-      const [lon, lat] = ring[i];
-      const [x, y, vis] = proj(lon, lat);
-      if (vis < 0.04) { on = false; continue; }
-      if (!on) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-      on = true;
-    }
-  }
-  ctx.stroke();
-  ctx.restore();
-}
 function draw() {
   if (state.view !== 'map') return;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
@@ -155,7 +133,6 @@ function draw() {
   ctx.globalAlpha = 1;
   // on the globe, projects are small solid points under their country marker
   if (layer === 'globe' || flying) { const ga = 1 - sm(0.3, 0.9, m); if (ga > 0.02) { ctx.globalAlpha = ga; current.forEach((p) => { const [x, y, v] = proj(p.lon, p.lat); if (v > 0.05) ctx.fillRect(x - 1.5, y - 1.5, 3, 3); }); ctx.globalAlpha = 1; } }
-  drawChinaOutline();
   if (sel && cross > 0.01) { const [x, y] = proj(sel.lon, sel.lat);
     ctx.strokeStyle = `rgba(17,17,17,${0.35 * cross})`; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
     ctx.beginPath(); ctx.moveTo(0, Math.round(y) + 0.5); ctx.lineTo(W, Math.round(y) + 0.5); ctx.moveTo(Math.round(x) + 0.5, 0); ctx.lineTo(Math.round(x) + 0.5, H); ctx.stroke(); ctx.setLineDash([]); }
@@ -236,10 +213,10 @@ function flyTo(lon, lat, R1, c1, ms, m1 = V.m) {
 // generic per-country fit: project the country's coarse dots flat around its bbox centre and fit them in the stage
 function countryFit(code) {
   const c = PLACES[code] || { bbox: [[100, 20], [110, 40]] };
-  let [[x0, y0], [x1, y1]] = (code === 'CN' && OUTLINE && OUTLINE.bbox) ? OUTLINE.bbox : c.bbox;
+  const [[x0, y0], [x1, y1]] = c.bbox;
   const lon = (x0 + x1) / 2, lat = (y0 + y1) / 2;
   const span = Math.max((x1 - x0) * Math.cos(lat * D2R), y1 - y0) * D2R;
-  const R = Math.min(W, H) * (mobile() ? 0.78 : 0.9) / Math.max(span, 0.02);
+  const R = Math.min(W, H) * (mobile() ? 0.58 : 0.7) / Math.max(span, 0.02);
   return { lon, lat, R, c: homeC() };
 }
 let busy = false;
@@ -299,7 +276,7 @@ function showCard(p) {
   const len = Math.hypot(line.x2.baseVal.value - line.x1.baseVal.value, line.y2.baseVal.value - line.y1.baseVal.value);
   line.style.strokeDasharray = len; line.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: 600, easing: 'ease-out', fill: 'both' });
   const t0 = performance.now(); const fade = (n) => { cross = Math.min(1, (n - t0) / 500); need = true; if (cross < 1) requestAnimationFrame(fade); }; requestAnimationFrame(fade);
-  $('.b-card-img', card).onclick = () => expand(p); $('.b-open', card).onclick = () => expand(p);
+  card.onclick = (e) => { e.preventDefault(); e.stopPropagation(); expand(p); };
 }
 function placeLead() {
   const [dx, dy] = proj(sel.lon, sel.lat); if (!Number.isFinite(dx) || !Number.isFinite(dy)) return; const cr = $('.b-card-img', card)?.getBoundingClientRect(); if (!cr) return; const sr = stage.getBoundingClientRect();
@@ -375,7 +352,10 @@ function goArch() {
 function step(d) { const o = order(); if (!o.length || layer === 'globe') return; const i = sel ? o.findIndex((p) => p.slug === sel.slug) : -1; select(o[(i + d + o.length) % o.length]); }
 addEventListener('keydown', (e) => { if (pageOpen() || state.view !== 'map') return; if (e.key === 'Escape' || e.key === 'Backspace') { e.preventDefault(); back(); } if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
 const ptrs = new Map(); let pinch0 = null, moved = 0;
-const overChrome = (e) => e.target.closest && e.target.closest('.b-card, .b-ctl, .c-crumb, button, a');
+const fromCard = (e) => !!(e.target && e.target.closest && e.target.closest('.b-card'));
+const overChrome = (e) => fromCard(e) || (e.target.closest && e.target.closest('.b-ctl, .c-crumb, button, a'));
+card.addEventListener('pointerdown', (e) => e.stopPropagation());
+card.addEventListener('pointerup', (e) => e.stopPropagation());
 stage.addEventListener('pointerdown', (e) => { if (overChrome(e)) return; stage.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; idle = false; flyTok++; flying = false; });
 stage.addEventListener('pointermove', (e) => {
   const sr = stage.getBoundingClientRect();
@@ -391,7 +371,7 @@ stage.addEventListener('pointermove', (e) => {
   const dx = e.clientX - last[0], dy = e.clientY - last[1]; moved += Math.abs(dx) + Math.abs(dy);
   V.lon -= dx / V.R / D2R / Math.max(0.3, Math.cos(V.lat * D2R) * V.m + (1 - V.m)); V.lat = Math.max(-80, Math.min(80, V.lat + dy / V.R / D2R)); need = true;
 });
-const up = (e) => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; if (!ptrs.size && moved < 4 && e.type === 'pointerup' && layer === 'project') back(); };
+const up = (e) => { if (fromCard(e)) return; ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; if (!ptrs.size && moved < 4 && e.type === 'pointerup' && layer === 'project') back(); };
 stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
 const minR = () => (layer === 'globe' ? homeR() * 0.7 : countryFit(cc || 'CN').R * 0.55);
 const maxR = 180000;
@@ -402,7 +382,7 @@ function zoomAt(f, px, py) {
   V.R = next; need = true;
 }
 stage.addEventListener('wheel', (e) => {
-  if (pageOpen() || (e.target.closest && e.target.closest('.b-card, .b-ctl, .c-crumb'))) return;
+  if (pageOpen() || fromCard(e) || (e.target.closest && e.target.closest('.b-ctl, .c-crumb'))) return;
   e.preventDefault();
   flyTok++; flying = false; idle = false;
   let dy = e.deltaY;
