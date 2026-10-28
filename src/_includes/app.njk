@@ -116,6 +116,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
             const UI = {
                 en: {
                     navWorks: 'WORKS', navFilm: 'FILM', navMedia: 'MEDIA', navStudio: 'STUDIO', navContact: 'CONTACT',
+                    navMenu: 'MENU', navClose: 'CLOSE',
                     architecture: 'Architecture', interior: 'Interior', landscape: 'Landscape',
                     comingSoon: 'Projects coming soon.', allFilms: 'ALL_FILMS',
                     filterAll: 'All', filterBy: 'Filter by type',
@@ -136,6 +137,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 },
                 zh: {
                     navWorks: '作品', navFilm: '影片', navMedia: '媒体', navStudio: '工作室', navContact: '联系',
+                    navMenu: '菜单', navClose: '关闭',
                     architecture: '建筑', interior: '室内', landscape: '景观',
                     comingSoon: '作品上传中', allFilms: '全部影片',
                     filterAll: '全部', filterBy: '按类型筛选',
@@ -211,6 +213,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 worksType: 'all',
                 worksFilterOpen: false,
                 filmFilterOpen: false,
+                menuOpen: false,
                 activeFilmFilter: (function () {
                     if (!/^#\/film\/?$/.test(location.hash)) return 'ALL';
                     const raw = new URLSearchParams(location.search).get('type');
@@ -322,7 +325,19 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     window.addEventListener('popstate', () => this.routeFromUrl());
                     window.addEventListener('hashchange', () => this.routeFromUrl());
                     window.addEventListener('resize', () => { this.closeWorksFilter(false); this.closeFilmFilter(false); });
-                    window.addEventListener('keydown', (e) => { this.onWorksFilterKey(e); this.onFilmFilterKey(e); });
+                    window.addEventListener('keydown', (e) => {
+                        this.onWorksFilterKey(e);
+                        this.onFilmFilterKey(e);
+                        if (e.key === 'Escape' && this.menuOpen) {
+                            this.menuOpen = false;
+                            const btn = this.$root.querySelector('.menu-btn');
+                            if (btn) btn.focus();
+                        }
+                    });
+                    const menuMq = window.matchMedia('(min-width: 832px)');
+                    const closeMenuIfWide = () => { if (menuMq.matches) this.menuOpen = false; };
+                    if (menuMq.addEventListener) menuMq.addEventListener('change', closeMenuIfWide);
+                    else menuMq.addListener(closeMenuIfWide);
                     this.$nextTick(() => document.documentElement.classList.remove('route-project'));
                 },
                 switchView(view) {
@@ -959,23 +974,37 @@ get filteredFilmProjects() {
 <body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#111111] selection:text-white relative min-h-svh overflow-x-hidden flex flex-col" x-data="mainApp" x-effect="applyDocumentTitle()">
 
     <!-- 顶部导航栏 -->
-    <nav class="fixed top-0 w-full z-[80] h-16 md:h-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 md:px-12 bg-white border-b border-black/10">
-        <a href="#" @click.prevent="switchView('home')" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo justify-self-start min-w-0 max-w-full">
+    <header class="site-header">
+        <a href="#" @click.prevent="switchView('home'); menuOpen = false" aria-label="MMCM STUDIO 毫厘建筑摄影" class="site-logo">
             <span class="site-logo-mark" aria-hidden="true">{% include "src/images/logo/mmcm-logo.svg" %}</span>
             <span class="site-logo-zh" lang="zh-Hans" aria-hidden="true"><span>毫</span><span>厘</span><span>建</span><span>筑</span><span>摄</span><span>影</span></span>
         </a>
-        <div class="flex items-center gap-1 md:gap-10 font-mono text-[9px] md:text-xs text-[#666666] shrink-0">
+        <nav class="site-nav" aria-label="Primary">
             <a href="#" @click.prevent="openWorks()" class="nav-tag" :class="currentView === 'works' || currentView === 'project_detail' ? 'is-on' : ''" x-text="$store.lang.t('navWorks')">WORKS</a>
             <a href="#" @click.prevent="openFilmIndex()" class="nav-tag" :class="currentView === 'film' || currentView === 'film_detail' ? 'is-on' : ''" x-text="$store.lang.t('navFilm')">FILM</a>
             <a href="#" @click.prevent="openMedia()" class="nav-tag" :class="currentView === 'media' ? 'is-on' : ''" x-text="$store.lang.t('navMedia')">MEDIA</a>
             <a href="#" @click.prevent="switchView('studio')" class="nav-tag" :class="currentView === 'studio' ? 'is-on' : ''" x-text="$store.lang.t('navStudio')">STUDIO</a>
             <a href="#" @click.prevent="switchView('contact')" class="nav-tag" :class="currentView === 'contact' ? 'is-on' : ''" x-text="$store.lang.t('navContact')">CONTACT</a>
-            <div class="flex items-center gap-1 ml-1 md:ml-2" role="group" aria-label="Language">
-                <button type="button" class="nav-tag border-0" style="font-family: var(--font-zh)" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
-                <span class="text-[#666666] leading-none" aria-hidden="true">/</span>
-                <button type="button" class="nav-tag border-0" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
+            <div class="lang-group" role="group" aria-label="Language">
+                <button type="button" class="nav-tag" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
+                <button type="button" class="nav-tag" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
             </div>
+        </nav>
+        <div class="site-compact">
+            <div class="lang-group" role="group" aria-label="Language">
+                <button type="button" class="nav-tag" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
+                <button type="button" class="nav-tag" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
+            </div>
+            <button type="button" class="menu-btn" :aria-expanded="menuOpen ? 'true' : 'false'" aria-controls="menu-panel" @click="menuOpen = !menuOpen" x-text="menuOpen ? $store.lang.t('navClose') : $store.lang.t('navMenu')">MENU</button>
         </div>
+    </header>
+    <button type="button" class="menu-scrim" :class="menuOpen ? 'is-open' : ''" @click="menuOpen = false" tabindex="-1" aria-hidden="true"></button>
+    <nav id="menu-panel" class="menu-panel" :class="menuOpen ? 'is-open' : ''" aria-label="Primary">
+        <a href="#" @click.prevent="openWorks(); menuOpen = false" :class="currentView === 'works' || currentView === 'project_detail' ? 'is-on' : ''" x-text="$store.lang.t('navWorks')">WORKS</a>
+        <a href="#" @click.prevent="openFilmIndex(); menuOpen = false" :class="currentView === 'film' || currentView === 'film_detail' ? 'is-on' : ''" x-text="$store.lang.t('navFilm')">FILM</a>
+        <a href="#" @click.prevent="openMedia(); menuOpen = false" :class="currentView === 'media' ? 'is-on' : ''" x-text="$store.lang.t('navMedia')">MEDIA</a>
+        <a href="#" @click.prevent="switchView('studio'); menuOpen = false" :class="currentView === 'studio' ? 'is-on' : ''" x-text="$store.lang.t('navStudio')">STUDIO</a>
+        <a href="#" @click.prevent="switchView('contact'); menuOpen = false" :class="currentView === 'contact' ? 'is-on' : ''" x-text="$store.lang.t('navContact')">CONTACT</a>
     </nav>
 
     <!-- VIEW 1: HOME -->

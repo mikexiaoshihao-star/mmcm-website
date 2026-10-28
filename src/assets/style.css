@@ -133,9 +133,10 @@ html.route-project [data-view="home"] {
     align-items: stretch;
     justify-content: center;
     gap: calc(6px * 108 / 132);
-    width: 108px;
-    max-width: 100%;
-    min-width: 0;
+    flex: 0 0 var(--logo-w);
+    width: var(--logo-w);
+    min-width: var(--logo-w);
+    max-width: none;
     line-height: 1;
     text-decoration: none;
     font-synthesis: none;
@@ -186,12 +187,140 @@ html.route-project [data-view="home"] {
 @media (min-width: 768px) {
     .site-logo {
         gap: calc(8px * 230 / 300);
-        width: 230px;
     }
 
     .site-logo-zh {
         font-size: calc(13px * 230 / 300);
     }
+}
+
+/* Header layout. The Chinese line under the wordmark is unchanged. */
+:root {
+    --hdr-h: 64px;
+    --hdr-pad: 16px;
+    --hdr-min-gap: 16px;
+    --logo-w: 108px;
+    --nav-gap: 24px;
+}
+@media (min-width: 768px) {
+    :root {
+        --hdr-h: 80px;
+        --hdr-pad: 48px;
+        --hdr-min-gap: 48px;
+        --logo-w: 230px;
+    }
+}
+@media (min-width: 1024px) {
+    :root { --nav-gap: 40px; }
+}
+
+.site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 80;
+    height: var(--hdr-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--hdr-min-gap);
+    padding: 0 var(--hdr-pad);
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.site-nav {
+    display: none;
+    align-items: center;
+    gap: var(--nav-gap);
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+@media (min-width: 832px) {
+    .site-nav { display: flex; }
+}
+.lang-group { display: flex; align-items: center; gap: 4px; }
+.site-compact {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 auto;
+}
+@media (min-width: 832px) {
+    .site-compact { display: none; }
+}
+.site-compact .nav-tag,
+.menu-btn {
+    position: relative;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.site-compact .lang-group .nav-tag { min-width: 44px; }
+.menu-btn {
+    font-family: var(--font);
+    font-weight: var(--fw-strong);
+    font-size: var(--fs-nav);
+    letter-spacing: var(--ls-nav);
+    line-height: 1;
+    text-transform: uppercase;
+    color: #111111;
+    background: none;
+    border: 0;
+    padding: 0 4px;
+    cursor: pointer;
+}
+.menu-btn[aria-expanded="true"] {
+    font-weight: var(--fw-selected);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+.menu-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: var(--hdr-h);
+    z-index: 79;
+    background: #fff;
+    border-bottom: 1px solid #111111;
+    padding: 8px var(--hdr-pad) 16px;
+    display: none;
+}
+.menu-panel.is-open { display: block; }
+.menu-panel a {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: var(--font);
+    font-weight: var(--fw-strong);
+    font-size: var(--fs-body);
+    letter-spacing: var(--ls-caps);
+    line-height: 1;
+    text-transform: uppercase;
+    color: #111111;
+    text-decoration: none;
+}
+.menu-panel a:last-child { border-bottom: 0; }
+.menu-panel a.is-on {
+    font-weight: var(--fw-selected);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+.menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 78;
+    background: transparent;
+    display: none;
+    border: 0;
+    padding: 0;
+}
+.menu-scrim.is-open { display: block; }
+@media (min-width: 832px) {
+    .menu-panel,
+    .menu-scrim { display: none !important; }
 }
 
 /* One face for Latin and Chinese. --font-zh remains so older rules keep resolving. */
@@ -473,8 +602,10 @@ button.nav-tag {
     .flt.open .flt-scrim { display: block; position: fixed; inset: 0; z-index: -1; }
 }
 
-/* Type scale. Header geometry stays as it is; only the type of the nav labels changes. */
+/* Type scale for nav labels, including the compact language buttons outside <nav>. */
+.site-header .nav-tag,
 nav .nav-tag { font-size: var(--fs-nav); letter-spacing: var(--ls-nav); line-height: var(--lh-tight); text-transform: uppercase; font-weight: var(--fw-regular); }
+.site-header .nav-tag.is-on,
 nav .nav-tag.is-on { font-weight: var(--fw-selected); }
 nav [role="group"] > span { font-size: var(--fs-nav); line-height: var(--lh-tight); }
 .works-bar-tabs, .works-views { font-size: var(--fs-nav); letter-spacing: var(--ls-nav); line-height: var(--lh-tight); }
