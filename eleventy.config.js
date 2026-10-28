@@ -1,5 +1,6 @@
 const fs = require("fs");
 const crypto = require("crypto");
+const { execFile } = require("child_process");
 
 module.exports = function(eleventyConfig) {
   const assetVersion = crypto
@@ -9,7 +10,20 @@ module.exports = function(eleventyConfig) {
     .slice(0, 10);
   eleventyConfig.addGlobalData("assetVersion", assetVersion);
 
+  eleventyConfig.on("eleventy.before", () => new Promise((resolve, reject) => {
+    execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (err, stdout, stderr) => {
+      if (stdout) console.log(stdout);
+      if (stderr) console.error(stderr);
+      if (err) reject(err);
+      else resolve();
+    });
+  }));
+
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({ "src/map/generated/img": "map/img" });
+  eleventyConfig.addPassthroughCopy({ "src/map/generated/data": "map/data" });
+  eleventyConfig.addPassthroughCopy({ "src/map/generated/atlas.js": "map/atlas.js" });
+  eleventyConfig.addPassthroughCopy("src/map/atlas.css");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");

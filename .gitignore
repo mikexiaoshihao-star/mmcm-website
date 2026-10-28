@@ -1,2 +1,6 @@
 node_modules/
 _site/
+src/map/generated/
+src/map/build/node_modules/
+
+src/map/node_modules/
