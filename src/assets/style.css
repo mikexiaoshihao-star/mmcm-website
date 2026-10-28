@@ -186,17 +186,45 @@ html[lang="zh-CN"] .zh-copy {
 .project-facts dt { color: #666666; letter-spacing: 0.12em; font-size: 10px; }
 html[lang="zh-CN"] .project-facts dd,
 html[lang="zh-CN"] .project-info { font-size: 14px; }
+html[lang="zh-CN"] .project-sheet.is-info h2 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
 @media (max-width: 767px) {
     .project-sheet.is-info,
     .project-sheet.is-classic {
         display: flex;
         flex-direction: column;
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
     }
-    .project-sheet .project-stage { flex: 0 0 auto; height: 58svh; }
-    .project-info { order: 2; border-left: 0; padding: 16px; }
-    .project-thumbs { order: 3; }
+    .project-sheet.is-info .project-stage,
+    .project-sheet.is-classic .project-stage {
+        flex: 0 0 auto;
+        width: 100%;
+        height: min(58svh, calc(75vw + 48px));
+        min-height: 220px;
+    }
+    .project-sheet.is-info .project-info,
+    .project-sheet.is-classic .project-info {
+        order: 2;
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        border-left: 0;
+        padding: 16px;
+    }
+    .project-sheet.is-info .project-thumbs,
+    .project-sheet.is-classic .project-thumbs {
+        order: 3;
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+    }
     .project-facts > div { grid-template-columns: 96px 1fr; }
+    .project-sheet.is-info h2 { font-size: 15px; }
 }
 
 .nav-tag {

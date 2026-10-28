@@ -5,7 +5,7 @@ import { state, P, $, $$, h, t, pname, catName, architectName, fmtCoord, scrambl
 import { createMarkers } from './markers.js';
 import { openPage, pageOpen, closePage } from './c-page.js';
 
-const PLACES = window.MMCM_PLACES || {}, D2R = Math.PI / 180;
+const PLACES = window.MMCM_PLACES || {}, G = window.MMCM_GLOBE, D2R = Math.PI / 180;
 const mobile = () => innerWidth < 768;
 const cname = (cc) => { const n = (PLACES[cc] && PLACES[cc].name) || [cc, cc]; return t(n[0], n[1]); };
 P.forEach((p) => { p._cc = p.cc || 'CN'; });
@@ -25,7 +25,21 @@ const card = $('.b-card', stage), ctsEl = $('.c-cts', stage), crumb = $('.c-crum
 const readK = $('.b-read-k', stage), readV = $('.b-read-v', stage), readA = $('.b-read-a', stage);
 const tip = mountTip(stage);
 
-/* No country or coastline outlines. The base is a faint graticule; projects and city clusters sit on top. */
+function prep(arr, div, buf) {
+  const n = arr.length / 2, sl = new Float32Array(n), cl = new Float32Array(n), lo = new Float32Array(n), wt = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const lon = arr[2 * i] / div, lat = arr[2 * i + 1] / div, F = lat * D2R;
+    lo[i] = lon * D2R; sl[i] = Math.sin(F); cl[i] = Math.cos(F);
+    if (!buf) { wt[i] = 1; continue; }
+    let d = 1e9;
+    for (const p of P) d = Math.min(d, Math.hypot((p.lon - lon) * Math.cos(F), p.lat - lat));
+    const u = Math.max(0, Math.min(1, (d - buf * 0.25) / (buf * 0.7)));
+    wt[i] = 1 - u * u * (3 - 2 * u);
+  }
+  return { n, sl, cl, lo, wt };
+}
+const WORLD = G && G.l0 ? { ...prep(G.l0, 100, 0), sp: 1.7 * D2R, kind: 'world', szf: 0.16 } : null;
+const FINE = G ? [[G.l2, 100, 0.13, 1.7], [G.l3, 1000, 0.025, 0.32]].filter((row) => row[0] && row[0].length).map(([a, d, sp, b]) => ({ ...prep(a, d, b), sp: sp * D2R, kind: 'fine', szf: 0.16 })) : [];
 
 /* ---------- view: V.m morphs orthographic (0) → azimuthal equidistant (1) around the same centre ---------- */
 let W = 0, H = 0, dpr = 1;
@@ -56,6 +70,12 @@ function invert(x, y) {
 /* ---------- render ---------- */
 const sm = (a, b, x) => { const u = Math.max(0, Math.min(1, (x - a) / (b - a))); return u * u * (3 - 2 * u); };
 let cross = 0;
+function layerAlpha(Ly, s) {
+  const m = V.m;
+  if (Ly.kind === 'world') return (V.R < 1 ? 1 : 1 - sm(22, 48, s)) * (1 - 0.8 * m);
+  if (Ly.kind === 'fine') return sm(0.7, 1.8, s) * (1 - sm(22, 48, s));
+  return 0;
+}
 function drawGraticule() {
   const step = V.R < 500 ? 30 : V.R < 2500 ? 10 : V.R < 12000 ? 2 : 0.5;
   ctx.save();
@@ -88,10 +108,28 @@ function draw() {
   if (state.view !== 'map') return;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
   const R = V.R, m = V.m;
+  const l0 = V.lon * D2R, f0 = V.lat * D2R, s0 = Math.sin(f0), c0 = Math.cos(f0);
   const oa = (1 - sm(Math.min(W, H) * 0.6, Math.min(W, H) * 1.2, R)) * (1 - m);
-  if (oa > 0.01) { ctx.strokeStyle = `rgba(17,17,17,${0.08 * oa})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(V.cx, V.cy, R * (1 + m * 0.5708), 0, 7); ctx.stroke(); }
-  drawGraticule();
+  if (oa > 0.01) { ctx.strokeStyle = `rgba(17,17,17,${0.18 * oa})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(V.cx, V.cy, R * (1 + m * 0.5708), 0, 7); ctx.stroke(); }
+  if (layer === 'country' && m > 0.85 && !sel) { ctx.save(); ctx.globalAlpha = 0.28; drawGraticule(); ctx.restore(); }
   ctx.fillStyle = '#111';
+  const layers = [...(WORLD ? [WORLD] : []), ...FINE];
+  for (const Ly of layers) {
+    const s = Ly.sp * R; const a = layerAlpha(Ly, s); if (a < 0.02) continue;
+    const sz = Math.max(1, Math.min(2.4, s * Ly.szf));
+    const { n, sl, cl, lo, wt } = Ly;
+    for (let i = 0; i < n; i++) {
+      if (wt[i] < 0.03) continue;
+      const dl = lo[i] - l0, cdl = Math.cos(dl), cosc = s0 * sl[i] + c0 * cl[i] * cdl;
+      if (m === 0 && cosc < 0.02) continue;
+      let x = cl[i] * Math.sin(dl), y = c0 * sl[i] - s0 * cl[i] * cdl, f;
+      if (m > 0) { const sc = Math.sqrt(x * x + y * y); const cang = Math.atan2(sc, cosc); if (cang > 1.45) continue; if (sc > 1e-9) { const k = ((1 - m) * sc + m * cang) / sc; x *= k; y *= k; } f = (1 - m) * Math.max(0, 0.25 + 0.75 * Math.min(1, cosc * 1.6)) + m; }
+      else f = 0.25 + 0.75 * Math.min(1, cosc * 1.6);
+      const X = V.cx + R * x; if (X < -4 || X > W + 4) continue;
+      const Y = V.cy - R * y; if (Y < -4 || Y > H + 4) continue;
+      ctx.globalAlpha = a * wt[i] * f; ctx.fillRect(X - sz / 2, Y - sz / 2, sz, sz);
+    }
+  }
   ctx.globalAlpha = 1;
   // on the globe, projects are small solid points under their country marker
   if (layer === 'globe' || flying) { const ga = 1 - sm(0.3, 0.9, m); if (ga > 0.02) { ctx.globalAlpha = ga; current.forEach((p) => { const [x, y, v] = proj(p.lon, p.lat); if (v > 0.05) ctx.fillRect(x - 1.5, y - 1.5, 3, 3); }); ctx.globalAlpha = 1; } }
@@ -178,7 +216,7 @@ function countryFit(code) {
   const [[x0, y0], [x1, y1]] = c.bbox;
   const lon = (x0 + x1) / 2, lat = (y0 + y1) / 2;
   const span = Math.max((x1 - x0) * Math.cos(lat * D2R), y1 - y0) * D2R;
-  const R = Math.min(W, H) * (mobile() ? 0.42 : 0.5) / Math.max(span, 0.02);
+  const R = Math.min(W, H) * (mobile() ? 0.58 : 0.7) / Math.max(span, 0.02);
   return { lon, lat, R, c: homeC() };
 }
 let busy = false;

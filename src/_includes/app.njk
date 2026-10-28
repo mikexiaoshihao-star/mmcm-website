@@ -54,7 +54,7 @@
         })();
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
     
@@ -552,7 +552,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         document.body.appendChild(clone);
                     } else if (backToMap) {
                         const sheet = document.querySelector('.project-sheet');
-                        if (sheet) sheet.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduce ? 180 : 320, easing: 'ease-out', fill: 'both' });
+                        if (sheet) sheet.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduce ? 180 : 320, easing: 'ease-out', fill: 'none' });
                     }
                     this.openedFromMap = false;
                     if (backToMap) this.worksView = 'map';
@@ -583,15 +583,19 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     const chrome = [...document.querySelectorAll('.project-info, .project-thumbs, .project-stage > button')];
                     if (!hero) return;
                     if (reduce) {
-                        chrome.forEach((el) => el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, fill: 'both' }));
+                        chrome.forEach((el) => {
+                            const anim = el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, fill: 'both' });
+                            anim.finished.then(() => anim.cancel()).catch(() => {});
+                        });
                         if (window.MMCM_ATLAS && window.MMCM_ATLAS.showCardImage) window.MMCM_ATLAS.showCardImage();
                         return;
                     }
                     chrome.forEach((el, i) => {
-                        el.animate([
+                        const anim = el.animate([
                             { opacity: 0, transform: 'translateY(6px)' },
                             { opacity: 1, transform: 'none' }
                         ], { duration: 420, delay: 720 + i * 40, easing: 'ease-out', fill: 'both' });
+                        anim.finished.then(() => anim.cancel()).catch(() => {});
                     });
                     hero.style.visibility = 'hidden';
                     const go = (tries) => {
@@ -672,6 +676,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     });
                     load('/map/data/projects.js')
                         .then(() => load('/map/data/places.js'))
+                        .then(() => load('/map/data/globe.js'))
                         .then(() => load('/map/atlas.js'))
                         .then(() => { this._atlasLoading = false; boot(); })
                         .catch((err) => { this._atlasLoading = false; console.error(err); });

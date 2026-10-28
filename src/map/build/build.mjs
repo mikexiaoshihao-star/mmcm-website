@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import crypto from 'crypto';
 import sharp from 'sharp';
 import * as esbuild from 'esbuild';
 
@@ -78,8 +80,8 @@ for (const code of [...new Set(projects.map((p) => p.cc))].sort()) {
   const group = projects.filter((p) => p.cc === code);
   const lons = group.map((p) => p.lon);
   const lats = group.map((p) => p.lat);
-  const padLon = Math.max(1.5, (Math.max(...lons) - Math.min(...lons)) * 0.45);
-  const padLat = Math.max(1.2, (Math.max(...lats) - Math.min(...lats)) * 0.45);
+  const padLon = Math.max(1.2, (Math.max(...lons) - Math.min(...lons)) * 0.16);
+  const padLat = Math.max(1.0, (Math.max(...lats) - Math.min(...lats)) * 0.2);
   places[code] = {
     name: names[code] || [code, code],
     bbox: [[Math.min(...lons) - padLon, Math.min(...lats) - padLat], [Math.max(...lons) + padLon, Math.max(...lats) + padLat]],
@@ -91,6 +93,14 @@ const dataDir = path.join(outDir, 'data');
 await fs.promises.mkdir(dataDir, { recursive: true });
 await fs.promises.writeFile(path.join(dataDir, 'projects.js'), 'window.MMCM=' + JSON.stringify({ projects, categories: site.categories }) + ';');
 await fs.promises.writeFile(path.join(dataDir, 'places.js'), 'window.MMCM_PLACES=' + JSON.stringify(places) + ';');
+const globePath = path.join(dataDir, 'globe.js');
+const stampPath = path.join(dataDir, 'globe-stamp');
+const stamp = crypto.createHash('sha256').update(JSON.stringify(projects.map((p) => [p.slug, p.lat, p.lon]))).digest('hex').slice(0, 16);
+if (!(fs.existsSync(stampPath) && fs.readFileSync(stampPath, 'utf8') === stamp && fs.existsSync(globePath))) {
+  const run = spawnSync(process.execPath, [path.join(path.dirname(fileURLToPath(import.meta.url)), 'dots.mjs')], { stdio: 'inherit' });
+  if (run.status) process.exit(run.status || 1);
+  fs.writeFileSync(stampPath, stamp);
+}
 await esbuild.build({
   entryPoints: [path.join(srcDir, 'map', 'src', 'c.js')],
   bundle: true,
