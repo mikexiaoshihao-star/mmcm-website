@@ -703,3 +703,36 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
     line-height: inherit;
 }
 .fld .ln { grid-area: 1 / 1; white-space: nowrap; }
+.hero-side {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+}
+.hero-side .t-data,
+.hero-side .t-title { width: 100%; }
+.hero-side .fld {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1.5em;
+    overflow: hidden;
+}
+.hero-side .fld .ln {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    margin: 0;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+@media (max-width: 767px) {
+    .hero-side .fld .ln { right: auto; left: 0; }
+}
+.coord .d {
+    display: inline-block;
+    width: var(--hero-digit, 1ch);
+    text-align: center;
+    font-style: normal;
+    font-variant-numeric: tabular-nums;
+}
+.coord .s { font-style: normal; white-space: pre; }

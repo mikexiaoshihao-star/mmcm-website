@@ -83,7 +83,92 @@
     });
   }
   function setLine(field, text) {
+    if (field.getAttribute("data-k") === "coords") { paintCoord(field, text, 999); return; }
     field.innerHTML = '<span class="ln">' + escapeText(text) + "</span>";
+  }
+  function digitCount(text) {
+    var n = 0;
+    for (var i = 0; i < text.length; i++) if (/\d/.test(text[i])) n += 1;
+    return n;
+  }
+  function paintCoord(field, text, settled) {
+    var html = "";
+    var di = 0;
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i];
+      if (/\d/.test(ch)) {
+        var show = di < settled ? ch : String((Math.random() * 10) | 0);
+        html += '<i class="d">' + show + "</i>";
+        di += 1;
+      } else html += '<i class="s">' + escapeText(ch) + "</i>";
+    }
+    field.innerHTML = '<span class="ln coord">' + html + "</span>";
+  }
+  function cycleCoords(text, token) {
+    if (reduce || digitCount(text) === 0) {
+      fields("coords").forEach(function (field) { paintCoord(field, text, 999); });
+      return;
+    }
+    var digits = digitCount(text);
+    var startAt = SLIDE_MS;
+    var total = 560;
+    var t0 = performance.now();
+    var bucket = -1;
+    var rolling = [];
+    function frame(now) {
+      if (token !== textJob) return;
+      var elapsed = now - t0 - startAt;
+      if (elapsed < 0) { requestAnimationFrame(frame); return; }
+      var p = Math.min(1, elapsed / total);
+      var settled = p >= 1 ? digits : Math.floor(p * digits);
+      var step = Math.floor(elapsed / 50);
+      if (step !== bucket) {
+        bucket = step;
+        for (var i = settled; i < digits; i++) rolling[i] = (Math.random() * 10) | 0;
+      }
+      var html = "";
+      var di = 0;
+      for (var c = 0; c < text.length; c++) {
+        var ch = text[c];
+        if (/\d/.test(ch)) {
+          var show = di < settled ? ch : String(rolling[di] == null ? 0 : rolling[di]);
+          html += '<i class="d">' + show + "</i>";
+          di += 1;
+        } else html += '<i class="s">' + escapeText(ch) + "</i>";
+      }
+      fields("coords").forEach(function (field) {
+        field.innerHTML = '<span class="ln coord">' + html + "</span>";
+      });
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function lockSide() {
+    var host = document.querySelector(".hero-side .t-title") || document.querySelector(".t-title");
+    if (!host) return;
+    var probe = document.createElement("span");
+    probe.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;white-space:nowrap;font-variant-numeric:tabular-nums;";
+    probe.style.font = getComputedStyle(host).font;
+    document.body.appendChild(probe);
+    probe.textContent = "0";
+    var digit = Math.max(1, Math.round(probe.getBoundingClientRect().width));
+    document.documentElement.style.setProperty("--hero-digit", digit + "px");
+    var max = 0;
+    [data.desktop, data.mobile].forEach(function (list) {
+      (list || []).forEach(function (project) {
+        ["place", "coords"].forEach(function (key) {
+          probe.textContent = fieldText(project, key);
+          max = Math.max(max, probe.getBoundingClientRect().width);
+        });
+      });
+    });
+    probe.remove();
+    var px = Math.ceil(max) + digit + 16;
+    document.querySelectorAll(".hero-side").forEach(function (el) {
+      el.style.width = px + "px";
+      el.style.maxWidth = px + "px";
+      el.style.flex = "0 0 " + px + "px";
+    });
   }
   function setStatic(project) {
     textJob += 1;
@@ -95,12 +180,22 @@
         if (line) { line.style.opacity = "1"; line.style.transform = "none"; }
       });
     });
+    lockSide();
   }
   function swapText(project) {
     textJob += 1;
     var dur = duration();
     KEYS.forEach(function (key) {
       var next = fieldText(project, key);
+      if (key === "coords") {
+        var changed = fields(key).some(function (field) {
+          var line = field.querySelector(".ln");
+          return !line || line.textContent !== next;
+        });
+        if (!changed || reduce) fields(key).forEach(function (field) { paintCoord(field, next, 999); });
+        else cycleCoords(next, textJob);
+        return;
+      }
       fields(key).forEach(function (field) {
         field.getAnimations().forEach(function (anim) { anim.cancel(); });
         var line = field.querySelector(".ln");
@@ -154,7 +249,7 @@
     current = layers.indexOf(done.incoming);
     index = done.to;
     aim = done.to;
-    setStatic(slides()[index]);
+    if (!done.keepText) setStatic(slides()[index]);
     syncIndex(index);
   }
 
@@ -171,15 +266,23 @@
       outgoing.style.opacity = "1";
       return [incoming.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: "linear", fill: "forwards" })];
     }
-    var from = dir > 0 ? "translateX(100%)" : "translateX(-100%)";
-    var outTo = dir > 0 ? "translateX(-100%)" : "translateX(100%)";
+    var w = Math.round(stage.getBoundingClientRect().width) || 1;
+    var from = dir > 0 ? w : -w;
+    var outTo = dir > 0 ? -w : w;
     var opts = { duration: dur, easing: SLIDE_EASE, fill: "forwards" };
     incoming.style.opacity = "1";
     outgoing.style.opacity = "1";
-    incoming.style.transform = from;
+    incoming.style.transform = "translate3d(" + from + "px,0,0)";
+    outgoing.style.transform = "translate3d(0,0,0)";
     return [
-      incoming.animate([{ transform: from }, { transform: "translateX(0)" }], opts),
-      outgoing.animate([{ transform: "translateX(0)" }, { transform: outTo }], opts)
+      incoming.animate([
+        { transform: "translate3d(" + from + "px,0,0)" },
+        { transform: "translate3d(0,0,0)" }
+      ], opts),
+      outgoing.animate([
+        { transform: "translate3d(0,0,0)" },
+        { transform: "translate3d(" + outTo + "px,0,0)" }
+      ], opts)
     ];
   }
 
@@ -195,6 +298,7 @@
     var my = job;
     Promise.all(anims.map(function (anim) { return anim.finished.catch(function () {}); })).then(function () {
       if (run !== handle || my !== job) return;
+      handle.keepText = true;
       finishRun();
       neighbours();
     });
