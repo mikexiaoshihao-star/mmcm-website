@@ -335,6 +335,13 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     }
                     if (this.applyTypeFromUrl()) document.title = HOME_TITLE;
                     this.applyViewFromUrl();
+                    const params = new URLSearchParams(location.search);
+                    const bareHome = !this.onMediaUrl() && !this.onFilmUrl() && !/^\/projects\//.test(location.pathname) && params.get('view') !== 'map' && !params.get('type') && !location.hash;
+                    if (bareHome) {
+                        this.currentView = 'home';
+                        document.title = HOME_TITLE;
+                        if (window.MMCM_ATLAS && window.MMCM_ATLAS.hide) window.MMCM_ATLAS.hide();
+                    }
                 },
                 init() {
                     this.routeFromUrl();
@@ -356,6 +363,21 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     else menuMq.addListener(closeMenuIfWide);
                     this.$nextTick(() => document.documentElement.classList.remove('route-project'));
                 },
+                pushAppUrl(dest, view) {
+                    const cur = location.pathname + location.search + location.hash;
+                    if (dest !== cur) history.pushState({ view: view }, '', dest);
+                },
+                worksQuery(url) {
+                    if (this.worksView === 'map') url.searchParams.set('view', 'map');
+                    else url.searchParams.delete('view');
+                    if (!this.worksType || this.worksType === 'all') url.searchParams.delete('type');
+                    else url.searchParams.set('type', this.worksType);
+                    return url;
+                },
+                worksUrl() {
+                    const next = this.worksQuery(new URL('/', location.origin));
+                    return next.pathname + next.search + next.hash;
+                },
                 switchView(view) {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     const atlasOpen = !!(window.MMCM_ATLAS && window.MMCM_ATLAS.pageOpen && window.MMCM_ATLAS.pageOpen());
@@ -366,20 +388,19 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     const enteringFilm = (view === 'film' || view === 'film_detail') && !this.onFilmUrl();
                     this.currentView = view;
                     const onProjectUrl = /^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash);
-                    if ((leavingProject && onProjectUrl) || (atlasOpen && onProjectUrl) || (leavingMedia && this.onMediaUrl()) || (leavingFilm && this.onFilmUrl()) || enteringFilm) {
+                    if (view === 'home') {
+                        this.pushAppUrl('/', 'home');
+                    } else if (view === 'works') {
+                        this.pushAppUrl(this.worksUrl(), 'works');
+                    } else if ((leavingProject && onProjectUrl) || (atlasOpen && onProjectUrl) || (leavingMedia && this.onMediaUrl()) || (leavingFilm && this.onFilmUrl()) || enteringFilm) {
                         const next = new URL('/', location.origin);
-                        if (view === 'works' && this.worksView === 'map') next.searchParams.set('view', 'map');
-                        if (view === 'works' && this.worksType && this.worksType !== 'all') next.searchParams.set('type', this.worksType);
                         if (view === 'film' || view === 'film_detail') {
                             next.hash = '/film';
                             if (this.activeFilmFilter && this.activeFilmFilter !== 'ALL') next.searchParams.set('type', this.filmSlug(this.activeFilmFilter));
                         }
-                        const dest = next.pathname + next.search + next.hash;
-                        const cur = location.pathname + location.search + location.hash;
-                        if (dest !== cur) history.pushState({ view: view }, '', dest);
+                        this.pushAppUrl(next.pathname + next.search + next.hash, view);
                     }
-                    if (!leavingProject && !leavingMedia) return;
-                    document.title = HOME_TITLE;
+                    if (view === 'home' || leavingProject || leavingMedia) document.title = HOME_TITLE;
                 },
                 openMedia() {
                     const leavingProject = this.currentView === 'project_detail';
@@ -496,13 +517,10 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     return Array.from(groups.values()).sort((a, b) => String(b.latest).localeCompare(String(a.latest)));
                 },
                 syncTypeParam() {
+                    if (this.currentView === 'home') return;
                     if (this.onFilmUrl() || this.currentView === 'film' || this.currentView === 'film_detail') return;
                     if (/^\/projects\//.test(location.pathname)) return;
-                    const url = new URL(location.href);
-                    if (!this.worksType || this.worksType === 'all') url.searchParams.delete('type');
-                    else url.searchParams.set('type', this.worksType);
-                    if (this.worksView === 'map') url.searchParams.set('view', 'map');
-                    else url.searchParams.delete('view');
+                    const url = this.worksQuery(new URL(location.href));
                     const next = url.pathname + url.search + url.hash;
                     const cur = location.pathname + location.search + location.hash;
                     if (next !== cur) history.replaceState(history.state, '', next);
