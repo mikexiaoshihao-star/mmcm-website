@@ -1,0 +1,13 @@
+# Old unversioned URLs. Revalidate so a long browser cache cannot keep the previous list.
+# The page requests these same paths with ?v=<content hash>, which is a different URL.
+/map/data/*
+  Cache-Control: no-cache
+
+/map/atlas.js
+  Cache-Control: no-cache
+
+/map/atlas.css
+  Cache-Control: no-cache
+
+/assets/style.css
+  Cache-Control: no-cache
