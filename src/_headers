@@ -1,0 +1,12 @@
+# Unversioned copies. The page loads the same paths with ?v=<content hash>.
+/map/data/*
+  Cache-Control: no-cache
+
+/map/atlas.js
+  Cache-Control: no-cache
+
+/map/atlas.css
+  Cache-Control: no-cache
+
+/assets/style.css
+  Cache-Control: no-cache

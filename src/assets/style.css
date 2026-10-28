@@ -449,6 +449,7 @@ html[lang="zh-CN"] .project-sheet.is-info h2,
     text-decoration: none;
 }
 
+/* Selected text is weight 600 and an underline, never a #111 block with white text. */
 .nav-tag.is-on,
 .nav-tag.is-on:hover,
 button.is-on,
@@ -460,6 +461,8 @@ button.is-on:hover {
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
     border-bottom: 0;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 button.nav-tag {
@@ -577,7 +580,8 @@ button.nav-tag {
 }
 .flt-opt:hover,
 .flt-opt.kb { background: #F2F2F2; color: #111111; }
-.flt-opt[aria-selected="true"] { font-weight: 600; color: #111111; text-decoration: none; }
+/* Selected text is weight 600 and an underline, never a #111 block with white text. */
+.flt-opt[aria-selected="true"] { font-weight: 600; color: #111111; text-decoration: none; background: transparent; }
 .flt-opt[aria-selected="true"] .lbl { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .flt-opt .cnt { font-variant-numeric: tabular-nums; }
 .flt-rule { height: 1px; background: #E5E5E5; margin: 4px 12px; }

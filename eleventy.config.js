@@ -10,20 +10,43 @@ module.exports = function(eleventyConfig) {
     .slice(0, 10);
   eleventyConfig.addGlobalData("assetVersion", assetVersion);
 
+  let mapAssetVersion = "";
+  function hashMapAssets() {
+    const hash = crypto.createHash("sha256");
+    for (const file of [
+      "src/map/generated/atlas.js",
+      "src/map/atlas.css",
+      "src/map/generated/data/projects.js",
+      "src/map/generated/data/places.js",
+      "src/map/generated/data/globe.js",
+    ]) hash.update(fs.readFileSync(file));
+    return hash.digest("hex").slice(0, 10);
+  }
+
   eleventyConfig.on("eleventy.before", () => new Promise((resolve, reject) => {
-    execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (err, stdout, stderr) => {
+    execFile(process.execPath, ["scripts/check-selected-styles.mjs"], { cwd: process.cwd() }, (err, stdout, stderr) => {
       if (stdout) console.log(stdout);
       if (stderr) console.error(stderr);
-      if (err) reject(err);
-      else resolve();
+      if (err) { reject(err); return; }
+      execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (buildErr, buildOut, buildErrText) => {
+        if (buildOut) console.log(buildOut);
+        if (buildErrText) console.error(buildErrText);
+        if (buildErr) reject(buildErr);
+        else {
+          mapAssetVersion = hashMapAssets();
+          resolve();
+        }
+      });
     });
   }));
+  eleventyConfig.addGlobalData("mapAssetVersion", () => mapAssetVersion);
 
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy({ "src/map/generated/img": "map/img" });
   eleventyConfig.addPassthroughCopy({ "src/map/generated/data": "map/data" });
   eleventyConfig.addPassthroughCopy({ "src/map/generated/atlas.js": "map/atlas.js" });
   eleventyConfig.addPassthroughCopy("src/map/atlas.css");
+  eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");

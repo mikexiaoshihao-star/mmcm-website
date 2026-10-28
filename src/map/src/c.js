@@ -289,7 +289,7 @@ function showCard(p) {
   img.style.width = w + 'px'; img.style.height = ih + 'px';
   $('b', card).textContent = pname(p); $('.co', card).textContent = fmtCoord(p.lat, p.lon);
   card.classList.add('on'); cross = 0;
-  if (fromRow) { fromRow = false; requestAnimationFrame(() => scrollMapFrame()); }
+  if (fromRow) { fromRow = false; holdPageTop(); }
   const [dx, dy] = proj(p.lon, p.lat);
   const cr = card.getBoundingClientRect(), sr = stage.getBoundingClientRect();
   const ox = dx - (cr.x - sr.x), oy = dy - (cr.y - sr.y), far = Math.hypot(Math.max(Math.abs(ox), Math.abs(cr.width - ox)), Math.max(Math.abs(oy), Math.abs(cr.height - oy))) * 1.05;
@@ -370,15 +370,51 @@ function renderList() {
     const p = P.find((x) => x.slug === b.dataset.s);
     b.onmouseenter = () => { mk.setHighlight([p.slug]); const d = mk.getDot(p.slug); if (layer !== 'globe' && !flying && d && !d.outer.classList.contains('hid') && d.outer.style.display !== 'none' && !(sel && sel.slug === p.slug)) { const [x, y] = proj(p.lon, p.lat); tip.show(p, x, y, { w: W, h: H }); } };
     b.onmouseleave = () => { mk.setHighlight([]); tip.hide(); };
-    b.onclick = () => { fromRow = true; scrollMapFrame(); select(p); };
+    b.onpointerdown = (e) => { if (mobile()) e.preventDefault(); };
+    b.onclick = () => {
+      if (mobile()) {
+        fromRow = true;
+        try { b.focus({ preventScroll: true }); } catch (err) { /* older browsers */ }
+        holdPageTop();
+      }
+      select(p);
+    };
   });
   setLayerUI(); if (sel) rowAct(sel.slug);
 }
 let fromRow = false;
-function scrollMapFrame() {
+let pinTopUntil = 0;
+function forcePageTop() {
+  const root = document.documentElement;
+  const prev = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  window.scrollTo(0, 0);
+  root.scrollTop = 0;
+  document.body.scrollTop = 0;
+  root.style.scrollBehavior = prev;
+}
+function pageScrollY() {
+  return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+function holdPageTop() {
   if (!mobile()) return;
-  if (window.scrollY < 1) return;
-  window.scrollTo({ top: 0, behavior: reduceMotion() ? 'auto' : 'smooth' });
+  const reduce = reduceMotion();
+  if (!reduce && pageScrollY() > 1) window.scrollTo({ top: 0, behavior: 'smooth' });
+  else forcePageTop();
+  const start = performance.now();
+  pinTopUntil = start + (reduce ? 400 : 1800);
+  let last = pageScrollY();
+  let stuck = 0;
+  const step = (now) => {
+    if (!mobile() || now > pinTopUntil) return;
+    const y = pageScrollY();
+    const settled = Math.abs(y - last) < 0.5;
+    stuck = settled ? stuck + 1 : 0;
+    last = y;
+    if (y > 1 && (reduce || stuck > 4 || now - start > 700)) forcePageTop();
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
 }
 const rowHL = (sl) => $$('.a-row', view).forEach((r) => r.classList.toggle('hl', sl.includes(r.dataset.s)));
 const rowAct = (s) => $$('.a-row', view).forEach((r) => r.classList.toggle('act', r.dataset.s === s));
