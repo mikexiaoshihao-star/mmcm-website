@@ -54,15 +54,14 @@
         })();
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['JetBrains Mono', 'monospace'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
@@ -132,7 +131,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     type_cultural: 'Cultural', type_education: 'Education', type_sports: 'Sports',
                     type_exhibition: 'Exhibition', type_public: 'Public', type_hospitality: 'Hospitality',
                     type_mixed_use: 'Mixed-use',
-                    projectDetail: 'Project Detail', link: 'LINK', copied: 'COPIED', copyLink: 'COPY LINK',
+                    projectDetail: 'Project Detail',
                     returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
@@ -152,7 +151,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     type_cultural: '文化', type_education: '教育', type_sports: '体育',
                     type_exhibition: '展览', type_public: '公共', type_hospitality: '酒店',
                     type_mixed_use: '综合体',
-                    projectDetail: '项目', link: '链接', copied: '已复制', copyLink: '复制链接',
+                    projectDetail: '项目',
                     returnGrid: '返回列表', filmPlayer: '影片',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
@@ -239,7 +238,6 @@ currentHomeMobileIndex: 0,
                 contact: siteData.contact,
                 mediaItems: siteData.media || [],
                 selectedProject: null,
-                linkCopied: false,
                 selectedFilm: null,
                 detailImages: [],
                 currentDetailImageIndex: 0,
@@ -297,7 +295,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                             this.selectedProject = null;
                             this.detailImages = [];
                             this.currentDetailImageIndex = 0;
-                            this.linkCopied = false;
                         }
                         this.selectedFilm = null;
                         this.applyFilmFromUrl();
@@ -314,7 +311,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.selectedProject = null;
                         this.detailImages = [];
                         this.currentDetailImageIndex = 0;
-                        this.linkCopied = false;
                         this.openedFromMap = false;
                         this.currentView = 'works';
                         document.title = HOME_TITLE;
@@ -357,7 +353,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     }
                     if (!leavingProject && !leavingMedia) return;
                     document.title = HOME_TITLE;
-                    this.linkCopied = false;
                 },
                 openMedia() {
                     const leavingProject = this.currentView === 'project_detail';
@@ -367,7 +362,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.selectedProject = null;
                         this.detailImages = [];
                         this.currentDetailImageIndex = 0;
-                        this.linkCopied = false;
                     }
                     document.title = Alpine.store('lang').t('mediaPage') + ' | ' + HOME_TITLE;
                     if (!/^\/media\/?$/.test(location.pathname)) history.pushState({ view: 'media' }, '', '/media/');
@@ -677,6 +671,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     load('/map/data/projects.js')
                         .then(() => load('/map/data/places.js'))
                         .then(() => load('/map/data/globe.js'))
+                        .then(() => load('/map/data/outline.js'))
                         .then(() => load('/map/atlas.js'))
                         .then(() => { this._atlasLoading = false; boot(); })
                         .catch((err) => { this._atlasLoading = false; console.error(err); });
@@ -740,7 +735,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     }
     this.worksFilterOpen = false;
     this.selectedProject = project;
-    this.linkCopied = false;
     this.currentDetailImageIndex = 0;
     // cover 图作为第一张，然后加上 images 数组里的图
     const coverImg = project.url;
@@ -770,32 +764,6 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     if (opts.flight) this.$nextTick(() => this.playAtlasFlightIn());
     document.title = String(Alpine.store('lang').name(project) || '').replace(/_/g, ' ') + ' | ' + HOME_TITLE;
 },
-                copyProjectLink() {
-                    const project = this.selectedProject;
-                    if (!project) return;
-                    const url = location.origin + '/projects/' + this.slugOf(project) + '/';
-                    const mark = () => {
-                        this.linkCopied = true;
-                        clearTimeout(this._copyTimer);
-                        this._copyTimer = setTimeout(() => { this.linkCopied = false; }, 1600);
-                    };
-                    const fallback = () => {
-                        const field = document.createElement('textarea');
-                        field.value = url;
-                        field.setAttribute('readonly', '');
-                        field.style.position = 'fixed';
-                        field.style.left = '-9999px';
-                        document.body.appendChild(field);
-                        field.select();
-                        try { document.execCommand('copy'); mark(); } catch (err) {}
-                        document.body.removeChild(field);
-                    };
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(url).then(mark).catch(fallback);
-                    } else {
-                        fallback();
-                    }
-                },
               selectDetailImage(index) {
     this.currentDetailImageIndex = index;
 },
@@ -995,7 +963,7 @@ get filteredFilmProjects() {
                         @click="worksFilterOpen = !worksFilterOpen"
                         :aria-expanded="worksFilterOpen">
                     <span x-text="$store.lang.t(worksType === 'all' ? 'filterAll' : ('type_' + worksType)) + ' ' + ((worksTypeOptions.find((opt) => opt.key === worksType) || {}).count || '')"></span>
-                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-white rotate-45 -translate-y-px" aria-hidden="true"></span>
+                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-[#111111] rotate-45 -translate-y-px" aria-hidden="true"></span>
                 </button>
                 <div x-show="worksFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
                     <template x-for="opt in worksTypeOptions" :key="opt.key">
@@ -1110,7 +1078,6 @@ get filteredFilmProjects() {
     </div>
 </div>
             <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〉</button>
-            <button type="button" @click.stop="copyProjectLink()" class="flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-[#111111] border border-black/10 hover:border-[#111111] bg-white/90 hover:bg-white px-3 py-2 transition-colors" x-text="linkCopied ? $store.lang.t('copied') : $store.lang.t('copyLink')"></button>
         </div>
         <aside class="project-info">
             <button type="button" @click="closeProject()" class="text-xs text-[#111111] flex items-center gap-2 mb-6"><span>《</span> <span x-text="openedFromMap ? $store.lang.t('returnMap') : $store.lang.t('returnGrid')"></span></button>
@@ -1154,7 +1121,7 @@ get filteredFilmProjects() {
                         @click="filmFilterOpen = !filmFilterOpen"
                         :aria-expanded="filmFilterOpen">
                     <span x-text="filmButtonLabel($store.lang.code)"></span>
-                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-white rotate-45 -translate-y-px" aria-hidden="true"></span>
+                    <span class="inline-block w-1.5 h-1.5 border-r border-b border-[#111111] rotate-45 -translate-y-px" aria-hidden="true"></span>
                 </button>
                 <div x-show="filmFilterOpen" x-cloak class="absolute right-0 top-full mt-px min-w-full bg-white border border-[#E5E5E5] z-30">
                     <button type="button"

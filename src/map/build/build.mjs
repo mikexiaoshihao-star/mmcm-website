@@ -101,6 +101,24 @@ if (!(fs.existsSync(stampPath) && fs.readFileSync(stampPath, 'utf8') === stamp &
   if (run.status) process.exit(run.status || 1);
   fs.writeFileSync(stampPath, stamp);
 }
+const china = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'china-100000.json'), 'utf8'));
+const rings = [];
+let bx0 = 180, by0 = 90, bx1 = -180, by1 = -90;
+for (const poly of china.features[0].geometry.coordinates) {
+  const ring = [];
+  let px = null, py = null;
+  for (const [x, y] of poly[0]) {
+    const rx = Math.round(x * 1000) / 1000;
+    const ry = Math.round(y * 1000) / 1000;
+    if (rx === px && ry === py) continue;
+    ring.push([rx, ry]);
+    px = rx; py = ry;
+    bx0 = Math.min(bx0, rx); by0 = Math.min(by0, ry); bx1 = Math.max(bx1, rx); by1 = Math.max(by1, ry);
+  }
+  if (ring.length > 2) rings.push(ring);
+}
+await fs.promises.writeFile(path.join(dataDir, 'outline.js'), 'window.MMCM_OUTLINE=' + JSON.stringify({ rings, bbox: [[bx0, by0], [bx1, by1]] }) + ';');
+console.log('china outline rings', rings.length, 'bbox', bx0, by0, bx1, by1);
 await esbuild.build({
   entryPoints: [path.join(srcDir, 'map', 'src', 'c.js')],
   bundle: true,
