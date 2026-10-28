@@ -9,8 +9,8 @@ body[data-view=grid] .a-gridv{display:block}
 .a-grp{margin-bottom:16px}
 .a-gh{display:flex;justify-content:space-between;width:100%;font-size:10px;letter-spacing:.18em;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--line)}
 html[lang="zh-CN"] .a-gh,html[lang="zh-CN"] .a-list-h{font-family:var(--font-zh);font-weight:300;font-size:12px;letter-spacing:.06em}
-.a-row{display:grid;grid-template-columns:26px 1fr 40px;gap:6px;width:100%;padding:6px 0;font-size:10.5px;line-height:1.35;color:var(--g6);transition:color .15s}
-.a-row .t{overflow-wrap:anywhere}.a-row .y{text-align:right}
+.a-row{display:grid;grid-template-columns:26px 1fr 40px;gap:6px;width:100%;padding:6px 0;font-size:10.5px;font-weight:400;line-height:1.35;color:var(--g6);text-align:left;transition:color .15s}
+.a-row .n,.a-row .t{text-align:left}.a-row .t{overflow-wrap:anywhere}.a-row .y{text-align:right}
 .a-row:hover,.a-row.hl{color:var(--ink)}.a-row:hover .t,.a-row.hl .t{text-decoration:none}
 .a-row.act{background:#111;color:#fff;font-weight:500;padding-left:4px;padding-right:4px}
 html[lang="zh-CN"] .a-row .t{font-family:var(--font-zh);font-weight:300;font-size:12.5px}
@@ -246,11 +246,17 @@ html[lang="zh-CN"] .empty p,html[lang="zh-CN"] .empty-link{font-family:var(--fon
 html[lang="zh-CN"] .dot-in u{font-family:var(--font-zh);font-weight:300;font-size:11px}
 .mk.lab .dot:not(.hid) .dot-in u{opacity:1}
 
-.atlas-root.C{padding-top:0}
-.atlas-root .c-view{display:grid;height:calc(100svh - 11.5rem);min-height:480px;margin:16px 0 0}
+.atlas-root.C{padding-top:0;--pad:48px}
+.atlas-root button{text-align:left}
+.atlas-root .c-view{display:grid;height:calc(100svh - 212px);min-height:480px;margin:16px 0 0}
+@media(min-width:768px){
+  .atlas-root .b-hud{left:48px;bottom:22px}
+  .atlas-root .b-ctl{right:48px}
+}
 .cp-th b,.cp-th i,.cp-cur{display:none}
 html[lang="zh-CN"] .atlas-root,html[lang="zh-CN"] .cp{font-family:var(--font-zh)}
-html[lang="zh-CN"] .cp-dl dd,html[lang="zh-CN"] .a-row .t,html[lang="zh-CN"] .b-card-t b{font-size:14px}
+html[lang="zh-CN"] .a-row .t{font-size:12.5px;font-weight:300;text-align:left}
+html[lang="zh-CN"] .c-cty,html[lang="zh-CN"] .a-gh{text-align:left}
 @media(max-width:767px){
   .atlas-root .c-view{height:auto;min-height:0}
   .atlas-root .c-stage{height:62svh;min-height:420px}
