@@ -704,10 +704,11 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
 }
 .fld .ln { grid-area: 1 / 1; white-space: nowrap; }
 .hero-side {
-    width: 22em;
-    flex: 0 0 22em;
-    max-width: 22em;
-    grid-template-rows: 20px 24px;
+    width: min(22em, 100%);
+    max-width: min(22em, 100%);
+    flex: 0 1 auto;
+    min-width: 0;
+    grid-template-rows: minmax(20px, auto) minmax(24px, auto);
     row-gap: 4px;
     align-content: start;
     font-size: 16px;
@@ -718,37 +719,39 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
     .hero-side { font-size: 20px; }
 }
 .hero-slot {
-    height: 20px;
-    max-height: 20px;
-    overflow: hidden;
+    min-height: 20px;
+    height: auto;
+    overflow: visible;
     margin: 0;
 }
 .hero-slot-coords {
-    height: 24px;
-    max-height: 24px;
+    min-height: 24px;
+    height: auto;
     display: grid;
     grid-template-columns: 14px minmax(0, 1fr);
-    align-items: center;
+    align-items: start;
     column-gap: 0;
 }
 .hero-side .fld {
-    display: block;
+    display: grid;
     position: relative;
     width: 100%;
-    height: 20px;
-    max-height: 20px;
-    overflow: hidden;
+    min-height: 20px;
+    height: auto;
+    overflow: visible;
 }
 .hero-side .fld .ln {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    grid-area: 1 / 1;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
     width: 100%;
-    height: 20px;
+    height: auto;
+    min-height: 20px;
     line-height: 20px;
     margin: 0;
-    white-space: nowrap;
+    white-space: normal;
     text-align: right;
     font-variant-numeric: tabular-nums;
 }
