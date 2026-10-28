@@ -70,7 +70,7 @@ html[lang="zh-CN"] .a-read-k{font-family:var(--font-zh);font-weight:300;letter-s
 .b-lead line{stroke:#111;stroke-width:1}
 .b-hud{position:absolute;left:var(--pad);bottom:128px;pointer-events:none}
 .b-read{display:flex;flex-direction:column;gap:6px}
-.b-read-k{font-size:var(--fs-micro);letter-spacing:.02em;text-transform:uppercase;color:var(--g6);max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.b-read-k{font-size:var(--fs-micro);letter-spacing:.06em;text-transform:uppercase;color:var(--g6);max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 html[lang="zh-CN"] .b-read-k{font-family:var(--font-zh);font-weight:300;letter-spacing:.02em}
 .b-read-v{font-size:var(--fs-display);font-weight:var(--fw-regular);letter-spacing:var(--ls-display);line-height:var(--lh-display);white-space:nowrap;font-variant-numeric:tabular-nums}
 .b-read-a{font-size:var(--fs-micro);letter-spacing:.02em;color:var(--g9)}
