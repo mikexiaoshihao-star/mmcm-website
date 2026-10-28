@@ -128,7 +128,6 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
-                    dbUpdated: 'DATABASE_LAST_UPDATED: 2026.01.07', signal: 'SIGNAL_STABLE',
                     mobile: 'Mobile / Wechat', email: 'Email Address', site: 'Official Site', social: '02 // SOCIAL_MATRIX',
                     location: 'LOCATION_DATA', linkArrow: '>> LINK',
                     architect: 'ARCHITECT', year: 'YEAR', type: 'TYPE', discipline: 'DISCIPLINE', coordinates: 'COORDINATES', images: 'IMAGES', locField: 'LOCATION',
@@ -149,7 +148,6 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     returnGrid: '返回列表', filmPlayer: '影片',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
-                    dbUpdated: '数据更新：2026.01.07', signal: '信号稳定',
                     mobile: '手机/微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
                     location: '所在地', linkArrow: '>> 链接',
                     architect: '建筑设计', year: '年份', type: '类型', discipline: '门类', coordinates: '坐标', images: '图片', locField: '地点',
@@ -1406,7 +1404,6 @@ get filteredFilmProjects() {
                             </div>
                         </template>
                     </div>
-                    <div class="mt-8 text-[10px] text-gray-600 font-mono flex justify-end items-center gap-2"><span class="w-2 h-2 bg-[#111111] rounded-full"></span><span x-text="$store.lang.t('dbUpdated')"></span></div>
                 </div>
             </div>
         </div>
@@ -1415,7 +1412,6 @@ get filteredFilmProjects() {
     <!-- VIEW 4: CONTACT（从配置读取）-->
     <section x-show="currentView === 'contact'" x-cloak class="min-h-screen pt-24 md:pt-40 px-6 md:px-12 z-10 flex justify-center">
         <div class="w-full max-w-4xl">
-            <div class="mb-12 font-mono text-[10px] text-[#111111] flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#111111] animate-pulse"></span><span x-text="$store.lang.t('signal')"></span></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-8">
                     <div>
