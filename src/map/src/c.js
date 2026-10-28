@@ -343,9 +343,10 @@ function renderList() {
   $('.a-hint', view).textContent = t(`${pad2(nC)} COUNTRY · ${pad2(cities)} CITIES`, `${nC} 个国家 · ${cities} 座城市`);
   $('.c-groups', view).innerHTML = [...byC.entries()].map(([code, cm]) => {
     const n = [...cm.values()].reduce((s, a) => s + a.length, 0);
+    const ranked = countryOrder(code);
     const gs = [...cm.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
     return `<div class="c-grp" data-cc="${esc(code)}"><button class="c-cty" data-cc="${esc(code)}"><span>${esc(cname(code))}</span><span>${pad2(n)}</span></button>` +
-      gs.map(([c, ps]) => `<div class="a-grp" data-count="${ps.length}"><button class="a-gh" data-c="${esc(c)}"><span>${esc(cityName(c))}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => b.year - a.year).map((p) => `<button class="a-row" data-s="${esc(p.slug)}"><span class="n">${rankOf(p)}</span><span class="t">${esc(pname(p))}</span><span class="y">${esc(p.year)}</span></button>`).join('')}</div>`).join('') + '</div>';
+      gs.map(([c, ps]) => `<div class="a-grp" data-count="${ps.length}"><button class="a-gh" data-c="${esc(c)}"><span>${esc(cityName(c))}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => ranked.indexOf(a) - ranked.indexOf(b)).map((p) => `<button class="a-row" data-s="${esc(p.slug)}"><span class="n">${rankOf(p)}</span><span class="t">${esc(pname(p))}</span><span class="y">${esc(p.year)}</span></button>`).join('')}</div>`).join('') + '</div>';
   }).join('');
   $$('.c-cty', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (cc === b.dataset.cc && layer !== 'globe') return; enterCountry(b.dataset.cc); }; b.onmouseenter = () => groupHL(b.dataset.cc); b.onmouseleave = () => groupHL(null); });
   $$('.a-gh', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); fitCity(b.dataset.c); }; b.onmouseenter = () => mk.setHighlight(current.filter((p) => cityOf(p) === b.dataset.c).map((p) => p.slug)); b.onmouseleave = () => mk.setHighlight([]); });
