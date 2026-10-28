@@ -74,6 +74,7 @@
     {
       "img": "/images/home/07.webp",
       "title": "Poly_Expo",
+      "title_zh": "保利世博天悦",
       "architect": "SCDA",
       "address": "Shanghai",
       "coords": "31.199°N / 121.500°E"
@@ -98,6 +99,7 @@
     },
      {
         "title": "Poly_Expo",
+        "title_zh": "保利世博天悦",
         "architect": "SCDA",
         "address": "Shanghai",
         "coords": "31.199°N / 121.500°E",
