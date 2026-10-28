@@ -8,7 +8,17 @@ module.exports = function(eleventyConfig) {
     .update(fs.readFileSync("src/assets/style.css"))
     .digest("hex")
     .slice(0, 10);
+  const heroJsVersion = crypto
+    .createHash("sha256")
+    .update(fs.readFileSync("src/assets/hero.js"))
+    .digest("hex")
+    .slice(0, 10);
   eleventyConfig.addGlobalData("assetVersion", assetVersion);
+  eleventyConfig.addGlobalData("heroJsVersion", heroJsVersion);
+  eleventyConfig.addGlobalData("heroManifest", () => {
+    try { return JSON.parse(fs.readFileSync("src/map/generated/hero-manifest.json", "utf8")); }
+    catch (err) { return {}; }
+  });
 
   let mapAssetVersion = "";
   function hashMapAssets() {
@@ -28,14 +38,19 @@ module.exports = function(eleventyConfig) {
       if (stdout) console.log(stdout);
       if (stderr) console.error(stderr);
       if (err) { reject(err); return; }
-      execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (buildErr, buildOut, buildErrText) => {
-        if (buildOut) console.log(buildOut);
-        if (buildErrText) console.error(buildErrText);
-        if (buildErr) reject(buildErr);
-        else {
-          mapAssetVersion = hashMapAssets();
-          resolve();
-        }
+      execFile(process.execPath, ["scripts/build-hero-images.mjs"], { cwd: process.cwd() }, (heroErr, heroOut, heroErrText) => {
+        if (heroOut) console.log(heroOut);
+        if (heroErrText) console.error(heroErrText);
+        if (heroErr) { reject(heroErr); return; }
+        execFile(process.execPath, ["src/map/build/build.mjs"], { cwd: process.cwd() }, (buildErr, buildOut, buildErrText) => {
+          if (buildOut) console.log(buildOut);
+          if (buildErrText) console.error(buildErrText);
+          if (buildErr) reject(buildErr);
+          else {
+            mapAssetVersion = hashMapAssets();
+            resolve();
+          }
+        });
       });
     });
   }));
@@ -48,10 +63,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/map/atlas.css");
   eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy({ "src/map/generated/hero": "images/hero" });
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/favicon-32x32.png");
-  eleventyConfig.addPassthroughCopy("src/favicon-16x16.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
 
   // Cover paths include "&" and parentheses. encodeURIComponent leaves ( ) ' ! * unescaped.

@@ -68,6 +68,7 @@
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
         })();
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -78,7 +79,6 @@
             }
         }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
 
     <script>
@@ -115,18 +115,22 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 'Luzhou_Sichuan': '四川泸州',
                 'Chengdu_Sichuan': '四川成都',
                 'Chengdu,Sichuan': '四川成都',
+                'Chengdu, Sichuan': '四川成都',
                 'Zigong_Sichuan': '四川自贡',
                 'Yibin_Sichuan': '四川宜宾',
                 "Xi'an_Shaanxi": '陕西省 西安市',
                 "Xi'an,Shaanxi": '陕西省 西安市',
+                "Xi'an, Shaanxi": '陕西省 西安市',
                 'Shenzhen_Guangdong': '广东深圳',
                 'Shenzhen,Guangdong': '广东深圳',
+                'Shenzhen, Guangdong': '广东深圳',
                 'Ningbo_Zhejiang': '浙江宁波',
                 'Xichang_Sichuan': '四川西昌',
                 'Xichang, Sichuan': '四川西昌',
                 'Yunyang_Chongqing': '重庆云阳',
                 'Yunyang': '重庆云阳',
                 'Guangyang_Bay,Chongqing': '重庆广阳湾',
+                'Guangyang Bay, Chongqing': '重庆广阳湾',
                 'Chongqing': '重庆',
                 'Shanghai': '上海',
                 'Beijing': '北京',
@@ -1137,49 +1141,41 @@ get filteredFilmProjects() {
 
     <!-- VIEW 1: HOME -->
     <section data-view="home" x-show="currentView === 'home'" class="h-svh w-full flex flex-col pt-16 md:pt-20 pb-8 px-4 md:px-12 relative z-10">
-        <div class="flex-grow w-full relative overflow-hidden bg-[#f4f4f4] border border-black/10 group cursor-pointer" @click="nextHomeProject()">
-            <!-- 电脑端图片 -->
-<img x-show="homeImgVisible" 
-     :src="currentHomeProject.img" 
-     class="w-full h-full object-cover transition-all duration-700 absolute inset-0 hidden md:block"
-     x-transition:enter="transition ease-out duration-500"
-     x-transition:enter-start="opacity-0"
-     x-transition:enter-end="opacity-100"
-     draggable="false">
-<!-- 手机端图片 -->
-<img x-show="homeImgVisible" 
-     :src="currentHomeMobileProject.img" 
-     class="w-full h-full object-cover transition-all duration-700 absolute inset-0 block md:hidden"
-     x-transition:enter="transition ease-out duration-500"
-     x-transition:enter-start="opacity-0"
-     x-transition:enter-end="opacity-100"
-     draggable="false">
+        <div id="hero-stage" class="hero-stage flex-grow w-full relative overflow-hidden bg-white border border-black/10">
+            {% set hd = heroManifest[site.homeProjects[0].img] %}
+            {% set hm = heroManifest[site.homeProjectsMobile[0].img] %}
+            <div class="hero-layer is-current">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="{{ hd.srcset if hd else site.homeProjects[0].img }}" sizes="calc(100vw - 96px)">
+                    <img alt="" draggable="false" fetchpriority="high"
+                         src="{{ hm.src if hm else site.homeProjectsMobile[0].img }}"
+                         srcset="{{ hm.srcset if hm else '' }}"
+                         sizes="calc(100vw - 32px)">
+                </picture>
+            </div>
+            <div class="hero-layer is-next"><img alt="" draggable="false"></div>
         </div>
         <div class="mt-6 flex flex-col md:flex-row justify-between items-start">
-    <!-- 电脑端信息 -->
-    <div class="hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
-        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeProject)"></div>
-        <div class="t-title text-[#111111]" x-text="$store.lang.name(currentHomeProject)"></div>
+    <div class="hero-col hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
+        <div class="t-data text-gray-500 h-5"><span class="fld" data-k="arch"></span></div>
+        <div class="t-title text-[#111111]"><span class="fld" data-k="name"></span></div>
     </div>
-    <!-- 手机端信息 -->
-    <div class="flex md:hidden flex-col gap-1 items-start mb-4">
-        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeMobileProject)"></div>
-        <div class="t-title text-[#111111]" x-text="$store.lang.name(currentHomeMobileProject)"></div>
+    <div class="hero-col flex md:hidden flex-col gap-1 items-start mb-4">
+        <div class="t-data text-gray-500 h-5"><span class="fld" data-k="arch"></span></div>
+        <div class="t-title text-[#111111]"><span class="fld" data-k="name"></span></div>
     </div>
-    <!-- 电脑端右侧信息 -->
-    <div class="hidden md:flex flex-col gap-1 items-start md:items-end mt-0">
-        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeProject.address)"></div>
-        <div class="t-title flex items-center text-[#111111] h-5 overflow-visible whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
-            <span x-text="currentHomeProject.coords"></span>
+    <div class="hero-col hero-side hidden md:grid items-end mt-0">
+        <div class="hero-slot hero-slot-place t-data text-gray-500"><span class="fld" data-k="place"></span></div>
+        <div class="hero-slot hero-slot-coords t-title text-[#111111]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse"></span>
+            <span class="fld" data-k="coords"></span>
         </div>
     </div>
-    <!-- 手机端右侧信息 -->
-    <div class="flex md:hidden flex-col gap-1 items-start mt-0">
-        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeMobileProject.address)"></div>
-        <div class="t-title flex items-center text-[#111111] h-5 overflow-visible whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
-            <span x-text="currentHomeMobileProject.coords"></span>
+    <div class="hero-col hero-side grid md:hidden mt-0">
+        <div class="hero-slot hero-slot-place t-data text-gray-500"><span class="fld" data-k="place"></span></div>
+        <div class="hero-slot hero-slot-coords t-title text-[#111111]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse"></span>
+            <span class="fld" data-k="coords"></span>
         </div>
     </div>
 </div>
@@ -1614,5 +1610,13 @@ get filteredFilmProjects() {
             else align();
         })();
     </script>
+<script>
+window.__HERO__ = {
+  desktop: {{ site.homeProjects | js | safe }},
+  mobile: {{ site.homeProjectsMobile | js | safe }},
+  manifest: {{ heroManifest | js | safe }}
+};
+</script>
+<script src="/assets/hero.js?v={{ heroJsVersion }}" defer></script>
 </body>
 </html>

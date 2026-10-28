@@ -36,7 +36,7 @@
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "title_zh": "长江生态干部学院",
       "architect": "Tanghua_Architects_&_Associates",
-      "address": "Guangyang_Bay,Chongqing",
+      "address": "Guangyang Bay, Chongqing",
       "coords": "29.585°N / 106.740°E"
     },
     {
@@ -44,7 +44,7 @@
       "title": "Xi'an_Puyi",
       "title_zh": "西安璞逸",
       "architect": "gad",
-      "address": "Xi'an,Shaanxi",
+      "address": "Xi'an, Shaanxi",
       "coords": "34.212°N / 108.851°E"
     },
     {
@@ -52,7 +52,7 @@
       "title": "Xinglong_Lake_Roadshow_Center",
       "title_zh": "兴隆湖天府路演艺术中心",
       "architect": "Tektonn_Architects",
-      "address": "Chengdu,Sichuan",
+      "address": "Chengdu, Sichuan",
       "coords": "30.402°N / 104.102°E"
     },
     {
@@ -60,7 +60,7 @@
       "title": "Lake_City",
       "title_zh": "蔚蓝湖滨一号",
       "architect": "SCDA",
-      "address": "Chengdu,Sichuan",
+      "address": "Chengdu, Sichuan",
       "coords": "30.478°N / 104.024°E"
     },
     {
@@ -68,7 +68,7 @@
       "title": "Yangtze_River_Ecological_Cadre_Academy",
       "title_zh": "长江生态干部学院",
       "architect": "Tanghua_Architects_&_Associates",
-      "address": "Chongqing",
+      "address": "Guangyang Bay, Chongqing",
       "coords": "29.585°N / 106.740°E"
     },
     {
@@ -85,7 +85,7 @@
         "title": "Huarun_Runxi",
         "title_zh": "华润润玺（一期/二期）",
         "architect": "SCDA",
-        "address": "Shenzhen,Guangdong",
+        "address": "Shenzhen, Guangdong",
         "coords": "22.548°N / 113.954°E",
         "img": "/images/home/mobile-01.webp"
     },
@@ -93,7 +93,7 @@
         "title": "Xinglong_Lake_Roadshow_Center",
         "title_zh": "兴隆湖天府路演艺术中心",
         "architect": "Tektonn_Architects",
-        "address": "Chengdu,Sichuan",
+        "address": "Chengdu, Sichuan",
         "coords": "30.402°N / 104.102°E",
         "img": "/images/home/mobile-02.webp"
     },
@@ -109,15 +109,15 @@
         "title": "Congressional_Central_Office",
         "title_zh": "国会办公室",
         "architect": "Tektonn_Architects",
-        "address": "Chengdu,Sichuan",
-        "coords": "30.51°N / 104.08°E",
+        "address": "Chengdu, Sichuan",
+        "coords": "30.587°N / 103.946°E",
         "img": "/images/home/mobile-04.webp"
     },
      {
         "title": "157_Tower",
         "title_zh": "157大厦",
         "architect": "SADI",
-        "address": "Chengdu,Sichuan",
+        "address": "Chengdu, Sichuan",
         "coords": "30.664°N / 104.083°E",
         "img": "/images/home/mobile-05.webp"
     },
@@ -125,7 +125,7 @@
         "title": "Lake_City",
         "title_zh": "蔚蓝湖滨一号",
         "architect": "SCDA",
-        "address": "Chengdu,Sichuan",
+        "address": "Chengdu, Sichuan",
         "coords": "30.478°N / 104.024°E",
         "img": "/images/home/mobile-06.webp"
     },
@@ -133,8 +133,8 @@
         "title": "Xi'an_Puyi",
         "title_zh": "西安璞逸",
         "architect": "gad",
-        "address": "Xi'an,Shaanxi",
-        "coords": "30.51°N / 104.08°E",
+        "address": "Xi'an, Shaanxi",
+        "coords": "34.212°N / 108.851°E",
         "img": "/images/home/mobile-07.webp"
     }
 ],
