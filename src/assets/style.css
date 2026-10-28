@@ -144,6 +144,61 @@ html[lang="zh-CN"] .zh-copy {
     font-size: 14px;
 }
 
+.project-sheet.is-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-rows: minmax(0, 1fr) 132px;
+}
+.project-sheet.is-info .project-stage { grid-column: 1; grid-row: 1; min-height: 0; height: 100%; }
+.project-sheet.is-info .project-thumbs { grid-column: 1; grid-row: 2; }
+.project-sheet.is-info .project-info {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: auto;
+}
+.project-sheet.is-classic {
+    display: grid;
+    grid-template-columns: minmax(220px, 25%) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) 160px;
+}
+.project-sheet.is-classic .project-stage { grid-column: 1 / -1; grid-row: 1; min-height: 0; }
+.project-sheet.is-classic .project-info { grid-column: 1; grid-row: 2; border-top: 1px solid rgba(0, 0, 0, 0.06); }
+.project-sheet.is-classic .project-thumbs { grid-column: 2; grid-row: 2; border-top: 1px solid rgba(0, 0, 0, 0.06); }
+.project-info { padding: 24px; }
+.project-thumbs {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 24px;
+    overflow-x: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.project-facts { margin-top: 24px; border-top: 1px solid #111111; }
+.project-facts > div {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 11px;
+}
+.project-facts dt { color: #666666; letter-spacing: 0.12em; font-size: 10px; }
+html[lang="zh-CN"] .project-facts dd,
+html[lang="zh-CN"] .project-info { font-size: 14px; }
+@media (max-width: 767px) {
+    .project-sheet.is-info,
+    .project-sheet.is-classic {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+    .project-sheet .project-stage { flex: 0 0 auto; height: 58svh; }
+    .project-info { order: 2; border-left: 0; padding: 16px; }
+    .project-thumbs { order: 3; }
+    .project-facts > div { grid-template-columns: 96px 1fr; }
+}
+
 .nav-tag {
     display: inline-block;
     padding: 2px 4px;

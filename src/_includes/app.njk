@@ -139,6 +139,8 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     dbUpdated: 'DATABASE_LAST_UPDATED: 2026.01.07', signal: 'SIGNAL_STABLE',
                     mobile: 'Mobile / Wechat', email: 'Email Address', site: 'Official Site', social: '02 // SOCIAL_MATRIX',
                     location: 'LOCATION_DATA', linkArrow: '>> LINK',
+                    architect: 'ARCHITECT', year: 'YEAR', type: 'TYPE', discipline: 'DISCIPLINE', coordinates: 'COORDINATES', images: 'IMAGES', locField: 'LOCATION',
+                    returnMap: 'RETURN TO MAP',
                     mediaPage: 'Media', typeWechat: 'WECHAT', typeMagazine: 'MAGAZINE', typeFirm: 'FIRM', typeAward: 'AWARD', typeWebsite: 'WEBSITE'
                 },
                 zh: {
@@ -157,6 +159,8 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     dbUpdated: '数据更新：2026.01.07', signal: '信号稳定',
                     mobile: '手机/微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
                     location: '所在地', linkArrow: '>> 链接',
+                    architect: '建筑设计', year: '年份', type: '类型', discipline: '门类', coordinates: '坐标', images: '图片', locField: '地点',
+                    returnMap: '返回地图',
                     mediaPage: '媒体', typeWechat: '公众号', typeMagazine: '杂志', typeFirm: '设计公司', typeAward: '奖项', typeWebsite: '网站'
                 }
             };
@@ -205,7 +209,11 @@ filmCategories: {{ site.filmCategories | dump | safe }},
             const HOME_TITLE = 'MMCM STUDIO 毫厘建筑摄影';
 
             Alpine.data('mainApp', () => ({
-                currentView: (/^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash) || (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname))) ? 'project_detail' : ((/^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash) || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname))) ? 'media' : (/^#\/film\/?$/.test(location.hash) ? 'film' : 'home')),
+                currentView: (/^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash) || (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname))) ? 'project_detail' : ((/^\/media\/?$/.test(location.pathname) || /^#\/media\/?$/.test(location.hash) || (window.__INITIAL_VIEW__ === 'media' && /^\/media\/?$/.test(location.pathname))) ? 'media' : (/^#\/film\/?$/.test(location.hash) ? 'film' : (new URLSearchParams(location.search).get('view') === 'map' ? 'works' : 'home'))),
+                /* 'from-map': the info column is only used when a project is opened from ATLAS. 'always': every project page uses it. */
+                atlasProjectLayout: 'always',
+                worksView: new URLSearchParams(location.search).get('view') === 'map' ? 'map' : 'grid',
+                openedFromMap: false,
                 worksEntry: 'architecture',
                 worksType: 'all',
                 worksFilterOpen: false,
@@ -274,7 +282,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     else if (window.__INITIAL_PROJECT__ && /^\/projects\//.test(location.pathname)) slug = window.__INITIAL_PROJECT__;
                     const project = slug ? this.findBySlug(slug) : null;
                     if (project) {
-                        this.openProject(project, { push: false });
+                        this.openProject(project, { push: false, fromMap: !!(history.state && history.state.atlasProject) });
                         this.applyTypeFromUrl();
                         return;
                     }
@@ -307,6 +315,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.detailImages = [];
                         this.currentDetailImageIndex = 0;
                         this.linkCopied = false;
+                        this.openedFromMap = false;
                         this.currentView = 'works';
                         document.title = HOME_TITLE;
                         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -316,6 +325,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                     if (this.applyTypeFromUrl()) document.title = HOME_TITLE;
+                    this.applyViewFromUrl();
                 },
                 init() {
                     this.routeFromUrl();
@@ -325,14 +335,17 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 switchView(view) {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                    const atlasOpen = !!(window.MMCM_ATLAS && window.MMCM_ATLAS.pageOpen && window.MMCM_ATLAS.pageOpen());
+                    if (atlasOpen) window.MMCM_ATLAS.closePage();
                     const leavingProject = this.currentView === 'project_detail' && view !== 'project_detail';
                     const leavingMedia = this.currentView === 'media' && view !== 'media';
                     const leavingFilm = (this.currentView === 'film' || this.currentView === 'film_detail') && view !== 'film' && view !== 'film_detail';
                     const enteringFilm = (view === 'film' || view === 'film_detail') && !this.onFilmUrl();
                     this.currentView = view;
                     const onProjectUrl = /^\/projects\/[^/]+\/?$/.test(location.pathname) || /^#\/project\/[^/?]+/.test(location.hash);
-                    if ((leavingProject && onProjectUrl) || (leavingMedia && this.onMediaUrl()) || (leavingFilm && this.onFilmUrl()) || enteringFilm) {
+                    if ((leavingProject && onProjectUrl) || (atlasOpen && onProjectUrl) || (leavingMedia && this.onMediaUrl()) || (leavingFilm && this.onFilmUrl()) || enteringFilm) {
                         const next = new URL('/', location.origin);
+                        if (view === 'works' && this.worksView === 'map') next.searchParams.set('view', 'map');
                         if (view === 'works' && this.worksType && this.worksType !== 'all') next.searchParams.set('type', this.worksType);
                         if (view === 'film' || view === 'film_detail') {
                             next.hash = '/film';
@@ -463,9 +476,12 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                 },
                 syncTypeParam() {
                     if (this.onFilmUrl() || this.currentView === 'film' || this.currentView === 'film_detail') return;
+                    if (/^\/projects\//.test(location.pathname)) return;
                     const url = new URL(location.href);
                     if (!this.worksType || this.worksType === 'all') url.searchParams.delete('type');
                     else url.searchParams.set('type', this.worksType);
+                    if (this.worksView === 'map') url.searchParams.set('view', 'map');
+                    else url.searchParams.delete('view');
                     const next = url.pathname + url.search + url.hash;
                     const cur = location.pathname + location.search + location.hash;
                     if (next !== cur) history.replaceState(history.state, '', next);
@@ -492,13 +508,17 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     this.worksType = key;
                     this.worksFilterOpen = false;
                     this.syncTypeParam();
+                    this.syncAtlas();
                 },
                 openWorks() {
+                    if (window.MMCM_ATLAS && window.MMCM_ATLAS.pageOpen && window.MMCM_ATLAS.pageOpen()) window.MMCM_ATLAS.closePage();
                     this.worksEntry = 'architecture';
                     this.worksType = 'all';
+                    this.worksView = 'grid';
                     this.worksFilterOpen = false;
                     this.switchView('works');
                     this.syncTypeParam();
+                    if (window.MMCM_ATLAS) window.MMCM_ATLAS.hide();
                 },
                 setWorksEntry(key) {
                     if (this.worksEntry !== key) {
@@ -507,6 +527,79 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         this.syncTypeParam();
                     }
                     this.worksFilterOpen = false;
+                    this.syncAtlas();
+                },
+                applyViewFromUrl() {
+                    if (new URLSearchParams(location.search).get('view') !== 'map') return;
+                    if (/^\/projects\//.test(location.pathname) || this.onMediaUrl() || this.onFilmUrl()) return;
+                    this.currentView = 'works';
+                    this.worksView = 'map';
+                    this.$nextTick(() => this.ensureAtlas());
+                },
+                closeProject() {
+                    const backToMap = this.openedFromMap;
+                    this.openedFromMap = false;
+                    if (backToMap) this.worksView = 'map';
+                    this.switchView('works');
+                    this.syncTypeParam();
+                    if (backToMap) this.$nextTick(() => this.ensureAtlas());
+                },
+                setWorksView(view) {
+                    this.currentView = 'works';
+                    this.worksView = view === 'map' ? 'map' : 'grid';
+                    this.syncTypeParam();
+                    if (this.worksView === 'map') this.$nextTick(() => this.ensureAtlas());
+                    else if (window.MMCM_ATLAS) window.MMCM_ATLAS.hide();
+                },
+                syncAtlas() {
+                    if (this.worksView !== 'map' || !window.MMCM_ATLAS) return;
+                    window.MMCM_ATLAS.sync({ disc: this.worksEntry, type: this.worksType });
+                },
+                ensureAtlas() {
+                    const lang = () => Alpine.store('lang');
+                    window.MMCM_I18N = {
+                        lang: () => lang().code,
+                        name: (p) => lang().name({ title: p.title, title_zh: p.zh }),
+                        architect: (p) => lang().architect({ architect: p.architect }),
+                        place: (loc) => lang().place(loc),
+                        cat: (p) => lang().code === 'zh' ? p.catZh : p.cat,
+                        disc: (d) => lang().t(d)
+                    };
+                    window.MMCM_HOST = {
+                        setDisc: (d) => { this.setWorksEntry(d); },
+                        openFromAtlas: (slug) => {
+                            const project = this.projects.find((item) => this.slugOf(item) === slug);
+                            if (!project) return;
+                            this.openProject(project, { fromMap: true });
+                        }
+                    };
+                    const boot = () => {
+                        const root = document.getElementById('atlas-root');
+                        window.MMCM_ATLAS.boot(root, { disc: this.worksEntry, type: this.worksType });
+                        window.MMCM_ATLAS.show();
+                    };
+                    if (window.MMCM_ATLAS) { boot(); return; }
+                    if (this._atlasLoading) return;
+                    this._atlasLoading = true;
+                    if (!document.getElementById('atlas-css')) {
+                        const link = document.createElement('link');
+                        link.id = 'atlas-css';
+                        link.rel = 'stylesheet';
+                        link.href = '/map/atlas.css';
+                        document.head.appendChild(link);
+                    }
+                    const load = (src) => new Promise((resolve, reject) => {
+                        const s = document.createElement('script');
+                        s.src = src;
+                        s.onload = resolve;
+                        s.onerror = reject;
+                        document.body.appendChild(s);
+                    });
+                    load('/map/data/projects.js')
+                        .then(() => load('/map/data/places.js'))
+                        .then(() => load('/map/atlas.js'))
+                        .then(() => { this._atlasLoading = false; boot(); })
+                        .catch((err) => { this._atlasLoading = false; console.error(err); });
                 },
                 filmSlug(key) {
                     return String(key || '').trim().toLowerCase();
@@ -556,7 +649,11 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     const count = films.filter((item) => item.category === this.activeFilmFilter).length;
                     return label + ' ' + count;
                 },
+                get projectUsesInfoColumn() {
+                    return this.atlasProjectLayout === 'always' || (this.atlasProjectLayout === 'from-map' && this.openedFromMap);
+                },
                 openProject(project, opts = {}) {
+    this.openedFromMap = !!opts.fromMap;
     if (project && project.discipline && project.discipline !== this.worksEntry) {
         this.worksEntry = project.discipline;
         this.worksType = 'all';
@@ -730,9 +827,9 @@ get filteredFilmProjects() {
             <a href="#" @click.prevent="switchView('studio')" class="nav-tag" :class="currentView === 'studio' ? 'is-on' : ''" x-text="$store.lang.t('navStudio')">STUDIO</a>
             <a href="#" @click.prevent="switchView('contact')" class="nav-tag" :class="currentView === 'contact' ? 'is-on' : ''" x-text="$store.lang.t('navContact')">CONTACT</a>
             <div class="flex items-center gap-1 ml-1 md:ml-2" role="group" aria-label="Language">
-                <button type="button" class="nav-tag border-0" style="font-family: var(--font-zh)" @click="$store.lang.set('zh')" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
+                <button type="button" class="nav-tag border-0" style="font-family: var(--font-zh)" @click="$store.lang.set('zh'); syncAtlas()" :class="$store.lang.code === 'zh' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'zh'">中</button>
                 <span class="text-[#666666] leading-none" aria-hidden="true">/</span>
-                <button type="button" class="nav-tag border-0" @click="$store.lang.set('en')" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
+                <button type="button" class="nav-tag border-0" @click="$store.lang.set('en'); syncAtlas()" :class="$store.lang.code === 'en' ? 'is-on' : ''" :aria-pressed="$store.lang.code === 'en'">EN</button>
             </div>
         </div>
     </nav>
@@ -804,7 +901,12 @@ get filteredFilmProjects() {
                     :class="worksEntry === 'landscape' ? 'is-on' : ''"
                     x-text="$store.lang.t('landscape')"></button>
             </div>
-            <div class="relative ml-auto normal-case" x-show="worksTypeOptions.length" x-cloak @click.outside="worksFilterOpen = false">
+            <div class="flex items-center gap-1 normal-case tracking-normal ml-auto">
+                <button type="button" class="nav-tag" :class="worksView === 'grid' ? 'is-on' : ''" @click="setWorksView('grid')" x-text="$store.lang.code === 'zh' ? '网格' : 'GRID'">GRID</button>
+                <span class="text-[#666666]" aria-hidden="true">/</span>
+                <button type="button" class="nav-tag" :class="worksView === 'map' ? 'is-on' : ''" @click="setWorksView('map')" x-text="$store.lang.code === 'zh' ? '地图' : 'ATLAS'">ATLAS</button>
+            </div>
+            <div class="relative normal-case" x-show="worksTypeOptions.length" x-cloak @click.outside="worksFilterOpen = false">
                 <button type="button" data-works-filter
                         class="nav-tag is-on flex items-center gap-2"
                         @click="worksFilterOpen = !worksFilterOpen"
@@ -823,8 +925,9 @@ get filteredFilmProjects() {
                 </div>
             </div>
         </div>
-        <p x-show="filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
-        <div x-show="filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
+        <div id="atlas-root" x-show="worksView === 'map'" x-cloak></div>
+        <p x-show="worksView === 'grid' && filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
+        <div x-show="worksView === 'grid' && filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
                     <div class="relative w-full bg-[#f4f4f4] overflow-hidden border border-black/10 group-hover:border-[#111111] transition-colors duration-300">
@@ -899,8 +1002,8 @@ get filteredFilmProjects() {
     </section>
 
     <!-- VIEW 2.5: PROJECT DETAIL -->
-    <section x-show="currentView === 'project_detail'" x-cloak class="fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white flex flex-col font-mono">
-        <div class="relative flex-grow w-full bg-[#f4f4f4] overflow-hidden flex items-center justify-center group">
+    <section x-show="currentView === 'project_detail'" x-cloak class="project-sheet fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white font-mono" :class="projectUsesInfoColumn ? 'is-info' : 'is-classic'">
+        <div class="project-stage relative w-full bg-[#f4f4f4] overflow-hidden flex items-center justify-center group">
             <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〈</button>
          <div class="relative w-full h-full overflow-hidden select-none"
      @touchstart="handleSwipeStart($event)"
@@ -925,21 +1028,27 @@ get filteredFilmProjects() {
             <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">〉</button>
             <button type="button" @click.stop="copyProjectLink()" class="flex absolute top-5 right-6 z-40 items-center text-[10px] tracking-[0.18em] text-[#111111] border border-black/10 hover:border-[#111111] bg-white/90 hover:bg-white px-3 py-2 transition-colors" x-text="linkCopied ? $store.lang.t('copied') : $store.lang.t('copyLink')"></button>
         </div>
-        <div class="w-full h-auto min-h-[160px] lg:h-48 bg-white border-t border-black/5 flex flex-col lg:flex-row flex-shrink-0 z-50">
-            <div class="w-full lg:w-1/4 p-4 lg:p-6 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-between">
-                <div><button @click="switchView('works')" class="text-xs text-[#111111] hover:text-[#111111] flex items-center gap-2 mb-4 transition-colors"><span>《</span> <span x-text="$store.lang.t('returnGrid')"></span></button></div>
-                <div>
-                <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="$store.lang.name(selectedProject)"></h2>
-<div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
-    <span class="text-[#111111]" x-text="$store.lang.architect(selectedProject)"></span>
-    <div class="flex items-center gap-3 text-gray-500">
-        <span x-text="$store.lang.place(selectedProject?.location)"></span>
-        <span x-text="'[ ' + selectedProject?.year + ' ]'"></span>
-    </div>
-</div>
+        <aside class="project-info">
+            <button type="button" @click="closeProject()" class="text-xs text-[#111111] flex items-center gap-2 mb-6"><span>《</span> <span x-text="openedFromMap ? $store.lang.t('returnMap') : $store.lang.t('returnGrid')"></span></button>
+            <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="$store.lang.name(selectedProject)"></h2>
+            <div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
+                <span class="text-[#111111]" x-text="$store.lang.architect(selectedProject)"></span>
+                <div class="flex items-center gap-3 text-gray-500">
+                    <span x-text="$store.lang.place(selectedProject?.location)"></span>
+                    <span x-text="'[ ' + selectedProject?.year + ' ]'"></span>
                 </div>
             </div>
-            <div class="flex-grow p-4 overflow-x-auto no-scrollbar flex items-center gap-4" @wheel.prevent="handleThumbnailWheel($event)">
+            <dl class="project-facts" x-show="projectUsesInfoColumn">
+                <div><dt x-text="$store.lang.t('architect')"></dt><dd x-text="$store.lang.architect(selectedProject)"></dd></div>
+                <div><dt x-text="$store.lang.t('locField')"></dt><dd x-text="$store.lang.place(selectedProject?.location)"></dd></div>
+                <div><dt x-text="$store.lang.t('year')"></dt><dd x-text="selectedProject?.year"></dd></div>
+                <div><dt x-text="$store.lang.t('type')"></dt><dd x-text="categoryLabel(selectedProject?.category)"></dd></div>
+                <div><dt x-text="$store.lang.t('discipline')"></dt><dd x-text="$store.lang.t(selectedProject?.discipline || 'architecture')"></dd></div>
+                <div><dt x-text="$store.lang.t('coordinates')"></dt><dd x-text="selectedProject?.coords"></dd></div>
+                <div><dt x-text="$store.lang.t('images')"></dt><dd x-text="detailImages.length"></dd></div>
+            </dl>
+        </aside>
+        <div class="project-thumbs" @wheel.prevent="handleThumbnailWheel($event)">
                 <template x-for="(img, index) in detailImages" :key="index">
                     <div @click="selectDetailImage(index)" class="flex-shrink-0 w-24 md:w-32 cursor-pointer transition-all" :class="currentDetailImageIndex === index ? 'opacity-100' : 'opacity-50 hover:opacity-80'">
                         <div class="w-full aspect-video bg-[#ececec] border overflow-hidden relative" :class="currentDetailImageIndex === index ? 'border-[#111111]' : 'border-black/10'">
@@ -948,7 +1057,6 @@ get filteredFilmProjects() {
                         </div>
                     </div>
                 </template>
-            </div>
         </div>
     </section>
 

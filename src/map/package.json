@@ -1,0 +1,9 @@
+{
+  "name": "mmcm-map-build",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "d3-interpolate": "^3.0.1",
+    "esbuild": "^0.25.0"
+  }
+}
