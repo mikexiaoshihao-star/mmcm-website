@@ -58,6 +58,7 @@
     {
       "img": "/images/home/05.webp",
       "title": "Lake_City",
+      "title_zh": "蔚蓝湖滨一号",
       "architect": "SCDA",
       "address": "Chengdu,Sichuan",
       "coords": "30.478°N / 104.024°E"
@@ -119,6 +120,7 @@
     },
      {
         "title": "Lake_City",
+        "title_zh": "蔚蓝湖滨一号",
         "architect": "SCDA",
         "address": "Chengdu,Sichuan",
         "coords": "30.478°N / 104.024°E",
