@@ -2,7 +2,8 @@
   "name": "mmcm-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "eleventy"
+    "check:selected": "node scripts/check-selected-styles.mjs",
+    "build": "node scripts/check-selected-styles.mjs && eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",

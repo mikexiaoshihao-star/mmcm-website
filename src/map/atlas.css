@@ -12,7 +12,8 @@ html[lang="zh-CN"] .a-gh,html[lang="zh-CN"] .a-list-h{font-family:var(--font-zh)
 .a-row{display:grid;grid-template-columns:2em minmax(0,1fr) 3.6em;gap:6px;width:100%;min-width:0;padding:6px 0;font-size:var(--fs-micro);font-weight:var(--fw-regular);line-height:var(--lh-ui);letter-spacing:0;color:var(--g6);text-align:left;transition:color .15s}
 .a-row .n,.a-row .t{text-align:left;min-width:0}.a-row .t{overflow-wrap:anywhere;word-break:break-word;white-space:normal}.a-row .y{text-align:right;white-space:nowrap}
 .a-row:hover,.a-row.hl{color:var(--ink)}.a-row:hover .t,.a-row.hl .t{text-decoration:none}
-.a-row.act{background:transparent;color:var(--ink);font-weight:600}
+/* Selected text is weight 600 and an underline, never a #111 block with white text. */
+.a-row.act{background:transparent;color:var(--ink);font-weight:600;-webkit-appearance:none;appearance:none}
 .a-row.act .t{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 html[lang="zh-CN"] .a-row .t{font-family:var(--font);font-weight:var(--fw-regular);font-size:var(--fs-micro)}
 .a-map{position:relative;overflow:hidden;border:1px solid var(--line);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
@@ -117,7 +118,8 @@ body[data-view=map] .c-view{display:grid}
 .C .c-stage{height:100%;min-height:0;margin:0;border:1px solid var(--line);touch-action:none}
 .C .b-hud{bottom:22px}
 .c-crumb{display:flex;gap:8px;align-items:center;margin-bottom:12px;pointer-events:auto;font-size:var(--fs-micro);letter-spacing:var(--ls-caps);background:#fff;position:relative;z-index:2;padding:2px 6px}
-.c-crumb button{color:var(--g9);text-transform:uppercase;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis}
+.c-crumb button{color:var(--g9);text-transform:uppercase;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;background:transparent;-webkit-appearance:none;appearance:none}
+/* Selected text is weight 600 and an underline, never a #111 block with white text. */
 .c-crumb button.on{background:transparent;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;border-bottom:0;padding:0}
 .c-crumb button:not(.on):hover{color:var(--ink)}
 .c-crumb i{font-style:normal;color:var(--g9)}
@@ -135,8 +137,9 @@ html[lang="zh-CN"] .c-ct em{font-family:var(--font-zh);font-weight:300;letter-sp
 /* list: country headers above A's city groups */
 .c-grp{margin-bottom:22px;transition:opacity .3s}
 .c-grp.dim{opacity:.35}.c-grp.dim:hover{opacity:1}
-.c-cty{display:flex;justify-content:space-between;width:100%;font-size:var(--fs-micro);font-weight:400;letter-spacing:.02em;padding:8px 0;border-bottom:1px solid var(--ink);margin-bottom:10px}
-.c-cty.on span:first-child,.c-cty:hover span:first-child{background:transparent;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;padding:0}
+.c-cty{display:flex;justify-content:space-between;width:100%;font-size:var(--fs-micro);font-weight:400;letter-spacing:.02em;padding:8px 0;border-bottom:1px solid var(--ink);margin-bottom:10px;background:transparent;color:var(--ink);-webkit-appearance:none;appearance:none}
+/* Selected text is weight 600 and an underline, never a #111 block with white text. */
+.c-cty.on span:first-child,.c-cty:hover span:first-child{background:transparent;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;padding:0;-webkit-appearance:none;appearance:none}
 .c-cty em{font-style:normal;font-weight:400;font-size:var(--fs-micro);letter-spacing:.02em;border:1px dashed var(--ink);padding:0 4px;margin-left:6px}
 .c-list .a-grp{margin-bottom:12px}
 @media(max-width:767px){
