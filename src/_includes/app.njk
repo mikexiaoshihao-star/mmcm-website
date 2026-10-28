@@ -9,6 +9,7 @@
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400,500,600:Chinese_Simplify,Latin&display=swap">
     {%- set ogTitle = pageTitle or "MMCM STUDIO 毫厘建筑摄影" -%}
     {%- set ogDesc = pageDesc or "MMCM STUDIO 毫厘建筑摄影 · Chengdu" -%}
     {%- set ogImage = ogImagePath or "/images/home/01.webp" %}
@@ -42,29 +43,19 @@
                 : ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
             window.__MMCM_LANG = lang;
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-            window.__MMCM_LOAD_ZH_FONT = function () {
-                if (document.getElementById('misans-css')) return;
-                var link = document.createElement('link');
-                link.id = 'misans-css';
-                link.rel = 'stylesheet';
-                link.href = 'https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400:Chinese_Simplify,Latin&display=swap';
-                document.head.appendChild(link);
-            };
-            window.__MMCM_LOAD_ZH_FONT();
         })();
     </script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['JetBrains Mono', 'monospace'], mono: ['JetBrains Mono', 'monospace'], serif: ['JetBrains Mono', 'monospace'] },
+                    fontFamily: { sans: ['MiSans', 'PingFang SC', 'system-ui', '-apple-system', 'Helvetica Neue', 'Arial', 'sans-serif'], mono: ['MiSans', 'PingFang SC', 'system-ui', '-apple-system', 'Helvetica Neue', 'Arial', 'sans-serif'], serif: ['MiSans', 'PingFang SC', 'system-ui', '-apple-system', 'Helvetica Neue', 'Arial', 'sans-serif'] },
                     colors: { 'ink': '#111111', 'paper': '#ffffff', 'mist': '#f4f4f4', 'stone': '#6b6b6b' }
                 }
             }
         }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
 
     <script>
@@ -935,7 +926,7 @@ get filteredFilmProjects() {
 
     <!-- VIEW 2: WORKS -->
     <section x-show="currentView === 'works'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen">
-        <div class="mb-10 flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-[0.14em] md:tracking-[0.18em] z-20 relative">
+        <div class="mb-10 flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 font-mono text-[9px] md:text-xs tracking-normal z-20 relative">
             <div class="flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-10 uppercase">
             <button type="button" data-works-entry="architecture" @click="setWorksEntry('architecture')"
                     class="nav-tag"
@@ -975,7 +966,7 @@ get filteredFilmProjects() {
             </div>
         </div>
         <div id="atlas-root" x-show="worksView === 'map'" x-cloak></div>
-        <p x-show="worksView === 'grid' && filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-[0.12em] text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
+        <p x-show="worksView === 'grid' && filteredProjects.length === 0" x-cloak class="font-mono text-[10px] md:text-xs tracking-normal text-[#666666] py-16" x-text="$store.lang.t('comingSoon')"></p>
         <div x-show="worksView === 'grid' && filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">
                 <div class="group relative cursor-pointer flex flex-col gap-3 break-inside-avoid mb-8" @click="openProject(project)">
@@ -1004,14 +995,14 @@ get filteredFilmProjects() {
 
     <!-- VIEW: MEDIA -->
     <section x-show="currentView === 'media'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen bg-white">
-        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-[0.22em] text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
+        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-normal text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
 
         <a x-show="mediaFeatured"
            :href="mediaFeatured ? mediaFeatured.url : '#'"
            target="_blank"
            rel="noopener noreferrer"
            class="block border border-black/10 hover:border-[#111111] p-6 md:p-10 mb-14 md:mb-20 transition-colors">
-            <div class="font-mono text-[10px] tracking-[0.22em] text-[#666666]" x-text="$store.lang.t('interview')"></div>
+            <div class="font-mono text-[10px] tracking-normal text-[#666666]" x-text="$store.lang.t('interview')"></div>
             <h2 class="font-mono text-base md:text-2xl text-[#111111] font-medium leading-snug mt-4 max-w-3xl" x-text="mediaFeatured ? ($store.lang.code === 'zh' ? mediaFeatured.project_cn : (mediaFeatured.project_en || mediaFeatured.project_cn)) : ''"></h2>
             <p class="font-mono text-[11px] md:text-xs zh-copy text-[#111111] mt-4 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
             <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] text-[#666666]">
@@ -1174,7 +1165,7 @@ get filteredFilmProjects() {
     <section x-show="currentView === 'film_detail'" x-cloak class="fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white flex flex-col font-mono">
         <div class="shrink-0 h-12 flex items-center px-4 bg-white border-b border-black/10">
             <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">《</button>
-            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-widest uppercase pr-10" x-text="$store.lang.t('filmPlayer')"></div>
+            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-normal uppercase pr-10" x-text="$store.lang.t('filmPlayer')"></div>
         </div>
         <div class="flex-grow w-full min-h-0 pb-4 px-4 flex flex-col">
             <div class="flex-grow w-full max-w-6xl mx-auto bg-[#f4f4f4] border border-black/10 overflow-hidden flex items-center justify-center">
@@ -1213,8 +1204,8 @@ get filteredFilmProjects() {
                     <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover" alt="Photographer">
                 </div>
                 <div class="text-center font-mono">
-                    <h2 class="text-xl font-bold text-[#111111] tracking-widest" x-text="$store.lang.personName(studio)"></h2>
-                    <div class="text-[10px] text-gray-500 mt-2 tracking-widest" x-text="$store.lang.personTitle(studio)"></div>
+                    <h2 class="text-xl font-bold text-[#111111] tracking-normal" x-text="$store.lang.personName(studio)"></h2>
+                    <div class="text-[10px] text-gray-500 mt-2 tracking-normal" x-text="$store.lang.personTitle(studio)"></div>
                 </div>
             </div>
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
@@ -1272,15 +1263,15 @@ get filteredFilmProjects() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-8">
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('mobile')"></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('mobile')"></div>
                         <div class="text-xl md:text-3xl text-[#111111] font-mono" x-text="contact.phone"></div>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('email')"></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('email')"></div>
                         <a :href="'mailto:' + contact.email" class="text-xl md:text-3xl text-[#111111] font-mono hover:text-[#111111] transition-colors" x-text="contact.email"></a>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-widest" x-text="$store.lang.t('site')"></div>
+                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('site')"></div>
                         <a href="#" class="text-xl md:text-3xl text-[#111111] font-mono hover:underline decoration-[#111111] underline-offset-4 transition-all" x-text="contact.website"></a>
                     </div>
                 </div>

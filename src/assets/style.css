@@ -15,19 +15,25 @@ html {
     background: #fff;
 }
 
+:root {
+    --font: "MiSans", "PingFang SC", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
 body,
 button,
 input,
 select,
 textarea {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--font);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
 }
 
 html body.font-sans,
 html body .font-sans,
 html body .font-mono,
 html body .font-serif {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: var(--font);
 }
 
 .no-scrollbar {
@@ -135,9 +141,9 @@ html.route-project [data-view="home"] {
     }
 }
 
-/* Latin is JetBrains Mono everywhere. Chinese characters use MiSans Light. */
+/* One face for Latin and Chinese. --font-zh remains so older rules keep resolving. */
 :root {
-    --font-zh: "JetBrains Mono", "MiSans", sans-serif;
+    --font-zh: var(--font);
 }
 
 html[lang="zh-CN"] body,
@@ -147,7 +153,7 @@ html[lang="zh-CN"] body .font-mono,
 html[lang="zh-CN"] body .font-serif,
 html[lang="zh-CN"] .font-sans,
 html[lang="zh-CN"] .font-mono {
-    font-family: var(--font-zh);
+    font-family: var(--font);
     font-weight: 300;
     font-synthesis: none;
 }
@@ -156,10 +162,10 @@ html[lang="zh-CN"] body {
     font-size: 14px;
 }
 
-html[lang="zh-CN"] .font-bold,
-html[lang="zh-CN"] .font-semibold,
-html[lang="zh-CN"] .font-medium,
-html[lang="zh-CN"] strong {
+.font-bold,
+.font-semibold,
+.font-medium,
+strong {
     font-weight: 400;
 }
 
@@ -206,7 +212,7 @@ html[lang="zh-CN"] .zh-copy {
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 11px;
 }
-.project-facts dt { color: #666666; letter-spacing: 0.12em; font-size: 10px; }
+.project-facts dt { color: #666666; letter-spacing: 0.02em; font-size: 10px; }
 html[lang="zh-CN"] .project-facts dd,
 html[lang="zh-CN"] .project-info { font-size: 14px; }
 html[lang="zh-CN"] .project-sheet.is-info h2 {
