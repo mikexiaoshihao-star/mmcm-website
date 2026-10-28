@@ -604,7 +604,7 @@
       "architect": "SCDA",
       "url": "/images/projects/SCDA_30_Chengdu_Exhibition/cover.webp",
       "year": "2026",
-      "coords": "30.478°N / 104.024°E",
+      "coords": "30.478°N / 104.025°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -626,7 +626,7 @@
       "architect": "SADI",
       "url": "/images/projects/General_Aviation_Headquarters_Base/cover.webp",
       "year": "2024",
-      "coords": "23.840°N / 104.134°E",
+      "coords": "30.339°N / 104.451°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/General_Aviation_Headquarters_Base/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -756,7 +756,7 @@
       "architect": "gad",
       "url": "/images/projects/TAHITI/cover.webp",
       "year": "2023",
-      "coords": "23.334°N / 104.145°E",
+      "coords": "30.324°N / 103.942°E",
       "location": "Chengdu_Sichuan",
       "images": [
         {"url": "/images/projects/TAHITI/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -844,7 +844,7 @@
       "architect": "Tanghua_Architects_&_Associates",
       "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/cover.webp",
       "year": "2022",
-      "coords": "23.352°N / 103.326°E",
+      "coords": "29.721°N / 106.833°E",
       "location": "Chongqing",
       "images": [
         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/01.webp", "desc": "01", "meta": "18:30 // PM"},
@@ -900,7 +900,7 @@
       "architect": "SewDesign",
       "url": "/images/projects/Yeting/cover.webp",
       "year": "2026",
-      "coords": "23.335°N / 103.346°E",
+      "coords": "29.355°N / 104.681°E",
       "location": "Zigong_Sichuan",
       "images": [
         {"url": "/images/projects/Yeting/01.webp", "desc": "01", "meta": "18:30 // PM"},
