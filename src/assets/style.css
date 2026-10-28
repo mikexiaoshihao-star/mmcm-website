@@ -624,3 +624,51 @@ span.gap-3.shrink-0[class~="text-[10px]"] { font-size: var(--fs-micro); line-hei
 .tag-chip { font-size: var(--fs-micro); font-weight: var(--fw-regular); letter-spacing: var(--ls-caps); line-height: var(--lh-ui); background: rgba(0, 0, 0, 0.06); padding: 1px 6px; color: #444444; }
 .sheet-arrow { font-size: var(--fs-title); font-weight: var(--fw-regular); line-height: 1; }
 .client-name { font-size: var(--fs-body); font-weight: var(--fw-strong); line-height: var(--lh-tight); letter-spacing: 0; }
+#atlas-root.is-loading { position: relative; min-height: calc(100svh - 212px); }
+@media (max-width: 767px) {
+    #atlas-root.is-loading { min-height: 62svh; }
+}
+.atlas-load {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    background: #fff;
+    color: #111111;
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    text-align: center;
+}
+html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
+@media (min-width: 768px) {
+    #atlas-root.is-loading .atlas-load { padding-left: 300px; }
+}
+.atlas-mini, #atlas-mini { width: 64px; height: 64px; display: block; }
+@media (max-width: 767px) {
+    #atlas-mini { width: 48px; height: 48px; }
+}
+.atlas-load { flex-direction: column; gap: 16px; }
+.atlas-load-line { margin: 0; font: inherit; letter-spacing: inherit; color: inherit; }
+.atlas-load-line.is-still { animation: none; }
+.atlas-retry {
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .atlas-load-line { animation: none; }
+}

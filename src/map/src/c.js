@@ -246,8 +246,16 @@ function fitCity(city) {
   const ms = current.filter((p) => cityOf(p) === city); if (!ms.length) return;
   const go = () => { closeCard(); sel = null; mk.setActive(null); rowAct(null); layer = 'country'; setLayerUI();
     const lon = ms.reduce((s, p) => s + p.lon, 0) / ms.length, lat = ms.reduce((s, p) => s + p.lat, 0) / ms.length;
-    let md = 0; ms.forEach((p) => { md = Math.max(md, Math.hypot((p.lon - lon) * Math.cos(lat * D2R), p.lat - lat) * D2R); });
-    const R1 = Math.max(V.R * 1.6, Math.min(160000, Math.min(W, H) * (mobile() ? 0.3 : 0.34) / Math.max(md, 0.0004)));
+    let md = 0, pair = Infinity;
+    ms.forEach((p) => { md = Math.max(md, Math.hypot((p.lon - lon) * Math.cos(lat * D2R), p.lat - lat) * D2R); });
+    for (let i = 0; i < ms.length; i++) for (let j = i + 1; j < ms.length; j++) {
+      const d = Math.hypot((ms[i].lon - ms[j].lon) * Math.cos(lat * D2R), ms[i].lat - ms[j].lat) * D2R;
+      if (d > 1e-6) pair = Math.min(pair, d);
+    }
+    const spread = 40;
+    const separate = Number.isFinite(pair) ? spread / pair : 0;
+    const fit = Math.min(W, H) * (mobile() ? 0.34 : 0.4) / Math.max(md, 0.00015);
+    const R1 = Math.min(1500000, Math.max(fit, separate));
     rowHL(ms.map((m) => m.slug));
     return flyTo(lon, lat, R1, homeC(), undefined, 1); };
   if (cc !== ms[0]._cc || layer === 'globe') return enterCountry(ms[0]._cc, 1800).then((ok) => ok && go());
@@ -386,7 +394,7 @@ stage.addEventListener('pointermove', (e) => {
 const up = (e) => { if (fromCard(e)) return; ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; if (!ptrs.size && moved < 4 && e.type === 'pointerup' && layer === 'project') back(); };
 stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
 const minR = () => (layer === 'globe' ? homeR() * 0.7 : countryFit(cc || 'CN').R * 0.55);
-const maxR = 180000;
+const maxR = 1500000;
 function zoomAt(f, px, py) {
   const next = Math.max(minR(), Math.min(maxR, V.R * f));
   const k = next / Math.max(V.R, 1e-6);
@@ -407,7 +415,7 @@ $$('.b-ctl button[data-z]', stage).forEach((b) => b.onclick = () => {
   const z = b.dataset.z;
   if (z === 'home') return layer === 'globe' ? goGlobe() : goGlobe();
   if (z === 'up') return back();
-  flyTo(V.lon, V.lat, Math.max(minR(), Math.min(180000, V.R * (z === 'in' ? 2.4 : 1 / 2.4))), [V.cx, V.cy], 700);
+  flyTo(V.lon, V.lat, Math.max(minR(), Math.min(maxR, V.R * (z === 'in' ? 2.4 : 1 / 2.4))), [V.cx, V.cy], 700);
 });
 
 /* ---------- loop, layout, render ---------- */

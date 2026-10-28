@@ -12,6 +12,24 @@
     <link rel="preconnect" href="https://cdn-font.hyperos.mi.com">
     <link rel="preconnect" href="https://cdn-file.hyperos.mi.com" crossorigin>
     <link rel="stylesheet" href="https://cdn-font.hyperos.mi.com/font/css?family=MiSans:300,400,600:Chinese_Simplify,Latin&display=swap">
+    <script>
+        (function () {
+            var files = ['/map/data/projects.js', '/map/data/globe.js', '/map/data/places.js', '/map/atlas.js'];
+            var run = function () {
+                files.forEach(function (href) {
+                    if (document.querySelector('link[data-atlas-prefetch="' + href + '"]')) return;
+                    var link = document.createElement('link');
+                    link.rel = 'prefetch';
+                    link.as = 'script';
+                    link.href = href;
+                    link.setAttribute('data-atlas-prefetch', href);
+                    document.head.appendChild(link);
+                });
+            };
+            if (window.requestIdleCallback) window.requestIdleCallback(run, { timeout: 2000 });
+            else window.setTimeout(run, 1);
+        })();
+    </script>
     {%- set ogTitle = pageTitle or "MMCM STUDIO 毫厘建筑摄影" -%}
     {%- set ogDesc = pageDesc or "MMCM STUDIO 毫厘建筑摄影 · Chengdu" -%}
     {%- set ogImage = ogImagePath or "/images/home/01.webp" %}
@@ -719,9 +737,19 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         window.MMCM_ATLAS.boot(root, { disc: this.worksEntry, type: this.worksType });
                         window.MMCM_ATLAS.show();
                     };
-                    if (window.MMCM_ATLAS) { boot(); return; }
+                    const loaderMode = new URLSearchParams(location.search).get('loader');
+                    if (loaderMode === '1') { this.showAtlasStatus('loading'); return; }
+                    if (loaderMode === 'fail') { this.showAtlasStatus('error'); return; }
+                    if (window.MMCM_ATLAS) { boot(); this.revealAtlas(false); return; }
                     if (this._atlasLoading) return;
                     this._atlasLoading = true;
+                    const generation = (this._atlasGen = (this._atlasGen || 0) + 1);
+                    const started = performance.now();
+                    const showTimer = setTimeout(() => {
+                        if (generation !== this._atlasGen || window.MMCM_ATLAS) return;
+                        this._atlasShown = true;
+                        this.showAtlasStatus('loading');
+                    }, 300);
                     if (!document.getElementById('atlas-css')) {
                         const link = document.createElement('link');
                         link.id = 'atlas-css';
@@ -732,16 +760,96 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     const load = (src) => new Promise((resolve, reject) => {
                         const s = document.createElement('script');
                         s.src = src;
-                        s.onload = resolve;
-                        s.onerror = reject;
+                        s.async = true;
+                        s.dataset.atlas = src;
+                        s.onload = () => resolve(src);
+                        s.onerror = () => reject(new Error(src));
                         document.body.appendChild(s);
                     });
-                    load('/map/data/projects.js')
-                        .then(() => load('/map/data/places.js'))
-                        .then(() => load('/map/data/globe.js'))
-                        .then(() => load('/map/atlas.js'))
-                        .then(() => { this._atlasLoading = false; boot(); })
-                        .catch((err) => { this._atlasLoading = false; console.error(err); });
+                    const timer = setTimeout(() => {
+                        if (generation !== this._atlasGen || window.MMCM_ATLAS) return;
+                        clearTimeout(showTimer);
+                        this._atlasLoading = false;
+                        this._atlasShown = true;
+                        this.showAtlasStatus('error');
+                    }, 15000);
+                    const finish = (ok) => {
+                        if (generation !== this._atlasGen) return;
+                        clearTimeout(timer);
+                        clearTimeout(showTimer);
+                        this._atlasLoading = false;
+                        if (!ok) { this._atlasShown = true; this.showAtlasStatus('error'); return; }
+                        const fast = !this._atlasShown && performance.now() - started < 300;
+                        try {
+                            boot();
+                            this.revealAtlas(!fast);
+                        } catch (err) {
+                            console.error(err);
+                            this._atlasShown = true;
+                            this.showAtlasStatus('error');
+                        }
+                    };
+                    Promise.all([
+                        load('/map/data/projects.js'),
+                        load('/map/data/places.js'),
+                        load('/map/data/globe.js')
+                    ]).then(() => load('/map/atlas.js'))
+                        .then(() => finish(true))
+                        .catch((err) => { console.error(err); finish(false); });
+                },
+                showAtlasStatus(kind) {
+                    const root = document.getElementById('atlas-root');
+                    if (!root) return;
+                    let el = document.getElementById('atlas-status');
+                    if (kind === 'ready') { if (el) el.remove(); return; }
+                    root.classList.add('is-loading');
+                    if (el) el.hidden = false;
+                    if (!el) {
+                        el = document.createElement('div');
+                        el.id = 'atlas-status';
+                        el.className = 'atlas-load';
+                        el.setAttribute('aria-live', 'polite');
+                        root.appendChild(el);
+                    }
+                    const zh = (Alpine.store('lang') && Alpine.store('lang').code === 'zh') || document.documentElement.lang === 'zh-CN';
+                    const line = document.getElementById('atlas-load-line');
+                    if (!line) return;
+                    line.classList.toggle('is-still', kind === 'error');
+                    line.replaceChildren();
+                    if (kind === 'error') {
+                        line.append(document.createTextNode(zh ? '地图加载失败 · ' : 'Map failed to load · '));
+                        const retry = document.createElement('button');
+                        retry.type = 'button';
+                        retry.className = 'atlas-retry';
+                        retry.textContent = zh ? '重试' : 'Retry';
+                        retry.onclick = () => { this._atlasLoading = false; this._atlasShown = false; this.ensureAtlas(); };
+                        line.append(retry);
+                        if (window.MMCM_LOADER) window.MMCM_LOADER.set('fail');
+                    } else {
+                        line.textContent = zh ? '加载中' : 'Loading';
+                        if (window.MMCM_LOADER) window.MMCM_LOADER.set('load');
+                    }
+                },
+                revealAtlas(animate) {
+                    const load = document.getElementById('atlas-status');
+                    const root = document.getElementById('atlas-root');
+                    const stage = document.querySelector('#atlas-root .c-stage');
+                    const globe = stage && stage.querySelector('canvas');
+                    const mini = document.getElementById('atlas-mini');
+                    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (root) root.classList.remove('is-loading');
+                    if (!animate || reduce || !load || !stage) { if (load) load.remove(); return; }
+                    if (window.MMCM_LOADER) window.MMCM_LOADER.stop();
+                    stage.appendChild(load);
+                    if (globe) { globe.style.opacity = '0'; globe.style.transition = 'opacity .3s linear'; }
+                    if (mini) mini.style.transition = 'opacity .3s linear, transform .3s linear';
+                    load.style.transition = 'opacity .3s linear';
+                    requestAnimationFrame(() => {
+                        load.style.opacity = '0';
+                        if (mini) { mini.style.opacity = '0'; mini.style.transform = 'scale(1.15)'; }
+                        if (globe) globe.style.opacity = '1';
+                    });
+                    setTimeout(() => { if (load.parentNode) load.remove(); }, 320);
                 },
                 filmSlug(key) {
                     return String(key || '').trim().toLowerCase();
@@ -1109,7 +1217,13 @@ get filteredFilmProjects() {
                 </div>
             </div>
         </div>
-        <div id="atlas-root" x-show="worksView === 'map' && filteredProjects.length > 0" x-cloak></div>
+        <div id="atlas-root" x-show="worksView === 'map' && filteredProjects.length > 0" x-cloak>
+            <div id="atlas-status" class="atlas-load" hidden>
+                <canvas id="atlas-mini" width="128" height="128" aria-hidden="true"></canvas>
+                <p id="atlas-load-line" class="atlas-load-line">Loading</p>
+            </div>
+        </div>
+        <script>(function(){var cv=document.getElementById("atlas-mini");if(!cv)return;var g=cv.getContext("2d"),q=new URLSearchParams(location.search).get("loader"),reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,mode=q=="fail"?"fail":"load",raf=0,t0=performance.now(),P=Math.PI,lats=[],lons=[],i,j;for(i=-6;i<=6;i++)lats.push(i*P/16);for(i=0;i<32;i++)lons.push(i*P/16);function draw(now){var t=now-t0,w=cv.width,rad=w*.015625,R=w*.5-rad,min2=4*rad*rad,spin=mode=="load"&&!reduce,base=reduce&&mode=="load"?.6+.2*Math.sin(t*P/1000):.15,alpha=spin?P*t/1600:0,raw=[],acc=[],seen={},lat,cl,sl,obj,view,z,x,y,sx,sy,op,a,dx,dy,ok,p,k,lo,hi;g.clearRect(0,0,w,w);g.fillStyle="#111";for(i=0;i<lats.length;i++){lat=lats[i];cl=Math.cos(lat);sl=Math.sin(lat);for(j=0;j<32;j++){obj=lons[j];view=obj+alpha;z=cl*Math.cos(view);if(z<=.02)continue;x=cl*Math.sin(view);y=sl;sx=w*.5+x*R;sy=w*.5-y*R;op=base;if(spin){a=obj%P;if(a>P*.5)a=P-a;op=base+.85*Math.exp(-(a*a)/.12);}raw.push([sx,sy,op*z,z,i]);}}raw.sort(function(A,B){return B[3]-A[3];});for(i=0;i<raw.length;i++){p=raw[i];sx=p[0];sy=p[1];ok=1;for(j=0;j<acc.length;j++){dx=sx-acc[j][0];dy=sy-acc[j][1];if(dx*dx+dy*dy<min2){ok=0;break;}}if(!ok)continue;acc.push(p);seen[p[4]]=(seen[p[4]]||0)+1;}lo=99;hi=-1;for(k in seen){k=+k;if(k<lo)lo=k;if(k>hi)hi=k;}for(i=0;i<acc.length;i++){p=acc[i];if((p[4]===lo||p[4]===hi)&&seen[p[4]]<2)continue;g.globalAlpha=p[2];g.beginPath();g.arc(p[0],p[1],rad,0,6.3);g.fill();}g.globalAlpha=1;if(mode=="load")raf=requestAnimationFrame(draw);}window.MMCM_LOADER={set:function(m){mode=m=="fail"?"fail":"load";cancelAnimationFrame(raf);if(mode=="load"){t0=performance.now();raf=requestAnimationFrame(draw);}else draw(performance.now());},stop:function(){cancelAnimationFrame(raf);}};if(q=="1"||q=="fail"){var b=document.getElementById("atlas-status");if(b)b.hidden=false;}requestAnimationFrame(draw);})();</script>
         <p x-show="filteredProjects.length === 0" x-cloak class="works-empty" x-text="$store.lang.t('comingSoon')"></p>
         <div x-show="worksView === 'grid' && filteredProjects.length > 0" class="columns-1 md:columns-3 gap-8">
             <template x-for="(project, index) in filteredProjects" :key="index">

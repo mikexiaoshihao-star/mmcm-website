@@ -257,6 +257,7 @@ html[lang="zh-CN"] .atlas-root,html[lang="zh-CN"] .cp{font-family:var(--font-zh)
 html[lang="zh-CN"] .a-row .t{font-size:var(--fs-micro);font-weight:300;text-align:left}
 html[lang="zh-CN"] .c-cty,html[lang="zh-CN"] .a-gh{text-align:left}
 @media(max-width:767px){
-  .atlas-root .c-view{height:auto;min-height:0}
-  .atlas-root .c-stage{height:62svh;min-height:420px}
+  .atlas-root .c-view{display:flex;flex-direction:column;height:auto;min-height:0;overflow:visible;grid-template-columns:none}
+  .atlas-root .c-stage{flex:0 0 auto;height:62svh;min-height:420px;order:-1}
+  .atlas-root .a-list.c-list{flex:0 0 auto;height:auto;max-height:none;overflow:visible}
 }

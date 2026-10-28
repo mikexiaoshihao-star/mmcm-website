@@ -21,7 +21,11 @@ export function createMarkers(host, o) {
     vis.forEach((a) => {
       if (done.has(a.p.slug)) return; const g = [a]; done.add(a.p.slug);
       if (a.solo) { groups.push({ g, cx: a.x, cy: a.y }); return; }
-      vis.forEach((b) => { if (!done.has(b.p.slug) && !b.solo && Math.hypot(a.x - b.x, a.y - b.y) < R) { g.push(b); done.add(b.p.slug); } });
+      vis.forEach((b) => {
+        if (done.has(b.p.slug) || b.solo) return;
+        if (cityOf(a.p) !== cityOf(b.p)) return;
+        if (Math.hypot(a.x - b.x, a.y - b.y) < R) { g.push(b); done.add(b.p.slug); }
+      });
       const cx = g.reduce((s, m) => s + m.x, 0) / g.length, cy = g.reduce((s, m) => s + m.y, 0) / g.length;
       groups.push({ g, cx, cy });
     });
@@ -46,7 +50,7 @@ export function createMarkers(host, o) {
         }
         c.members = g.map((m) => m.p);
         c.el.style.transform = `translate(${cx}px,${cy}px)`; c.cx = cx; c.cy = cy;
-        c.el.lastChild.textContent = g.length >= 3 ? cityName(c.city) : ''; c.el.classList.remove('off');
+        c.el.lastChild.textContent = g.length >= 2 ? cityName(c.city) : ''; c.el.classList.remove('off');
       }
     });
     cls.forEach((c, key) => { if (!seen.has(key)) { c.el.classList.remove('on'); c.el.classList.add('off'); if (!c.rm) c.rm = setTimeout(() => { c.el.remove(); cls.delete(key); }, 320); } else if (c.rm) { clearTimeout(c.rm); c.rm = null; } });
