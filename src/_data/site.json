@@ -73,7 +73,8 @@
     },
     {
       "img": "/images/home/07.webp",
-      "title": "Poly_Expo",
+      "title": "Shanghai_Poly_Opus_One",
+      "title_zh": "保利世博天悦",
       "architect": "SCDA",
       "address": "Shanghai",
       "coords": "31.199°N / 121.500°E"
@@ -97,7 +98,8 @@
         "img": "/images/home/mobile-02.webp"
     },
      {
-        "title": "Poly_Expo",
+        "title": "Shanghai_Poly_Opus_One",
+        "title_zh": "保利世博天悦",
         "architect": "SCDA",
         "address": "Shanghai",
         "coords": "31.199°N / 121.500°E",
@@ -113,6 +115,7 @@
     },
      {
         "title": "157_Tower",
+        "title_zh": "157大厦",
         "architect": "SADI",
         "address": "Chengdu,Sichuan",
         "coords": "30.664°N / 104.083°E",
