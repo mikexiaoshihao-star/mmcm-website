@@ -138,6 +138,226 @@
 
   "projects": [
     {
+      "title": "Yibin_Tiandi",
+      "title_zh": "宜宾天地",
+      "slug": "yibin-tiandi",
+      "category": "COMMERCIAL",
+      "discipline": "architecture",
+      "type": "commercial",
+      "architect": "SADI",
+      "url": "/images/projects/Yibin_Tiandi/cover.webp",
+      "year": "2025",
+      "coords": "28.732°N / 104.628°E",
+      "location": "Yibin_Sichuan",
+      "images": [
+        {
+          "url": "/images/projects/Yibin_Tiandi/01.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/02.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/03.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/04.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/05.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/06.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Tiandi/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
+    {
+      "title": "Chongqing_Urban_Construction_Archives",
+      "title_zh": "重庆市城市建设档案馆",
+      "slug": "chongqing-urban-construction-archives",
+      "category": "CULTURAL",
+      "discipline": "architecture",
+      "type": "cultural",
+      "architect": "Tanghua_Architects_&_Associates",
+      "url": "/images/projects/Chongqing_Urban_Construction_Archives/cover.webp",
+      "year": "2025",
+      "coords": "29.725°N / 106.592°E",
+      "location": "Chongqing",
+      "images": [
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/01.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/02.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/03.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/04.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/05.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/06.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/18.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/19.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/20.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/21.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chongqing_Urban_Construction_Archives/22.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
+    {
       "title": "Renovation_of_Langjiu_Longma_Winery_Office_Building_102",
       "title_zh": "郎酒龙马酒庄102办公楼改造",
       "slug": "renovation-of-langjiu-longma-winery-office-building-102",
@@ -940,8 +1160,8 @@
     "photo": "/images/photographer.webp",
     "name": "Xiao_Shihao",
     "name_zh": "肖世豪",
-    "title": "LEAD PHOTOGRAPHER",
-    "title_zh": "首席摄影师",
+    "title": "PHOTOGRAPHER",
+    "title_zh": "摄影师",
     "intro1": "With a 5-year undergraduate degree in architecture and 5 years of experience in architectural design, Xiao_Shihao became an architectural photographer in 2022. ",
     "intro2": "His work focuses on capturing the essence of architecture and space while striving for a subtle artistic balance through the arrangement of light, composition, subject poses, spatial depth, and color.He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.",
    "about1": "based in Chengdu, Sichuan Province.We have maintained long-term and close collaborations with numerous renowned Architects since establishment in 2022.We believe that architects and photographers grow together through mutual partnership. In an era where architectural photography is becoming increasingly homogenized and driven by short-term, fast-paced demands, we aim to focus our energy on building long-term collaborations with clients, we delve deeply into documenting the evolution of each building and space—from conceptual design to completion,and even its post-occupancy state.",

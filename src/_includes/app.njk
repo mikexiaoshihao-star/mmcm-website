@@ -128,7 +128,6 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     returnGrid: 'RETURN TO GRID', filmPlayer: 'Film Player',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: 'INTERVIEW', photographer: '01 // PHOTOGRAPHER', theStudio: '02 // THE STUDIO', client: '03 // CLIENT',
-                    dbUpdated: 'DATABASE_LAST_UPDATED: 2026.01.07', signal: 'SIGNAL_STABLE',
                     mobile: 'Mobile / Wechat', email: 'Email Address', site: 'Official Site', social: '02 // SOCIAL_MATRIX',
                     location: 'LOCATION_DATA', linkArrow: '>> LINK',
                     architect: 'ARCHITECT', year: 'YEAR', type: 'TYPE', discipline: 'DISCIPLINE', coordinates: 'COORDINATES', images: 'IMAGES', locField: 'LOCATION',
@@ -149,7 +148,6 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     returnGrid: '返回列表', filmPlayer: '影片',
                     videoUnsupported: '您的浏览器不支持视频播放',
                     interview: '专访', photographer: '01 // 摄影师', theStudio: '02 // 工作室', client: '03 // 客户',
-                    dbUpdated: '数据更新：2026.01.07', signal: '信号稳定',
                     mobile: '手机/微信', email: '电子邮箱', site: '官方网站', social: '02 // 社交',
                     location: '所在地', linkArrow: '>> 链接',
                     architect: '建筑设计', year: '年份', type: '类型', discipline: '门类', coordinates: '坐标', images: '图片', locField: '地点',
@@ -1027,29 +1025,29 @@ get filteredFilmProjects() {
      x-transition:enter-end="opacity-100"
      draggable="false">
         </div>
-        <div class="mt-6 flex flex-col md:flex-row justify-between items-start font-mono text-[10px] md:text-xs">
+        <div class="mt-6 flex flex-col md:flex-row justify-between items-start">
     <!-- 电脑端信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start mb-4 md:mb-0">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeProject)"></div>
-        <div class="text-[#111111] font-bold text-sm md:text-xl" x-text="$store.lang.name(currentHomeProject)"></div>
+        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeProject)"></div>
+        <div class="t-title text-[#111111]" x-text="$store.lang.name(currentHomeProject)"></div>
     </div>
     <!-- 手机端信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mb-4">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeMobileProject)"></div>
-        <div class="text-[#111111] font-bold text-sm" x-text="$store.lang.name(currentHomeMobileProject)"></div>
+        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.architect(currentHomeMobileProject)"></div>
+        <div class="t-title text-[#111111]" x-text="$store.lang.name(currentHomeMobileProject)"></div>
     </div>
     <!-- 电脑端右侧信息 -->
     <div class="hidden md:flex flex-col gap-1 items-start md:items-end mt-0">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeProject.address)"></div>
-        <div class="flex items-center text-[#111111] font-bold h-5 overflow-visible whitespace-nowrap">
+        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeProject.address)"></div>
+        <div class="t-title flex items-center text-[#111111] h-5 overflow-visible whitespace-nowrap">
             <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
             <span x-text="currentHomeProject.coords"></span>
         </div>
     </div>
     <!-- 手机端右侧信息 -->
     <div class="flex md:hidden flex-col gap-1 items-start mt-0">
-        <div class="text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeMobileProject.address)"></div>
-        <div class="flex items-center text-[#111111] font-bold h-5 overflow-visible whitespace-nowrap">
+        <div class="t-data text-gray-500 h-5 overflow-visible whitespace-nowrap" x-text="$store.lang.place(currentHomeMobileProject.address)"></div>
+        <div class="t-title flex items-center text-[#111111] h-5 overflow-visible whitespace-nowrap">
             <span class="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse mr-2"></span>
             <span x-text="currentHomeMobileProject.coords"></span>
         </div>
@@ -1119,19 +1117,19 @@ get filteredFilmProjects() {
                     <div class="relative w-full bg-[#f4f4f4] overflow-hidden border border-black/10 group-hover:border-[#111111] transition-colors duration-300">
                         <img :src="project.url" loading="lazy" class="w-full h-auto block transition-all duration-500">
                     </div>
-                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
-    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-words" x-text="$store.lang.name(project)"></div>
-    <div class="flex justify-between items-baseline">
-        <div class="text-[#666666]" x-text="$store.lang.architect(project)"></div>
-        <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + project.year + ' ]'"></div>
+                    <div class="card-cap border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
+    <div class="card-name text-[#111111] transition-colors leading-tight break-words" x-text="$store.lang.name(project)"></div>
+    <div class="flex justify-between items-baseline gap-2">
+        <div class="t-data text-[#666666] min-w-0" x-text="$store.lang.architect(project)"></div>
+        <div class="t-data text-gray-600 shrink-0" x-text="'[ ' + project.year + ' ]'"></div>
     </div>
-    <div class="flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="categoryLabel(project.category)"></span>
-            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
-            <span class="text-[#111111] text-[9px]" x-text="project.coords"></span>
+    <div class="flex justify-between items-center gap-2 min-w-0">
+        <div class="flex items-center gap-2 min-w-0">
+            <span class="tag-chip" x-text="categoryLabel(project.category)"></span>
+            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse shrink-0"></span>
+            <span class="t-data text-[#111111] min-w-0 truncate" x-text="project.coords"></span>
         </div>
-        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="$store.lang.place(project.location)"></div>
+        <div class="t-data text-gray-500 min-w-0 truncate" x-text="$store.lang.place(project.location)"></div>
     </div>
 </div>
                 </div>
@@ -1141,20 +1139,20 @@ get filteredFilmProjects() {
 
     <!-- VIEW: MEDIA -->
     <section x-show="currentView === 'media'" x-cloak class="px-4 md:px-12 pt-24 md:pt-32 pb-20 max-w-screen-2xl mx-auto z-10 w-full min-h-screen bg-white">
-        <div class="mb-10 font-mono text-[10px] md:text-xs tracking-normal text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
+        <div class="t-label mb-10 text-[#111111]" x-text="$store.lang.t('navMedia')"></div>
 
         <a x-show="mediaFeatured"
            :href="mediaFeatured ? mediaFeatured.url : '#'"
            target="_blank"
            rel="noopener noreferrer"
            class="block border border-black/10 hover:border-[#111111] p-6 md:p-10 mb-14 md:mb-20 transition-colors">
-            <div class="font-mono text-[10px] tracking-normal text-[#666666]" x-text="$store.lang.t('interview')"></div>
-            <h2 class="font-mono text-base md:text-2xl text-[#111111] font-medium leading-snug mt-4 max-w-3xl" x-text="mediaFeatured ? ($store.lang.code === 'zh' ? mediaFeatured.project_cn : (mediaFeatured.project_en || mediaFeatured.project_cn)) : ''"></h2>
-            <p class="font-mono text-[11px] md:text-xs zh-copy text-[#111111] mt-4 max-w-3xl leading-relaxed" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
-            <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] text-[#666666]">
+            <div class="t-label" x-text="$store.lang.t('interview')"></div>
+            <h2 class="t-title text-[#111111] mt-4 max-w-3xl" x-text="mediaFeatured ? ($store.lang.code === 'zh' ? mediaFeatured.project_cn : (mediaFeatured.project_en || mediaFeatured.project_cn)) : ''"></h2>
+            <p class="t-body text-[#111111] mt-4 max-w-3xl" x-text="mediaFeatured ? mediaFeatured.title : ''"></p>
+            <div class="t-data mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[#666666]">
                 <span class="text-[#111111]" x-text="mediaFeatured ? mediaFeatured.outlet : ''"></span>
                 <span x-text="mediaFeatured ? mediaFeatured.year : ''"></span>
-                <span class="bg-black/[0.06] px-1.5 py-0.5 text-[9px] text-[#444444]" x-text="mediaFeatured ? mediaTypeLabel(mediaFeatured.type) : ''"></span>
+                <span class="tag-chip" x-text="mediaFeatured ? mediaTypeLabel(mediaFeatured.type) : ''"></span>
             </div>
         </a>
 
@@ -1167,16 +1165,16 @@ get filteredFilmProjects() {
                                 <img :src="mediaCover(group.cover)" :alt="group.project_cn" loading="lazy" width="1200" class="w-full h-auto block transition-all duration-500">
                             </div>
                         </template>
-                        <h2 class="font-mono text-xs md:text-sm font-bold text-[#111111] leading-snug" x-text="$store.lang.code === 'zh' ? group.project_cn : (group.project_en || group.project_cn)"></h2>
+                        <h2 class="t-heading text-[#111111]" x-text="$store.lang.code === 'zh' ? group.project_cn : (group.project_en || group.project_cn)"></h2>
                     </div>
                     <ul class="md:col-span-7">
                         <template x-for="item in group.items" :key="item.slug">
                             <li>
                                 <a :href="item.url" target="_blank" rel="noopener noreferrer" :title="item.title" class="flex items-baseline justify-between gap-4 py-3 border-b border-black/10 hover:border-[#111111] transition-colors">
-                                    <span class="font-mono text-[11px] md:text-xs zh-copy text-[#111111] min-w-0 leading-snug" x-text="item.outlet"></span>
-                                    <span class="flex items-center gap-3 shrink-0 font-mono text-[10px] text-[#666666]">
+                                    <span class="t-body text-[#111111] min-w-0" x-text="item.outlet"></span>
+                                    <span class="t-data flex items-center gap-3 shrink-0 text-[#666666]">
                                         <span x-text="item.year"></span>
-                                        <span class="bg-black/[0.06] px-1.5 py-0.5 text-[9px] text-[#444444]" x-text="mediaTypeLabel(item.type)"></span>
+                                        <span class="tag-chip" x-text="mediaTypeLabel(item.type)"></span>
                                     </span>
                                 </a>
                             </li>
@@ -1188,9 +1186,9 @@ get filteredFilmProjects() {
     </section>
 
     <!-- VIEW 2.5: PROJECT DETAIL -->
-    <section x-show="currentView === 'project_detail'" x-cloak class="project-sheet fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white font-mono" :class="projectUsesInfoColumn ? 'is-info' : 'is-classic'">
+    <section x-show="currentView === 'project_detail'" x-cloak class="project-sheet fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white" :class="projectUsesInfoColumn ? 'is-info' : 'is-classic'">
         <div class="project-stage relative w-full bg-[#f4f4f4] overflow-hidden flex items-center justify-center group">
-            <button @click.stop="prevDetailImage()" class="absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">‹</button>
+            <button @click.stop="prevDetailImage()" class="sheet-arrow absolute left-2 md:left-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 focus:outline-none transition-colors">‹</button>
          <div class="relative w-full h-full overflow-hidden select-none"
      @touchstart="handleSwipeStart($event)"
      @touchmove.prevent="handleSwipeMove($event)"
@@ -1212,12 +1210,12 @@ get filteredFilmProjects() {
         </template>
     </div>
 </div>
-            <button @click.stop="nextDetailImage()" class="absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 text-3xl font-light focus:outline-none transition-colors">›</button>
+            <button @click.stop="nextDetailImage()" class="sheet-arrow absolute right-2 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#111111] bg-white/90 hover:bg-white border border-black/10 focus:outline-none transition-colors">›</button>
         </div>
         <aside class="project-info">
             <button type="button" @click="closeProject()" class="text-xs text-[#111111] flex items-center gap-2 mb-6"><span>←</span> <span x-text="openedFromMap ? $store.lang.t('returnMap') : $store.lang.t('returnGrid')"></span></button>
-            <h2 class="text-sm lg:text-base text-[#111111] font-bold leading-tight break-words" x-text="$store.lang.name(selectedProject)"></h2>
-            <div class="flex flex-wrap justify-between items-center text-[10px] mt-2 gap-2">
+            <h2 class="t-title text-[#111111] break-words" x-text="$store.lang.name(selectedProject)"></h2>
+            <div class="t-data flex flex-wrap justify-between items-center mt-2 gap-2">
                 <span class="text-[#111111]" x-text="$store.lang.architect(selectedProject)"></span>
                 <div class="flex items-center gap-3 text-gray-500">
                     <span x-text="$store.lang.place(selectedProject?.location)"></span>
@@ -1297,19 +1295,19 @@ get filteredFilmProjects() {
                             </div>
                         </div>
                     </div>
-                    <div class="font-mono text-[10px] flex flex-col gap-1.5 border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
-    <div class="text-[#111111] font-bold group-hover:text-[#111111] transition-colors leading-tight break-all" x-text="$store.lang.name(film)"></div>
-    <div class="flex justify-between items-baseline">
-        <div class="text-[#666666]" x-text="$store.lang.architect(film)"></div>
-        <div class="text-gray-600 scale-90 flex-shrink-0 ml-2" x-text="'[ ' + film.year + ' ]'"></div>
+                    <div class="card-cap border-l border-black/10 pl-3 transition-colors duration-300 group-hover:border-[#111111]/50">
+    <div class="card-name text-[#111111] transition-colors leading-tight break-all" x-text="$store.lang.name(film)"></div>
+    <div class="flex justify-between items-baseline gap-2">
+        <div class="t-data text-[#666666] min-w-0" x-text="$store.lang.architect(film)"></div>
+        <div class="t-data text-gray-600 shrink-0" x-text="'[ ' + film.year + ' ]'"></div>
     </div>
-    <div class="flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <span class="bg-black/[0.06] px-1.5 py-0.5 rounded text-[9px] text-[#444444]" x-text="categoryLabel(film.category)"></span>
-            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
-            <span class="text-[#111111] text-[9px]" x-text="film.coords"></span>
+    <div class="flex justify-between items-center gap-2 min-w-0">
+        <div class="flex items-center gap-2 min-w-0">
+            <span class="tag-chip" x-text="categoryLabel(film.category)"></span>
+            <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse shrink-0"></span>
+            <span class="t-data text-[#111111] min-w-0 truncate" x-text="film.coords"></span>
         </div>
-        <div class="text-gray-500 text-[9px] flex-shrink-0 ml-2" x-text="$store.lang.place(film.location)"></div>
+        <div class="t-data text-gray-500 min-w-0 truncate" x-text="$store.lang.place(film.location)"></div>
     </div>
 </div>
                 </div>
@@ -1318,10 +1316,10 @@ get filteredFilmProjects() {
     </section>
 
     <!-- VIEW 3.5: FILM DETAIL (Video Player) -->
-    <section x-show="currentView === 'film_detail'" x-cloak class="fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white flex flex-col font-mono">
+    <section x-show="currentView === 'film_detail'" x-cloak class="fixed left-0 right-0 bottom-0 top-16 md:top-20 z-[60] bg-white flex flex-col">
         <div class="shrink-0 h-12 flex items-center px-4 bg-white border-b border-black/10">
-            <button @click="closeFilm()" class="w-10 h-10 flex items-center justify-start text-[#111111] text-xl font-light hover:text-[#111111] transition-colors">←</button>
-            <div class="flex-grow text-center text-[10px] text-[#666666] tracking-normal uppercase pr-10" x-text="$store.lang.t('filmPlayer')"></div>
+            <button @click="closeFilm()" class="t-title w-10 h-10 flex items-center justify-start text-[#111111] hover:text-[#111111] transition-colors">←</button>
+            <div class="t-label flex-grow text-center pr-10" x-text="$store.lang.t('filmPlayer')"></div>
         </div>
         <div class="flex-grow w-full min-h-0 pb-4 px-4 flex flex-col">
             <div class="flex-grow w-full max-w-6xl mx-auto bg-[#f4f4f4] border border-black/10 overflow-hidden flex items-center justify-center">
@@ -1338,9 +1336,9 @@ get filteredFilmProjects() {
                 </video>
             </div>
             <div class="w-full max-w-6xl mx-auto mt-4 p-4 border-l border-black/10">
-    <h2 class="text-sm md:text-base text-[#111111] font-bold leading-tight break-all" x-text="$store.lang.name(selectedFilm)"></h2>
-    <div class="text-[10px] text-gray-500 mt-2" x-text="$store.lang.architect(selectedFilm)"></div>
-    <div class="flex justify-between items-center text-[10px] mt-2">
+    <h2 class="t-heading text-[#111111] break-all" x-text="$store.lang.name(selectedFilm)"></h2>
+    <div class="t-data text-gray-500 mt-2" x-text="$store.lang.architect(selectedFilm)"></div>
+    <div class="t-data flex justify-between items-center mt-2">
         <div class="flex items-center gap-2">
             <span class="w-1.5 h-1.5 bg-[#111111] rounded-full animate-pulse"></span>
             <span class="text-[#111111]" x-text="selectedFilm?.coords"></span>
@@ -1359,15 +1357,15 @@ get filteredFilmProjects() {
                 <div class="w-[200px] lg:w-[240px] aspect-[3/4] mb-6 overflow-hidden border border-black/10">
                     <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover" alt="Photographer">
                 </div>
-                <div class="text-center font-mono">
-                    <h2 class="text-xl font-bold text-[#111111] tracking-normal" x-text="$store.lang.personName(studio)"></h2>
-                    <div class="text-[10px] text-gray-500 mt-2 tracking-normal" x-text="$store.lang.personTitle(studio)"></div>
+                <div class="text-center">
+                    <h2 class="t-title text-[#111111]" x-text="$store.lang.personName(studio)"></h2>
+                    <div class="t-label mt-2" x-text="$store.lang.personTitle(studio)"></div>
                 </div>
             </div>
             <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
                 <div>
-                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('photographer')"></span></div>
-                   <div class="font-mono text-sm zh-copy text-[#666666] leading-loose max-w-xl space-y-6 border-l border-black/10 pl-6">
+                    <div class="t-label text-[#111111] mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('photographer')"></span></div>
+                   <div class="t-body text-[#666666] max-w-xl space-y-6 border-l border-black/10 pl-6">
     <div>
         <p x-show="$store.lang.code === 'en'" x-text="studio.intro1"></p>
         <p x-show="$store.lang.code === 'zh'" x-text="studio.intro1zh"></p>
@@ -1385,10 +1383,10 @@ get filteredFilmProjects() {
 </div>
                 </div>
                 <div>
-                    <div class="text-[#111111] font-mono text-xs mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('theStudio')"></span></div>
-                    <div class="font-mono text-sm zh-copy text-[#444444] leading-relaxed max-w-xl">
+                    <div class="t-label text-[#111111] mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('theStudio')"></span></div>
+                    <div class="t-body text-[#444444] max-w-xl">
     <div class="mb-4" x-show="$store.lang.code === 'en'">
-        <p><strong class="text-[#111111] bg-black/[0.06] px-1">MMCM STUDIO</strong> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
+        <p><span class="client-name text-[#111111] bg-black/[0.06] px-1">MMCM STUDIO</span> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
     </div>
     <div x-show="$store.lang.code === 'zh'" class="space-y-4">
         <p x-text="studio.about1zh"></p>
@@ -1397,16 +1395,15 @@ get filteredFilmProjects() {
 </div>
                 </div>
                 <div>
-                    <div class="text-[#111111] font-mono text-xs mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('client')"></span></div>
-                    <div class="font-mono text-sm w-full border-t border-black/10">
+                    <div class="t-label text-[#111111] mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('client')"></span></div>
+                    <div class="t-body w-full border-t border-black/10">
                         <template x-for="(client, index) in studio.clients">
                             <div class="group flex justify-between items-center py-3 border-b border-black/10 hover:bg-black/[0.04] transition-colors cursor-crosshair px-2">
-                                <div class="flex items-center gap-4"><span class="text-gray-700 text-xs" x-text="String(index + 1).padStart(2, '0')"></span><span class="text-[#666666] group-hover:text-[#111111] group-hover:translate-x-2 transition-all duration-300 font-bold" x-text="$store.lang.architect(client)"></span></div>
-                                <div class="flex items-center gap-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300"><span class="text-[10px] text-gray-500 group-hover:text-[#111111]" x-text="client.loc"></span><span class="text-[#111111] text-xs opacity-0 group-hover:opacity-100 transition-opacity">>></span></div>
+                                <div class="flex items-center gap-4"><span class="t-meta text-gray-700" x-text="String(index + 1).padStart(2, '0')"></span><span class="client-name text-[#666666] group-hover:text-[#111111] group-hover:translate-x-2 transition-all duration-300" x-text="$store.lang.architect(client)"></span></div>
+                                <div class="flex items-center gap-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300"><span class="t-data text-gray-500 group-hover:text-[#111111]" x-text="client.loc"></span><span class="t-meta text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity">>></span></div>
                             </div>
                         </template>
                     </div>
-                    <div class="mt-8 text-[10px] text-gray-600 font-mono flex justify-end items-center gap-2"><span class="w-2 h-2 bg-[#111111] rounded-full"></span><span x-text="$store.lang.t('dbUpdated')"></span></div>
                 </div>
             </div>
         </div>
@@ -1415,36 +1412,35 @@ get filteredFilmProjects() {
     <!-- VIEW 4: CONTACT（从配置读取）-->
     <section x-show="currentView === 'contact'" x-cloak class="min-h-screen pt-24 md:pt-40 px-6 md:px-12 z-10 flex justify-center">
         <div class="w-full max-w-4xl">
-            <div class="mb-12 font-mono text-[10px] text-[#111111] flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#111111] animate-pulse"></span><span x-text="$store.lang.t('signal')"></span></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div class="space-y-8">
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('mobile')"></div>
-                        <div class="text-xl md:text-3xl text-[#111111] font-mono" x-text="contact.phone"></div>
+                        <div class="t-label mb-1" x-text="$store.lang.t('mobile')"></div>
+                        <div class="t-large text-[#111111]" x-text="contact.phone"></div>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('email')"></div>
-                        <a :href="'mailto:' + contact.email" class="text-xl md:text-3xl text-[#111111] font-mono hover:text-[#111111] transition-colors" x-text="contact.email"></a>
+                        <div class="t-label mb-1" x-text="$store.lang.t('email')"></div>
+                        <a :href="'mailto:' + contact.email" class="t-large text-[#111111] transition-colors" x-text="contact.email"></a>
                     </div>
                     <div>
-                        <div class="text-[9px] text-gray-600 font-mono mb-1 uppercase tracking-normal" x-text="$store.lang.t('site')"></div>
-                        <a href="#" class="text-xl md:text-3xl text-[#111111] font-mono hover:underline decoration-[#111111] underline-offset-4 transition-all" x-text="contact.website"></a>
+                        <div class="t-label mb-1" x-text="$store.lang.t('site')"></div>
+                        <a href="#" class="t-large text-[#111111] hover:underline decoration-[#111111] underline-offset-4 transition-all" x-text="contact.website"></a>
                     </div>
                 </div>
                 <div class="space-y-4">
-                    <div class="text-xs text-gray-500 font-mono border-b border-black/10 pb-2 mb-4" x-text="$store.lang.t('social')"></div>
+                    <div class="t-label border-b border-black/10 pb-2 mb-4" x-text="$store.lang.t('social')"></div>
                     <template x-for="social in contact.social">
                         <div class="flex justify-between items-center py-4 border-b border-black/5 group">
-                            <div class="font-mono">
-                                <div class="text-[9px] text-gray-500 uppercase mb-1 group-hover:text-[#111111] transition-colors" x-text="$store.lang.code === 'zh' ? social.platformCN : social.platform"></div>
-                                <div class="text-xs text-[#111111]" x-text="social.id"></div>
+                            <div>
+                                <div class="t-label mb-1 group-hover:text-[#111111] transition-colors" x-text="$store.lang.code === 'zh' ? social.platformCN : social.platform"></div>
+                                <div class="t-meta text-[#111111]" x-text="social.id"></div>
                             </div>
-                            <span class="text-[9px] text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity" x-text="$store.lang.t('linkArrow')"></span>
+                            <span class="t-data text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity" x-text="$store.lang.t('linkArrow')"></span>
                         </div>
                     </template>
                 </div>
             </div>
-            <div class="mt-16 pt-6 border-t border-black/5 text-[9px] text-gray-600 font-mono">
+            <div class="t-label mt-16 pt-6 border-t border-black/5">
                 <div x-text="$store.lang.t('location') + ': ' + $store.lang.place(contact.location)"></div>
             </div>
         </div>
