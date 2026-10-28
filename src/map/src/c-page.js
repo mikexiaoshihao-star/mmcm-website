@@ -13,13 +13,13 @@ export function openPage(p, from, { getReturn, onClosed, index = '', instant = f
   const imgs = p.imgs && p.imgs.length ? p.imgs : [{ v: p.cover, t: p.thumbs[0], d: 'MAIN_VIEW', m: 'RAW // 24MP' }];
   const N = imgs.length;
   const el = h(`<div class="cp" role="dialog" aria-modal="true" aria-label="${pname(p)}">
-    <div class="cp-bar"><button class="cp-x" aria-label="${t('Return to map', '返回地图')}">《</button><span>${t('PROJECT DETAIL', '项目详情')}</span></div>
+    <div class="cp-bar"><button class="cp-x" aria-label="${t('Return to map', '返回地图')}">←</button><span>${t('PROJECT DETAIL', '项目详情')}</span></div>
     <div class="cp-stage"><div class="cp-track">${imgs.map((m, i) => `<div class="cp-slide"><img ${i ? 'data-src' : 'src'}="${thumb(m.v)}" alt="${pname(p)}" draggable="false"></div>`).join('')}</div>
-      <button class="cp-nav prev" aria-label="previous">〈</button><button class="cp-nav next" aria-label="next">〉</button>
+      <button class="cp-nav prev" aria-label="previous">‹</button><button class="cp-nav next" aria-label="next">›</button>
       <span class="cp-cnt"></span></div>
     <div class="cp-thumbs">${imgs.map((m, i) => `<button class="cp-th" data-i="${i}"><span class="im"><img src="${thumb(m.t)}" alt="" loading="lazy"></span></button>`).join('')}</div>
     <aside class="cp-info">
-      <button class="cp-ret"><span>《</span> ${t('RETURN TO MAP', '返回地图')}</button>
+      <button class="cp-ret"><span>←</span> ${t('RETURN TO MAP', '返回地图')}</button>
       <div class="cp-idx">${index}</div>
       <h2 class="cp-title"></h2>${altName(p) ? `<p class="cp-alt">${altName(p)}</p>` : ''}
       <div class="cp-meta"><span class="cp-arch">${architectName(p)}</span><span class="cp-ly"><span>${locName(p)}</span><span>[ ${p.year} ]</span></span></div>
@@ -88,7 +88,7 @@ export function openPage(p, from, { getReturn, onClosed, index = '', instant = f
     el.remove(); document.body.classList.remove('cp-open'); onClosed && onClosed();
   };
   el._close = (quiet) => { if (quiet) { closed = true; openEl = null; removeEventListener('keydown', key); removeEventListener('popstate', pop); el.remove(); document.body.classList.remove('cp-open'); onClosed && onClosed(); } else close(); };
-  // Esc / RETURN / 《 go back through history so the browser Back button and the UI stay in sync
+  // Esc / RETURN / ← go back through history so the browser Back button and the UI stay in sync
   const back = () => (history.state && history.state.atlasProject === p.slug ? history.back() : close());
   const key = (e) => { if (e.key === 'Escape') back(); if (e.key === 'ArrowRight') go(i + 1); if (e.key === 'ArrowLeft') go(i - 1); };
   const pop = () => close(true);

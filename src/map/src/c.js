@@ -16,7 +16,7 @@ const view = h(`<section class="c-view">
   <aside class="a-list c-list"><div class="a-list-h"><span class="a-count"></span><span class="a-hint"></span></div><div class="c-groups"></div></aside>
   <section class="b-stage c-stage L-globe"><canvas class="b-cv"></canvas><svg class="b-lead"><line/></svg>
     <div class="b-hud"><div class="c-crumb"></div><div class="b-read"><span class="b-read-k"></span><span class="b-read-v"></span><span class="b-read-a"></span></div></div>
-    <div class="b-ctl"><button data-z="in" aria-label="zoom in">+</button><button data-z="out" aria-label="zoom out">−</button><button data-z="up" aria-label="up one layer">↑</button><button data-z="home" aria-label="globe">⌂</button></div>
+    <div class="b-ctl"><button data-z="in" aria-label="zoom in">+</button><button data-z="out" aria-label="zoom out">−</button><button data-z="up" aria-label="up one layer">↑</button><button data-z="home" aria-label="globe"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M1.5 6.4 6 2.6l4.5 3.8M3.2 5.8V9.4h5.6V5.8" fill="none" stroke="currentColor" stroke-width="1"/></svg></button></div>
     <div class="c-cts"></div><div class="b-card"></div><div class="b-empty"></div></section></section>`);
 main.append(view);
 const stage = $('.c-stage', view);
@@ -145,10 +145,20 @@ function draw() {
   if (!sel) setRead(null);
   readA.textContent = `${t('ALT', '高度')} ${Math.round(6371 * (Math.min(W, H) * 0.5 / R) * 1.4).toLocaleString('en')} KM`;
 }
+function paintDigits(el, text) {
+  if (!el) return;
+  el.classList.add('t-digits');
+  const frag = document.createDocumentFragment();
+  for (const ch of String(text)) {
+    if (ch >= '0' && ch <= '9') { const i = document.createElement('i'); i.className = 'd'; i.textContent = ch; frag.appendChild(i); }
+    else frag.appendChild(document.createTextNode(ch));
+  }
+  el.replaceChildren(frag);
+}
 function setRead(p, scr) {
   const v = p ? fmtCoord(p.lat, p.lon) : fmtCoord(V.lat, ((V.lon + 540) % 360) - 180);
   const k = p ? pname(p) : layer === 'globe' ? t('VIEW CENTRE', '视图中心') : `${cname(cc)} · ${t('VIEW CENTRE', '视图中心')}`;
-  readK.textContent = k; if (scr) scramble(readV, v); else if (!readV._lock) readV.textContent = v;
+  readK.textContent = k; if (!readV._lock || scr) paintDigits(readV, v);
 }
 
 /* ---------- country markers (globe layer) ---------- */
@@ -360,7 +370,7 @@ card.addEventListener('pointerup', (e) => e.stopPropagation());
 stage.addEventListener('pointerdown', (e) => { if (overChrome(e)) return; stage.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; idle = false; flyTok++; flying = false; });
 stage.addEventListener('pointermove', (e) => {
   const sr = stage.getBoundingClientRect();
-  if (!ptrs.size) { if (!sel && !flying && !overChrome(e)) { const ll = invert(e.clientX - sr.x, e.clientY - sr.y); if (ll) { readK.textContent = t('CURSOR', '光标'); readV.textContent = fmtCoord(ll[1], ll[0]); } } return; }
+  if (!ptrs.size) { if (!sel && !flying && !overChrome(e)) { const ll = invert(e.clientX - sr.x, e.clientY - sr.y); if (ll) { readK.textContent = t('CURSOR', '光标'); paintDigits(readV, fmtCoord(ll[1], ll[0])); } } return; }
   const last = ptrs.get(e.pointerId); if (!last) return; ptrs.set(e.pointerId, [e.clientX, e.clientY]);
   if (ptrs.size === 2) {
     const [a, b] = [...ptrs.values()];
