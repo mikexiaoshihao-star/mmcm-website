@@ -1,5 +1,5 @@
-# Unversioned map and site scripts/styles. Revalidate every time so a month-long
-# browser cache cannot keep an old list after a deploy.
+# Old unversioned URLs. Revalidate so a long browser cache cannot keep the previous list.
+# The page requests these same paths with ?v=<content hash>, which is a different URL.
 /map/data/*
   Cache-Control: no-cache
 
@@ -9,12 +9,5 @@
 /map/atlas.css
   Cache-Control: no-cache
 
-/assets/*
+/assets/style.css
   Cache-Control: no-cache
-
-# Same files with the content hash in the path. Safe to keep.
-/map/v/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/assets/v/*
-  Cache-Control: public, max-age=31536000, immutable

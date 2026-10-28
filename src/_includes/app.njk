@@ -15,8 +15,8 @@
     <script>
         (function () {
             var mapV = "{{ mapAssetVersion }}";
-            var files = ['data/projects.js', 'data/globe.js', 'data/places.js', 'atlas.js'].map(function (href) {
-                return '/map/v/' + mapV + '/' + href;
+            var files = ['/map/data/projects.js', '/map/data/globe.js', '/map/data/places.js', '/map/atlas.js'].map(function (href) {
+                return href + '?v=' + mapV;
             });
             var run = function () {
                 files.forEach(function (href) {
@@ -79,7 +79,7 @@
         }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/v/{{ assetVersion }}/style.css">
+    <link rel="stylesheet" href="/assets/style.css?v={{ assetVersion }}">
 
     <script>
         const siteData = {
@@ -757,7 +757,7 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                         const link = document.createElement('link');
                         link.id = 'atlas-css';
                         link.rel = 'stylesheet';
-                        link.href = '/map/v/{{ mapAssetVersion }}/atlas.css';
+                        link.href = '/map/atlas.css?v={{ mapAssetVersion }}';
                         document.head.appendChild(link);
                     }
                     const load = (src) => new Promise((resolve, reject) => {
@@ -794,10 +794,10 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
                     };
                     const mapV = "{{ mapAssetVersion }}";
                     Promise.all([
-                        load('/map/v/' + mapV + '/data/projects.js'),
-                        load('/map/v/' + mapV + '/data/places.js'),
-                        load('/map/v/' + mapV + '/data/globe.js')
-                    ]).then(() => load('/map/v/' + mapV + '/atlas.js'))
+                        load('/map/data/projects.js?v=' + mapV),
+                        load('/map/data/places.js?v=' + mapV),
+                        load('/map/data/globe.js?v=' + mapV)
+                    ]).then(() => load('/map/atlas.js?v=' + mapV))
                         .then(() => finish(true))
                         .catch((err) => { console.error(err); finish(false); });
                 },
