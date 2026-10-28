@@ -676,3 +676,30 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
 @media (prefers-reduced-motion: reduce) {
     .atlas-load-line { animation: none; }
 }
+
+.hero-stage {
+    background: #fff;
+    touch-action: pan-y;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.hero-layer { position: absolute; inset: 0; overflow: hidden; }
+.hero-layer.is-current { z-index: 1; }
+.hero-layer.is-next { z-index: 2; visibility: hidden; }
+.hero-layer picture,
+.hero-layer img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.fld {
+    display: inline-grid;
+    overflow: hidden;
+    vertical-align: top;
+    line-height: inherit;
+}
+.fld .ln { grid-area: 1 / 1; white-space: nowrap; }
