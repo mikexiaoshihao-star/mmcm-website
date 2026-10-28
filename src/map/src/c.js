@@ -278,9 +278,11 @@ function back() {
 /* ---------- arrival card (B) ---------- */
 const countryOrder = (code) => current.filter((p) => p._cc === code).sort(byYear);
 const order = () => countryOrder(cc);
-const rankOf = (p) => pad2(countryOrder(p._cc).indexOf(p) + 1);
+let seq = [];
+const rankOf = (p) => pad2(seq.indexOf(p) + 1);
 function showCard(p) {
-  card.innerHTML = `<button class="b-card-img"><img src="${cover(p)}" alt=""></button><div class="b-card-t"><span class="b-card-no">${pad2(order().indexOf(p) + 1)} / ${pad2(order().length)} · ${cname(p._cc)} · ${cityName(cityOf(p))}</span><b></b><span>${architectName(p)}</span><span>${p.year} · ${catName(p)}</span><span class="co"></span><button class="b-open">${t('OPEN', '查看')} →</button></div>`;
+  const at = seq.indexOf(p);
+  card.innerHTML = `<button class="b-card-img"><img src="${cover(p)}" alt=""></button><div class="b-card-t"><span class="b-card-no">${pad2(at + 1)} / ${pad2(seq.length)} · ${cname(p._cc)} · ${cityName(cityOf(p))}</span><b></b><span>${architectName(p)}</span><span>${p.year} · ${catName(p)}</span><span class="co"></span><button class="b-open">${t('OPEN', '查看')} →</button></div>`;
   const img = $('img', card);
   const mw = mobile() ? 120 : 300, mh = mobile() ? 120 : H * 0.46;
   let w = mw, ih = w * p.h / p.w; if (ih > mh) { ih = mh; w = ih * p.w / p.h; }
@@ -336,18 +338,31 @@ function setLayerUI() {
 
 /* ---------- list: country → city → project ---------- */
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
-function renderList() {
-  const byC = new Map(); current.forEach((p) => { if (!byC.has(p._cc)) byC.set(p._cc, new Map()); const m = byC.get(p._cc); const c = cityOf(p); if (!m.has(c)) m.set(c, []); m.get(c).push(p); });
-  const cities = [...byC.values()].reduce((s, m) => s + m.size, 0), nC = [...byC.keys()].filter((k) => byC.get(k).size).length;
-  $('.a-count', view).textContent = state.lang === 'zh' ? `${current.length} 个项目` : `${current.length} PROJECTS`;
-  $('.a-hint', view).textContent = t(`${pad2(nC)} COUNTRY · ${pad2(cities)} CITIES`, `${nC} 个国家 · ${cities} 座城市`);
-  $('.c-groups', view).innerHTML = [...byC.entries()].map(([code, cm]) => {
-    const n = [...cm.values()].reduce((s, a) => s + a.length, 0);
+function layoutGroups() {
+  const byC = new Map();
+  current.forEach((p) => { if (!byC.has(p._cc)) byC.set(p._cc, new Map()); const m = byC.get(p._cc); const c = cityOf(p); if (!m.has(c)) m.set(c, []); m.get(c).push(p); });
+  const countries = [];
+  const flat = [];
+  for (const [code, cm] of byC) {
     const ranked = countryOrder(code);
     const gs = [...cm.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
-    return `<div class="c-grp" data-cc="${esc(code)}"><button class="c-cty" data-cc="${esc(code)}"><span>${esc(cname(code))}</span><span>${pad2(n)}</span></button>` +
-      gs.map(([c, ps]) => `<div class="a-grp" data-count="${ps.length}"><button class="a-gh" data-c="${esc(c)}"><span>${esc(cityName(c))}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => ranked.indexOf(a) - ranked.indexOf(b)).map((p) => `<button class="a-row" data-s="${esc(p.slug)}"><span class="n">${rankOf(p)}</span><span class="t">${esc(pname(p))}</span><span class="y">${esc(p.year)}</span></button>`).join('')}</div>`).join('') + '</div>';
-  }).join('');
+    const cities = [];
+    for (const [c, ps] of gs) {
+      ps.sort((a, b) => ranked.indexOf(a) - ranked.indexOf(b));
+      cities.push([c, ps]);
+      ps.forEach((p) => flat.push(p));
+    }
+    countries.push({ code, n: [...cm.values()].reduce((s, a) => s + a.length, 0), cities });
+  }
+  return { countries, flat, nCities: [...byC.values()].reduce((s, m) => s + m.size, 0), nC: [...byC.keys()].filter((k) => byC.get(k).size).length };
+}
+function renderList() {
+  const lay = layoutGroups();
+  seq = lay.flat;
+  $('.a-count', view).textContent = state.lang === 'zh' ? `${current.length} 个项目` : `${current.length} PROJECTS`;
+  $('.a-hint', view).textContent = t(`${pad2(lay.nC)} COUNTRY · ${pad2(lay.nCities)} CITIES`, `${lay.nC} 个国家 · ${lay.nCities} 座城市`);
+  $('.c-groups', view).innerHTML = lay.countries.map(({ code, n, cities }) => `<div class="c-grp" data-cc="${esc(code)}"><button class="c-cty" data-cc="${esc(code)}"><span>${esc(cname(code))}</span><span>${pad2(n)}</span></button>` +
+      cities.map(([c, ps]) => `<div class="a-grp" data-count="${ps.length}"><button class="a-gh" data-c="${esc(c)}"><span>${esc(cityName(c))}</span><span>${pad2(ps.length)}</span></button>${ps.map((p) => `<button class="a-row" data-s="${esc(p.slug)}"><span class="n">${rankOf(p)}</span><span class="t">${esc(pname(p))}</span><span class="y">${esc(p.year)}</span></button>`).join('')}</div>`).join('') + '</div>').join('');
   $$('.c-cty', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (cc === b.dataset.cc && layer !== 'globe') return; enterCountry(b.dataset.cc); }; b.onmouseenter = () => groupHL(b.dataset.cc); b.onmouseleave = () => groupHL(null); });
   $$('.a-gh', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); fitCity(b.dataset.c); }; b.onmouseenter = () => mk.setHighlight(current.filter((p) => cityOf(p) === b.dataset.c).map((p) => p.slug)); b.onmouseleave = () => mk.setHighlight([]); });
   $$('.a-row', view).forEach((b) => {
