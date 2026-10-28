@@ -69,6 +69,29 @@ for (const project of site.projects) {
     imgs: [{ v: rel, t: rel }]
   });
 }
+const seen = new Set();
+for (const project of site.projects) {
+  if (!project.slug || seen.has(project.slug)) {
+    console.error('Duplicate or empty project slug:', project.slug || project.title);
+    process.exit(1);
+  }
+  seen.add(project.slug);
+}
+if (projects.length !== site.projects.length) {
+  console.error('Map project count', projects.length, 'does not match site.json', site.projects.length);
+  process.exit(1);
+}
+const groups = new Map();
+for (const project of projects) {
+  const key = project.disc + '|' + project.loc;
+  groups.set(key, (groups.get(key) || 0) + 1);
+}
+const chengdu = groups.get('architecture|Chengdu_Sichuan');
+if (chengdu !== 7 || !projects.some((p) => p.slug === 'xinglong-lake-roadshow-center' && p.loc === 'Chengdu_Sichuan')) {
+  console.error('Chengdu architecture group is incomplete', chengdu);
+  process.exit(1);
+}
+console.log('list groups', groups.size, 'chengdu', chengdu);
 if (missing.length) {
   console.error('Missing project images:\n' + missing.join('\n'));
   process.exit(1);

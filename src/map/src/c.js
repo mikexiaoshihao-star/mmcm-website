@@ -315,6 +315,7 @@ function setLayerUI() {
 }
 
 /* ---------- list: country → city → project ---------- */
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 function renderList() {
   const byC = new Map(); current.forEach((p) => { if (!byC.has(p._cc)) byC.set(p._cc, new Map()); const m = byC.get(p._cc); const c = cityOf(p); if (!m.has(c)) m.set(c, []); m.get(c).push(p); });
   const cities = [...byC.values()].reduce((s, m) => s + m.size, 0), nC = [...byC.keys()].filter((k) => byC.get(k).size).length;
@@ -324,8 +325,8 @@ function renderList() {
   $('.c-groups', view).innerHTML = [...byC.entries()].map(([code, cm]) => {
     const n = [...cm.values()].reduce((s, a) => s + a.length, 0);
     const gs = [...cm.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
-    return `<div class="c-grp" data-cc="${code}"><button class="c-cty" data-cc="${code}"><span>${cname(code)}</span><span>${pad2(n)}</span></button>` +
-      gs.map(([c, ps]) => `<div class="a-grp"><button class="a-gh" data-c="${c}"><span>${cityName(c)}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => b.year - a.year).map((p) => `<button class="a-row" data-s="${p.slug}"><span class="n">${pad2(++i)}</span><span class="t">${pname(p)}</span><span class="y">${p.year}</span></button>`).join('')}</div>`).join('') + '</div>';
+    return `<div class="c-grp" data-cc="${esc(code)}"><button class="c-cty" data-cc="${esc(code)}"><span>${esc(cname(code))}</span><span>${pad2(n)}</span></button>` +
+      gs.map(([c, ps]) => `<div class="a-grp" data-count="${ps.length}"><button class="a-gh" data-c="${esc(c)}"><span>${esc(cityName(c))}</span><span>${pad2(ps.length)}</span></button>${ps.sort((a, b) => b.year - a.year).map((p) => `<button class="a-row" data-s="${esc(p.slug)}"><span class="n">${pad2(++i)}</span><span class="t">${esc(pname(p))}</span><span class="y">${esc(p.year)}</span></button>`).join('')}</div>`).join('') + '</div>';
   }).join('');
   $$('.c-cty', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (cc === b.dataset.cc && layer !== 'globe') return; enterCountry(b.dataset.cc); }; b.onmouseenter = () => groupHL(b.dataset.cc); b.onmouseleave = () => groupHL(null); });
   $$('.a-gh', view).forEach((b) => { b.onclick = () => { if (mobile()) stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); fitCity(b.dataset.c); }; b.onmouseenter = () => mk.setHighlight(current.filter((p) => cityOf(p) === b.dataset.c).map((p) => p.slug)); b.onmouseleave = () => mk.setHighlight([]); });

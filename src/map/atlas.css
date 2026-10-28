@@ -9,8 +9,8 @@ body[data-view=grid] .a-gridv{display:block}
 .a-grp{margin-bottom:16px}
 .a-gh{display:flex;justify-content:space-between;width:100%;font-size:10px;letter-spacing:.02em;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--line)}
 html[lang="zh-CN"] .a-gh,html[lang="zh-CN"] .a-list-h{font-family:var(--font-zh);font-weight:300;font-size:12px;letter-spacing:.06em}
-.a-row{display:grid;grid-template-columns:26px 1fr 40px;gap:6px;width:100%;padding:6px 0;font-size:10.5px;font-weight:400;line-height:1.35;color:var(--g6);text-align:left;transition:color .15s}
-.a-row .n,.a-row .t{text-align:left}.a-row .t{overflow-wrap:anywhere}.a-row .y{text-align:right}
+.a-row{display:grid;grid-template-columns:2em minmax(0,1fr) 3.6em;gap:6px;width:100%;min-width:0;padding:6px 0;font-size:10.5px;font-weight:400;line-height:1.35;color:var(--g6);text-align:left;transition:color .15s}
+.a-row .n,.a-row .t{text-align:left;min-width:0}.a-row .t{overflow-wrap:anywhere;word-break:break-word;white-space:normal}.a-row .y{text-align:right;white-space:nowrap}
 .a-row:hover,.a-row.hl{color:var(--ink)}.a-row:hover .t,.a-row.hl .t{text-decoration:none}
 .a-row.act{background:transparent;color:var(--ink);font-weight:600}
 .a-row.act .t{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
@@ -113,7 +113,7 @@ html[lang="zh-CN"] .b-card-t b{font-family:var(--font-zh);font-weight:300;font-s
 .C{padding-top:calc(var(--nav) + 20px)}
 .c-view{display:none;grid-template-columns:300px 1fr;height:calc(100svh - var(--nav) - 20px - 56px - 24px - 24px);min-height:540px;margin:24px var(--pad) 0}
 body[data-view=map] .c-view{display:grid}
-.c-list{padding-right:24px}
+.c-list{min-height:0;height:100%;overflow-x:hidden;overflow-y:auto;padding-right:16px}
 .C .c-stage{height:100%;min-height:0;margin:0;border:1px solid var(--line);touch-action:none}
 .C .b-hud{bottom:22px}
 .c-crumb{display:flex;gap:8px;align-items:center;margin-bottom:12px;pointer-events:auto;font-size:10px;letter-spacing:.02em}
@@ -143,7 +143,7 @@ html[lang="zh-CN"] .c-ct em{font-family:var(--font-zh);font-weight:300;font-size
   .C{padding-top:var(--nav)}
   .c-view{grid-template-columns:1fr;height:auto;margin:12px var(--pad) 0}
   .C .c-stage{height:62svh;min-height:440px;order:-1}
-  .c-list{margin-top:16px;overflow:visible;padding:0 0 60px}
+  .c-list{height:auto;max-height:none;margin-top:16px;overflow-x:hidden;overflow-y:visible;padding:0 0 60px}
   .C .b-hud{top:12px;left:12px;bottom:auto}
   .c-crumb{margin-bottom:8px;font-size:9px}.c-crumb button{max-width:120px}
   .C .b-ctl{top:12px;right:12px}
@@ -247,7 +247,7 @@ html[lang="zh-CN"] .dot-in u{font-family:var(--font-zh);font-weight:300;font-siz
 
 .atlas-root.C{padding-top:0;--pad:48px}
 .atlas-root button{text-align:left}
-.atlas-root .c-view{display:grid;height:calc(100svh - 212px);min-height:480px;margin:16px 0 0}
+.atlas-root .c-view{display:grid;height:calc(100svh - 212px);min-height:0;overflow:hidden;margin:16px 0 0}
 @media(min-width:768px){
   .atlas-root .b-hud{left:48px;bottom:22px}
   .atlas-root .b-ctl{right:48px}
