@@ -1,4 +1,14 @@
+const fs = require("fs");
+const crypto = require("crypto");
+
 module.exports = function(eleventyConfig) {
+  const assetVersion = crypto
+    .createHash("sha256")
+    .update(fs.readFileSync("src/assets/style.css"))
+    .digest("hex")
+    .slice(0, 10);
+  eleventyConfig.addGlobalData("assetVersion", assetVersion);
+
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");

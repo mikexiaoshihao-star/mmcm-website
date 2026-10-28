@@ -161,10 +161,13 @@ html[lang="zh-CN"] .zh-copy {
 }
 
 .nav-tag.is-on,
-.nav-tag.is-on:hover {
-    background: #111111;
+.nav-tag.is-on:hover,
+button.is-on,
+button.is-on:hover {
+    background-color: #111111;
     color: #ffffff;
     text-decoration: none;
+    border-bottom: 0;
 }
 
 button.nav-tag {
