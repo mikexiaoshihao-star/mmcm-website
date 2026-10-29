@@ -1228,6 +1228,37 @@
         {"url": "/images/projects/Symphony_Yiwu/_DSC6096.webp", "desc": "23", "meta": "10:30 // AM"},
         {"url": "/images/projects/Symphony_Yiwu/_DSC6107-Pano.webp", "desc": "24", "meta": "10:30 // AM"}
       ]
+  },
+  {
+      "title": "One_Lake_City",
+      "title_zh": "蔚蓝湖滨一号",
+      "slug": "one-lake-city-landscape",
+      "category": "LANDSCAPE",
+      "discipline": "landscape",
+      "architect": "SCDA",
+      "url": "/images/projects/One_Lake_City/DJI_0746.webp",
+      "year": "2023",
+      "coords": "30.478°N / 104.024°E",
+      "location": "Chengdu_Sichuan",
+      "images": [
+        {"url": "/images/projects/One_Lake_City/4B6A1791.webp", "desc": "01", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A1796.webp", "desc": "02", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A1801.webp", "desc": "03", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A1835.webp", "desc": "04", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A1844.webp", "desc": "05", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A1952.webp", "desc": "06", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2013.webp", "desc": "07", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2021.webp", "desc": "08", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2023.webp", "desc": "09", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2034.webp", "desc": "10", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2035.webp", "desc": "11", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2065-1.webp", "desc": "12", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2073-1.webp", "desc": "13", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2217.webp", "desc": "14", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/4B6A2357.webp", "desc": "15", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/DJI_0737.webp", "desc": "16", "meta": "10:30 // AM"},
+        {"url": "/images/projects/One_Lake_City/DJI_0742.webp", "desc": "17", "meta": "10:30 // AM"}
+      ]
   }
     
   ],
