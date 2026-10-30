@@ -977,10 +977,11 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     this.worksFilterOpen = false;
     this.selectedProject = project;
     this.currentDetailImageIndex = 0;
-    // cover 图作为第一张，然后加上 images 数组里的图
+    // 封面已是图集第一张时不再重复；否则封面作为第一张，再接 images
     const coverImg = project.url;
     const detailImgs = project.images || [];
-    const allImgs = [coverImg, ...detailImgs];
+    const firstUrl = detailImgs.length ? (typeof detailImgs[0] === 'string' ? detailImgs[0] : detailImgs[0].url) : '';
+    const allImgs = firstUrl && firstUrl === coverImg ? detailImgs.slice() : [coverImg, ...detailImgs];
     this.detailImages = allImgs.map((item, i) => {
         if (typeof item === 'string') {
             return {
