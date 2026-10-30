@@ -87,7 +87,7 @@ for (const project of projects) {
   groups.set(key, (groups.get(key) || 0) + 1);
 }
 const chengdu = groups.get('architecture|Chengdu_Sichuan');
-if (chengdu !== 7 || !projects.some((p) => p.slug === 'xinglong-lake-roadshow-center' && p.loc === 'Chengdu_Sichuan')) {
+if (chengdu !== 8 || !projects.some((p) => p.slug === 'xinglong-lake-roadshow-center' && p.loc === 'Chengdu_Sichuan')) {
   console.error('Chengdu architecture group is incomplete', chengdu);
   process.exit(1);
 }
