@@ -1,8 +1,37 @@
 const fs = require("fs");
+const path = require("path");
 const crypto = require("crypto");
 const { execFile } = require("child_process");
 
+function collectProjectImageVersions() {
+  const versions = Object.create(null);
+  const root = path.join("src", "images", "projects");
+  if (!fs.existsSync(root)) return versions;
+  const stack = [root];
+  while (stack.length) {
+    const dir = stack.pop();
+    for (const name of fs.readdirSync(dir)) {
+      const abs = path.join(dir, name);
+      if (fs.statSync(abs).isDirectory()) {
+        stack.push(abs);
+        continue;
+      }
+      if (!/\.(webp|jpe?g|png)$/i.test(name)) continue;
+      const rel = "/" + path.relative("src", abs).split(path.sep).join("/");
+      versions[rel] = crypto.createHash("sha256").update(fs.readFileSync(abs)).digest("hex").slice(0, 10);
+    }
+  }
+  return versions;
+}
+
+function versionedImageUrl(url, versions) {
+  if (typeof url !== "string" || url.includes("?")) return url;
+  const hash = versions[url];
+  return hash ? url + "?v=" + hash : url;
+}
+
 module.exports = function(eleventyConfig) {
+  const imageVersions = collectProjectImageVersions();
   const assetVersion = crypto
     .createHash("sha256")
     .update(fs.readFileSync("src/assets/style.css"))
@@ -79,6 +108,24 @@ module.exports = function(eleventyConfig) {
         )
       )
       .join("/");
+  });
+
+  // Same-name replacements must not keep the 31-day cached bytes.
+  // The query is a content hash; paths that already carry a query are left alone.
+  eleventyConfig.addFilter("imgQuery", (value) => {
+    const url = String(value || "").split("?")[0];
+    const hash = imageVersions[url];
+    return hash ? "?v=" + hash : "";
+  });
+  eleventyConfig.addFilter("versionProjectImages", (projects) => {
+    return (projects || []).map((project) => ({
+      ...project,
+      url: versionedImageUrl(project.url, imageVersions),
+      images: (project.images || []).map((img) => {
+        if (typeof img === "string") return versionedImageUrl(img, imageVersions);
+        return { ...img, url: versionedImageUrl(img.url, imageVersions) };
+      })
+    }));
   });
 
   eleventyConfig.addFilter("js", (value) => {

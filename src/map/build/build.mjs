@@ -26,17 +26,20 @@ function countryOf(lat, lon) {
 async function coverSize(srcPath, dest) {
   await fs.promises.mkdir(path.dirname(dest), { recursive: true });
   const srcTime = fs.statSync(srcPath).mtimeMs;
+  let data;
   if (fs.existsSync(dest) && fs.statSync(dest).mtimeMs >= srcTime) {
-    const meta = await sharp(dest).metadata();
-    return [meta.width, meta.height];
+    data = await fs.promises.readFile(dest);
+  } else {
+    data = await sharp(srcPath, { limitInputPixels: false })
+      .rotate()
+      .resize(1500, 1500, { fit: 'inside', withoutEnlargement: true })
+      .webp({ quality: 78 })
+      .toBuffer();
+    await fs.promises.writeFile(dest, data);
   }
-  const { data, info } = await sharp(srcPath, { limitInputPixels: false })
-    .rotate()
-    .resize(1500, 1500, { fit: 'inside', withoutEnlargement: true })
-    .webp({ quality: 78 })
-    .toBuffer({ resolveWithObject: true });
-  await fs.promises.writeFile(dest, data);
-  return [info.width, info.height];
+  const meta = await sharp(data).metadata();
+  const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 10);
+  return [meta.width, meta.height, hash];
 }
 
 const missing = [];
@@ -49,7 +52,8 @@ for (const project of site.projects) {
     continue;
   }
   const rel = `cover/${project.slug}.webp`;
-  const [w, h] = await coverSize(source, path.join(outDir, 'img', rel));
+  const [w, h, hash] = await coverSize(source, path.join(outDir, 'img', rel));
+  const versioned = `${rel}?v=${hash}`;
   const count = (project.images || []).length;
   projects.push({
     slug: project.slug,
@@ -63,10 +67,10 @@ for (const project of site.projects) {
     year: String(project.year || ''),
     loc: project.location || '',
     lat, lon, cc: countryOf(lat, lon),
-    cover: rel, w, h,
-    thumbs: [rel],
+    cover: versioned, w, h,
+    thumbs: [versioned],
     n: count + 1,
-    imgs: [{ v: rel, t: rel }]
+    imgs: [{ v: versioned, t: versioned }]
   });
 }
 const seen = new Set();
