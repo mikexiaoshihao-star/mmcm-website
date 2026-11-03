@@ -44,7 +44,7 @@
     <meta property="og:title" content="{{ ogTitle }}">
     <meta property="og:description" content="{{ ogDesc }}">
     <meta property="og:url" content="https://www.mmcm-studio.com{{ page.url }}">
-    <meta property="og:image" content="https://www.mmcm-studio.com{{ ogImage | urlencodePath }}">
+    <meta property="og:image" content="https://www.mmcm-studio.com{{ ogImage | urlencodePath }}{{ ogImage | imgQuery }}">
     <meta name="twitter:card" content="summary_large_image">
     <script>window.__INITIAL_PROJECT__ = {{ initialProject | js | safe }};</script>
     <script>window.__INITIAL_VIEW__ = {{ initialView | js | safe }};</script>
@@ -86,7 +86,7 @@
     categories: {{ site.categories | dump | safe }},
     homeProjects: {{ site.homeProjects | dump | safe }},
 homeProjectsMobile: {{ site.homeProjectsMobile | dump | safe }},
-    projects: {{ site.projects | dump | safe }},
+    projects: {{ site.projects | versionProjectImages | dump | safe }},
     filmProjects: {{ site.filmProjects | dump | safe }},
 filmCategories: {{ site.filmCategories | dump | safe }},
     studio: {{ site.studio | dump | safe }},
