@@ -1375,11 +1375,11 @@
       {"name": "Sybarite", "name_zh": "Sybarite", "logo": "/images/clients/sybarite.png", "logo_status": "found", "kind": "architect"},
       {"name": "Tektonn_Architects", "name_zh": "天仝建筑", "logo": "/images/clients/tektonn.png", "logo_status": "found", "kind": "architect"},
       {"name": "Tanghua_Architects&Associates", "name_zh": "汤桦建筑", "logo": "/images/clients/tanghua.png", "logo_status": "found", "kind": "architect"},
-      {"name": "SADI", "name_zh": "四川省建筑设计研究院", "logo": null, "logo_status": "wordmark", "kind": "architect"},
+      {"name": "SADI", "name_zh": "四川省建筑设计研究院", "logo": "/images/clients/sadi.png", "logo_status": "found", "kind": "architect", "logo_source": "ARCHINA cid=5468"},
       {"name": "J&A", "name_zh": "杰恩设计", "logo": "/images/clients/ja.png", "logo_status": "found", "kind": "architect"},
       {"name": "BIAD", "name_zh": "北京建筑设计研究院", "logo": "/images/clients/biad.png", "logo_status": "found", "kind": "architect"},
       {"name": "CDADRI", "name_zh": "成都市建筑设计研究院", "logo": "/images/clients/cdadri.png", "logo_status": "found", "kind": "architect"},
-      {"name": "Luxelakes", "name_zh": "麓湖", "logo": null, "logo_status": "wordmark", "kind": "developer"},
+      {"name": "Luxelakes", "name_zh": "麓湖", "logo": "/images/clients/luxelakes.png", "logo_status": "found", "kind": "developer", "logo_source": "luxelakes.com Wayback"},
       {"name": "Huafa", "name_zh": "华发地产", "logo": "/images/clients/huafa.png", "logo_status": "found", "kind": "developer"},
       {"name": "JinFx", "name_zh": "肖进特效 JinFx", "logo": null, "logo_status": "wordmark", "kind": "installation"}
     ]
