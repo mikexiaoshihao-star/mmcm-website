@@ -1368,17 +1368,20 @@
 "about1zh": "MMCM STUDIO 位于四川省成都市。自2022年成立以来，我们与众多知名建筑师及设计机构保持着长期深度的合作关系。",
 "about2zh": "我们相信，建筑师与摄影师应在相互扶持中共同成长。在建筑摄影日趋同质化、短平快的当下，我们选择将精力投注于与客户建立长期的合作关系，深入记录每一栋建筑与空间的演变历程——从概念设计到竣工落成，乃至建成后的使用状态。",
 "clients": [
-      {"name": "AECOM", "name_zh": "AECOM", "loc": "US/CN", "logo": "/images/clients/aecom.png", "logo_status": "found", "kind": "architect"},
-      {"name": "SCDA", "name_zh": "SCDA", "loc": "SG", "logo": "/images/clients/scda.png", "logo_status": "found", "kind": "architect"},
-      {"name": "gad", "name_zh": "gad", "loc": "CN", "logo": "/images/clients/gad.png", "logo_status": "found", "kind": "architect"},
-      {"name": "Gianni_Botsford_Architects", "name_zh": "Gianni Botsford Architects", "loc": "UK", "logo": null, "logo_status": "wordmark", "kind": "architect"},
-      {"name": "Sybarite", "name_zh": "Sybarite", "loc": "UK", "logo": "/images/clients/sybarite.png", "logo_status": "found", "kind": "architect"},
-      {"name": "Tektonn_Architects", "name_zh": "天仝建筑", "loc": "CN", "logo": "/images/clients/tektonn.png", "logo_status": "found", "kind": "architect"},
-      {"name": "Tanghua_Architects&Associates", "name_zh": "汤桦建筑", "loc": "CN", "logo": "/images/clients/tanghua.png", "logo_status": "found", "kind": "architect"},
-      {"name": "SADI", "name_zh": "四川省建筑设计研究院", "loc": "CN", "logo": null, "logo_status": "wordmark", "kind": "architect"},
-      {"name": "J&A", "name_zh": "杰恩设计", "loc": "CN", "logo": "/images/clients/ja.png", "logo_status": "found", "kind": "architect"},
-      {"name": "SewDesign", "name_zh": "纫合设计", "loc": "CN", "logo": null, "logo_status": "wordmark", "kind": "architect"},
-      {"name": "BIAD", "name_zh": "北京建筑设计研究院", "loc": "CN", "logo": "/images/clients/biad.png", "logo_status": "found", "kind": "architect"}
+      {"name": "AECOM", "name_zh": "AECOM", "logo": "/images/clients/aecom.png", "logo_status": "found", "kind": "architect"},
+      {"name": "SCDA", "name_zh": "SCDA", "logo": "/images/clients/scda.png", "logo_status": "found", "kind": "architect"},
+      {"name": "gad", "name_zh": "gad", "logo": "/images/clients/gad.png", "logo_status": "found", "kind": "architect"},
+      {"name": "Gianni_Botsford_Architects", "name_zh": "Gianni Botsford Architects", "logo": null, "logo_status": "wordmark", "kind": "architect"},
+      {"name": "Sybarite", "name_zh": "Sybarite", "logo": "/images/clients/sybarite.png", "logo_status": "found", "kind": "architect"},
+      {"name": "Tektonn_Architects", "name_zh": "天仝建筑", "logo": "/images/clients/tektonn.png", "logo_status": "found", "kind": "architect"},
+      {"name": "Tanghua_Architects&Associates", "name_zh": "汤桦建筑", "logo": "/images/clients/tanghua.png", "logo_status": "found", "kind": "architect"},
+      {"name": "SADI", "name_zh": "四川省建筑设计研究院", "logo": null, "logo_status": "wordmark", "kind": "architect"},
+      {"name": "J&A", "name_zh": "杰恩设计", "logo": "/images/clients/ja.png", "logo_status": "found", "kind": "architect"},
+      {"name": "BIAD", "name_zh": "北京建筑设计研究院", "logo": "/images/clients/biad.png", "logo_status": "found", "kind": "architect"},
+      {"name": "CDADRI", "name_zh": "成都市建筑设计研究院", "logo": "/images/clients/cdadri.png", "logo_status": "found", "kind": "architect"},
+      {"name": "Luxelakes", "name_zh": "麓湖", "logo": null, "logo_status": "wordmark", "kind": "developer"},
+      {"name": "Huafa", "name_zh": "华发地产", "logo": "/images/clients/huafa.png", "logo_status": "found", "kind": "developer"},
+      {"name": "JinFx", "name_zh": "肖进特效 JinFx", "logo": null, "logo_status": "wordmark", "kind": "installation"}
     ]
   },
 

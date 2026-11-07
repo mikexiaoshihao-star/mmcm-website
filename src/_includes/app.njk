@@ -110,7 +110,10 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 'gad': 'gad',
                 'SewDesign': '纫合设计',
                 'Jin_FX': 'Jin FX',
-                'BIAD': '北京建筑设计研究院'
+                'BIAD': '北京建筑设计研究院',
+                'CDADRI': '成都市建筑设计研究院',
+                'Huafa': '华发地产',
+                'JinFx': '肖进特效 JinFx'
             };
             const LOCATION_ZH = {
                 'Luzhou_Sichuan': '四川泸州',
@@ -1510,7 +1513,7 @@ get filteredFilmProjects() {
             <div class="studio-main">
                 <section class="studio-block">
                     <div class="studio-kicker t-label text-[#111111]"><span class="studio-dot"></span><span x-text="$store.lang.t('photographer')"></span></div>
-                    <div class="t-body text-[#666666] studio-copy">
+                    <div class="t-body text-[#666666] studio-copy studio-copy--air">
                         <div>
                             <p x-show="$store.lang.code === 'en'" x-text="studio.intro1"></p>
                             <p x-show="$store.lang.code === 'zh'" x-text="studio.intro1zh"></p>
@@ -1553,9 +1556,6 @@ get filteredFilmProjects() {
                                     <template x-if="!client.logo">
                                         <span class="client-wordmark" x-text="$store.lang.clientName(client)"></span>
                                     </template>
-                                </div>
-                                <div class="client-meta">
-                                    <span class="client-loc t-data" x-text="client.loc"></span>
                                 </div>
                             </div>
                         </template>
