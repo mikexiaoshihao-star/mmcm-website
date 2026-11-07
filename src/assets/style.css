@@ -861,14 +861,8 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
 .studio-section-body--full {
     max-width: none;
 }
-.studio-lead {
-    font-family: var(--font);
-    font-weight: var(--fw-strong); /* 400 */
-    font-size: 15px;
-    line-height: 1.75;
-    color: #111111;
-    margin: 0 0 1.25rem;
-}
+/* Lead matches body — same size/weight/colour/line-height (zh+en) */
+.studio-lead,
 .studio-body {
     font-family: var(--font);
     font-weight: var(--fw-regular); /* 300 */
@@ -882,8 +876,9 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
     margin-bottom: 0;
 }
 .studio-brand {
-    font-weight: var(--fw-strong);
-    color: #111111;
+    /* no emphasis — stays with surrounding body/lead */
+    font-weight: inherit;
+    color: inherit;
 }
 .studio-section-body a {
     color: #111111;
@@ -999,14 +994,15 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
         gap: 0.35rem;
         padding-top: 0.2rem;
     }
-    .studio-lead {
-        font-size: 16px;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-    }
+    .studio-lead,
     .studio-body {
         font-size: 14px;
         line-height: 1.85;
+        margin-bottom: 1rem;
+    }
+    .studio-body:last-child,
+    .studio-lead:last-child {
+        margin-bottom: 0;
     }
     .client-wall {
         grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -1063,7 +1059,8 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
 @media (max-width: 359px) {
     .studio-shell { padding: 5rem 1.15rem 4rem; gap: 2.75rem; }
     .studio-portrait { width: min(78vw, 240px); }
-    .studio-lead { font-size: 14px; }
+    .studio-lead,
+    .studio-body { font-size: var(--fs-body); }
     /* 320: keep 2 cols; logos ~55% of prior mobile */
     .client-wall {
         grid-template-columns: repeat(2, minmax(0, 1fr));
