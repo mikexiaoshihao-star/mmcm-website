@@ -1,27 +1,72 @@
 {
   "categories": [
-    {"key": "OFFICE", "name": "办公"},
-    {"key": "COMMERCIAL", "name": "商业"},
-    {"key": "RESIDENTIAL", "name": "住宅"},
-    {"key": "CULTURAL", "name": "文化"},
-    {"key": "EDUCATION", "name": "教育"},
-    {"key": "SPORTS", "name": "体育"},
-    {"key": "URBAN_RENEWAL", "name": "城市更新"},
-    {"key": "LANDSCAPE", "name": "景观"},
-    {"key": "INTERIOR", "name": "室内"},
-    {"key": "DOCUMENTARY", "name": "施工记录"},
-    {"key": "EXHIBITION", "name": "展览"}
+    {
+      "key": "OFFICE",
+      "name": "办公"
+    },
+    {
+      "key": "COMMERCIAL",
+      "name": "商业"
+    },
+    {
+      "key": "RESIDENTIAL",
+      "name": "住宅"
+    },
+    {
+      "key": "CULTURAL",
+      "name": "文化"
+    },
+    {
+      "key": "EDUCATION",
+      "name": "教育"
+    },
+    {
+      "key": "SPORTS",
+      "name": "体育"
+    },
+    {
+      "key": "URBAN_RENEWAL",
+      "name": "城市更新"
+    },
+    {
+      "key": "LANDSCAPE",
+      "name": "景观"
+    },
+    {
+      "key": "INTERIOR",
+      "name": "室内"
+    },
+    {
+      "key": "DOCUMENTARY",
+      "name": "施工记录"
+    },
+    {
+      "key": "EXHIBITION",
+      "name": "展览"
+    }
   ],
-  
-"filmCategories": [
-    {"key": "OFFICE", "name": "办公"},
-    {"key": "CULTURAL", "name": "文化"},
-    {"key": "EDUCATION", "name": "教育"},
-    {"key": "URBAN_RENEWAL", "name": "城市更新"},
-    {"key": "INSTALLATION", "name": "装置"}
-],
-
-
+  "filmCategories": [
+    {
+      "key": "OFFICE",
+      "name": "办公"
+    },
+    {
+      "key": "CULTURAL",
+      "name": "文化"
+    },
+    {
+      "key": "EDUCATION",
+      "name": "教育"
+    },
+    {
+      "key": "URBAN_RENEWAL",
+      "name": "城市更新"
+    },
+    {
+      "key": "INSTALLATION",
+      "name": "装置"
+    }
+  ],
   "homeProjects": [
     {
       "img": "/images/home/01.webp",
@@ -82,63 +127,62 @@
   ],
   "homeProjectsMobile": [
     {
-        "title": "Huarun_Runxi",
-        "title_zh": "华润润玺（一期/二期）",
-        "architect": "SCDA",
-        "address": "Shenzhen, Guangdong",
-        "coords": "22.548°N / 113.954°E",
-        "img": "/images/home/mobile-01.webp"
+      "title": "Huarun_Runxi",
+      "title_zh": "华润润玺（一期/二期）",
+      "architect": "SCDA",
+      "address": "Shenzhen, Guangdong",
+      "coords": "22.548°N / 113.954°E",
+      "img": "/images/home/mobile-01.webp"
     },
     {
-        "title": "Xinglong_Lake_Roadshow_Center",
-        "title_zh": "兴隆湖天府路演艺术中心",
-        "architect": "Tektonn_Architects",
-        "address": "Chengdu, Sichuan",
-        "coords": "30.402°N / 104.102°E",
-        "img": "/images/home/mobile-02.webp"
-    },
-     {
-        "title": "Shanghai_Poly_Opus_One",
-        "title_zh": "保利世博天悦",
-        "architect": "SCDA",
-        "address": "Shanghai",
-        "coords": "31.199°N / 121.500°E",
-        "img": "/images/home/mobile-03.webp"
-    },
-     {
-        "title": "Congressional_Central_Office",
-        "title_zh": "国会办公室",
-        "architect": "Tektonn_Architects",
-        "address": "Chengdu, Sichuan",
-        "coords": "30.587°N / 103.946°E",
-        "img": "/images/home/mobile-04.webp"
-    },
-     {
-        "title": "157_Tower",
-        "title_zh": "157大厦",
-        "architect": "SADI",
-        "address": "Chengdu, Sichuan",
-        "coords": "30.664°N / 104.083°E",
-        "img": "/images/home/mobile-05.webp"
-    },
-     {
-        "title": "Lake_City",
-        "title_zh": "蔚蓝湖滨一号",
-        "architect": "SCDA",
-        "address": "Chengdu, Sichuan",
-        "coords": "30.478°N / 104.024°E",
-        "img": "/images/home/mobile-06.webp"
+      "title": "Xinglong_Lake_Roadshow_Center",
+      "title_zh": "兴隆湖天府路演艺术中心",
+      "architect": "Tektonn_Architects",
+      "address": "Chengdu, Sichuan",
+      "coords": "30.402°N / 104.102°E",
+      "img": "/images/home/mobile-02.webp"
     },
     {
-        "title": "Xi'an_Puyi",
-        "title_zh": "西安璞逸",
-        "architect": "gad",
-        "address": "Xi'an, Shaanxi",
-        "coords": "34.212°N / 108.851°E",
-        "img": "/images/home/mobile-07.webp"
+      "title": "Shanghai_Poly_Opus_One",
+      "title_zh": "保利世博天悦",
+      "architect": "SCDA",
+      "address": "Shanghai",
+      "coords": "31.199°N / 121.500°E",
+      "img": "/images/home/mobile-03.webp"
+    },
+    {
+      "title": "Congressional_Central_Office",
+      "title_zh": "国会办公室",
+      "architect": "Tektonn_Architects",
+      "address": "Chengdu, Sichuan",
+      "coords": "30.587°N / 103.946°E",
+      "img": "/images/home/mobile-04.webp"
+    },
+    {
+      "title": "157_Tower",
+      "title_zh": "157大厦",
+      "architect": "SADI",
+      "address": "Chengdu, Sichuan",
+      "coords": "30.664°N / 104.083°E",
+      "img": "/images/home/mobile-05.webp"
+    },
+    {
+      "title": "Lake_City",
+      "title_zh": "蔚蓝湖滨一号",
+      "architect": "SCDA",
+      "address": "Chengdu, Sichuan",
+      "coords": "30.478°N / 104.024°E",
+      "img": "/images/home/mobile-06.webp"
+    },
+    {
+      "title": "Xi'an_Puyi",
+      "title_zh": "西安璞逸",
+      "architect": "gad",
+      "address": "Xi'an, Shaanxi",
+      "coords": "34.212°N / 108.851°E",
+      "img": "/images/home/mobile-07.webp"
     }
-],
-
+  ],
   "projects": [
     {
       "title": "Yibin_Tiandi",
@@ -373,32 +417,136 @@
       "coords": "28.989°N / 105.467°E",
       "location": "Luzhou_Sichuan",
       "images": [
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/01.webp", "desc": "01", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/02.webp", "desc": "02", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/03.webp", "desc": "03", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/04.webp", "desc": "04", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/05.webp", "desc": "05", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/06.webp", "desc": "06", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/07.webp", "desc": "07", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/08.webp", "desc": "08", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/09.webp", "desc": "09", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/10.webp", "desc": "10", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/11.webp", "desc": "11", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/12.webp", "desc": "12", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/13.webp", "desc": "13", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/14.webp", "desc": "14", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/15.webp", "desc": "15", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/16.webp", "desc": "16", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/17.webp", "desc": "17", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/19.webp", "desc": "19", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/20.webp", "desc": "20", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/21.webp", "desc": "21", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/22.webp", "desc": "22", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/23.webp", "desc": "23", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/24.webp", "desc": "24", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/25.webp", "desc": "25", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/26.webp", "desc": "26", "meta": "15:00 // PM"}
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/01.webp",
+          "desc": "01",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/02.webp",
+          "desc": "02",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/03.webp",
+          "desc": "03",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/04.webp",
+          "desc": "04",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/05.webp",
+          "desc": "05",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/06.webp",
+          "desc": "06",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/07.webp",
+          "desc": "07",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/08.webp",
+          "desc": "08",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/09.webp",
+          "desc": "09",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/10.webp",
+          "desc": "10",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/11.webp",
+          "desc": "11",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/12.webp",
+          "desc": "12",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/13.webp",
+          "desc": "13",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/14.webp",
+          "desc": "14",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/15.webp",
+          "desc": "15",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/16.webp",
+          "desc": "16",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/17.webp",
+          "desc": "17",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/19.webp",
+          "desc": "19",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/20.webp",
+          "desc": "20",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/21.webp",
+          "desc": "21",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/22.webp",
+          "desc": "22",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/23.webp",
+          "desc": "23",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/24.webp",
+          "desc": "24",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/25.webp",
+          "desc": "25",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_of_Langjiu_Longma_Winery_Office_Building_102/26.webp",
+          "desc": "26",
+          "meta": "15:00 // PM"
+        }
       ]
     },
     {
@@ -414,27 +562,111 @@
       "coords": "30.514°N / 104.080°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/03.webp", "desc": "Entrance", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/04.webp", "desc": "Urban view", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/05.webp", "desc": "Park view", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/06.webp", "desc": "Urban view_1", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/07.webp", "desc": "Urban view_2", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/08.webp", "desc": "Urban view_3", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/09.webp", "desc": "Park view_1", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/10.webp", "desc": "Tower crown_2", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/11.webp", "desc": "Park view_3", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/12.webp", "desc": "Tower crown_4", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/13.webp", "desc": "Detail", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/14.webp", "desc": "Park view_4", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/15.webp", "desc": "Night view", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/16.webp", "desc": "Night view_1", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/17.webp", "desc": "Interior", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/18.webp", "desc": "Interior_1", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/19.webp", "desc": "Bird‘s_eye_view", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/20.webp", "desc": "Bird‘s_eye_view_1", "meta": "21:06 // AM"},
-        {"url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/21.webp", "desc": "Bird’s_eye_view_2", "meta": "21:35 // AM"}
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/01.webp",
+          "desc": "Tower crown",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/02.webp",
+          "desc": "Tower crown_1",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/03.webp",
+          "desc": "Entrance",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/04.webp",
+          "desc": "Urban view",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/05.webp",
+          "desc": "Park view",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/06.webp",
+          "desc": "Urban view_1",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/07.webp",
+          "desc": "Urban view_2",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/08.webp",
+          "desc": "Urban view_3",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/09.webp",
+          "desc": "Park view_1",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/10.webp",
+          "desc": "Tower crown_2",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/11.webp",
+          "desc": "Park view_3",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/12.webp",
+          "desc": "Tower crown_4",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/13.webp",
+          "desc": "Detail",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/14.webp",
+          "desc": "Park view_4",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/15.webp",
+          "desc": "Night view",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/16.webp",
+          "desc": "Night view_1",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/17.webp",
+          "desc": "Interior",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/18.webp",
+          "desc": "Interior_1",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/19.webp",
+          "desc": "Bird‘s_eye_view",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/20.webp",
+          "desc": "Bird‘s_eye_view_1",
+          "meta": "21:06 // AM"
+        },
+        {
+          "url": "/images/projects/Oppo_Technology_&_Research_Centre_Tower/21.webp",
+          "desc": "Bird’s_eye_view_2",
+          "meta": "21:35 // AM"
+        }
       ]
     },
     {
@@ -449,26 +681,102 @@
       "year": "2023",
       "coords": "30.571°N / 104.068°E",
       "location": "Chengdu_Sichuan",
-       "images": [
-        {"url": "/images/projects/Chengdu_SKP/01.webp", "desc": "Tower crown", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/02.webp", "desc": "Tower crown_1", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Chengdu_SKP/03.webp", "desc": "Entrance", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/04.webp", "desc": "Urban view", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/05.webp", "desc": "Park view", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/06.webp", "desc": "Urban view_1", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Chengdu_SKP/07.webp", "desc": "Urban view_2", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Chengdu_SKP/08.webp", "desc": "Urban view_3", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Chengdu_SKP/09.webp", "desc": "Park view_1", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/10.webp", "desc": "Tower crown_2", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Chengdu_SKP/11.webp", "desc": "Park view_3", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Chengdu_SKP/12.webp", "desc": "Tower crown_4", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/13.webp", "desc": "Detail", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/14.webp", "desc": "Park view_4", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/15.webp", "desc": "Night view", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/16.webp", "desc": "Night view_1", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/17.webp", "desc": "Interior", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/18.webp", "desc": "Interior_1", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Chengdu_SKP/19.webp", "desc": "Bird‘s_eye_view", "meta": "15:50 // PM"}
+      "images": [
+        {
+          "url": "/images/projects/Chengdu_SKP/01.webp",
+          "desc": "Tower crown",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/02.webp",
+          "desc": "Tower crown_1",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/03.webp",
+          "desc": "Entrance",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/04.webp",
+          "desc": "Urban view",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/05.webp",
+          "desc": "Park view",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/06.webp",
+          "desc": "Urban view_1",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/07.webp",
+          "desc": "Urban view_2",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/08.webp",
+          "desc": "Urban view_3",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/09.webp",
+          "desc": "Park view_1",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/10.webp",
+          "desc": "Tower crown_2",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/11.webp",
+          "desc": "Park view_3",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/12.webp",
+          "desc": "Tower crown_4",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/13.webp",
+          "desc": "Detail",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/14.webp",
+          "desc": "Park view_4",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/15.webp",
+          "desc": "Night view",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/16.webp",
+          "desc": "Night view_1",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/17.webp",
+          "desc": "Interior",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/18.webp",
+          "desc": "Interior_1",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Chengdu_SKP/19.webp",
+          "desc": "Bird‘s_eye_view",
+          "meta": "15:50 // PM"
+        }
       ]
     },
     {
@@ -483,35 +791,147 @@
       "year": "2025",
       "coords": "30.587°N / 103.946°E",
       "location": "Chengdu_Sichuan",
-       "images": [
-        {"url": "/images/projects/Congressional_Central_Office/01.webp", "desc": "Hall", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/02.webp", "desc": "Hall_Detail", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Congressional_Central_Office/03.webp", "desc": "Hall", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/04.webp", "desc": "Hall_Detail", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/05.webp", "desc": "Hall", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/06.webp", "desc": "Reception", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Congressional_Central_Office/07.webp", "desc": "Detail", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Congressional_Central_Office/08.webp", "desc": "Aisle", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Congressional_Central_Office/09.webp", "desc": "Office", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/10.webp", "desc": "Rest_Area", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Congressional_Central_Office/11.webp", "desc": "Office", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Congressional_Central_Office/12.webp", "desc": "Reading_Area", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/13.webp", "desc": "Office", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/14.webp", "desc": "Office", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/15.webp", "desc": "Detail", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/16.webp", "desc": "Office", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/17.webp", "desc": "Dining_Room", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/18.webp", "desc": "Office", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/19.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/20.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/21.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/22.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/23.webp", "desc": "Office", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/24.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/25.webp", "desc": "Meeting_Room", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/26.webp", "desc": "Canteen", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/27.webp", "desc": "Canteen", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Congressional_Central_Office/28.webp", "desc": "Canteen", "meta": "15:50 // PM"}
+      "images": [
+        {
+          "url": "/images/projects/Congressional_Central_Office/01.webp",
+          "desc": "Hall",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/02.webp",
+          "desc": "Hall_Detail",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/03.webp",
+          "desc": "Hall",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/04.webp",
+          "desc": "Hall_Detail",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/05.webp",
+          "desc": "Hall",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/06.webp",
+          "desc": "Reception",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/07.webp",
+          "desc": "Detail",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/08.webp",
+          "desc": "Aisle",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/09.webp",
+          "desc": "Office",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/10.webp",
+          "desc": "Rest_Area",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/11.webp",
+          "desc": "Office",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/12.webp",
+          "desc": "Reading_Area",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/13.webp",
+          "desc": "Office",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/14.webp",
+          "desc": "Office",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/15.webp",
+          "desc": "Detail",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/16.webp",
+          "desc": "Office",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/17.webp",
+          "desc": "Dining_Room",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/18.webp",
+          "desc": "Office",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/19.webp",
+          "desc": "Meeting_Room",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/20.webp",
+          "desc": "Meeting_Room",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/21.webp",
+          "desc": "Meeting_Room",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/22.webp",
+          "desc": "Meeting_Room",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/23.webp",
+          "desc": "Office",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/24.webp",
+          "desc": "Meeting_Room",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/25.webp",
+          "desc": "Meeting_Room",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/26.webp",
+          "desc": "Canteen",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/27.webp",
+          "desc": "Canteen",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Congressional_Central_Office/28.webp",
+          "desc": "Canteen",
+          "meta": "15:50 // PM"
+        }
       ]
     },
     {
@@ -527,37 +947,161 @@
       "coords": "30.466°N / 104.053°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/17.webp", "desc": "17", "meta": "14:40 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/19.webp", "desc": "19", "meta": "15:50 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/20.webp", "desc": "20", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/21.webp", "desc": "21", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/22.webp", "desc": "22", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/23.webp", "desc": "23", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/24.webp", "desc": "24", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/25.webp", "desc": "25", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/26.webp", "desc": "26", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/27.webp", "desc": "27", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/28.webp", "desc": "28", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/29.webp", "desc": "29", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/30.webp", "desc": "30", "meta": "15:00 // PM"},
-        {"url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/31.webp", "desc": "31", "meta": "15:00 // PM"}
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/17.webp",
+          "desc": "17",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/19.webp",
+          "desc": "19",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/20.webp",
+          "desc": "20",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/21.webp",
+          "desc": "21",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/22.webp",
+          "desc": "22",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/23.webp",
+          "desc": "23",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/24.webp",
+          "desc": "24",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/25.webp",
+          "desc": "25",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/26.webp",
+          "desc": "26",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/27.webp",
+          "desc": "27",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/28.webp",
+          "desc": "28",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/29.webp",
+          "desc": "29",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/30.webp",
+          "desc": "30",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/LuxeLakes_Kindergarten_(North_Campus)/31.webp",
+          "desc": "31",
+          "meta": "15:00 // PM"
+        }
       ]
     },
     {
@@ -573,30 +1117,126 @@
       "coords": "29.585°N / 106.740°E",
       "location": "Chongqing",
       "images": [
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/17.webp", "desc": "17", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/19.webp", "desc": "19", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/20.webp", "desc": "20", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/21.webp", "desc": "21", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/22.webp", "desc": "22", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/23.webp", "desc": "23", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/24.webp", "desc": "24", "meta": "15:00 // PM"}
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/17.webp",
+          "desc": "17",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/19.webp",
+          "desc": "19",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/20.webp",
+          "desc": "20",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/21.webp",
+          "desc": "21",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/22.webp",
+          "desc": "22",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/23.webp",
+          "desc": "23",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yangtze_River_Ecological_Cadre_Academy/24.webp",
+          "desc": "24",
+          "meta": "15:00 // PM"
+        }
       ]
     },
     {
@@ -611,29 +1251,117 @@
       "year": "2025",
       "coords": "34.212°N / 108.851°E",
       "location": "Xi'an_Shaanxi",
-       "images": [
-        {"url": "/images/projects/Xi_An_Puyi/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Xi_An_Puyi/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Xi_An_Puyi/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xi_An_Puyi/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Xi_An_Puyi/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Xi_An_Puyi/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Xi_An_Puyi/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/17.webp", "desc": "17", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/19.webp", "desc": "19", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/20.webp", "desc": "20", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/21.webp", "desc": "21", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Xi_An_Puyi/22.webp", "desc": "22", "meta": "15:00 // PM"}
+      "images": [
+        {
+          "url": "/images/projects/Xi_An_Puyi/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/17.webp",
+          "desc": "17",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/19.webp",
+          "desc": "19",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/20.webp",
+          "desc": "20",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/21.webp",
+          "desc": "21",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xi_An_Puyi/22.webp",
+          "desc": "22",
+          "meta": "15:00 // PM"
+        }
       ]
     },
     {
@@ -649,32 +1377,136 @@
       "coords": "30.665°N / 104.067°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/17.webp", "desc": "17", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/19.webp", "desc": "19", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/20.webp", "desc": "20", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/21.webp", "desc": "21", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/22.webp", "desc": "22", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/23.webp", "desc": "23", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/24.webp", "desc": "24", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/25.webp", "desc": "25", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/26.webp", "desc": "26", "meta": "15:00 // PM"}
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/17.webp",
+          "desc": "17",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/19.webp",
+          "desc": "19",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/20.webp",
+          "desc": "20",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/21.webp",
+          "desc": "21",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/22.webp",
+          "desc": "22",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/23.webp",
+          "desc": "23",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/24.webp",
+          "desc": "24",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/25.webp",
+          "desc": "25",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Renovation_Of_Business_Premises_Of_Agricultural_Bank_of_China_Chengdu_Branch/26.webp",
+          "desc": "26",
+          "meta": "15:00 // PM"
+        }
       ]
     },
     {
@@ -690,32 +1522,136 @@
       "coords": "22.548°N / 113.954°E",
       "location": "Shenzhen_Guangdong",
       "images": [
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/17.webp", "desc": "17", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/19.webp", "desc": "19", "meta": "15:50 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/20.webp", "desc": "20", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/21.webp", "desc": "21", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/22.webp", "desc": "22", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/23.webp", "desc": "23", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/24.webp", "desc": "24", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/25.webp", "desc": "25", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Shenzhen_CRland_Runxi/26.webp", "desc": "26", "meta": "15:00 // PM"}
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/17.webp",
+          "desc": "17",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/19.webp",
+          "desc": "19",
+          "meta": "15:50 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/20.webp",
+          "desc": "20",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/21.webp",
+          "desc": "21",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/22.webp",
+          "desc": "22",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/23.webp",
+          "desc": "23",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/24.webp",
+          "desc": "24",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/25.webp",
+          "desc": "25",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shenzhen_CRland_Runxi/26.webp",
+          "desc": "26",
+          "meta": "15:00 // PM"
+        }
       ]
     },
     {
@@ -731,28 +1667,104 @@
       "coords": "30.953°N / 108.708°E",
       "location": "Yunyang_Chongqing",
       "images": [
-        {"url": "/images/projects/Yunyang_Sports_Park/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/17.webp", "desc": "17", "meta": "14:40 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/18.webp", "desc": "18", "meta": "15:00 // PM"},
-        {"url": "/images/projects/Yunyang_Sports_Park/19.webp", "desc": "19", "meta": "15:50 // PM"}
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/17.webp",
+          "desc": "17",
+          "meta": "14:40 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/18.webp",
+          "desc": "18",
+          "meta": "15:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yunyang_Sports_Park/19.webp",
+          "desc": "19",
+          "meta": "15:50 // PM"
+        }
       ]
     },
-     {
+    {
       "title": "Yibin_Yiyun_Digital_Art_Center",
       "title_zh": "宜宾艺云数字艺术中心",
       "slug": "yibin-yiyun-digital-art-center",
@@ -765,22 +1777,86 @@
       "coords": "28.734°N / 104.624°E",
       "location": "Yibin_Sichuan",
       "images": [
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/16.webp", "desc": "16", "meta": "19:55 // PM"}
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_Yiyun_Digital_Art_Center/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        }
       ]
     },
     {
@@ -796,28 +1872,104 @@
       "coords": "27.882°N / 102.173°E",
       "location": "Xichang_Sichuan",
       "images": [
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/08.webp", "desc": "08", "meta": "11:00 // AM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/09.webp", "desc": "09", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/10.webp", "desc": "10", "meta": "10:50 // AM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/11.webp", "desc": "11", "meta": "10:20 // AM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/12.webp", "desc": "12", "meta": "14:20 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/13.webp", "desc": "13", "meta": "14:00 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/14.webp", "desc": "14", "meta": "15:10 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/15.webp", "desc": "15", "meta": "19:50 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/16.webp", "desc": "16", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/17.webp", "desc": "17", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/18.webp", "desc": "18", "meta": "19:55 // PM"},
-        {"url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/19.webp", "desc": "19", "meta": "19:55 // PM"}
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/08.webp",
+          "desc": "08",
+          "meta": "11:00 // AM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/09.webp",
+          "desc": "09",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/10.webp",
+          "desc": "10",
+          "meta": "10:50 // AM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/11.webp",
+          "desc": "11",
+          "meta": "10:20 // AM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/12.webp",
+          "desc": "12",
+          "meta": "14:20 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/13.webp",
+          "desc": "13",
+          "meta": "14:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/14.webp",
+          "desc": "14",
+          "meta": "15:10 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/15.webp",
+          "desc": "15",
+          "meta": "19:50 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/16.webp",
+          "desc": "16",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/17.webp",
+          "desc": "17",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/18.webp",
+          "desc": "18",
+          "meta": "19:55 // PM"
+        },
+        {
+          "url": "/images/projects/Xichang_Jianchuan_Museum_Documentary_Hall/19.webp",
+          "desc": "19",
+          "meta": "19:55 // PM"
+        }
       ]
     },
-       {
+    {
       "title": "SCDA_30_Chengdu_Exhibition",
       "title_zh": "SCDA成都三十周年展",
       "slug": "scda-30-chengdu-exhibition",
@@ -830,13 +1982,41 @@
       "coords": "30.478°N / 104.025°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/SCDA_30_Chengdu_Exhibition/07.webp", "desc": "07", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/SCDA_30_Chengdu_Exhibition/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        }
       ]
     },
     {
@@ -852,14 +2032,46 @@
       "coords": "30.339°N / 104.451°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/General_Aviation_Headquarters_Base/08.webp", "desc": "08", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/General_Aviation_Headquarters_Base/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        }
       ]
     },
     {
@@ -875,36 +2087,156 @@
       "coords": "30.466°N / 104.061°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/14.webp", "desc": "14", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/15.webp", "desc": "15", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/16.webp", "desc": "16", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/17.webp", "desc": "17", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/18.webp", "desc": "18", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/19.webp", "desc": "19", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/20.webp", "desc": "20", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/21.webp", "desc": "21", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/22.webp", "desc": "22", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/23.webp", "desc": "23", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/24.webp", "desc": "24", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/25.webp", "desc": "25", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/26.webp", "desc": "26", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/27.webp", "desc": "27", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/28.webp", "desc": "28", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/29.webp", "desc": "29", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/30.webp", "desc": "30", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/18.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/19.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/20.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/21.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/22.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/23.webp",
+          "desc": "23",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/24.webp",
+          "desc": "24",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/25.webp",
+          "desc": "25",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/26.webp",
+          "desc": "26",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/27.webp",
+          "desc": "27",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/28.webp",
+          "desc": "28",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/29.webp",
+          "desc": "29",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Luxe_Lake_Cloud_Kindergarten/30.webp",
+          "desc": "30",
+          "meta": "10:30 // AM"
+        }
       ]
     },
     {
@@ -920,26 +2252,98 @@
       "coords": "29.764°N / 121.635°E",
       "location": "Ningbo_Zhejiang",
       "images": [
-        {"url": "/images/projects/Ningbo_International_Conference_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Ningbo_International_Conference_Center/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/14.webp", "desc": "14", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/15.webp", "desc": "15", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/16.webp", "desc": "16", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/17.webp", "desc": "17", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Ningbo_International_Conference_Center/18.webp", "desc": "18", "meta": "10:30 // AM"}
-   ]
-  },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Ningbo_International_Conference_Center/18.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
     {
       "title": "Shanghai_Poly_Opus_One",
       "title_zh": "保利世博天悦",
@@ -953,22 +2357,78 @@
       "coords": "31.199°N / 121.500°E",
       "location": "Shanghai",
       "images": [
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Shanghai_Poly_Opus_One/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Shanghai_Poly_Opus_One/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Shanghai_Poly_Opus_One/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Shanghai_Poly_Opus_One/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Shanghai_Poly_Opus_One/14.webp", "desc": "14", "meta": "10:30 // AM"}
-   ]
-  },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Shanghai_Poly_Opus_One/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
     {
       "title": "TAHITI",
       "title_zh": "黄龙溪谷塔希提",
@@ -982,22 +2442,78 @@
       "coords": "30.324°N / 103.942°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/TAHITI/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/TAHITI/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/TAHITI/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/TAHITI/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/TAHITI/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/TAHITI/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/TAHITI/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/TAHITI/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/TAHITI/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/TAHITI/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/TAHITI/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/TAHITI/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/TAHITI/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/TAHITI/14.webp", "desc": "14", "meta": "10:30 // AM"}
-   ]
-  },
+        {
+          "url": "/images/projects/TAHITI/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/TAHITI/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/TAHITI/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/TAHITI/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/TAHITI/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/TAHITI/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
     {
       "title": "Wuliangye_New_Economy_Group_Center",
       "title_zh": "五粮液集团新经济中心",
@@ -1011,23 +2527,83 @@
       "coords": "30.517°N / 104.070°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/14.webp", "desc": "14", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Wuliangye_New_Economy_Group_Center/15.webp", "desc": "15", "meta": "10:30 // AM"}
-   ]
-  },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Wuliangye_New_Economy_Group_Center/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
     {
       "title": "Yibin_MixC",
       "title_zh": "宜宾万象汇",
@@ -1041,23 +2617,79 @@
       "coords": "28.794°N / 104.677°E",
       "location": "Yibin_Sichuan",
       "images": [
-        {"url": "/images/projects/Yibin_MixC/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Yibin_MixC/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Yibin_MixC/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Yibin_MixC/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yibin_MixC/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Yibin_MixC/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Yibin_MixC/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yibin_MixC/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yibin_MixC/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yibin_MixC/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Yibin_MixC/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Yibin_MixC/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Yibin_MixC/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/Yibin_MixC/14.webp", "desc": "14", "meta": "10:30 // AM"}
-   ]
-  },
-     {
+        {
+          "url": "/images/projects/Yibin_MixC/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yibin_MixC/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
+    {
       "title": "The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone",
       "title_zh": "重庆两江协同创新区规划展示中心",
       "slug": "the-planning-exhibition-center-of-liangjiang-collaborative-innovation-zone",
@@ -1070,25 +2702,93 @@
       "coords": "29.721°N / 106.833°E",
       "location": "Chongqing",
       "images": [
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/10.webp", "desc": "10", "meta": "10:30 // AM"},
-         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/11.webp", "desc": "11", "meta": "10:30 // AM"},
-         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/12.webp", "desc": "12", "meta": "10:30 // AM"},
-         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/13.webp", "desc": "13", "meta": "10:30 // AM"},
-         {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/14.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/15.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/16.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/17.webp", "desc": "17", "meta": "10:30 // AM"}
-   ]
-  },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/The_Planning_Exhibition_Center_of_Liangjiang_Collaborative_Innovation_Zone/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
     {
       "title": "Xinglong_Lake_Roadshow_Center",
       "title_zh": "兴隆湖天府路演艺术中心",
@@ -1102,17 +2802,53 @@
       "coords": "30.402°N / 104.102°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xinglong_Lake_Roadshow_Center/09.webp", "desc": "09", "meta": "10:30 // AM"}
-   ]
-  },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xinglong_Lake_Roadshow_Center/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
     {
       "title": "Yeting",
       "title_zh": "野亭",
@@ -1126,37 +2862,149 @@
       "coords": "29.355°N / 104.681°E",
       "location": "Zigong_Sichuan",
       "images": [
-        {"url": "/images/projects/Yeting/01.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Yeting/02.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Yeting/03.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Yeting/04.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Yeting/05.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Yeting/06.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Yeting/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/10.webp", "desc": "10", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/11.webp", "desc": "11", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/12.webp", "desc": "12", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/13.webp", "desc": "13", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/14.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/15.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/16.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/17.webp", "desc": "17", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/18.webp", "desc": "18", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/19.webp", "desc": "19", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/20.webp", "desc": "20", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/21.webp", "desc": "21", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/22.webp", "desc": "22", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/23.webp", "desc": "23", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/24.webp", "desc": "24", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/25.webp", "desc": "25", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/26.webp", "desc": "26", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/27.webp", "desc": "27", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Yeting/28.webp", "desc": "28", "meta": "10:30 // AM"}
-   ]
-  },
-  {
+        {
+          "url": "/images/projects/Yeting/01.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yeting/02.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/03.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yeting/04.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Yeting/05.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Yeting/06.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/18.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/19.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/20.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/21.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/22.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/23.webp",
+          "desc": "23",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/24.webp",
+          "desc": "24",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/25.webp",
+          "desc": "25",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/26.webp",
+          "desc": "26",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/27.webp",
+          "desc": "27",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Yeting/28.webp",
+          "desc": "28",
+          "meta": "10:30 // AM"
+        }
+      ]
+    },
+    {
       "title": "Xi'an_Huafa_Shoufu",
       "title_zh": "西安华发首府",
       "slug": "xian-huafa-shoufu",
@@ -1169,28 +3017,104 @@
       "coords": "34.245°N / 108.750°E",
       "location": "Xi'an_Shaanxi",
       "images": [
-        {"url": "/images/projects/Xian_Huafa_Shoufu/01.webp", "desc": "01", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/02.webp", "desc": "02", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/03.webp", "desc": "03", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/04.webp", "desc": "04", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/05.webp", "desc": "05", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/06.webp", "desc": "06", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/07.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/08.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/09.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/10.webp", "desc": "10", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/11.webp", "desc": "11", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/12.webp", "desc": "12", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/13.webp", "desc": "13", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/14.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/15.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/16.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/17.webp", "desc": "17", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/18.webp", "desc": "18", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Xian_Huafa_Shoufu/19.webp", "desc": "19", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/01.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/02.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/03.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/04.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/05.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/06.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/07.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/08.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/09.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/10.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/11.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/12.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/13.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/14.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/15.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/16.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/17.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/18.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Xian_Huafa_Shoufu/19.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        }
       ]
-  },
-  {
+    },
+    {
       "title": "Symphony_Yiwu",
       "title_zh": "义乌潮鸣海上",
       "slug": "symphony-yiwu",
@@ -1203,33 +3127,129 @@
       "coords": "29.3050°N / 120.0786°E",
       "location": "Yiwu_Zhejiang",
       "images": [
-        {"url": "/images/projects/Symphony_Yiwu/DJI_20260917072657_0038_D.webp", "desc": "01", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/DJI_20260917080513_0062_D.webp", "desc": "02", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/DJI_20260917080703_0066_D.webp", "desc": "03", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/DJI_20260917181127_0213_D.webp", "desc": "04", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/DJI_20260917181328_0220_D.webp", "desc": "05", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/DJI_20260917182143_0255_D-Pano.webp", "desc": "06", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5251.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5290.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5292.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5312.webp", "desc": "10", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5347.webp", "desc": "11", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5376.webp", "desc": "12", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5394.webp", "desc": "13", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5505-Pano.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5623-Pano.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5733.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5763-Pano.webp", "desc": "17", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5782.webp", "desc": "18", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5835-Pano.webp", "desc": "19", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5903.webp", "desc": "20", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5912-Pano.webp", "desc": "21", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC5982.webp", "desc": "22", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC6096.webp", "desc": "23", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Symphony_Yiwu/_DSC6107-Pano.webp", "desc": "24", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/Symphony_Yiwu/DJI_20260917072657_0038_D.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/DJI_20260917080513_0062_D.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/DJI_20260917080703_0066_D.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/DJI_20260917181127_0213_D.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/DJI_20260917181328_0220_D.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/DJI_20260917182143_0255_D-Pano.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5251.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5290.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5292.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5312.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5347.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5376.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5394.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5505-Pano.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5623-Pano.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5733.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5763-Pano.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5782.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5835-Pano.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5903.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5912-Pano.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC5982.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC6096.webp",
+          "desc": "23",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Symphony_Yiwu/_DSC6107-Pano.webp",
+          "desc": "24",
+          "meta": "10:30 // AM"
+        }
       ]
-  },
-  {
+    },
+    {
       "title": "One_Lake_City",
       "title_zh": "蔚蓝湖滨一号",
       "slug": "one-lake-city-architecture",
@@ -1242,47 +3262,199 @@
       "coords": "30.478°N / 104.024°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/One_Lake_City_Architecture/DJI_0716.webp", "desc": "01", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1768.webp", "desc": "02", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1776.webp", "desc": "03", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1777-Pano.webp", "desc": "04", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1779.webp", "desc": "05", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1792.webp", "desc": "06", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1818-Pano.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1831.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1837.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1888.webp", "desc": "10", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1913.webp", "desc": "11", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1932-1.webp", "desc": "12", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1967.webp", "desc": "13", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A1985-1.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2012-1.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2060.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2071.webp", "desc": "17", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2078.webp", "desc": "18", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2083.webp", "desc": "19", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2099-1.webp", "desc": "20", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2141-1.webp", "desc": "21", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2158.webp", "desc": "22", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2173-Pano.webp", "desc": "23", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2185.webp", "desc": "24", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2195-1.webp", "desc": "25", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2203.webp", "desc": "26", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2271.webp", "desc": "27", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2299.webp", "desc": "28", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2325-HDR-Pano.webp", "desc": "29", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2331.webp", "desc": "30", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2343.webp", "desc": "31", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2348.webp", "desc": "32", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2368-Pano.webp", "desc": "33", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/4B6A2376-Pano.webp", "desc": "34", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/DJI_0700.webp", "desc": "35", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/DJI_0707.webp", "desc": "36", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/DJI_0719.webp", "desc": "37", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City_Architecture/_B6A3099.webp", "desc": "38", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/DJI_0716.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1768.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1776.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1777-Pano.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1779.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1792.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1818-Pano.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1831.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1837.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1888.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1913.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1932-1.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1967.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A1985-1.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2012-1.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2060.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2071.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2078.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2083.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2099-1.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2141-1.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2158.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2173-Pano.webp",
+          "desc": "23",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2185.webp",
+          "desc": "24",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2195-1.webp",
+          "desc": "25",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2203.webp",
+          "desc": "26",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2271.webp",
+          "desc": "27",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2299.webp",
+          "desc": "28",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2325-HDR-Pano.webp",
+          "desc": "29",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2331.webp",
+          "desc": "30",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2343.webp",
+          "desc": "31",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2348.webp",
+          "desc": "32",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2368-Pano.webp",
+          "desc": "33",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/4B6A2376-Pano.webp",
+          "desc": "34",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/DJI_0700.webp",
+          "desc": "35",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/DJI_0707.webp",
+          "desc": "36",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/DJI_0719.webp",
+          "desc": "37",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City_Architecture/_B6A3099.webp",
+          "desc": "38",
+          "meta": "10:30 // AM"
+        }
       ]
-  },
-  {
+    },
+    {
       "title": "One_Lake_City",
       "title_zh": "蔚蓝湖滨一号",
       "slug": "one-lake-city-landscape",
@@ -1294,26 +3466,94 @@
       "coords": "30.478°N / 104.024°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/One_Lake_City/4B6A1791.webp", "desc": "01", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A1796.webp", "desc": "02", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A1801.webp", "desc": "03", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A1835.webp", "desc": "04", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A1844.webp", "desc": "05", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A1952.webp", "desc": "06", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2013.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2021.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2023.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2034.webp", "desc": "10", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2035.webp", "desc": "11", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2065-1.webp", "desc": "12", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2073-1.webp", "desc": "13", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2217.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/4B6A2357.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/DJI_0737.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/One_Lake_City/DJI_0742.webp", "desc": "17", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/One_Lake_City/4B6A1791.webp",
+          "desc": "01",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A1796.webp",
+          "desc": "02",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A1801.webp",
+          "desc": "03",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A1835.webp",
+          "desc": "04",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A1844.webp",
+          "desc": "05",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A1952.webp",
+          "desc": "06",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2013.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2021.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2023.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2034.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2035.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2065-1.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2073-1.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2217.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/4B6A2357.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/DJI_0737.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/One_Lake_City/DJI_0742.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        }
       ]
-  },
-  {
+    },
+    {
       "title": "Bank_of_Tibet_Chengdu_Headquarters_Base",
       "title_zh": "西藏银行成都总部基地",
       "slug": "bank-of-tibet-chengdu-headquarters-base",
@@ -1326,74 +3566,272 @@
       "coords": "30.512°N / 104.087°E",
       "location": "Chengdu_Sichuan",
       "images": [
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/0410.webp", "desc": "01", "meta": "18:30 // PM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0273.webp", "desc": "02", "meta": "21:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0330.webp", "desc": "03", "meta": "19:30 // PM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0388-Pano.webp", "desc": "04", "meta": "15:30 // PM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0421.webp", "desc": "05", "meta": "16:00 // PM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0450.webp", "desc": "06", "meta": "10:00 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0476.webp", "desc": "07", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0632-Pano.webp", "desc": "08", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0682.webp", "desc": "09", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0750.webp", "desc": "10", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A1665.webp", "desc": "11", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A3771.webp", "desc": "12", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4100.webp", "desc": "13", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4445.webp", "desc": "14", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4640.webp", "desc": "15", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4665.webp", "desc": "16", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4860.webp", "desc": "17", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4885.webp", "desc": "18", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4953-Pano.webp", "desc": "19", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A5070.webp", "desc": "20", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A5184.webp", "desc": "21", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A5402.webp", "desc": "22", "meta": "10:30 // AM"},
-        {"url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/untitled-1.webp", "desc": "23", "meta": "10:30 // AM"}
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/0410.webp",
+          "desc": "01",
+          "meta": "18:30 // PM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0273.webp",
+          "desc": "02",
+          "meta": "21:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0330.webp",
+          "desc": "03",
+          "meta": "19:30 // PM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0388-Pano.webp",
+          "desc": "04",
+          "meta": "15:30 // PM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0421.webp",
+          "desc": "05",
+          "meta": "16:00 // PM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0450.webp",
+          "desc": "06",
+          "meta": "10:00 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0476.webp",
+          "desc": "07",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0632-Pano.webp",
+          "desc": "08",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0682.webp",
+          "desc": "09",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/DJI_0750.webp",
+          "desc": "10",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A1665.webp",
+          "desc": "11",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A3771.webp",
+          "desc": "12",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4100.webp",
+          "desc": "13",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4445.webp",
+          "desc": "14",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4640.webp",
+          "desc": "15",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4665.webp",
+          "desc": "16",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4860.webp",
+          "desc": "17",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4885.webp",
+          "desc": "18",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A4953-Pano.webp",
+          "desc": "19",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A5070.webp",
+          "desc": "20",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A5184.webp",
+          "desc": "21",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/_B6A5402.webp",
+          "desc": "22",
+          "meta": "10:30 // AM"
+        },
+        {
+          "url": "/images/projects/Bank_of_Tibet_Chengdu_Headquarters_Base/untitled-1.webp",
+          "desc": "23",
+          "meta": "10:30 // AM"
+        }
       ]
-  }
-    
+    }
   ],
-
   "studio": {
     "photo": "/images/photographer.webp",
-    "name": "Xiao_Shihao",
+    "name": "Xiao Shihao",
     "name_zh": "肖世豪",
     "title": "PHOTOGRAPHER",
     "title_zh": "摄影师",
-    "intro1": "With a 5-year undergraduate degree in architecture and 5 years of experience in architectural design, Xiao_Shihao became an architectural photographer in 2022. ",
+    "intro1": "With a 5-year undergraduate degree in architecture and 5 years of experience in architectural design, Xiao Shihao became an architectural photographer in 2022. ",
     "intro2": "His work focuses on capturing the essence of architecture and space while striving for a subtle artistic balance through the arrangement of light, composition, subject poses, spatial depth, and color.He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.",
-   "about1": "based in Chengdu, Sichuan Province.We have maintained long-term and close collaborations with numerous renowned Architects since establishment in 2022.We believe that architects and photographers grow together through mutual partnership. In an era where architectural photography is becoming increasingly homogenized and driven by short-term, fast-paced demands, we aim to focus our energy on building long-term collaborations with clients, we delve deeply into documenting the evolution of each building and space—from conceptual design to completion,and even its post-occupancy state.",
-"intro1zh": "拥有5年建筑学本科教育背景及5年建筑设计从业经验，肖世豪于2022年转型为建筑摄影师。",
-"intro2zh": "他的作品专注于捕捉建筑与空间的本质，通过光线、构图、人物姿态、空间纵深与色彩的精心编排，追求一种克制而富有张力的艺术平衡。他是有方「中国建筑摄影师系列」第59位受访者。",
-"about1zh": "MMCM STUDIO 位于四川省成都市。自2022年成立以来，我们与众多知名建筑师及设计机构保持着长期深度的合作关系。",
-"about2zh": "我们相信，建筑师与摄影师应在相互扶持中共同成长。在建筑摄影日趋同质化、短平快的当下，我们选择将精力投注于与客户建立长期的合作关系，深入记录每一栋建筑与空间的演变历程——从概念设计到竣工落成，乃至建成后的使用状态。",
-"clients": [
-      {"name": "Aecom", "loc": "US/CN"},
-      {"name": "SCDA", "loc": "SG"},
-      {"name": "gad", "loc": "CN"},
-      {"name": "Gianni_Botsford_Architects", "loc": "UK"},
-      {"name": "Sybarite", "loc": "UK"},
-      {"name": "Tektonn_Architects", "loc": "CN"},
-      {"name": "Tanghua_Architects&Associates", "loc": "CN"},
-      {"name": "SADI", "loc": "CN"},
-      {"name": "J&A", "loc": "CN"},
-      {"name": "Luxelakes", "loc": "CN"}
-    ]
+    "about1": "“Haoli” — “the smallest measure” — is a scale of looking. We believe the meaning of architecture lies not only in its form, but in the subtle relationships between scale, material, light and use.",
+    "intro1zh": "拥有5年建筑学本科教育背景及5年建筑设计从业经验，肖世豪于2022年转型为建筑摄影师。",
+    "intro2zh": "他的作品专注于捕捉建筑与空间的本质，通过光线、构图、人物姿态、空间纵深与色彩的精心编排，追求一种克制而富有张力的艺术平衡。他是有方「中国建筑摄影师系列」第59位受访者。",
+    "about1zh": "「毫厘」是一种观看的尺度。我们认为，建筑的意义不仅在于形式，也存在于尺度、材料、光线与使用之间细微的关系之中。",
+    "about2zh": "毫厘建筑摄影常驻成都，自2022年成立以来，以克制、客观的影像语言转译设计意图。我们关注建筑与环境的联系，也关注空间在日常使用与时间推移中呈现的状态，让图像成为理解建筑的一种方式，而不是对建筑的修饰。",
+    "clients": [
+      {
+        "name": "AECOM",
+        "name_zh": "AECOM",
+        "logo": "/images/clients/aecom.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "SCDA",
+        "name_zh": "SCDA",
+        "logo": "/images/clients/scda.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "gad",
+        "name_zh": "gad",
+        "logo": "/images/clients/gad.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "Gianni_Botsford_Architects",
+        "name_zh": "Gianni Botsford Architects",
+        "logo": null,
+        "logo_status": "wordmark",
+        "kind": "architect"
+      },
+      {
+        "name": "Sybarite",
+        "name_zh": "Sybarite",
+        "logo": "/images/clients/sybarite.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "Tektonn_Architects",
+        "name_zh": "天仝建筑",
+        "logo": "/images/clients/tektonn.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "Tanghua_Architects&Associates",
+        "name_zh": "汤桦建筑",
+        "logo": "/images/clients/tanghua.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "SADI",
+        "name_zh": "四川省建筑设计研究院",
+        "logo": "/images/clients/sadi.png",
+        "logo_status": "found",
+        "kind": "architect",
+        "logo_source": "ARCHINA cid=5468"
+      },
+      {
+        "name": "J&A",
+        "name_zh": "杰恩设计",
+        "logo": "/images/clients/ja.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "BIAD",
+        "name_zh": "北京建筑设计研究院",
+        "logo": "/images/clients/biad.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "CDADRI",
+        "name_zh": "成都市建筑设计研究院",
+        "logo": "/images/clients/cdadri.png",
+        "logo_status": "found",
+        "kind": "architect"
+      },
+      {
+        "name": "Luxelakes",
+        "name_zh": "麓湖",
+        "logo": "/images/clients/luxelakes.png",
+        "logo_status": "found",
+        "kind": "developer",
+        "logo_source": "luxelakes.com Wayback"
+      },
+      {
+        "name": "Huafa",
+        "name_zh": "华发地产",
+        "logo": "/images/clients/huafa.png",
+        "logo_status": "found",
+        "kind": "developer"
+      },
+      {
+        "name": "JinFx",
+        "name_zh": "肖进特效 JinFx",
+        "logo": "/images/clients/jinfx.png",
+        "logo_status": "found",
+        "kind": "installation",
+        "logo_source": "instagram.com/jinartsbeijing"
+      }
+    ],
+    "about3zh": "我们与建筑师及设计机构保持长期合作，通过持续的观察与记录，呈现建筑从设计构想到建成、使用的不同阶段。",
+    "about2": "Based in Chengdu since 2022, MMCM Studio translates design intent through a restrained, objective visual language. We attend to the relationship between a building and its surroundings, and to the states a space takes on through daily use and the passing of time — so that the image becomes a way of understanding architecture, rather than an embellishment of it.",
+    "about3": "We work in long-term collaboration with architects and design practices, observing and documenting buildings across their stages, from design concept to completion and use."
   },
-
   "contact": {
     "phone": "+86 189 8077 2131",
     "email": "hello@mmcm-studio.com",
     "website": "www.mmcm-studio.com",
     "location": "CHENGDU / SICHUAN",
     "social": [
-      {"platform": "XIAOHONGSHU", "platformCN": "小红书", "id": "MMCM毫厘建筑摄影"},
-      {"platform": "INSTAGRAM", "platformCN": "INS", "id": "@mmcm.studio"},
-      {"platform": "WECHAT_OFFICIAL", "platformCN": "公众号", "id": "MMCM毫厘建筑摄影"},
-      {"platform": "WEIBO", "platformCN": "微博", "id": "@毫厘建筑摄影"}
+      {
+        "platform": "XIAOHONGSHU",
+        "platformCN": "小红书",
+        "id": "MMCM毫厘建筑摄影"
+      },
+      {
+        "platform": "INSTAGRAM",
+        "platformCN": "INS",
+        "id": "@mmcm.studio"
+      },
+      {
+        "platform": "WECHAT_OFFICIAL",
+        "platformCN": "公众号",
+        "id": "MMCM毫厘建筑摄影"
+      },
+      {
+        "platform": "WEIBO",
+        "platformCN": "微博",
+        "id": "@毫厘建筑摄影"
+      }
     ]
   },
-  
   "filmProjects": [
     {
       "title": "Xichang_Jianchuan_Museum_Documentary_Hall",
@@ -1480,6 +3918,5 @@
       "location": "Wuhan,Hubei",
       "videoUrl": "https://videos.mmcm-studio.com/Wuhan_SKP_Penguin.mp4"
     }
-    
   ]
 }
