@@ -1563,7 +1563,7 @@ get filteredFilmProjects() {
                     <div class="studio-section-body studio-section-body--full">
                         <div class="client-wall" role="list">
                             <template x-for="(client, index) in studio.clients" :key="client.name">
-                                <div class="client-cell" role="listitem" :title="$store.lang.clientName(client)">
+                                <div class="client-cell" role="listitem" :data-client="client.name" :title="$store.lang.clientName(client)">
                                     <template x-if="client.logo">
                                         <img :src="client.logo" :alt="$store.lang.clientName(client)" class="client-logo" loading="lazy">
                                     </template>
