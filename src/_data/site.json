@@ -1381,7 +1381,7 @@
       {"name": "CDADRI", "name_zh": "成都市建筑设计研究院", "logo": "/images/clients/cdadri.png", "logo_status": "found", "kind": "architect"},
       {"name": "Luxelakes", "name_zh": "麓湖", "logo": "/images/clients/luxelakes.png", "logo_status": "found", "kind": "developer", "logo_source": "luxelakes.com Wayback"},
       {"name": "Huafa", "name_zh": "华发地产", "logo": "/images/clients/huafa.png", "logo_status": "found", "kind": "developer"},
-      {"name": "JinFx", "name_zh": "肖进特效 JinFx", "logo": null, "logo_status": "wordmark", "kind": "installation"}
+      {"name": "JinFx", "name_zh": "肖进特效 JinFx", "logo": "/images/clients/jinfx.png", "logo_status": "found", "kind": "installation", "logo_source": "instagram.com/jinartsbeijing"}
     ]
   },
 
