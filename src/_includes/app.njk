@@ -977,11 +977,16 @@ get currentHomeMobileProject() { return this.homeProjectsMobile[this.currentHome
     this.worksFilterOpen = false;
     this.selectedProject = project;
     this.currentDetailImageIndex = 0;
-    // 封面已是图集第一张时不再重复；否则封面作为第一张，再接 images
+    // 封面已在图集中则不重复。不是第一张时提到最前，其余保持原顺序；不在图集中时再接到前面。
     const coverImg = project.url;
     const detailImgs = project.images || [];
-    const firstUrl = detailImgs.length ? (typeof detailImgs[0] === 'string' ? detailImgs[0] : detailImgs[0].url) : '';
-    const allImgs = firstUrl && firstUrl === coverImg ? detailImgs.slice() : [coverImg, ...detailImgs];
+    const urlOf = (item) => (typeof item === 'string' ? item : (item && item.url));
+    const coverAt = detailImgs.findIndex((item) => urlOf(item) === coverImg);
+    const allImgs = coverAt === 0
+        ? detailImgs.slice()
+        : (coverAt > 0
+            ? [detailImgs[coverAt]].concat(detailImgs.slice(0, coverAt), detailImgs.slice(coverAt + 1))
+            : [coverImg].concat(detailImgs));
     this.detailImages = allImgs.map((item, i) => {
         if (typeof item === 'string') {
             return {
