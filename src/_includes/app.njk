@@ -109,7 +109,8 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 'J&A': 'J&A',
                 'gad': 'gad',
                 'SewDesign': '纫合设计',
-                'Jin_FX': 'Jin FX'
+                'Jin_FX': 'Jin FX',
+                'BIAD': '北京建筑设计研究院'
             };
             const LOCATION_ZH = {
                 'Luzhou_Sichuan': '四川泸州',
@@ -209,6 +210,11 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                     if (this.code !== 'zh') return this.plain(en);
                     if (item.architect_zh) return item.architect_zh;
                     return ARCHITECT_ZH[en] || this.plain(en);
+                },
+                clientName(client) {
+                    if (!client) return '';
+                    if (this.code === 'zh' && client.name_zh) return client.name_zh;
+                    return this.plain(client.name || '');
                 },
                 place(value) {
                     const en = value == null ? '' : String(value);
@@ -1490,65 +1496,76 @@ get filteredFilmProjects() {
 </div>
      </div>
     </section>
-<section x-show="currentView === 'studio'" x-cloak class="min-h-screen w-full relative z-10 bg-white">
-        <div class="w-full flex flex-col md:flex-row pt-20">
-            <div class="w-full md:w-[30%] md:h-[calc(100vh-5rem)] md:sticky md:top-20 flex flex-col items-center justify-start border-r border-black/5 bg-white z-20 pt-12 md:pt-16 pb-12">
-                <div class="w-[200px] lg:w-[240px] aspect-[3/4] mb-6 overflow-hidden border border-black/10">
-                    <img :src="studio.photo" loading="lazy" class="w-full h-full object-cover" alt="Photographer">
+<section x-show="currentView === 'studio'" x-cloak class="studio-page min-h-screen w-full relative z-10 bg-white">
+        <div class="studio-layout">
+            <aside class="studio-aside">
+                <div class="studio-portrait">
+                    <img :src="studio.photo" loading="lazy" alt="Photographer">
                 </div>
-                <div class="text-center">
+                <div class="studio-aside-meta">
                     <h2 class="t-title text-[#111111]" x-text="$store.lang.personName(studio)"></h2>
                     <div class="t-label mt-2" x-text="$store.lang.personTitle(studio)"></div>
                 </div>
-            </div>
-            <div class="w-full md:w-[70%] px-6 md:px-24 pt-12 md:pt-16 pb-32 space-y-20">
-                <div>
-                    <div class="t-label text-[#111111] mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('photographer')"></span></div>
-                   <div class="t-body text-[#666666] max-w-xl space-y-6 border-l border-black/10 pl-6">
-    <div>
-        <p x-show="$store.lang.code === 'en'" x-text="studio.intro1"></p>
-        <p x-show="$store.lang.code === 'zh'" x-text="studio.intro1zh"></p>
-    </div>
-    <div>
-      <p x-show="$store.lang.code === 'en'">
-    <span x-text="studio.intro2.split('He is the')[0]"></span>
-    <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.</a>
-</p>
-        <p x-show="$store.lang.code === 'zh'">
-    <span x-text="studio.intro2zh.split('他是')[0]"></span>
-    <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">他是有方「中国建筑摄影师系列」第59位受访者。</a>
-</p>
-    </div>
-</div>
-                </div>
-                <div>
-                    <div class="t-label text-[#111111] mb-6 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('theStudio')"></span></div>
-                    <div class="t-body text-[#444444] max-w-xl">
-    <div class="mb-4" x-show="$store.lang.code === 'en'">
-        <p><span class="client-name text-[#111111] bg-black/[0.06] px-1">MMCM STUDIO</span> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
-    </div>
-    <div x-show="$store.lang.code === 'zh'" class="space-y-4">
-        <p x-text="studio.about1zh"></p>
-        <p x-text="studio.about2zh"></p>
-    </div>
-</div>
-                </div>
-                <div>
-                    <div class="t-label text-[#111111] mb-8 flex items-center gap-2"><span class="w-2 h-2 bg-[#111111]"></span><span x-text="$store.lang.t('client')"></span></div>
-                    <div class="t-body w-full border-t border-black/10">
-                        <template x-for="(client, index) in studio.clients">
-                            <div class="group flex justify-between items-center py-3 border-b border-black/10 hover:bg-black/[0.04] transition-colors cursor-crosshair px-2">
-                                <div class="flex items-center gap-4"><span class="t-meta text-gray-700" x-text="String(index + 1).padStart(2, '0')"></span><span class="client-name text-[#666666] group-hover:text-[#111111] group-hover:translate-x-2 transition-all duration-300" x-text="$store.lang.architect(client)"></span></div>
-                                <div class="flex items-center gap-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300"><span class="t-data text-gray-500 group-hover:text-[#111111]" x-text="client.loc"></span><span class="t-meta text-[#111111] opacity-0 group-hover:opacity-100 transition-opacity">>></span></div>
+            </aside>
+            <div class="studio-main">
+                <section class="studio-block">
+                    <div class="studio-kicker t-label text-[#111111]"><span class="studio-dot"></span><span x-text="$store.lang.t('photographer')"></span></div>
+                    <div class="t-body text-[#666666] studio-copy">
+                        <div>
+                            <p x-show="$store.lang.code === 'en'" x-text="studio.intro1"></p>
+                            <p x-show="$store.lang.code === 'zh'" x-text="studio.intro1zh"></p>
+                        </div>
+                        <div>
+                            <p x-show="$store.lang.code === 'en'">
+                                <span x-text="studio.intro2.split('He is the')[0]"></span>
+                                <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">He is the 59th interviewee in Archiposition 'Chinese Architectural Photographers Series'.</a>
+                            </p>
+                            <p x-show="$store.lang.code === 'zh'">
+                                <span x-text="studio.intro2zh.split('他是')[0]"></span>
+                                <a href="https://www.archiposition.com/items/ff505b0be6" target="_blank" rel="noopener" class="text-[#111111] hover:underline underline-offset-2">他是有方「中国建筑摄影师系列」第59位受访者。</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="studio-block">
+                    <div class="studio-kicker t-label text-[#111111]"><span class="studio-dot"></span><span x-text="$store.lang.t('theStudio')"></span></div>
+                    <div class="t-body text-[#444444] studio-copy">
+                        <div class="mb-4" x-show="$store.lang.code === 'en'">
+                            <p><span class="client-name text-[#111111]">MMCM STUDIO</span> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
+                        </div>
+                        <div x-show="$store.lang.code === 'zh'" class="space-y-4">
+                            <p x-text="studio.about1zh"></p>
+                            <p x-text="studio.about2zh"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="studio-block studio-clients">
+                    <div class="studio-kicker t-label text-[#111111]"><span class="studio-dot"></span><span x-text="$store.lang.t('client')"></span></div>
+                    <div class="client-wall" role="list">
+                        <template x-for="(client, index) in studio.clients" :key="client.name">
+                            <div class="client-cell" role="listitem" :title="$store.lang.clientName(client)">
+                                <div class="client-logo-wrap">
+                                    <template x-if="client.logo">
+                                        <img :src="client.logo" :alt="$store.lang.clientName(client)" class="client-logo" loading="lazy">
+                                    </template>
+                                    <template x-if="!client.logo">
+                                        <span class="client-wordmark" x-text="$store.lang.clientName(client)"></span>
+                                    </template>
+                                </div>
+                                <div class="client-meta">
+                                    <span class="client-loc t-data" x-text="client.loc"></span>
+                                </div>
                             </div>
                         </template>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </section>
 
-    <!-- VIEW 4: CONTACT（从配置读取）-->
+<!-- VIEW 4: CONTACT（从配置读取）-->
     <section x-show="currentView === 'contact'" x-cloak class="min-h-screen pt-24 md:pt-40 px-6 md:px-12 z-10 flex justify-center">
         <div class="w-full max-w-4xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">

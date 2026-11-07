@@ -766,3 +766,220 @@ html[lang="zh-CN"] .atlas-load { font-size: 12px; letter-spacing: 0.02em; }
     font-variant-numeric: tabular-nums;
 }
 .coord .s { font-style: normal; white-space: pre; }
+
+/* —— Studio page redesign (preview) —— */
+.studio-page {
+    color: var(--ink);
+}
+.studio-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 5rem;
+}
+.studio-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem 1.5rem 2.5rem;
+    background: #fff;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+}
+.studio-portrait {
+    width: 180px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 1px solid rgba(17, 17, 17, 0.1);
+    margin-bottom: 1.25rem;
+}
+.studio-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.studio-aside-meta {
+    text-align: center;
+}
+.studio-main {
+    width: 100%;
+    padding: 2.5rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+.studio-block {
+    max-width: 42rem;
+}
+.studio-clients {
+    max-width: none;
+}
+.studio-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.studio-dot {
+    width: 6px;
+    height: 6px;
+    background: #111111;
+    flex-shrink: 0;
+}
+.studio-copy {
+    border-left: 1px solid rgba(17, 17, 17, 0.1);
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.studio-copy a {
+    transition: opacity 0.2s ease;
+}
+.studio-copy a:hover {
+    opacity: 0.7;
+}
+
+/* Client logo wall */
+.client-wall {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    border-left: 1px solid rgba(17, 17, 17, 0.08);
+}
+.client-cell {
+    display: flex;
+    flex-direction: column;
+    min-height: 7.5rem;
+    border-right: 1px solid rgba(17, 17, 17, 0.08);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 1.25rem 1rem 0.85rem;
+    transition: background-color 0.25s ease;
+}
+.client-cell:hover {
+    background: rgba(17, 17, 17, 0.02);
+}
+.client-logo-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.5rem;
+    padding: 0.35rem 0.5rem;
+}
+.client-logo {
+    display: block;
+    max-width: 78%;
+    max-height: 52px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.72;
+    filter: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.client-cell:hover .client-logo {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+.client-wordmark {
+    font-family: var(--font);
+    font-weight: var(--fw-strong);
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: #111111;
+    text-align: center;
+    opacity: 0.72;
+    max-width: 92%;
+    transition: opacity 0.25s ease;
+}
+.client-cell:hover .client-wordmark {
+    opacity: 1;
+}
+.client-meta {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.35rem;
+}
+.client-loc {
+    color: var(--ink-3);
+    opacity: 0.55;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .studio-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 5rem;
+        min-height: calc(100vh - 5rem);
+    }
+    .studio-aside {
+        position: sticky;
+        top: 5rem;
+        width: 30%;
+        max-width: 360px;
+        height: calc(100vh - 5rem);
+        border-bottom: none;
+        border-right: 1px solid rgba(17, 17, 17, 0.06);
+        padding: 4rem 2rem 3rem;
+        justify-content: flex-start;
+    }
+    .studio-portrait {
+        width: 220px;
+    }
+    .studio-main {
+        width: 70%;
+        flex: 1;
+        padding: 4rem 4rem 6rem 5rem;
+        gap: 4.5rem;
+    }
+    .client-wall {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .client-cell {
+        min-height: 8.5rem;
+        padding: 1.5rem 1.25rem 1rem;
+    }
+    .client-logo {
+        max-height: 56px;
+        max-width: 72%;
+    }
+    .client-wordmark {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .studio-main {
+        padding-right: 6rem;
+    }
+    .client-wall {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .client-cell {
+        min-height: 9rem;
+    }
+    .client-logo {
+        max-height: 60px;
+    }
+}
+
+@media (max-width: 389px) {
+    .studio-portrait {
+        width: 160px;
+    }
+    .client-cell {
+        min-height: 6.75rem;
+        padding: 1rem 0.75rem 0.7rem;
+    }
+    .client-logo {
+        max-height: 44px;
+    }
+    .client-wordmark {
+        font-size: 12px;
+    }
+}
