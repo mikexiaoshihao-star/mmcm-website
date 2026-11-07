@@ -141,130 +141,130 @@
 
   "projects": [
     {
-      "title": "Xizang_Bank",
-      "title_zh": "西藏银行",
-      "slug": "xizang-bank",
+      "title": "Xizang_Bank_Chengdu_HQ",
+      "title_zh": "西藏银行成都总部基地",
+      "slug": "xizang-bank-chengdu-hq",
       "category": "OFFICE",
       "discipline": "architecture",
       "type": "office",
-      "architect": "",
-      "url": "/images/projects/Xizang_Bank/cover.webp",
+      "architect": "SADI",
+      "url": "/images/projects/Xizang_Bank_Chengdu_HQ/cover.webp",
       "year": "2025",
-      "coords": "29.650°N / 91.100°E",
-      "location": "Lhasa_Xizang",
+      "coords": "30.510°N / 104.090°E",
+      "location": "Chengdu_Sichuan",
       "images": [
         {
-          "url": "/images/projects/Xizang_Bank/01.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/01.webp",
           "desc": "01",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/02.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/02.webp",
           "desc": "02",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/03.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/03.webp",
           "desc": "03",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/04.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/04.webp",
           "desc": "04",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/05.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/05.webp",
           "desc": "05",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/06.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/06.webp",
           "desc": "06",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/07.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/07.webp",
           "desc": "07",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/08.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/08.webp",
           "desc": "08",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/09.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/09.webp",
           "desc": "09",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/10.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/10.webp",
           "desc": "10",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/11.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/11.webp",
           "desc": "11",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/12.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/12.webp",
           "desc": "12",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/13.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/13.webp",
           "desc": "13",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/14.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/14.webp",
           "desc": "14",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/15.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/15.webp",
           "desc": "15",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/16.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/16.webp",
           "desc": "16",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/17.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/17.webp",
           "desc": "17",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/18.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/18.webp",
           "desc": "18",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/19.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/19.webp",
           "desc": "19",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/20.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/20.webp",
           "desc": "20",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/21.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/21.webp",
           "desc": "21",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/22.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/22.webp",
           "desc": "22",
           "meta": "10:30 // AM"
         },
         {
-          "url": "/images/projects/Xizang_Bank/23.webp",
+          "url": "/images/projects/Xizang_Bank_Chengdu_HQ/23.webp",
           "desc": "23",
           "meta": "10:30 // AM"
         }
