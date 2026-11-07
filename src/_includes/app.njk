@@ -1542,7 +1542,9 @@ get filteredFilmProjects() {
                     <div class="studio-section-body">
                         <template x-if="$store.lang.code === 'en'">
                             <div>
-                                <p class="studio-lead"><span class="studio-brand">MMCM STUDIO</span> <span x-text="studio.about1.replace('MMCM STUDIO ', '')"></span></p>
+                                <p class="studio-body" x-text="studio.about1"></p>
+                                <p class="studio-body" x-text="studio.about2"></p>
+                                <p class="studio-body" x-text="studio.about3"></p>
                             </div>
                         </template>
                         <template x-if="$store.lang.code === 'zh'">
