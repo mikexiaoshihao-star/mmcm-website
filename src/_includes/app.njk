@@ -200,7 +200,7 @@ filmCategories: {{ site.filmCategories | dump | safe }},
                 personName(studio) {
                     if (!studio) return '';
                     if (this.code === 'zh' && studio.name_zh) return studio.name_zh;
-                    return studio.name || '';
+                    return this.plain(studio.name || '');
                 },
                 personTitle(studio) {
                     if (!studio) return '';

@@ -1,0 +1,15 @@
+slug	kind	variant	source	notes
+aecom	raster	full	aecom.com black JPG	
+scda	vector	full	scdaarchitects.com SVG	
+gad	raster	full	gad.com.cn logo.jpg Wayback	67px upscaled
+sybarite	vector	full	sybarite.com SVG	
+tektonn	raster	full	tektonn.com CDN	
+tanghua	raster	full	tanghua 512 VI PNG	
+ja	vector	full	jaid.cn logo-blank.svg	
+biad	raster	mark-only	biad.com.cn	reflection cropped; mark only for legibility
+cdadri	vector	mark-only	cdadri.com logo1.svg	red CDAD square mark
+huafa	raster	mark	cnhuafag.com logo.png	
+gianni_botsford	wordmark			
+sadi	raster	mark	ARCHINA company cid=5468 avatar (cdns.archina.com/.../624d28ed215d4file.jpeg via Wayback 20241104)	orange isometric SADI cube; Mike-supplied ARCHINA URL; live cdns 500, used WB im_
+luxelakes	raster	full	luxelakes.com Wayback luxelakes__logo (base64 PNG in archived homepage)	麓 calligraphy + LUXELAKES + 麓湖生态城; live luxelakes.com timed out / 500
+jinfx	raster	mark	instagram.com/jinartsbeijing og:image avatar (scontent CDN 150px upscaled)	Mike-supplied official IG; title 肖进艺术 @jinartsbeijing
